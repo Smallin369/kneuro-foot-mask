@@ -1,0 +1,79 @@
+{%- liquid
+  assign label = section.settings.label | default: 'Next'
+  assign anchor = section.settings.target_anchor
+-%}
+<section class="bridge" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
+  <div class="bridge__inner">
+    <a class="bridge__link"
+       {% if anchor != blank %}href="#{{ anchor | strip | replace: '#', '' }}"{% else %}href="#" data-bridge-next{% endif %}>
+      <span class="bridge__label">{{ label }}</span>
+      <span class="bridge__arrow" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <polyline points="5 12 12 19 19 12"></polyline>
+        </svg>
+      </span>
+    </a>
+  </div>
+</section>
+
+<style>
+  .bridge { text-align: center; }
+  .bridge__inner { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  .bridge__link {
+    display: inline-flex; flex-direction: column; align-items: center; gap: 10px;
+    text-decoration: none; color: var(--ink, #2a1c12); cursor: pointer;
+    padding: 6px 18px;
+  }
+  .bridge__label {
+    font-family: var(--font-heading, Georgia, serif);
+    font-style: italic; font-size: clamp(1rem, 2.4vw, 1.25rem);
+    color: var(--ink-2, #4a3a2a); letter-spacing: -0.01em;
+  }
+  .bridge__arrow {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--ink, #2a1c12); color: #fff;
+    box-shadow: 0 8px 22px -10px rgba(42,28,18,.5);
+    transition: transform .25s ease;
+    animation: bridgeBob 2.4s ease-in-out infinite;
+  }
+  .bridge__link:hover .bridge__arrow { transform: translateY(2px) scale(1.04); }
+  @keyframes bridgeBob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+  @media (prefers-reduced-motion: reduce) { .bridge__arrow { animation: none; } }
+</style>
+
+<script>
+  (function() {
+    document.querySelectorAll('a[data-bridge-next]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var section = link.closest('.bridge');
+        var next = section && section.nextElementSibling;
+        if (next && next.scrollIntoView) {
+          next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          window.scrollBy({ top: window.innerHeight * 0.85, behavior: 'smooth' });
+        }
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Section bridge (arrow)",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label above arrow", "default": "Click to see what's next" },
+    { "type": "text", "id": "target_anchor", "label": "Target section anchor (optional, e.g. reviews)" },
+    { "type": "header", "content": "Layout" },
+    { "type": "color", "id": "bg", "label": "Background" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 20 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 32 }
+  ],
+  "presets": [{ "name": "Section bridge (arrow)" }]
+}
+{% endschema %}
