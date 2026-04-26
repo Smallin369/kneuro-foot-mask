@@ -344,8 +344,8 @@
   },
   "order": [
     "scarcity",
-    "hero",
     "press",
+    "hero",
     "reviews",
     "ingredients",
     "ba",

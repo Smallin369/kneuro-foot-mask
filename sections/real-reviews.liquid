@@ -1,4 +1,4 @@
-<section class="rr" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
+<section id="reviews" class="rr" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
   <div class="rr__inner">
     {% if section.settings.kicker != blank %}<span class="rr__kicker">{{ section.settings.kicker }}</span>{% endif %}
     <h2 class="rr__heading">{{ section.settings.heading_lead }} <em>{{ section.settings.heading_accent }}</em></h2>
