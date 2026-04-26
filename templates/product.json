@@ -37,7 +37,7 @@
         "bullets": {
           "type": "bullets",
           "settings": {
-            "b1": "Goat Milk",
+            "b1": "Goat milk + niacinamide \u2014 gentle, no harsh acids",
             "b2": "Pregnancy-safe (no salicylic acid, no essential oils)",
             "b3": "Visible softness in one 30-minute session",
             "b4": "Works on cracked heels, dry hands, rough elbows"
@@ -62,19 +62,19 @@
         "pay": {
           "type": "pay_note",
           "settings": {
-            "text": "<b>Pay in 4</b> with Shop Pay · Klarna · Afterpay"
+            "text": "<b>Pay in 4</b> with Shop Pay \u00b7 Klarna \u00b7 Afterpay"
           }
         },
         "trust": {
           "type": "trust",
           "settings": {
-            "t1_icon": "🌿",
+            "t1_icon": "\ud83c\udf3f",
             "t1_title": "30-day returns",
             "t1_body": "no questions asked",
-            "t2_icon": "🔒",
+            "t2_icon": "\ud83d\udd12",
             "t2_title": "Secure checkout",
             "t2_body": "via Shopify",
-            "t3_icon": "✨",
+            "t3_icon": "\u2728",
             "t3_title": "Clean ingredients",
             "t3_body": "pregnancy-safe formula"
           }
@@ -97,237 +97,6 @@
         "padding_bottom": 72,
         "bg_color": "",
         "badge_text": "New"
-      }
-    },
-    "howto": {
-      "type": "how-it-works",
-      "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "How it works"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "3 simple steps,",
-            "accent": "30 minutes."
-          }
-        },
-        "s": {
-          "type": "subheading",
-          "settings": {
-            "text": "No mixing, no peeling phase, no harsh acids. Just slip them on and let the goat milk + niacinamide do the work."
-          }
-        },
-        "steps": {
-          "type": "steps_row",
-          "settings": {
-            "s1_image": "shopify://shop_images/hand_holding_package.png",
-            "s1_title": "Slip them on",
-            "s1_body": "Open the foil pouch, slide the pre-filled socks over clean feet, peel and stick the seal.",
-            "s2_image": "shopify://shop_images/close_up_of_product.png",
-            "s2_title": "Wait 30 minutes",
-            "s2_body": "Read, watch TV, scroll your phone. The goat milk + niacinamide serum soaks in while you do nothing.",
-            "s3_title": "Peel & rinse",
-            "s3_body": "Pull off the socks, rinse, pat dry. Skin feels softer and hydrated immediately."
-          }
-        }
-      },
-      "block_order": [
-        "k",
-        "h",
-        "s",
-        "steps"
-      ],
-      "settings": {
-        "padding_top": 56,
-        "padding_bottom": 56,
-        "bg_color": "#fbf6ee"
-      }
-    },
-    "baproof": {
-      "type": "before-after",
-      "settings": {
-        "kicker": "The result",
-        "heading_lead": "Before & after,",
-        "heading_accent": "in one application.",
-        "subhead": "30 minutes. No burning, no peeling phase. Soft heels overnight.",
-        "review_url": "",
-        "hero_before": "shopify://shop_images/Before.png",
-        "hero_after": "shopify://shop_images/Now_generate_the_foot_way_cleaner_and_moturised_after_treatment__IT_should_be_smoother_than_the_prev_0.png",
-        "hero_caption": "Real customer · 1 application",
-        "t1_quote": "",
-        "t1_attr": "",
-        "t1_meta": "",
-        "t2_quote": "",
-        "t2_attr": "",
-        "t2_meta": "",
-        "t3_quote": "",
-        "t3_attr": "",
-        "t3_meta": "",
-        "compare_show": false,
-        "compare_kicker": "The honest comparison",
-        "compare_heading_lead": "Kneuro vs.",
-        "compare_heading_accent": "every other foot mask.",
-        "col_brand": "Kneuro",
-        "col_2": "Baby Foot",
-        "col_3": "Generic peel",
-        "col_4": "Foot cream",
-        "row_1_label": "Pregnancy-safe",
-        "row_1_brand": "yes",
-        "row_1_c2": "no",
-        "row_1_c3": "no",
-        "row_1_c4": "yes",
-        "row_2_label": "No harsh acids",
-        "row_2_brand": "yes",
-        "row_2_c2": "no",
-        "row_2_c3": "no",
-        "row_2_c4": "yes",
-        "row_3_label": "Visible result in 30 min",
-        "row_3_brand": "yes",
-        "row_3_c2": "no",
-        "row_3_c3": "no",
-        "row_3_c4": "no",
-        "row_4_label": "No painful peeling",
-        "row_4_brand": "yes",
-        "row_4_c2": "no",
-        "row_4_c3": "no",
-        "row_4_c4": "yes",
-        "row_5_label": "Goat milk + niacinamide",
-        "row_5_brand": "yes",
-        "row_5_c2": "no",
-        "row_5_c3": "no",
-        "row_5_c4": "partial",
-        "cta_label": "",
-        "cta_url": "",
-        "bg": "",
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
-    },
-    "quotes": {
-      "type": "testimonial-quotes",
-      "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "What clean-skincare fans say"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "What customers",
-            "accent": "are saying."
-          }
-        },
-        "s": {
-          "type": "subheading",
-          "settings": {
-            "text": "⭐⭐⭐⭐⭐ Over 1000+ Postive Reviews"
-          }
-        },
-        "q": {
-          "type": "quotes_row",
-          "settings": {
-            "q1_quote": "My heels were so cracked I'd given up on sandals. One application and I was barefoot at brunch.",
-            "q1_name": "Sarah M.",
-            "q1_initials": "SM",
-            "q1_location": "Austin, TX",
-            "q2_quote": "Pregnant and couldn't use Baby Foot. This was the gentle answer I needed for my dry, swollen feet.",
-            "q2_name": "Priya R.",
-            "q2_initials": "PR",
-            "q2_location": "Toronto, CA",
-            "q3_quote": "Bought it for the cat-paw aesthetic. Stayed for the actual results. Reordered the 3-pack.",
-            "q3_name": "Lisa T.",
-            "q3_initials": "LT",
-            "q3_location": "London, UK"
-          }
-        }
-      },
-      "block_order": [
-        "k",
-        "h",
-        "s",
-        "q"
-      ],
-      "settings": {
-        "padding_top": 88,
-        "padding_bottom": 88,
-        "bg_color": ""
-      }
-    },
-    "ingredients": {
-      "type": "why-grid",
-      "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "What's inside"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "Four ingredients,",
-            "accent": "zero compromise."
-          }
-        },
-        "s": {
-          "type": "subheading",
-          "settings": {
-            "text": "Pregnancy-safe. Diabetes-safe. No salicylic acid, no fragrance, no essential oils."
-          }
-        },
-        "c1": {
-          "type": "card",
-          "settings": {
-            "emoji": "🥛",
-            "title": "Goat Milk",
-            "body": "Gentle lactic acid — 1/10 the strength of Baby Foot. Hydrates without stripping."
-          }
-        },
-        "c2": {
-          "type": "card",
-          "settings": {
-            "emoji": "✨",
-            "title": "Niacinamide (B3)",
-            "body": "Strengthens the skin barrier and evens tone."
-          }
-        },
-        "c3": {
-          "type": "card",
-          "settings": {
-            "emoji": "💧",
-            "title": "Glycerin",
-            "body": "Humectant that pulls moisture deep into the dermis."
-          }
-        },
-        "c4": {
-          "type": "card",
-          "settings": {
-            "emoji": "🌿",
-            "title": "Allantoin",
-            "body": "Soothes irritation. Safe for sensitive, pregnant, and diabetic skin."
-          }
-        }
-      },
-      "block_order": [
-        "k",
-        "h",
-        "s",
-        "c1",
-        "c2",
-        "c3",
-        "c4"
-      ],
-      "disabled": true,
-      "settings": {
-        "padding_top": 48,
-        "padding_bottom": 56,
-        "bg_color": ""
       }
     },
     "compare": {
@@ -392,6 +161,58 @@
         "bg_color": ""
       }
     },
+    "quotes": {
+      "type": "testimonial-quotes",
+      "blocks": {
+        "k": {
+          "type": "kicker",
+          "settings": {
+            "text": "What clean-skincare fans say"
+          }
+        },
+        "h": {
+          "type": "heading",
+          "settings": {
+            "lead": "What customers",
+            "accent": "are saying."
+          }
+        },
+        "s": {
+          "type": "subheading",
+          "settings": {
+            "text": "Be the first to add yours."
+          }
+        },
+        "q": {
+          "type": "quotes_row",
+          "settings": {
+            "q1_quote": "My heels were so cracked I'd given up on sandals. One application and I was barefoot at brunch.",
+            "q1_name": "Sarah M.",
+            "q1_initials": "SM",
+            "q1_location": "Austin, TX",
+            "q2_quote": "Pregnant and couldn't use Baby Foot. This was the gentle answer I needed for my dry, swollen feet.",
+            "q2_name": "Priya R.",
+            "q2_initials": "PR",
+            "q2_location": "Toronto, CA",
+            "q3_quote": "Bought it for the spa-at-home aesthetic. Stayed for the actual results. Reordered the 3-pack.",
+            "q3_name": "Lisa T.",
+            "q3_initials": "LT",
+            "q3_location": "London, UK"
+          }
+        }
+      },
+      "block_order": [
+        "k",
+        "h",
+        "s",
+        "q"
+      ],
+      "settings": {
+        "padding_top": 88,
+        "padding_bottom": 88,
+        "bg_color": ""
+      }
+    },
     "faq": {
       "type": "faq",
       "blocks": {
@@ -412,21 +233,21 @@
           "type": "faq_list",
           "settings": {
             "q1_question": "Is this safe to use during pregnancy?",
-            "q1_answer": "Yes. Our formula uses goat milk, niacinamide, glycerin, and allantoin — all pregnancy-safe. Unlike most foot peels, we contain no salicylic acid, no glycolic acid, and no essential oils. If you have any concerns, check with your OB-GYN first.",
+            "q1_answer": "Yes. Our formula uses goat milk, niacinamide, glycerin, and allantoin \u2014 all pregnancy-safe. Unlike most foot peels, we contain no salicylic acid, no glycolic acid, and no essential oils. If you have any concerns, check with your OB-GYN first.",
             "q2_question": "How fast will I see results?",
-            "q2_answer": "Most customers see softer, more hydrated feet after one 30-minute session. For deeply cracked heels, we recommend 2–3 applications spaced a week apart for best results.",
+            "q2_answer": "Most customers see softer, more hydrated feet after one 30-minute session. For deeply cracked heels, we recommend 2\u20133 applications spaced a week apart for best results.",
             "q3_question": "How is this different from Baby Foot?",
-            "q3_answer": "Baby Foot uses a strong acid blend (glycolic, lactic, salicylic) that causes dramatic peeling 3–7 days after application. We use a goat milk + niacinamide hydrating formula that softens skin gradually without the painful peel. Better for sensitive skin, pregnancy, diabetes, and anyone who can't be barefoot in public for a week.",
+            "q3_answer": "Baby Foot uses a strong acid blend (glycolic, lactic, salicylic) that causes dramatic peeling 3\u20137 days after application. We use a goat milk + niacinamide hydrating formula that softens skin gradually without the painful peel. Better for sensitive skin, pregnancy, diabetes, and anyone who can't be barefoot in public for a week.",
             "q4_question": "Can I use this if I'm diabetic?",
-            "q4_answer": "Yes — the formula is gentle and free of harsh acids that diabetics are typically warned to avoid. As always, consult your doctor if you have severe peripheral neuropathy or open wounds.",
+            "q4_answer": "Yes \u2014 the formula is gentle and free of harsh acids that diabetics are typically warned to avoid. As always, consult your doctor if you have severe peripheral neuropathy or open wounds.",
             "q5_question": "How long does shipping take?",
-            "q5_answer": "Orders ship within 24 hours from the US. Standard shipping is 3–5 business days. Express options available at checkout.",
+            "q5_answer": "Orders ship within 24 hours from the US. Standard shipping is 3\u20135 business days. Express options available at checkout.",
             "q6_question": "What's your return policy?",
-            "q6_answer": "30-day money-back guarantee, no questions asked. If you're not happy with your results, email us and we'll refund you in full — even if the box is opened.",
+            "q6_answer": "30-day money-back guarantee, no questions asked. If you're not happy with your results, email us and we'll refund you in full \u2014 even if the box is opened.",
             "q7_question": "Can I use it on my hands and elbows too?",
             "q7_answer": "Absolutely. The same formula works on dry hands, rough elbows, and even knees. Many customers buy the 3-pack specifically to use across multiple body areas.",
             "q8_question": "How often should I use it?",
-            "q8_answer": "Once every 2–4 weeks for maintenance, or weekly during dry seasons (winter, sandal season, heavy beach trips). It's safe to use as often as needed."
+            "q8_answer": "Once every 2\u20134 weeks for maintenance, or weekly during dry seasons (winter, sandal season, heavy beach trips). It's safe to use as often as needed."
           }
         }
       },
@@ -446,28 +267,141 @@
       "settings": {
         "heading_lead": "Stop living with",
         "heading_accent": "cracked, dry feet.",
-        "price": "$19.99",
-        "compare_at_price": "$29.99",
-        "save_badge": "Save 33%",
         "body": "Goat milk. Niacinamide. 30 minutes. Soft feet that last.",
-        "cta_label": "Get the Goat Milk Mask — from $19.99",
+        "cta_label": "Get the Goat Milk Mask \u2014 from $19.99",
         "cta_link": "",
-        "shipping_line": "Free US shipping over $30 · Ships within 24 hours",
         "guarantee": "Backed by our 30-day money-back guarantee",
-        "b1_emoji": "🌿",
-        "b1_title": "Pregnancy-safe",
-        "b1_sub": "no salicylic acid",
-        "b2_emoji": "🧪",
-        "b2_title": "Derm-tested",
-        "b2_sub": "for sensitive skin",
-        "b3_emoji": "💰",
-        "b3_title": "30-day refund",
-        "b3_sub": "no questions asked",
-        "b4_emoji": "🚚",
-        "b4_title": "Free US shipping",
-        "b4_sub": "on 5-pack orders",
         "padding_top": 0,
         "padding_bottom": 60
+      }
+    },
+    "howto": {
+      "type": "how-it-works",
+      "blocks": {
+        "k": {
+          "type": "kicker",
+          "settings": {
+            "text": "How it works"
+          }
+        },
+        "h": {
+          "type": "heading",
+          "settings": {
+            "lead": "3 simple steps,",
+            "accent": "30 minutes."
+          }
+        },
+        "s": {
+          "type": "subheading",
+          "settings": {
+            "text": "No mixing, no peeling phase, no harsh acids. Just slip them on and let the goat milk + niacinamide do the work."
+          }
+        },
+        "steps": {
+          "type": "steps_row",
+          "settings": {
+            "s1_title": "Slip them on",
+            "s1_body": "Open the foil pouch, slide the pre-filled soft socks over clean feet, peel and stick the seal.",
+            "s2_title": "Wait 30 minutes",
+            "s2_body": "Read, watch TV, scroll your phone. The goat milk + niacinamide serum soaks in while you do nothing.",
+            "s3_title": "Peel & rinse",
+            "s3_body": "Pull off the socks, rinse, pat dry. Skin feels softer and hydrated immediately."
+          }
+        }
+      },
+      "block_order": [
+        "k",
+        "h",
+        "s",
+        "steps"
+      ],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "bg_color": "#fbf6ee"
+      }
+    },
+    "baproof": {
+      "type": "before-after",
+      "settings": {
+        "kicker": "The result",
+        "heading_lead": "Before & after,",
+        "heading_accent": "in one application.",
+        "subhead": "30 minutes. No burning, no peeling phase. Soft heels overnight.",
+        "hero_caption": "Real customer \u00b7 1 application",
+        "compare_show": false,
+        "cta_label": "",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "ingredients": {
+      "type": "why-grid",
+      "blocks": {
+        "k": {
+          "type": "kicker",
+          "settings": {
+            "text": "What's inside"
+          }
+        },
+        "h": {
+          "type": "heading",
+          "settings": {
+            "lead": "Four ingredients,",
+            "accent": "zero compromise."
+          }
+        },
+        "s": {
+          "type": "subheading",
+          "settings": {
+            "text": "Pregnancy-safe. Diabetes-safe. No salicylic acid, no fragrance, no essential oils."
+          }
+        },
+        "c1": {
+          "type": "card",
+          "settings": {
+            "emoji": "\ud83e\udd5b",
+            "title": "Goat Milk",
+            "body": "Gentle lactic acid \u2014 1/10 the strength of Baby Foot. Hydrates without stripping."
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "emoji": "\u2728",
+            "title": "Niacinamide (B3)",
+            "body": "Strengthens the skin barrier and evens tone."
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "emoji": "\ud83d\udca7",
+            "title": "Glycerin",
+            "body": "Humectant that pulls moisture deep into the dermis."
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "emoji": "\ud83c\udf3f",
+            "title": "Allantoin",
+            "body": "Soothes irritation. Safe for sensitive, pregnant, and diabetic skin."
+          }
+        }
+      },
+      "block_order": [
+        "k",
+        "h",
+        "s",
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "padding_top": 48,
+        "padding_bottom": 56
       }
     }
   },
@@ -475,9 +409,9 @@
     "main",
     "howto",
     "baproof",
-    "quotes",
     "ingredients",
     "compare",
+    "quotes",
     "faq",
     "final"
   ]
