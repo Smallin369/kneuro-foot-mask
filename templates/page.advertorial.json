@@ -13,7 +13,7 @@
       "type": "scarcity-bar",
       "settings": {
         "icon": "",
-        "text": "LIMITED TIME — SAVE UP TO 30% ON THE 3-PACK · FREE SHIPPING OVER $30",
+        "text": "LIMITED TIME \u2014 SAVE UP TO 30% ON THE 3-PACK \u00b7 FREE SHIPPING OVER $30",
         "show_timer": false,
         "timer_end_iso": "",
         "bg": "#1a1a1a",
@@ -23,14 +23,14 @@
     "hero": {
       "type": "advertorial-hero",
       "settings": {
-        "eyebrow": "★ 4.8 · 1,200+ REVIEWS",
+        "eyebrow": "\u2605 4.8 \u00b7 1,200+ REVIEWS",
         "headline": "Soft feet. In 30 minutes.",
         "subhead": "Cracked heels? Dry skin? Our goat milk + niacinamide foot mask softens without harsh acids. Gentle, pregnancy-safe, dermatologist-tested.",
         "chip_1": "Pregnancy-safe",
         "chip_2": "No harsh acids",
         "chip_3": "30-min results",
-        "cta_label": "Shop now — from $19.99",
-        "cta_subtext": "Free US shipping over $30 · 30-day money-back guarantee",
+        "cta_label": "Shop now \u2014 from $19.99",
+        "cta_subtext": "Free US shipping over $30 \u00b7 30-day money-back guarantee",
         "cta_url": "/products/goat-milk-foot-mask",
         "caption": "Real customer photo. One pair, one nap, soft feet.",
         "bg": "",
@@ -48,9 +48,9 @@
             "image_asset": "",
             "image_url": "",
             "rating": 5,
-            "review": "I've tried Baby Foot, the harsh acid ones, and they always burned and made my feet flake painfully for two weeks. This one is gentle — no peeling, no burning, just soft hydrated feet the next morning. The goat milk smell is light and clean, not perfumey. Will buy again.",
+            "review": "I've tried Baby Foot, the harsh acid ones, and they always burned and made my feet flake painfully for two weeks. This one is gentle \u2014 no peeling, no burning, just soft hydrated feet the next morning. The goat milk smell is light and clean, not perfumey. Will buy again.",
             "name": "Hannah M.",
-            "meta": "Sensitive skin · Verified buyer"
+            "meta": "Sensitive skin \u00b7 Verified buyer"
           }
         },
         "rv2": {
@@ -62,7 +62,7 @@
             "rating": 5,
             "review": "I bought this because I'm pregnant and couldn't use the regular foot peels (salicylic acid is a no-go). My feet were so dry from the swelling. Used this and they actually felt soft for the first time in months. Genuine relief.",
             "name": "Priya R.",
-            "meta": "Pregnant · Verified buyer"
+            "meta": "Pregnant \u00b7 Verified buyer"
           }
         },
         "rv3": {
@@ -74,7 +74,7 @@
             "rating": 5,
             "review": "Bought the 3-pack for me, my mom, and my sister. All three of us texted each other the next day in caps lock. The cat paw shape is silly cute but the formula is real. Goat milk + niacinamide is a smart combo.",
             "name": "Daniel K.",
-            "meta": "Bought as a gift · Verified buyer"
+            "meta": "Bought as a gift \u00b7 Verified buyer"
           }
         }
       },
@@ -87,96 +87,12 @@
         "kicker": "Real customers, real reviews",
         "heading_lead": "What clean-skincare fans",
         "heading_accent": "actually say.",
-        "subhead": "Verified reviews from real customers — including the honest ones.",
-        "cta_label": "Get yours — from $19.99 →",
+        "subhead": "Verified reviews from real customers \u2014 including the honest ones.",
+        "cta_label": "Get yours \u2014 from $19.99 \u2192",
         "cta_url": "/products/goat-milk-foot-mask",
         "bg": "",
         "padding_top": 64,
         "padding_bottom": 64
-      }
-    },
-    "story": {
-      "type": "advertorial-story",
-      "blocks": {
-        "p1": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>By month three of cracked heels, I'd given up. I'd burned through two foot creams, a pumice stone, a $40 electric callus remover, and a $90 pedicure that lasted exactly four days. Nothing fixed the deep, painful dryness on my heels — the kind that catches on bedsheets and ruins black tights. My dermatologist warned me off the harsh-acid peels (Baby Foot territory) because of my sensitive skin. I was running out of options.</p>"
-          }
-        },
-        "p2": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Then a friend in Seoul sent me a video of a goat milk foot mask. Looked like a cute cat-paw sock filled with white liquid. She said it was the K-beauty answer to harsh peels — gentler, more hydrating, no peeling, no burning. I ordered one for $25 because I was already $200 deep in things that didn't work.</p>"
-          }
-        },
-        "quote": {
-          "type": "pullquote",
-          "settings": {
-            "quote": "30 minutes. No burning. No peeling. The next morning my feet were genuinely soft for the first time in three years.",
-            "attribution": "Sarah, three weeks in"
-          }
-        },
-        "p3": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Three weeks later I've used it before every important event — date nights, my sister's wedding, a beach trip — and bought the 3-pack so I never run out. The goat milk smell is gentle (none of that fake lavender perfume), the niacinamide visibly evens out the rough patches, and the cat paw shape is genuinely cute enough that I take photos before I put them on. It's the only foot product I've actually used more than once.</p>"
-          }
-        },
-        "checks": {
-          "type": "checkmarks",
-          "settings": {
-            "t1": "Goat milk + niacinamide — gentle, no harsh acids",
-            "t2": "Pregnancy-safe ingredients (no salicylic acid)",
-            "t3": "Visible results in one 30-minute session",
-            "t4": "Works on cracked heels, dry hands, rough elbows",
-            "t5": "Backed by a 30-day money-back guarantee"
-          }
-        },
-        "cta1": {
-          "type": "inline_cta",
-          "settings": {
-            "label": "Get the Goat Milk Mask — from $19.99 →",
-            "url": "/products/goat-milk-foot-mask",
-            "subtext": "Free returns · Ships within 24 hours from the US"
-          }
-        },
-        "img1": {
-          "type": "image",
-          "settings": {
-            "alt": "Dry, cracked heels before treatment",
-            "caption": "My heels in March. Catches on bedsheets, ruins black tights."
-          }
-        },
-        "img2": {
-          "type": "image",
-          "settings": {
-            "alt": "Goat milk foot mask in cat paw shape, ready to use",
-            "caption": "The mask my friend sent. White liquid, cat-paw sock — looked silly. Worked anyway."
-          }
-        },
-        "img3": {
-          "type": "image",
-          "settings": {
-            "alt": "Soft, hydrated feet after 30-minute application",
-            "caption": "30 minutes later. First time my heels felt soft in three years."
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "img1",
-        "p2",
-        "img2",
-        "quote",
-        "p3",
-        "img3"
-      ],
-      "settings": {
-        "cta_url": "/products/goat-milk-foot-mask",
-        "bg": "",
-        "padding_top": 16,
-        "padding_bottom": 48
       }
     },
     "ba": {
@@ -186,16 +102,16 @@
         "heading_lead": "Before & after,",
         "heading_accent": "in 30 minutes.",
         "subhead": "Submitted by Kneuro customers. One pair, one application, visibly softer feet.",
-        "pair_1_label": "Cracked heels · 1 application",
-        "pair_1_quote": "I've tried Baby Foot, the harsh acid ones, and they always burned and made my feet flake painfully for two weeks. This one is gentle — no peeling, no burning, just soft hydrated feet the next morning.",
-        "pair_1_attr": "Hannah M. · Sensitive skin · Verified buyer",
-        "pair_2_label": "Dry hands · 2 applications",
+        "pair_1_label": "Cracked heels \u00b7 1 application",
+        "pair_1_quote": "I've tried Baby Foot, the harsh acid ones, and they always burned and made my feet flake painfully for two weeks. This one is gentle \u2014 no peeling, no burning, just soft hydrated feet the next morning.",
+        "pair_1_attr": "Hannah M. \u00b7 Sensitive skin \u00b7 Verified buyer",
+        "pair_2_label": "Dry hands \u00b7 2 applications",
         "pair_2_quote": "I bought this because I'm pregnant and couldn't use the regular foot peels (salicylic acid is a no-go). My feet were so dry from the swelling. Used this and they actually felt soft for the first time in months. Genuine relief.",
-        "pair_2_attr": "Priya R. · Pregnant · Verified buyer",
-        "pair_3_label": "Rough elbows · 1 application",
+        "pair_2_attr": "Priya R. \u00b7 Pregnant \u00b7 Verified buyer",
+        "pair_3_label": "Rough elbows \u00b7 1 application",
         "pair_3_quote": "Bought the 3-pack for me, my mom, and my sister. All three of us texted each other the next day in caps lock. The cat paw shape is silly cute but the formula is real.",
-        "pair_3_attr": "Daniel K. · Bought as a gift · Verified buyer",
-        "cta_label": "Get yours — from $19.99 →",
+        "pair_3_attr": "Daniel K. \u00b7 Bought as a gift \u00b7 Verified buyer",
+        "cta_label": "Get yours \u2014 from $19.99 \u2192",
         "cta_url": "/products/goat-milk-foot-mask",
         "bg": "",
         "padding_top": 64,
@@ -284,13 +200,13 @@
           "type": "faq_list",
           "settings": {
             "q1_question": "Is this safe to use during pregnancy?",
-            "q1_answer": "Yes. Our formula uses goat milk, niacinamide, glycerin, and allantoin — all pregnancy-safe. Unlike most foot peels, we contain no salicylic acid, no glycolic acid, and no essential oils. If you have any concerns, check with your OB-GYN first.",
+            "q1_answer": "Yes. Our formula uses goat milk, niacinamide, glycerin, and allantoin \u2014 all pregnancy-safe. Unlike most foot peels, we contain no salicylic acid, no glycolic acid, and no essential oils. If you have any concerns, check with your OB-GYN first.",
             "q2_question": "How fast will I see results?",
-            "q2_answer": "Most customers see softer, more hydrated feet after one 30-minute session. For deeply cracked heels, we recommend 2–3 applications spaced a week apart for best results.",
+            "q2_answer": "Most customers see softer, more hydrated feet after one 30-minute session. For deeply cracked heels, we recommend 2\u20133 applications spaced a week apart for best results.",
             "q3_question": "How is this different from Baby Foot?",
-            "q3_answer": "Baby Foot uses a strong acid blend (glycolic, lactic, salicylic) that causes dramatic peeling 3–7 days after application. We use a goat milk + niacinamide hydrating formula that softens skin gradually without the painful peel. Better for sensitive skin, pregnancy, diabetes, and anyone who can't be barefoot in public for a week.",
+            "q3_answer": "Baby Foot uses a strong acid blend (glycolic, lactic, salicylic) that causes dramatic peeling 3\u20137 days after application. We use a goat milk + niacinamide hydrating formula that softens skin gradually without the painful peel. Better for sensitive skin, pregnancy, diabetes, and anyone who can't be barefoot in public for a week.",
             "q4_question": "What's your return policy?",
-            "q4_answer": "30-day money-back guarantee, no questions asked. If you're not happy with your results, email us and we'll refund you in full — even if the box is opened.",
+            "q4_answer": "30-day money-back guarantee, no questions asked. If you're not happy with your results, email us and we'll refund you in full \u2014 even if the box is opened.",
             "q5_question": "Can I use it on my hands and elbows too?",
             "q5_answer": "Absolutely. The same formula works on dry hands, rough elbows, and even knees. Many customers buy the 3-pack specifically to use across multiple body areas."
           }
@@ -310,27 +226,120 @@
     "ingredients": {
       "type": "why-grid",
       "blocks": {
-        "k": { "type": "kicker", "settings": { "text": "What's inside" } },
-        "h": { "type": "heading", "settings": { "lead": "Four ingredients,", "accent": "zero compromise." } },
-        "s": { "type": "subheading", "settings": { "text": "Clean, pregnancy-safe, clinically backed. No essential oils, no harsh acids, no greenwashing." } },
-        "c1": { "type": "card", "settings": { "emoji": "🥛", "title": "Goat Milk", "body": "Lactic acid and natural fats deeply hydrate without irritation. 4,000 years of skincare history." } },
-        "c2": { "type": "card", "settings": { "emoji": "✨", "title": "Niacinamide", "body": "Vitamin B3 evens skin tone, brightens, and strengthens the skin barrier." } },
-        "c3": { "type": "card", "settings": { "emoji": "💧", "title": "Glycerin", "body": "A humectant that pulls moisture into the deepest layers of skin." } },
-        "c4": { "type": "card", "settings": { "emoji": "🌿", "title": "Allantoin", "body": "Soothes irritation and accelerates skin renewal — gentle on sensitive skin." } }
+        "k": {
+          "type": "kicker",
+          "settings": {
+            "text": "What's inside"
+          }
+        },
+        "h": {
+          "type": "heading",
+          "settings": {
+            "lead": "Four ingredients,",
+            "accent": "zero compromise."
+          }
+        },
+        "s": {
+          "type": "subheading",
+          "settings": {
+            "text": "Clean, pregnancy-safe, clinically backed. No essential oils, no harsh acids, no greenwashing."
+          }
+        },
+        "c1": {
+          "type": "card",
+          "settings": {
+            "emoji": "\ud83e\udd5b",
+            "title": "Goat Milk",
+            "body": "Lactic acid and natural fats deeply hydrate without irritation. 4,000 years of skincare history."
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "emoji": "\u2728",
+            "title": "Niacinamide",
+            "body": "Vitamin B3 evens skin tone, brightens, and strengthens the skin barrier."
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "emoji": "\ud83d\udca7",
+            "title": "Glycerin",
+            "body": "A humectant that pulls moisture into the deepest layers of skin."
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "emoji": "\ud83c\udf3f",
+            "title": "Allantoin",
+            "body": "Soothes irritation and accelerates skin renewal \u2014 gentle on sensitive skin."
+          }
+        }
       },
-      "block_order": ["k", "h", "s", "c1", "c2", "c3", "c4"],
-      "settings": { "padding_top": 80, "padding_bottom": 80, "bg_color": "" }
+      "block_order": [
+        "k",
+        "h",
+        "s",
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "bg_color": ""
+      }
     },
     "press": {
       "type": "trust-strip",
       "blocks": {
-        "i1": { "type": "item", "settings": { "emoji": "🌿", "title": "Pregnancy-safe", "body": "no salicylic acid" } },
-        "i2": { "type": "item", "settings": { "emoji": "🧪", "title": "Dermatologist-tested", "body": "for sensitive skin" } },
-        "i3": { "type": "item", "settings": { "emoji": "💰", "title": "30-day guarantee", "body": "full refund, no questions" } },
-        "i4": { "type": "item", "settings": { "emoji": "🚚", "title": "Free US shipping", "body": "on orders over $30" } }
+        "i1": {
+          "type": "item",
+          "settings": {
+            "emoji": "\ud83c\udf3f",
+            "title": "Pregnancy-safe",
+            "body": "no salicylic acid"
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "emoji": "\ud83e\uddea",
+            "title": "Dermatologist-tested",
+            "body": "for sensitive skin"
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "emoji": "\ud83d\udcb0",
+            "title": "30-day guarantee",
+            "body": "full refund, no questions"
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "emoji": "\ud83d\ude9a",
+            "title": "Free US shipping",
+            "body": "on orders over $30"
+          }
+        }
       },
-      "block_order": ["i1", "i2", "i3", "i4"],
-      "settings": { "padding_top": 24, "padding_bottom": 48, "bg_color": "" }
+      "block_order": [
+        "i1",
+        "i2",
+        "i3",
+        "i4"
+      ],
+      "settings": {
+        "padding_top": 24,
+        "padding_bottom": 48,
+        "bg_color": ""
+      }
     },
     "final": {
       "type": "final-cta",
@@ -338,7 +347,7 @@
         "heading_lead": "Stop living with",
         "heading_accent": "cracked, dry feet.",
         "body": "Goat milk. Niacinamide. 30 minutes. Soft feet that last.",
-        "cta_label": "Get the Goat Milk Mask — from $19.99",
+        "cta_label": "Get the Goat Milk Mask \u2014 from $19.99",
         "cta_link": "",
         "guarantee": "Backed by our 30-day money-back guarantee",
         "padding_top": 64,
