@@ -61,8 +61,11 @@
       while (next && (next.tagName === 'STYLE' || next.tagName === 'SCRIPT' || (next.children && next.children.length === 0))) {
         next = next.nextElementSibling;
       }
-      if (next && next.scrollIntoView) {
-        next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (next) {
+        var nav = document.querySelector('.nav, header[role="banner"], .site-header');
+        var offset = nav ? nav.getBoundingClientRect().height : 0;
+        var top = next.getBoundingClientRect().top + window.pageYOffset - offset - 8;
+        window.scrollTo({ top: top, behavior: 'smooth' });
       } else {
         window.scrollBy({ top: window.innerHeight * 0.85, behavior: 'smooth' });
       }
