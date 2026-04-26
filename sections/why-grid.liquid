@@ -1,7 +1,8 @@
 {%- liquid
   assign grid_open = false
 -%}
-<section class="container" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
+<section class="container why-grid-section--compact" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
+  <div class="why-grid-section__inner">
   {% for block in section.blocks %}
     {% case block.type %}
       {% when 'kicker' %}
@@ -33,15 +34,34 @@
     {% endcase %}
   {% endfor %}
   {% if grid_open %}</div>{% endif %}
+  </div>
 </section>
+
+<style>
+  .why-grid-section--compact .why-grid-section__inner { max-width: 720px; margin: 0 auto; padding: 0 20px; background: var(--cream-soft, #fbf6ee); border-radius: 16px; padding: 22px 22px 26px; }
+  .why-grid-section--compact .section-kicker { font-size: .68rem; letter-spacing: .14em; margin: 0 0 6px; text-transform: uppercase; color: var(--ink-2); font-weight: 700; text-align: center; }
+  .why-grid-section--compact .section-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; line-height: 1.25; margin: 0 0 4px; text-align: center; color: var(--ink); }
+  .why-grid-section--compact .section-title em { font-style: italic; color: var(--accent-deep, var(--ink)); }
+  .why-grid-section--compact .section-sub { font-size: .82rem; line-height: 1.45; color: var(--muted); margin: 0 0 14px; text-align: center; }
+  .why-grid-section--compact .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 0; }
+  .why-grid-section--compact .why-card { padding: 10px 8px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,.04); display: flex; flex-direction: column; gap: 2px; text-align: center; align-items: center; }
+  .why-grid-section--compact .why-card .emoji { font-size: 1.3rem; margin: 0 0 2px; }
+  .why-grid-section--compact .why-card-image { display: none; }
+  .why-grid-section--compact .why-card h3 { font-size: .82rem; font-weight: 700; margin: 0; line-height: 1.2; color: var(--ink); }
+  .why-grid-section--compact .why-card p { font-size: .68rem; line-height: 1.35; color: var(--muted); margin: 2px 0 0; }
+  @media (max-width: 600px) {
+    .why-grid-section--compact .why-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .why-grid-section--compact .section-title { font-size: 1.05rem; }
+  }
+</style>
 
 {% schema %}
 {
   "name": "Why grid",
   "settings": [
     { "type": "header", "content": "Layout" },
-    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 88 },
-    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 88 },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 32 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 32 },
     { "type": "color", "id": "bg_color", "label": "Background" }
   ],
   "blocks": [
