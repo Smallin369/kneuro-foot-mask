@@ -354,12 +354,6 @@
             "accent": "are saying."
           }
         },
-        "s": {
-          "type": "subheading",
-          "settings": {
-            "text": "Be the first to add yours."
-          }
-        },
         "q": {
           "type": "quotes_row",
           "settings": {
@@ -367,22 +361,30 @@
             "q1_name": "Sarah M.",
             "q1_initials": "SM",
             "q1_location": "Austin, TX",
+            "q1_photo": "shopify://shop_images/A98cdf404c169432580ed0d0c53f6d3f68_jpg_960x960q75_jpg.avif",
             "q2_quote": "Pregnant and couldn't use Baby Foot. This was the gentle answer I needed for my dry, swollen feet.",
             "q2_name": "Priya R.",
             "q2_initials": "PR",
             "q2_location": "Toronto, CA",
+            "q2_photo": "shopify://shop_images/A039432e9ccb048d583261b402c5f7e61C_jpg_960x960q75_jpg.avif",
             "q3_quote": "Bought it for the spa-at-home aesthetic. Stayed for the actual results. Reordered the 3-pack.",
             "q3_name": "Lisa T.",
             "q3_initials": "LT",
             "q3_location": "London, UK"
+          }
+        },
+        "s": {
+          "type": "subheading",
+          "settings": {
+            "text": "Be the first to add yours."
           }
         }
       },
       "block_order": [
         "k",
         "h",
-        "s",
-        "q"
+        "q",
+        "s"
       ],
       "settings": {
         "padding_top": 88,
@@ -474,8 +476,8 @@
     "howto",
     "baproof",
     "ingredients",
-    "compare",
     "quotes",
+    "compare",
     "faq",
     "final"
   ]
