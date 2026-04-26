@@ -1,63 +1,176 @@
-<section class="container cart-page">
-  <div class="section-kicker">{{ section.settings.kicker }}</div>
-  <h1 class="section-title">{{ section.settings.heading_lead }} <em>{{ section.settings.heading_accent }}</em></h1>
+<section class="cart-page" data-cart-section>
+  <div class="cart-page__inner">
+    <header class="cart-page__head">
+      <h1 class="cart-page__title">{{ section.settings.heading | default: 'Your cart' }}</h1>
+      {% if cart.item_count > 0 %}
+        <button type="button" class="cart-page__clear" data-cart-clear>Clear cart</button>
+      {% endif %}
+    </header>
 
-  {% if cart.item_count == 0 %}
-    <p class="section-sub">{{ section.settings.empty_text }}</p>
-    <a class="btn-primary" href="{{ routes.root_url }}">{{ section.settings.empty_cta }}</a>
-  {% else %}
-    <form action="{{ routes.cart_url }}" method="post" novalidate class="cart-form">
-      <div class="cart-list">
-        {% for item in cart.items %}
-          <div class="cart-item">
-            <div class="cart-item-media">
-              {% if item.image %}
-                <img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.title | escape }}" loading="lazy" width="80" height="80">
-              {% endif %}
-            </div>
-            <div class="cart-item-body">
-              <a class="cart-item-title" href="{{ item.url }}">{{ item.product.title }}</a>
-              {% if item.variant.title != 'Default Title' %}
-                <div class="cart-item-variant">{{ item.variant.title }}</div>
-              {% endif %}
-              <div class="cart-item-price">{{ item.final_line_price | money }}</div>
-            </div>
-            <div class="cart-item-qty">
-              <label class="visually-hidden" for="q-{{ item.key }}">Quantity</label>
-              <input id="q-{{ item.key }}" type="number" name="updates[{{ item.key }}]" value="{{ item.quantity }}" min="0" inputmode="numeric">
-            </div>
+    <div class="cart-page__body" data-cart-body>
+      {% if cart.item_count == 0 %}
+        <div class="cart-page__empty">
+          <div class="cart-page__empty-icon">🛒</div>
+          <p>{{ section.settings.empty_text | default: 'Your cart is empty.' }}</p>
+          <a class="cart-page__keep" href="{{ routes.root_url }}">{{ section.settings.empty_cta | default: 'Continue shopping' }}</a>
+        </div>
+      {% else %}
+        <ul class="cart-list" data-cart-list>
+          {% for item in cart.items %}
+            <li class="cart-row" data-cart-row data-key="{{ item.key }}">
+              <a class="cart-row__media" href="{{ item.url }}">
+                {% if item.image %}<img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title | escape }}" loading="lazy" width="100" height="100">{% endif %}
+              </a>
+              <div class="cart-row__body">
+                <a class="cart-row__title" href="{{ item.url }}">{{ item.product.title }}</a>
+                {% if item.variant.title != 'Default Title' %}<div class="cart-row__variant">{{ item.variant.title }}</div>{% endif %}
+                <div class="cart-row__unit">{{ item.final_price | money }} each</div>
+              </div>
+              <div class="cart-row__qty">
+                <button type="button" class="cart-qty__btn" data-cart-qty-step="-1" aria-label="Decrease">−</button>
+                <input type="number" class="cart-qty__input" value="{{ item.quantity }}" min="0" inputmode="numeric" data-cart-qty data-key="{{ item.key }}">
+                <button type="button" class="cart-qty__btn" data-cart-qty-step="1" aria-label="Increase">+</button>
+              </div>
+              <div class="cart-row__price">{{ item.final_line_price | money }}</div>
+              <button type="button" class="cart-row__remove" data-cart-remove data-key="{{ item.key }}" aria-label="Remove">×</button>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <div class="cart-summary">
+          <div class="cart-summary__row">
+            <span>Subtotal ({{ cart.item_count }} item{% unless cart.item_count == 1 %}s{% endunless %})</span>
+            <strong data-cart-subtotal>{{ cart.total_price | money }}</strong>
           </div>
-        {% endfor %}
-      </div>
-
-      <div class="cart-foot">
-        <div class="cart-subtotal">
-          <span>{{ section.settings.subtotal_label }}</span>
-          <strong>{{ cart.total_price | money }}</strong>
+          <p class="cart-summary__note">Shipping &amp; taxes calculated at checkout.</p>
+          <a href="/checkout" class="cart-summary__btn">Checkout now → <span data-cart-total>{{ cart.total_price | money }}</span></a>
+          <a href="{{ routes.root_url }}" class="cart-summary__keep">← Keep shopping</a>
         </div>
-        <div class="cart-actions">
-          <button type="submit" name="update" class="btn-ghost">{{ section.settings.update_label }}</button>
-          <button type="submit" name="checkout" class="btn-primary">{{ section.settings.checkout_label }}</button>
-        </div>
-        <p class="cart-note">{{ section.settings.tax_note }}</p>
-      </div>
-    </form>
-  {% endif %}
+      {% endif %}
+    </div>
+  </div>
 </section>
+
+<style>
+  .cart-page { padding: 48px 20px 80px; background: var(--surface, #faf3e6); min-height: 60vh; }
+  .cart-page__inner { max-width: 880px; margin: 0 auto; }
+  .cart-page__head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 28px; gap: 12px; flex-wrap: wrap; }
+  .cart-page__title { font-family: var(--font-heading, Georgia, serif); font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700; margin: 0; color: var(--ink, #2a1c12); }
+  .cart-page__clear { background: transparent; border: none; color: var(--muted, #8a7e6e); font-size: .85rem; cursor: pointer; text-decoration: underline; padding: 4px 8px; }
+  .cart-page__clear:hover { color: #c44; }
+  .cart-page__empty { background: #fff; border-radius: 18px; padding: 56px 24px; text-align: center; box-shadow: 0 8px 22px -10px rgba(42,28,18,.16); }
+  .cart-page__empty-icon { font-size: 3rem; margin-bottom: 14px; }
+  .cart-page__empty p { color: var(--ink-2, #4a3a2a); font-size: 1rem; margin: 0 0 22px; }
+  .cart-page__keep { display: inline-block; background: var(--ink, #2a1c12); color: #fff; padding: 14px 28px; border-radius: 999px; font-weight: 700; text-decoration: none; }
+  .cart-list { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 12px; }
+  .cart-row { background: #fff; border-radius: 16px; padding: 16px; display: grid; grid-template-columns: 88px 1fr auto auto auto; align-items: center; gap: 16px; box-shadow: 0 6px 18px -10px rgba(42,28,18,.14); transition: opacity .2s ease; }
+  .cart-row.is-removing { opacity: .35; pointer-events: none; }
+  .cart-row__media { display: block; width: 88px; height: 88px; border-radius: 12px; overflow: hidden; background: #f0e9dd; }
+  .cart-row__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cart-row__body { min-width: 0; }
+  .cart-row__title { display: block; color: var(--ink, #2a1c12); font-weight: 700; font-size: 1rem; text-decoration: none; line-height: 1.3; margin-bottom: 4px; }
+  .cart-row__variant { display: inline-block; padding: 3px 10px; background: var(--cream-soft, #fbf6ee); border-radius: 999px; font-size: .76rem; color: var(--accent-deep, #c4651b); font-weight: 600; margin-bottom: 4px; }
+  .cart-row__unit { color: var(--muted, #8a7e6e); font-size: .82rem; }
+  .cart-row__qty { display: flex; align-items: center; gap: 0; border: 1px solid #e8e0d0; border-radius: 999px; padding: 2px; background: #fff; }
+  .cart-qty__btn { width: 32px; height: 32px; border: none; background: transparent; border-radius: 50%; font-size: 1.1rem; color: var(--ink, #2a1c12); cursor: pointer; transition: background .12s ease; }
+  .cart-qty__btn:hover { background: var(--cream-soft, #fbf6ee); }
+  .cart-qty__input { width: 36px; text-align: center; border: none; background: transparent; font-weight: 700; color: var(--ink, #2a1c12); font-size: .95rem; -moz-appearance: textfield; }
+  .cart-qty__input::-webkit-outer-spin-button, .cart-qty__input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .cart-qty__input:focus { outline: none; }
+  .cart-row__price { font-weight: 700; color: var(--ink, #2a1c12); font-size: 1.05rem; min-width: 70px; text-align: right; }
+  .cart-row__remove { width: 32px; height: 32px; border-radius: 50%; border: none; background: transparent; color: var(--muted, #8a7e6e); font-size: 1.4rem; cursor: pointer; transition: all .12s ease; }
+  .cart-row__remove:hover { background: #fdecec; color: #c44; }
+  .cart-summary { background: #fff; border-radius: 18px; padding: 24px; box-shadow: 0 10px 28px -12px rgba(42,28,18,.18); }
+  .cart-summary__row { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid #f0e9dd; margin-bottom: 12px; font-size: 1rem; color: var(--ink-2, #4a3a2a); }
+  .cart-summary__row strong { font-size: 1.3rem; font-weight: 800; color: var(--ink, #2a1c12); }
+  .cart-summary__note { color: var(--muted, #8a7e6e); font-size: .82rem; font-style: italic; margin: 0 0 18px; text-align: center; }
+  .cart-summary__btn { display: block; background: var(--accent, #e8833a); color: #fff; text-align: center; padding: 18px 24px; border-radius: 999px; font-weight: 800; font-size: 1.05rem; text-decoration: none; box-shadow: 0 12px 28px -10px rgba(232,131,58,.55); transition: transform .12s ease, background .12s ease; }
+  .cart-summary__btn:hover { background: var(--accent-deep, #c4651b); transform: translateY(-1px); }
+  .cart-summary__keep { display: block; text-align: center; margin-top: 12px; color: var(--ink-2, #4a3a2a); font-size: .88rem; text-decoration: none; }
+  .cart-summary__keep:hover { color: var(--accent-deep, #c4651b); }
+  @media (max-width: 640px) {
+    .cart-row { grid-template-columns: 72px 1fr auto; gap: 12px; }
+    .cart-row__media { width: 72px; height: 72px; }
+    .cart-row__qty { grid-column: 2; }
+    .cart-row__price { grid-column: 3; }
+    .cart-row__remove { grid-column: 3; justify-self: end; margin-top: -28px; }
+  }
+</style>
+
+<script>
+(function() {
+  const section = document.querySelector('[data-cart-section]');
+  if (!section) return;
+  const fmt = (cents, cur) => {
+    try { return new Intl.NumberFormat(undefined, { style: 'currency', currency: cur || 'USD' }).format((cents || 0) / 100); }
+    catch (e) { return '$' + ((cents || 0) / 100).toFixed(2); }
+  };
+
+  const updateQty = async (key, qty) => {
+    const row = section.querySelector('[data-cart-row][data-key="' + CSS.escape(key) + '"]');
+    if (row && qty === 0) row.classList.add('is-removing');
+    try {
+      const res = await fetch('/cart/change.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ id: key, quantity: qty })
+      });
+      const cart = await res.json();
+      if (qty === 0 || cart.item_count === 0) { window.location.reload(); return; }
+      const updated = cart.items.find(i => i.key === key);
+      if (updated && row) {
+        const priceEl = row.querySelector('.cart-row__price');
+        if (priceEl) priceEl.textContent = fmt(updated.final_line_price, cart.currency);
+      }
+      const sub = section.querySelector('[data-cart-subtotal]');
+      const tot = section.querySelector('[data-cart-total]');
+      if (sub) sub.textContent = fmt(cart.total_price, cart.currency);
+      if (tot) tot.textContent = fmt(cart.total_price, cart.currency);
+      const countLabel = section.querySelector('.cart-summary__row span');
+      if (countLabel) countLabel.textContent = 'Subtotal (' + cart.item_count + ' item' + (cart.item_count === 1 ? '' : 's') + ')';
+    } catch (e) {
+      if (row) row.classList.remove('is-removing');
+    }
+  };
+
+  section.addEventListener('click', (e) => {
+    const step = e.target.closest('[data-cart-qty-step]');
+    if (step) {
+      const input = step.parentElement.querySelector('[data-cart-qty]');
+      if (!input) return;
+      const newVal = Math.max(0, (parseInt(input.value, 10) || 0) + parseInt(step.dataset.cartQtyStep, 10));
+      input.value = newVal;
+      updateQty(input.dataset.key, newVal);
+      return;
+    }
+    const remove = e.target.closest('[data-cart-remove]');
+    if (remove) { updateQty(remove.dataset.key, 0); return; }
+    const clear = e.target.closest('[data-cart-clear]');
+    if (clear) {
+      if (!confirm('Remove all items from your cart?')) return;
+      fetch('/cart/clear.js', { method: 'POST', headers: { 'Accept': 'application/json' } })
+        .then(() => window.location.reload());
+    }
+  });
+
+  section.addEventListener('change', (e) => {
+    const input = e.target.closest('[data-cart-qty]');
+    if (!input) return;
+    const qty = Math.max(0, parseInt(input.value, 10) || 0);
+    input.value = qty;
+    updateQty(input.dataset.key, qty);
+  });
+})();
+</script>
 
 {% schema %}
 {
-  "name": "Cart",
+  "name": "Cart main",
   "settings": [
-    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Your cart" },
-    { "type": "text", "id": "heading_lead", "label": "Heading", "default": "Ready when you" },
-    { "type": "text", "id": "heading_accent", "label": "Heading (italic)", "default": "are." },
-    { "type": "textarea", "id": "empty_text", "label": "Empty state text", "default": "Your cart is empty." },
-    { "type": "text", "id": "empty_cta", "label": "Empty state CTA", "default": "Continue shopping" },
-    { "type": "text", "id": "subtotal_label", "label": "Subtotal label", "default": "Subtotal" },
-    { "type": "text", "id": "update_label", "label": "Update button", "default": "Update" },
-    { "type": "text", "id": "checkout_label", "label": "Checkout button", "default": "Checkout →" },
-    { "type": "text", "id": "tax_note", "label": "Tax note", "default": "Taxes and shipping calculated at checkout." }
-  ]
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Your cart" },
+    { "type": "text", "id": "empty_text", "label": "Empty cart text", "default": "Your cart is empty." },
+    { "type": "text", "id": "empty_cta", "label": "Empty cart CTA", "default": "Continue shopping" }
+  ],
+  "presets": [{ "name": "Cart main" }]
 }
 {% endschema %}
