@@ -22,14 +22,13 @@
       </ul>
     {% endif %}
 
-    <div class="adv-hero__cta-wrap">
-      <a class="adv-hero__cta" href="{{ cta_url }}">{{ section.settings.cta_label | default: 'Shop now — from $19.99' }}</a>
-      {% if section.settings.cta_subtext != blank %}<small>{{ section.settings.cta_subtext }}</small>{% endif %}
-    </div>
-
     {% if section.settings.hero_image %}
       <a class="adv-hero__img-link" href="{{ cta_url }}" aria-label="{{ section.settings.cta_label | default: 'Shop now' | escape }}">
         <img class="adv-hero__img" src="{{ section.settings.hero_image | image_url: width: 1200 }}" srcset="{{ section.settings.hero_image | image_url: width: 600 }} 600w, {{ section.settings.hero_image | image_url: width: 1200 }} 1200w" sizes="(max-width:768px) 100vw, 720px" alt="{{ section.settings.headline | escape }}" width="900" height="900" fetchpriority="high">
+      </a>
+      <a class="adv-hero__img-hint" href="{{ cta_url }}">
+        <span>👆 Tap the image to shop</span>
+        {% if section.settings.cta_subtext != blank %}<small>{{ section.settings.cta_subtext }}</small>{% endif %}
       </a>
     {% else %}
       <div class="adv-hero__img-placeholder">Product image goes here</div>
@@ -60,6 +59,9 @@
   .adv-hero__cta-wrap small { display:block; color:var(--muted); margin-top:10px; font-size:.78rem; }
   .adv-hero__img-link { display:block; max-width:420px; margin: 6px auto 14px; border-radius:18px; transition: transform .2s ease, box-shadow .2s ease; cursor: pointer; }
   .adv-hero__img-link:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.08); }
+  .adv-hero__img-hint { display:flex; flex-direction:column; align-items:center; gap:4px; text-decoration:none; color: var(--ink); font-weight:600; font-size:.92rem; margin: 4px auto 18px; animation: adv-hero-hint-pulse 2s ease-in-out infinite; }
+  .adv-hero__img-hint small { color: var(--muted); font-weight:500; font-size:.74rem; }
+  @keyframes adv-hero-hint-pulse { 0%,100% { opacity: .85; } 50% { opacity: 1; } }
   .adv-hero__img { width:100%; max-width:420px; max-height:340px; object-fit:contain; border-radius:18px; display:block; }
   .adv-hero__img-placeholder { width:100%; max-width:420px; height:340px; background:#f4f0eb; border-radius:18px; margin: 6px auto 14px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:.85rem; font-style:italic; }
   @media (max-width: 480px) {
