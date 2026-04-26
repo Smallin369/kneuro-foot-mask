@@ -41,40 +41,70 @@
   });
 })();
 
-// ---------- Gallery thumbnail swap ----------
+// ---------- Gallery thumbnail swap (crossfade) ----------
 (function gallerySwap() {
   const thumbs = document.querySelectorAll('.gallery-thumbs .th');
   const main = document.getElementById('galleryMain');
   if (!thumbs.length || !main) return;
 
+  if (!main.dataset.gsInit) {
+    main.dataset.gsInit = '1';
+    main.style.position = main.style.position || 'relative';
+    main.querySelectorAll('img, video').forEach((el) => {
+      el.classList.add('gs-layer', 'is-active');
+    });
+  }
+
+  let busy = false;
   thumbs.forEach((t) => {
     t.addEventListener('click', () => {
+      if (busy) return;
+      const src = t.dataset.src;
+      if (!src) return;
+      const type = t.dataset.type;
+
       thumbs.forEach((x) => x.classList.remove('active'));
       t.classList.add('active');
 
-      const type = t.dataset.type;
-      const src = t.dataset.src;
-      if (!src) return;
+      const current = main.querySelector('.gs-layer.is-active');
+      if (current && current.dataset.src === src) return;
 
-      // Preserve badges
-      const badges = main.querySelectorAll('.gallery-badge, .heart-badge');
-      main.innerHTML = '';
-      badges.forEach((b) => main.appendChild(b));
-
-      let el;
+      busy = true;
+      let next;
       if (type === 'video') {
-        el = document.createElement('video');
-        el.src = src;
-        el.autoplay = true;
-        el.muted = true;
-        el.loop = true;
-        el.playsInline = true;
+        next = document.createElement('video');
+        next.src = src;
+        next.autoplay = true;
+        next.muted = true;
+        next.loop = true;
+        next.playsInline = true;
       } else {
-        el = document.createElement('img');
-        el.src = src;
-        el.alt = '';
+        next = document.createElement('img');
+        next.src = src;
+        next.alt = '';
       }
-      main.appendChild(el);
+      next.dataset.src = src;
+      next.classList.add('gs-layer');
+      main.appendChild(next);
+
+      const reveal = () => {
+        requestAnimationFrame(() => {
+          next.classList.add('is-active');
+          if (current) current.classList.remove('is-active');
+          const cleanup = () => {
+            if (current && current.parentNode) current.parentNode.removeChild(current);
+            busy = false;
+          };
+          setTimeout(cleanup, 420);
+        });
+      };
+
+      if (next.tagName === 'IMG' && !next.complete) {
+        next.addEventListener('load', reveal, { once: true });
+        next.addEventListener('error', reveal, { once: true });
+      } else {
+        reveal();
+      }
     });
   });
 })();
