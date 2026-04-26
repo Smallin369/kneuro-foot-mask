@@ -142,58 +142,83 @@
         "padding_bottom": 64
       }
     },
+    "howto": {
+      "type": "how-it-works",
+      "blocks": {
+        "k": { "type": "kicker", "settings": { "text": "How it works" } },
+        "h": { "type": "heading", "settings": { "lead": "Three steps,", "accent": "thirty minutes." } },
+        "s": { "type": "subheading", "settings": { "text": "No harsh acids. No painful peeling. Just slip them on and let the goat milk + niacinamide do the work." } },
+        "steps": {
+          "type": "steps_row",
+          "settings": {
+            "s1_title": "Slip on the mask",
+            "s1_body": "Pre-filled cat-paw socks. Open the foil pack, slide them over clean feet, peel-and-stick the seal.",
+            "s2_title": "Relax for 30 minutes",
+            "s2_body": "Read, watch TV, scroll your phone. The goat milk + niacinamide serum soaks in while you do nothing.",
+            "s3_title": "Peel & feel the difference",
+            "s3_body": "Pull them off, rinse, pat dry. Skin feels softer and hydrated immediately — no waiting days for results."
+          }
+        }
+      },
+      "block_order": ["k", "h", "s", "steps"],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 64,
+        "bg_color": "#fbf6ee"
+      }
+    },
     "ingredients": {
       "type": "why-grid",
       "blocks": {
         "k": {
           "type": "kicker",
           "settings": {
-            "text": "What's inside"
+            "text": "What you'll feel"
           }
         },
         "h": {
           "type": "heading",
           "settings": {
-            "lead": "Four ingredients,",
-            "accent": "zero compromise."
+            "lead": "What 30 minutes",
+            "accent": "actually does."
           }
         },
         "s": {
           "type": "subheading",
           "settings": {
-            "text": "Clean, pregnancy-safe, clinically backed. No essential oils, no harsh acids, no greenwashing."
+            "text": "Four clinically-backed ingredients working together. No salicylic acid, no glycolic acid, no fragrance — gentle enough for pregnancy and sensitive skin."
           }
         },
         "c1": {
           "type": "card",
           "settings": {
-            "emoji": "🥛",
-            "title": "Goat Milk",
-            "body": "Lactic acid and natural fats deeply hydrate without irritation. 4,000 years of skincare history."
+            "emoji": "💧",
+            "title": "Deep hydration in one session",
+            "body": "Goat milk's natural fats and lactic acid pull moisture into the skin's deepest layers. No more cracked heels catching on bedsheets."
           }
         },
         "c2": {
           "type": "card",
           "settings": {
             "emoji": "✨",
-            "title": "Niacinamide",
-            "body": "Vitamin B3 evens skin tone, brightens, and strengthens the skin barrier."
+            "title": "Smoother, more even skin",
+            "body": "Niacinamide (Vitamin B3) fades rough patches and dullness. Heels look brighter and feel softer after one mask."
           }
         },
         "c3": {
           "type": "card",
           "settings": {
-            "emoji": "💧",
-            "title": "Glycerin",
-            "body": "A humectant that pulls moisture into the deepest layers of skin."
+            "emoji": "🛡️",
+            "title": "Stronger skin barrier",
+            "body": "Glycerin and allantoin lock moisture in for days — not hours. Your feet stay soft long after the mask comes off."
           }
         },
         "c4": {
           "type": "card",
           "settings": {
             "emoji": "🌿",
-            "title": "Allantoin",
-            "body": "Soothes irritation and accelerates skin renewal — gentle on sensitive skin."
+            "title": "Gentle enough for sensitive skin",
+            "body": "Pregnancy-safe. Diabetes-friendly. No harsh peeling, no burning, no stripped skin barrier — just soothed, soft feet."
           }
         }
       },
@@ -460,6 +485,7 @@
   "order": [
     "scarcity",
     "hero",
+    "howto",
     "story",
     "ingredients",
     "ba",
