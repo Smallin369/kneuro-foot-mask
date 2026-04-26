@@ -82,8 +82,8 @@
         "i4"
       ],
       "settings": {
-        "padding_top": 24,
-        "padding_bottom": 48,
+        "padding_top": 12,
+        "padding_bottom": 24,
         "bg_color": ""
       }
     },
@@ -443,8 +443,8 @@
   },
   "order": [
     "scarcity",
-    "press",
     "hero",
+    "press",
     "reviews",
     "ingredients",
     "ba",

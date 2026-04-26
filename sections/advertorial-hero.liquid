@@ -28,7 +28,9 @@
     </div>
 
     {% if section.settings.hero_image %}
-      <img class="adv-hero__img" src="{{ section.settings.hero_image | image_url: width: 1200 }}" srcset="{{ section.settings.hero_image | image_url: width: 600 }} 600w, {{ section.settings.hero_image | image_url: width: 1200 }} 1200w" sizes="(max-width:768px) 100vw, 720px" alt="{{ section.settings.headline | escape }}" width="900" height="900" fetchpriority="high">
+      <a class="adv-hero__img-link" href="{{ cta_url }}" aria-label="{{ section.settings.cta_label | default: 'Shop now' | escape }}">
+        <img class="adv-hero__img" src="{{ section.settings.hero_image | image_url: width: 1200 }}" srcset="{{ section.settings.hero_image | image_url: width: 600 }} 600w, {{ section.settings.hero_image | image_url: width: 1200 }} 1200w" sizes="(max-width:768px) 100vw, 720px" alt="{{ section.settings.headline | escape }}" width="900" height="900" fetchpriority="high">
+      </a>
     {% else %}
       <div class="adv-hero__img-placeholder">Product image goes here</div>
     {% endif %}
@@ -56,7 +58,9 @@
   .adv-hero__cta { display:inline-block; background: var(--ink); color:#fff; text-decoration:none; padding:16px 32px; border-radius:999px; font-weight:700; font-size:1rem; letter-spacing:.01em; transition: transform .15s ease, background .15s ease; }
   .adv-hero__cta:hover { background: var(--accent-deep); transform: translateY(-1px); }
   .adv-hero__cta-wrap small { display:block; color:var(--muted); margin-top:10px; font-size:.78rem; }
-  .adv-hero__img { width:100%; max-width:420px; max-height:340px; object-fit:contain; border-radius:18px; margin: 6px auto 14px; display:block; }
+  .adv-hero__img-link { display:block; max-width:420px; margin: 6px auto 14px; border-radius:18px; transition: transform .2s ease, box-shadow .2s ease; cursor: pointer; }
+  .adv-hero__img-link:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.08); }
+  .adv-hero__img { width:100%; max-width:420px; max-height:340px; object-fit:contain; border-radius:18px; display:block; }
   .adv-hero__img-placeholder { width:100%; max-width:420px; height:340px; background:#f4f0eb; border-radius:18px; margin: 6px auto 14px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:.85rem; font-style:italic; }
   @media (max-width: 480px) {
     .adv-hero__img, .adv-hero__img-placeholder { max-width:320px; max-height:280px; }
