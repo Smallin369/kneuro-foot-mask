@@ -337,6 +337,27 @@
             "t5": "Backed by a 30-day money-back guarantee"
           }
         },
+        "q_hannah": {
+          "type": "pullquote",
+          "settings": {
+            "quote": "I've tried Baby Foot and the harsh acid ones — they always burned and made my feet flake painfully for two weeks. This one is gentle. No peeling, no burning. Just soft hydrated feet the next morning.",
+            "attribution": "Hannah M. · Sensitive skin · Verified buyer"
+          }
+        },
+        "q_priya": {
+          "type": "pullquote",
+          "settings": {
+            "quote": "I bought this because I'm pregnant and couldn't use the regular foot peels (salicylic acid is a no-go). My feet were so dry from the swelling. Genuine relief.",
+            "attribution": "Priya R. · Pregnant · Verified buyer"
+          }
+        },
+        "q_daniel": {
+          "type": "pullquote",
+          "settings": {
+            "quote": "Bought the 3-pack for me, my mom, and my sister. All three of us texted each other the next day in caps lock. The cat paw shape is silly cute but the formula is real.",
+            "attribution": "Daniel K. · Bought as a gift · Verified buyer"
+          }
+        },
         "ing": {
           "type": "ingredients",
           "settings": {
@@ -367,14 +388,17 @@
       "block_order": [
         "p1",
         "img1",
+        "q_hannah",
         "p2",
         "ing",
         "cta1",
         "img2",
         "p_science",
+        "q_priya",
         "quote",
         "p3",
-        "img3"
+        "img3",
+        "q_daniel"
       ],
       "settings": {
         "cta_url": "/products/goat-milk-foot-mask",
@@ -529,7 +553,6 @@
     "scarcity",
     "hero",
     "story",
-    "reviews",
     "ba",
     "howto",
     "comparison",
