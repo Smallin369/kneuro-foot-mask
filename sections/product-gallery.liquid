@@ -14,7 +14,7 @@
     <div class="gallery" style="align-items: var(--gallery-align);">
       <div class="gallery-main" id="galleryMain">
         {% if section.settings.badge_text != blank %}
-          <span class="gallery-badge">🐾 {{ section.settings.badge_text }}</span>
+          <span class="gallery-badge">{{ section.settings.badge_text }}</span>
         {% endif %}
         {% if has_override and g1 %}
           <img src="{{ g1 | image_url: width: 1200 }}" alt="{{ product.title | escape }}" width="800" height="800">
