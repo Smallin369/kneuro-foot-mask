@@ -260,7 +260,7 @@
         "p1": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>By month three of cracked heels, I'd given up. I'd burned through two foot creams, a pumice stone, a $40 electric callus remover, and a $90 pedicure that lasted exactly four days. Nothing fixed the deep, painful dryness on my heels — the kind that catches on bedsheets and ruins black tights. My dermatologist warned me off the harsh-acid peels (Baby Foot territory) because of my sensitive skin. I was running out of options.</p>"
+            "text": "<p>Three years of cracked heels. Two foot creams, a pumice stone, a $40 electric callus remover, and a $90 pedicure that lasted exactly four days. My dermatologist had warned me off Baby Foot and the other harsh-acid peels — too rough on sensitive skin. <strong>Then a friend in Seoul sent me a goat milk foot mask. I tried it that night. The next morning my heels were soft for the first time in three years.</strong></p>"
           }
         },
         "img1": {
@@ -324,13 +324,7 @@
       },
       "block_order": [
         "p1",
-        "img1",
-        "p2",
-        "img2",
         "quote",
-        "p3",
-        "img3",
-        "checks",
         "cta1"
       ],
       "settings": {
