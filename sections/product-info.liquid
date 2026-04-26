@@ -132,6 +132,7 @@
                       <span>
                         <div class="bundle-title">{{ variant.title }}</div>
                         <div class="bundle-sub">{{ per_unit | money }} / each</div>
+                        {% if variant.price >= 6900 %}<span class="bundle-shipfree">🚚 Free US shipping</span>{% endif %}
                       </span>
                     </div>
                     <div class="bundle-right">

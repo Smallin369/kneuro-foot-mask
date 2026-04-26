@@ -320,6 +320,7 @@ h1.title em { font-style: italic; color: var(--accent-deep); font-weight: 400; }
 }
 .bundle-title { font-weight: 600; font-size: 15.5px; color: var(--ink); }
 .bundle-sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.bundle-shipfree { display: inline-block; margin-top: 6px; padding: 3px 10px; background: #e6f4ea; color: #1e7d3a; font-size: 11px; font-weight: 700; letter-spacing: .04em; border-radius: 999px; text-transform: uppercase; }
 .bundle-right { text-align: right; }
 .bundle-price { font-family: var(--font-heading); font-weight: 700; font-size: 17px; }
 .bundle-save {
