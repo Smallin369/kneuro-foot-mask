@@ -119,8 +119,6 @@
       }
       next.classList.add('gs-fresh');
       main.appendChild(next);
-      // Trigger fade-in via class removal after one frame
-      next.addEventListener('animationend', () => next.classList.remove('gs-fresh'), { once: true });
     });
   });
 })();
