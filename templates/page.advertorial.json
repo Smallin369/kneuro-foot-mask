@@ -23,16 +23,10 @@
     "hero": {
       "type": "advertorial-hero",
       "settings": {
-        "eyebrow": "★ 4.8 · 1,200+ REVIEWS",
         "headline": "Soft feet. In 30 minutes.",
         "subhead": "Cracked heels? Dry skin? Our goat milk + niacinamide foot mask softens without harsh acids. Gentle, pregnancy-safe, dermatologist-tested.",
-        "chip_1": "Pregnancy-safe",
-        "chip_2": "No harsh acids",
-        "chip_3": "30-min results",
-        "cta_label": "Shop now — from $19.99",
-        "cta_subtext": "Free US shipping over $30 · 30-day money-back guarantee",
-        "cta_url": "/products/goat-milk-foot-mask",
         "caption": "Real customer photo. One pair, one nap, soft feet.",
+        "cta_url": "/products/goat-milk-foot-mask",
         "bg": "",
         "padding_top": 32,
         "padding_bottom": 32
@@ -306,27 +300,120 @@
     "ingredients": {
       "type": "why-grid",
       "blocks": {
-        "k": { "type": "kicker", "settings": { "text": "What's inside" } },
-        "h": { "type": "heading", "settings": { "lead": "Four ingredients,", "accent": "zero compromise." } },
-        "s": { "type": "subheading", "settings": { "text": "Clean, pregnancy-safe, clinically backed. No essential oils, no harsh acids, no greenwashing." } },
-        "c1": { "type": "card", "settings": { "emoji": "🥛", "title": "Goat Milk", "body": "Lactic acid and natural fats deeply hydrate without irritation. 4,000 years of skincare history." } },
-        "c2": { "type": "card", "settings": { "emoji": "✨", "title": "Niacinamide", "body": "Vitamin B3 evens skin tone, brightens, and strengthens the skin barrier." } },
-        "c3": { "type": "card", "settings": { "emoji": "💧", "title": "Glycerin", "body": "A humectant that pulls moisture into the deepest layers of skin." } },
-        "c4": { "type": "card", "settings": { "emoji": "🌿", "title": "Allantoin", "body": "Soothes irritation and accelerates skin renewal — gentle on sensitive skin." } }
+        "k": {
+          "type": "kicker",
+          "settings": {
+            "text": "What's inside"
+          }
+        },
+        "h": {
+          "type": "heading",
+          "settings": {
+            "lead": "Four ingredients,",
+            "accent": "zero compromise."
+          }
+        },
+        "s": {
+          "type": "subheading",
+          "settings": {
+            "text": "Clean, pregnancy-safe, clinically backed. No essential oils, no harsh acids, no greenwashing."
+          }
+        },
+        "c1": {
+          "type": "card",
+          "settings": {
+            "emoji": "🥛",
+            "title": "Goat Milk",
+            "body": "Lactic acid and natural fats deeply hydrate without irritation. 4,000 years of skincare history."
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "emoji": "✨",
+            "title": "Niacinamide",
+            "body": "Vitamin B3 evens skin tone, brightens, and strengthens the skin barrier."
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "emoji": "💧",
+            "title": "Glycerin",
+            "body": "A humectant that pulls moisture into the deepest layers of skin."
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "emoji": "🌿",
+            "title": "Allantoin",
+            "body": "Soothes irritation and accelerates skin renewal — gentle on sensitive skin."
+          }
+        }
       },
-      "block_order": ["k", "h", "s", "c1", "c2", "c3", "c4"],
-      "settings": { "padding_top": 80, "padding_bottom": 80, "bg_color": "" }
+      "block_order": [
+        "k",
+        "h",
+        "s",
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "bg_color": ""
+      }
     },
     "press": {
       "type": "trust-strip",
       "blocks": {
-        "i1": { "type": "item", "settings": { "emoji": "🌿", "title": "Pregnancy-safe", "body": "no salicylic acid" } },
-        "i2": { "type": "item", "settings": { "emoji": "🧪", "title": "Dermatologist-tested", "body": "for sensitive skin" } },
-        "i3": { "type": "item", "settings": { "emoji": "💰", "title": "30-day guarantee", "body": "full refund, no questions" } },
-        "i4": { "type": "item", "settings": { "emoji": "🚚", "title": "Free US shipping", "body": "on orders over $30" } }
+        "i1": {
+          "type": "item",
+          "settings": {
+            "emoji": "🌿",
+            "title": "Pregnancy-safe",
+            "body": "no salicylic acid"
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "emoji": "🧪",
+            "title": "Dermatologist-tested",
+            "body": "for sensitive skin"
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "emoji": "💰",
+            "title": "30-day guarantee",
+            "body": "full refund, no questions"
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "emoji": "🚚",
+            "title": "Free US shipping",
+            "body": "on orders over $30"
+          }
+        }
       },
-      "block_order": ["i1", "i2", "i3", "i4"],
-      "settings": { "padding_top": 24, "padding_bottom": 48, "bg_color": "" }
+      "block_order": [
+        "i1",
+        "i2",
+        "i3",
+        "i4"
+      ],
+      "settings": {
+        "padding_top": 24,
+        "padding_bottom": 48,
+        "bg_color": ""
+      }
     },
     "final": {
       "type": "final-cta",

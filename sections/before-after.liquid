@@ -9,9 +9,13 @@
         {%- assign before_key = 'pair_' | append: i | append: '_before' -%}
         {%- assign after_key = 'pair_' | append: i | append: '_after' -%}
         {%- assign label_key = 'pair_' | append: i | append: '_label' -%}
+        {%- assign quote_key = 'pair_' | append: i | append: '_quote' -%}
+        {%- assign attr_key = 'pair_' | append: i | append: '_attr' -%}
         {%- assign before = section.settings[before_key] -%}
         {%- assign after = section.settings[after_key] -%}
         {%- assign label = section.settings[label_key] -%}
+        {%- assign quote = section.settings[quote_key] -%}
+        {%- assign attr = section.settings[attr_key] -%}
         {% if before and after %}
           <div class="ba__pair">
             <div class="ba__shots">
@@ -25,6 +29,12 @@
               </div>
             </div>
             {% if label != blank %}<p class="ba__label">{{ label }}</p>{% endif %}
+            {% if quote != blank %}
+              <blockquote class="ba__quote">
+                <p>"{{ quote }}"</p>
+                {% if attr != blank %}<cite>— {{ attr }}</cite>{% endif %}
+              </blockquote>
+            {% endif %}
           </div>
         {% endif %}
       {% endfor %}
@@ -52,6 +62,9 @@
   .ba__tag--before { background: rgba(42,28,18,.85); }
   .ba__tag--after { background: var(--accent); }
   .ba__label { color: var(--ink-2); margin: 14px 0 0; font-size: .92rem; font-weight: 500; }
+  .ba__quote { text-align: left; border-left: 3px solid var(--accent); padding: 4px 0 4px 16px; margin: 14px 0 0; }
+  .ba__quote p { font-family: var(--font-heading); font-style: italic; font-size: 1rem; color: var(--ink); margin: 0 0 6px; line-height: 1.45; }
+  .ba__quote cite { font-style: normal; font-size: .82rem; color: var(--muted); }
   .ba__cta { display: inline-block; margin-top: 36px; background: var(--accent); color: #fff; padding: 14px 28px; border-radius: 999px; font-weight: 700; text-decoration: none; box-shadow: 0 8px 22px -8px rgba(232,131,58,.55); }
   .ba__cta:hover { background: var(--accent-deep); }
 </style>
@@ -69,14 +82,20 @@
     { "type": "image_picker", "id": "pair_1_before", "label": "Before image" },
     { "type": "image_picker", "id": "pair_1_after", "label": "After image" },
     { "type": "text", "id": "pair_1_label", "label": "Caption", "default": "Couch · Golden retriever · 3 swipes" },
+    { "type": "textarea", "id": "pair_1_quote", "label": "Review quote" },
+    { "type": "text", "id": "pair_1_attr", "label": "Review attribution" },
     { "type": "header", "content": "Pair 2" },
     { "type": "image_picker", "id": "pair_2_before", "label": "Before image" },
     { "type": "image_picker", "id": "pair_2_after", "label": "After image" },
     { "type": "text", "id": "pair_2_label", "label": "Caption", "default": "Car seat · Lab mix · 5 swipes" },
+    { "type": "textarea", "id": "pair_2_quote", "label": "Review quote" },
+    { "type": "text", "id": "pair_2_attr", "label": "Review attribution" },
     { "type": "header", "content": "Pair 3" },
     { "type": "image_picker", "id": "pair_3_before", "label": "Before image" },
     { "type": "image_picker", "id": "pair_3_after", "label": "After image" },
     { "type": "text", "id": "pair_3_label", "label": "Caption", "default": "Black leggings · Long-haired cat · 2 swipes" },
+    { "type": "textarea", "id": "pair_3_quote", "label": "Review quote" },
+    { "type": "text", "id": "pair_3_attr", "label": "Review attribution" },
     { "type": "header", "content": "CTA" },
     { "type": "text", "id": "cta_label", "label": "Button label", "default": "Get yours — from $29.99 →" },
     { "type": "url", "id": "cta_url", "label": "Button link" },
