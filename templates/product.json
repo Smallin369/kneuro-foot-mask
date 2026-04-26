@@ -291,7 +291,7 @@
     "br5": {
       "type": "section-bridge",
       "settings": {
-        "label": "What our customers think?",
+        "label": "What do our customers have to say?",
         "target_anchor": "reviews",
         "bg": "",
         "padding_top": 16,
