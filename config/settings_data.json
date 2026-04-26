@@ -23,8 +23,36 @@
       },
       "site-footer": {
         "type": "site-footer",
+        "blocks": {
+          "site-footer-0": {
+            "type": "menu",
+            "settings": {
+              "heading": "Shop",
+              "menu": ""
+            }
+          },
+          "site-footer-1": {
+            "type": "menu",
+            "settings": {
+              "heading": "Shop",
+              "menu": ""
+            }
+          },
+          "site-footer-2": {
+            "type": "menu",
+            "settings": {
+              "heading": "Shop",
+              "menu": ""
+            }
+          }
+        },
+        "block_order": [
+          "site-footer-0",
+          "site-footer-1",
+          "site-footer-2"
+        ],
         "settings": {
-          "tagline": "Your go-to for personal hygiene"
+          "tagline": "Tools for a calmer home."
         }
       }
     },

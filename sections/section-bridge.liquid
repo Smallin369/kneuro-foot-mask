@@ -48,17 +48,24 @@
 
 <script>
   (function() {
-    document.querySelectorAll('a[data-bridge-next]').forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        var section = link.closest('.bridge');
-        var next = section && section.nextElementSibling;
-        if (next && next.scrollIntoView) {
-          next.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-          window.scrollBy({ top: window.innerHeight * 0.85, behavior: 'smooth' });
-        }
-      });
+    if (window.__bridgeInit) return;
+    window.__bridgeInit = true;
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[data-bridge-next]');
+      if (!link) return;
+      e.preventDefault();
+      // Walk up to the Shopify section wrapper, then find next sibling section wrapper
+      var wrapper = link.closest('[id^="shopify-section-"]') || link.closest('.bridge');
+      var next = wrapper && wrapper.nextElementSibling;
+      // Skip non-content siblings (style tags, scripts, empty wrappers)
+      while (next && (next.tagName === 'STYLE' || next.tagName === 'SCRIPT' || (next.children && next.children.length === 0))) {
+        next = next.nextElementSibling;
+      }
+      if (next && next.scrollIntoView) {
+        next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollBy({ top: window.innerHeight * 0.85, behavior: 'smooth' });
+      }
     });
   })();
 </script>
