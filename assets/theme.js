@@ -37,6 +37,22 @@
       const url = new URL(window.location);
       url.searchParams.set('variant', variantId);
       window.history.replaceState({}, '', url);
+
+      // Swap gallery main image to variant featured image
+      const variantImg = el.dataset.image;
+      const main = document.getElementById('galleryMain');
+      if (variantImg && main) {
+        main.querySelectorAll('img, video').forEach((n) => n.remove());
+        const next = document.createElement('img');
+        next.src = variantImg;
+        next.alt = '';
+        next.classList.add('gs-fresh');
+        main.appendChild(next);
+        // Sync thumbnail active state if a matching thumb exists
+        document.querySelectorAll('.gallery-thumbs .th').forEach((t) => {
+          t.classList.toggle('active', t.dataset.src === variantImg);
+        });
+      }
     });
   });
 })();
