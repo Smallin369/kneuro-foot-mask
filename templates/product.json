@@ -99,67 +99,6 @@
         "badge_text": "New"
       }
     },
-    "problem": {
-      "type": "problem-block",
-      "settings": {
-        "kicker": "Sound familiar?",
-        "heading_lead": "Foot creams sit on top. Peels",
-        "heading_accent": "burn and flake.",
-        "heading_trail": "Pedicures last four days.",
-        "body_1": "You've tried the creams. You've paid for the pedicures. Your heels are still cracking by the weekend.",
-        "body_2": "Kneuro's goat milk + niacinamide mask is the gentle answer \u2014 soft feet in 30 minutes, no harsh acids, no painful peeling, safe enough to use during pregnancy.",
-        "cta_label": "Get soft feet",
-        "padding_top": 88,
-        "padding_bottom": 88,
-        "bg_color": ""
-      }
-    },
-    "how": {
-      "type": "how-it-works",
-      "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "How it works"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "Three steps,",
-            "accent": "thirty minutes."
-          }
-        },
-        "s": {
-          "type": "subheading",
-          "settings": {
-            "text": "Watch a show. Take a nap. Wake up with softer feet."
-          }
-        },
-        "steps": {
-          "type": "steps_row",
-          "settings": {
-            "s1_title": "Slip them on",
-            "s1_body": "Cat-paw socks fit any foot size.",
-            "s2_title": "Wait 30 min",
-            "s2_body": "Goat milk + niacinamide soaks in.",
-            "s3_title": "Peel & rinse",
-            "s3_body": "Remove socks, gently rinse feet."
-          }
-        }
-      },
-      "block_order": [
-        "k",
-        "h",
-        "s",
-        "steps"
-      ],
-      "settings": {
-        "padding_top": 88,
-        "padding_bottom": 88,
-        "bg_color": ""
-      }
-    },
     "compare": {
       "type": "comparison-table",
       "blocks": {
@@ -349,8 +288,6 @@
   },
   "order": [
     "main",
-    "problem",
-    "how",
     "compare",
     "quotes",
     "faq",
