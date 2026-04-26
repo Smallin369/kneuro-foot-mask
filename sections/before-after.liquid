@@ -62,6 +62,45 @@
       {%- endfor -%}
     </div>
 
+    {% if section.settings.compare_show %}
+      <div class="ba__compare">
+        {% if section.settings.compare_kicker != blank %}<span class="ba__kicker">{{ section.settings.compare_kicker }}</span>{% endif %}
+        <h3 class="ba__compare-h">{{ section.settings.compare_heading_lead }} <em>{{ section.settings.compare_heading_accent }}</em></h3>
+        <div class="ba__compare-wrap">
+          <table class="ba__table">
+            <thead>
+              <tr>
+                <th></th>
+                <th class="ba__th-brand">{{ section.settings.col_brand }}</th>
+                <th>{{ section.settings.col_2 }}</th>
+                <th>{{ section.settings.col_3 }}</th>
+                <th>{{ section.settings.col_4 }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {%- for r in (1..5) -%}
+                {%- assign label_key = 'row_' | append: r | append: '_label' -%}
+                {%- assign brand_key = 'row_' | append: r | append: '_brand' -%}
+                {%- assign c2_key = 'row_' | append: r | append: '_c2' -%}
+                {%- assign c3_key = 'row_' | append: r | append: '_c3' -%}
+                {%- assign c4_key = 'row_' | append: r | append: '_c4' -%}
+                {%- assign label = section.settings[label_key] -%}
+                {% if label != blank %}
+                  <tr>
+                    <td class="ba__rowlabel">{{ label }}</td>
+                    <td class="ba__cell ba__cell--brand">{% include 'ba-mark', v: section.settings[brand_key] %}</td>
+                    <td class="ba__cell">{% include 'ba-mark', v: section.settings[c2_key] %}</td>
+                    <td class="ba__cell">{% include 'ba-mark', v: section.settings[c3_key] %}</td>
+                    <td class="ba__cell">{% include 'ba-mark', v: section.settings[c4_key] %}</td>
+                  </tr>
+                {% endif %}
+              {%- endfor -%}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    {% endif %}
+
     {% if section.settings.cta_label != blank %}
       <a class="ba__cta" href="{{ cta_url }}">{{ section.settings.cta_label }}</a>
     {% endif %}
@@ -94,6 +133,19 @@
   .ba__more { font-size: .8rem; font-weight: 700; color: var(--accent-deep); text-decoration: none; margin-top: 6px; }
   .ba__more:hover { text-decoration: underline; }
 
+  .ba__compare { margin: 48px auto 0; max-width: 1000px; text-align: center; padding-top: 36px; border-top: 1px solid #f0e9dd; }
+  .ba__compare-h { font-family: var(--font-heading); font-size: clamp(1.4rem, 3.4vw, 1.9rem); font-weight: 600; color: var(--ink); margin: 8px 0 28px; line-height: 1.25; }
+  .ba__compare-h em { font-style: italic; color: var(--accent-deep); }
+  .ba__compare-wrap { overflow-x: auto; }
+  .ba__table { width: 100%; border-collapse: separate; border-spacing: 0; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 18px -10px rgba(42,28,18,.16); }
+  .ba__table th, .ba__table td { padding: 14px 12px; text-align: center; font-size: .9rem; border-bottom: 1px solid #f3ece0; }
+  .ba__table thead th { background: #fbf6ee; font-weight: 700; color: var(--ink); }
+  .ba__th-brand { background: var(--ink) !important; color: #fff !important; }
+  .ba__rowlabel { text-align: left; font-weight: 500; color: var(--ink-2); }
+  .ba__cell--brand { background: rgba(232,131,58,.08); }
+  .ba__yes { color: #2a9d3f; font-weight: 700; }
+  .ba__no { color: #c44; }
+  .ba__partial { font-style: italic; color: var(--muted); }
   .ba__cta { display: inline-block; margin-top: 36px; background: var(--accent, #e8833a); color: #fff; padding: 14px 28px; border-radius: 999px; font-weight: 700; text-decoration: none; box-shadow: 0 8px 22px -8px rgba(232,131,58,.55); }
   .ba__cta:hover { background: var(--accent-deep); }
 
@@ -129,6 +181,40 @@
     { "type": "textarea", "id": "t3_quote", "label": "Quote" },
     { "type": "text", "id": "t3_attr", "label": "Name" },
     { "type": "text", "id": "t3_meta", "label": "Meta" },
+    { "type": "header", "content": "Honest comparison (table)" },
+    { "type": "checkbox", "id": "compare_show", "label": "Show comparison table", "default": true },
+    { "type": "text", "id": "compare_kicker", "label": "Kicker", "default": "The honest comparison" },
+    { "type": "text", "id": "compare_heading_lead", "label": "Heading lead", "default": "Kneuro vs." },
+    { "type": "text", "id": "compare_heading_accent", "label": "Heading accent", "default": "every other foot mask." },
+    { "type": "text", "id": "col_brand", "label": "Column 1 (brand)", "default": "Kneuro" },
+    { "type": "text", "id": "col_2", "label": "Column 2", "default": "Baby Foot" },
+    { "type": "text", "id": "col_3", "label": "Column 3", "default": "Generic peel" },
+    { "type": "text", "id": "col_4", "label": "Column 4", "default": "Foot cream" },
+    { "type": "text", "id": "row_1_label", "label": "Row 1 label", "default": "Pregnancy-safe" },
+    { "type": "text", "id": "row_1_brand", "label": "Row 1 brand value (yes/no/partial)", "default": "yes" },
+    { "type": "text", "id": "row_1_c2", "label": "Row 1 col 2", "default": "no" },
+    { "type": "text", "id": "row_1_c3", "label": "Row 1 col 3", "default": "no" },
+    { "type": "text", "id": "row_1_c4", "label": "Row 1 col 4", "default": "yes" },
+    { "type": "text", "id": "row_2_label", "label": "Row 2 label", "default": "No harsh acids" },
+    { "type": "text", "id": "row_2_brand", "label": "Row 2 brand", "default": "yes" },
+    { "type": "text", "id": "row_2_c2", "label": "Row 2 col 2", "default": "no" },
+    { "type": "text", "id": "row_2_c3", "label": "Row 2 col 3", "default": "no" },
+    { "type": "text", "id": "row_2_c4", "label": "Row 2 col 4", "default": "yes" },
+    { "type": "text", "id": "row_3_label", "label": "Row 3 label", "default": "Visible result in 30 min" },
+    { "type": "text", "id": "row_3_brand", "label": "Row 3 brand", "default": "yes" },
+    { "type": "text", "id": "row_3_c2", "label": "Row 3 col 2", "default": "no" },
+    { "type": "text", "id": "row_3_c3", "label": "Row 3 col 3", "default": "no" },
+    { "type": "text", "id": "row_3_c4", "label": "Row 3 col 4", "default": "no" },
+    { "type": "text", "id": "row_4_label", "label": "Row 4 label", "default": "No painful peeling" },
+    { "type": "text", "id": "row_4_brand", "label": "Row 4 brand", "default": "yes" },
+    { "type": "text", "id": "row_4_c2", "label": "Row 4 col 2", "default": "no" },
+    { "type": "text", "id": "row_4_c3", "label": "Row 4 col 3", "default": "no" },
+    { "type": "text", "id": "row_4_c4", "label": "Row 4 col 4", "default": "yes" },
+    { "type": "text", "id": "row_5_label", "label": "Row 5 label", "default": "Goat milk + niacinamide" },
+    { "type": "text", "id": "row_5_brand", "label": "Row 5 brand", "default": "yes" },
+    { "type": "text", "id": "row_5_c2", "label": "Row 5 col 2", "default": "no" },
+    { "type": "text", "id": "row_5_c3", "label": "Row 5 col 3", "default": "no" },
+    { "type": "text", "id": "row_5_c4", "label": "Row 5 col 4", "default": "partial" },
     { "type": "header", "content": "CTA" },
     { "type": "text", "id": "cta_label", "label": "Button label", "default": "Get yours — from $19.99 →" },
     { "type": "url", "id": "cta_url", "label": "Button link" },
