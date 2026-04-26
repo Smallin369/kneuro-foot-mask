@@ -431,10 +431,27 @@
       "settings": {
         "heading_lead": "Stop living with",
         "heading_accent": "cracked, dry feet.",
+        "product_image": "shopify://shop_images/5pack.png",
+        "price": "$19.99",
+        "compare_at_price": "$29.99",
+        "save_badge": "Save 33%",
         "body": "Goat milk. Niacinamide. 30 minutes. Soft feet that last.",
-        "cta_label": "Get the Goat Milk Mask — from $19.99",
-        "cta_link": "",
+        "cta_label": "Get the Goat Milk Mask",
+        "cta_link": "/products/goat-milk-foot-mask",
+        "shipping_line": "Free US shipping over $30 · Ships within 24 hours",
         "guarantee": "Backed by our 30-day money-back guarantee",
+        "b1_emoji": "🌿",
+        "b1_title": "Pregnancy-safe",
+        "b1_sub": "no salicylic acid",
+        "b2_emoji": "🧪",
+        "b2_title": "Derm-tested",
+        "b2_sub": "for sensitive skin",
+        "b3_emoji": "💰",
+        "b3_title": "30-day refund",
+        "b3_sub": "no questions asked",
+        "b4_emoji": "🚚",
+        "b4_title": "Free US shipping",
+        "b4_sub": "on 5-pack orders",
         "padding_top": 64,
         "padding_bottom": 80
       }
@@ -446,10 +463,8 @@
     "story",
     "ingredients",
     "ba",
-    "comparison",
     "reviews",
-    "faq",
-    "press",
-    "final"
+    "final",
+    "faq"
   ]
 }

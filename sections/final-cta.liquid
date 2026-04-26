@@ -1,26 +1,137 @@
-<section class="container" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;">
-  <div class="final">
-    <h2>{{ section.settings.heading_lead }} <em>{{ section.settings.heading_accent }}</em></h2>
-    <p>{{ section.settings.body }}</p>
-    <a href="{{ section.settings.cta_link | default: '#ProductForm' }}" class="cta" style="display:inline-block; max-width:340px; margin: 0 auto; text-decoration:none;">{{ section.settings.cta_label }}</a>
-    <div class="guarantee">🐾 {{ section.settings.guarantee }}</div>
+{%- liquid
+  assign cta_link = section.settings.cta_link | default: '/products/goat-milk-foot-mask'
+-%}
+<section class="offer" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;">
+  <div class="offer__inner">
+
+    <h2 class="offer__head">{{ section.settings.heading_lead }} <em>{{ section.settings.heading_accent }}</em></h2>
+
+    {% if section.settings.product_image %}
+      <a class="offer__img-link" href="{{ cta_link }}" aria-label="{{ section.settings.cta_label | escape }}">
+        <img class="offer__img" src="{{ section.settings.product_image | image_url: width: 800 }}" srcset="{{ section.settings.product_image | image_url: width: 400 }} 400w, {{ section.settings.product_image | image_url: width: 800 }} 800w" sizes="(max-width:768px) 100vw, 420px" alt="{{ section.settings.heading_accent | escape }}" width="800" height="800" loading="lazy">
+      </a>
+    {% endif %}
+
+    {% if section.settings.price != blank %}
+      <div class="offer__price">
+        {% if section.settings.compare_at_price != blank %}<span class="offer__price-was">{{ section.settings.compare_at_price }}</span>{% endif %}
+        <span class="offer__price-now">{{ section.settings.price }}</span>
+        {% if section.settings.save_badge != blank %}<span class="offer__price-save">{{ section.settings.save_badge }}</span>{% endif %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.body != blank %}
+      <p class="offer__body">{{ section.settings.body }}</p>
+    {% endif %}
+
+    <a href="{{ cta_link }}" class="offer__cta">{{ section.settings.cta_label }}</a>
+
+    {% if section.settings.shipping_line != blank %}
+      <p class="offer__shipping">{{ section.settings.shipping_line }}</p>
+    {% endif %}
+
+    {% if section.settings.guarantee != blank %}
+      <p class="offer__guarantee">✓ {{ section.settings.guarantee }}</p>
+    {% endif %}
+
+    {% if section.settings.b1_title != blank or section.settings.b2_title != blank or section.settings.b3_title != blank or section.settings.b4_title != blank %}
+      <ul class="offer__badges">
+        {% if section.settings.b1_title != blank %}
+          <li>
+            <span class="offer__badges-ico">{{ section.settings.b1_emoji }}</span>
+            <strong>{{ section.settings.b1_title }}</strong>
+            <span class="offer__badges-sub">{{ section.settings.b1_sub }}</span>
+          </li>
+        {% endif %}
+        {% if section.settings.b2_title != blank %}
+          <li>
+            <span class="offer__badges-ico">{{ section.settings.b2_emoji }}</span>
+            <strong>{{ section.settings.b2_title }}</strong>
+            <span class="offer__badges-sub">{{ section.settings.b2_sub }}</span>
+          </li>
+        {% endif %}
+        {% if section.settings.b3_title != blank %}
+          <li>
+            <span class="offer__badges-ico">{{ section.settings.b3_emoji }}</span>
+            <strong>{{ section.settings.b3_title }}</strong>
+            <span class="offer__badges-sub">{{ section.settings.b3_sub }}</span>
+          </li>
+        {% endif %}
+        {% if section.settings.b4_title != blank %}
+          <li>
+            <span class="offer__badges-ico">{{ section.settings.b4_emoji }}</span>
+            <strong>{{ section.settings.b4_title }}</strong>
+            <span class="offer__badges-sub">{{ section.settings.b4_sub }}</span>
+          </li>
+        {% endif %}
+      </ul>
+    {% endif %}
+
   </div>
 </section>
 
+<style>
+  .offer { background: #fbf6ee; }
+  .offer__inner { max-width: 560px; margin: 0 auto; padding: 0 20px; text-align: center; }
+  .offer__head { font-family: var(--font-heading); font-size: clamp(1.6rem, 5.2vw, 2.2rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 18px; color: var(--ink); }
+  .offer__head em { font-style: italic; color: var(--accent-deep, var(--ink)); }
+  .offer__img-link { display: block; margin: 4px auto 16px; max-width: 320px; transition: transform .2s ease; }
+  .offer__img-link:hover { transform: translateY(-2px); }
+  .offer__img { width: 100%; height: auto; border-radius: 16px; display: block; box-shadow: 0 12px 28px rgba(0,0,0,.10); }
+  .offer__price { display:flex; align-items:baseline; justify-content:center; gap:10px; margin: 0 0 14px; flex-wrap: wrap; }
+  .offer__price-now { font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--ink); letter-spacing: -0.01em; }
+  .offer__price-was { font-size: 1.05rem; color: var(--muted); text-decoration: line-through; }
+  .offer__price-save { background: #b03a3a; color: #fff; font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+  .offer__body { font-size: 1rem; line-height: 1.55; color: var(--ink-2); margin: 0 auto 22px; max-width: 460px; }
+  .offer__cta { display: inline-block; background: var(--ink); color: #fff; text-decoration: none; padding: 18px 36px; border-radius: 999px; font-weight: 800; font-size: 1.05rem; letter-spacing: .01em; transition: transform .15s ease, background .15s ease; box-shadow: 0 8px 20px rgba(0,0,0,.18); }
+  .offer__cta:hover { background: var(--accent-deep, #000); transform: translateY(-1px); }
+  .offer__shipping { color: var(--ink-2); margin: 14px 0 4px; font-size: .85rem; font-weight: 600; }
+  .offer__guarantee { color: var(--muted); margin: 0 0 28px; font-size: .82rem; }
+  .offer__badges { list-style: none; padding: 22px 16px; margin: 8px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; background: #fff; border-radius: 18px; box-shadow: 0 4px 14px rgba(0,0,0,.04); }
+  .offer__badges li { display:flex; flex-direction:column; align-items:center; text-align:center; gap:2px; }
+  .offer__badges-ico { font-size: 1.4rem; margin-bottom: 4px; }
+  .offer__badges strong { font-size: .82rem; line-height: 1.2; color: var(--ink); }
+  .offer__badges-sub { font-size: .68rem; line-height: 1.25; color: var(--muted); }
+  @media (max-width: 560px) {
+    .offer__badges { grid-template-columns: repeat(2, 1fr); padding: 18px 12px; gap: 16px; }
+    .offer__price-now { font-size: 1.7rem; }
+  }
+</style>
+
 {% schema %}
 {
-  "name": "Final CTA",
+  "name": "Offer reveal",
   "settings": [
     { "type": "text", "id": "heading_lead", "label": "Heading", "default": "Stop living with" },
-    { "type": "text", "id": "heading_accent", "label": "Italic accent", "default": "fur everywhere." },
-    { "type": "textarea", "id": "body", "label": "Body", "default": "One mitt. Every surface. Your couch will thank you." },
-    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Get FurGone — from $29.99" },
-    { "type": "url", "id": "cta_link", "label": "CTA link (leave empty to jump to form)" },
+    { "type": "text", "id": "heading_accent", "label": "Italic accent", "default": "cracked, dry feet." },
+    { "type": "image_picker", "id": "product_image", "label": "Product image" },
+    { "type": "header", "content": "Price" },
+    { "type": "text", "id": "price", "label": "Price", "default": "$19.99" },
+    { "type": "text", "id": "compare_at_price", "label": "Compare-at price", "default": "$29.99" },
+    { "type": "text", "id": "save_badge", "label": "Save badge", "default": "Save 33%" },
+    { "type": "header", "content": "Body & CTA" },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "Goat milk. Niacinamide. 30 minutes. Soft feet that last." },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Get the Goat Milk Mask" },
+    { "type": "url", "id": "cta_link", "label": "CTA link" },
+    { "type": "text", "id": "shipping_line", "label": "Shipping line", "default": "Free US shipping over $30 · Ships within 24 hours" },
     { "type": "text", "id": "guarantee", "label": "Guarantee line", "default": "Backed by our 30-day money-back guarantee" },
+    { "type": "header", "content": "Trust badges (4 max)" },
+    { "type": "text", "id": "b1_emoji", "label": "Badge 1 icon", "default": "🌿" },
+    { "type": "text", "id": "b1_title", "label": "Badge 1 title", "default": "Pregnancy-safe" },
+    { "type": "text", "id": "b1_sub", "label": "Badge 1 subtitle", "default": "no salicylic acid" },
+    { "type": "text", "id": "b2_emoji", "label": "Badge 2 icon", "default": "🧪" },
+    { "type": "text", "id": "b2_title", "label": "Badge 2 title", "default": "Derm-tested" },
+    { "type": "text", "id": "b2_sub", "label": "Badge 2 subtitle", "default": "for sensitive skin" },
+    { "type": "text", "id": "b3_emoji", "label": "Badge 3 icon", "default": "💰" },
+    { "type": "text", "id": "b3_title", "label": "Badge 3 title", "default": "30-day refund" },
+    { "type": "text", "id": "b3_sub", "label": "Badge 3 subtitle", "default": "no questions asked" },
+    { "type": "text", "id": "b4_emoji", "label": "Badge 4 icon", "default": "🚚" },
+    { "type": "text", "id": "b4_title", "label": "Badge 4 title", "default": "Free US shipping" },
+    { "type": "text", "id": "b4_sub", "label": "Badge 4 subtitle", "default": "on 5-pack orders" },
     { "type": "header", "content": "Layout" },
-    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 0 },
-    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 60 }
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 64 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 80 }
   ],
-  "presets": [{ "name": "Final CTA" }]
+  "presets": [{ "name": "Offer reveal" }]
 }
 {% endschema %}
