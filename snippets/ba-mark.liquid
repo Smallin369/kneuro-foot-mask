@@ -1,0 +1,10 @@
+{%- assign val = v | downcase | strip -%}
+{%- if val == 'yes' or val == 'true' or val == 'y' or val == '✓' -%}
+  <span class="ba__yes">✓</span>
+{%- elsif val == 'no' or val == 'false' or val == 'n' or val == '✗' -%}
+  <span class="ba__no">✗</span>
+{%- elsif val == blank -%}
+  <span class="ba__no">✗</span>
+{%- else -%}
+  <span class="ba__partial">{{ v }}</span>
+{%- endif -%}
