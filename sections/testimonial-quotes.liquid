@@ -15,18 +15,29 @@
               assign k_name = 'q' | append: i | append: '_name'
               assign k_initials = 'q' | append: i | append: '_initials'
               assign k_location = 'q' | append: i | append: '_location'
+              assign k_image = 'q' | append: i | append: '_image'
+              assign k_photo = 'q' | append: i | append: '_photo'
               assign q = block.settings[k_quote]
               assign nm = block.settings[k_name]
               assign ini = block.settings[k_initials]
               assign loc = block.settings[k_location]
+              assign avatar = block.settings[k_image]
+              assign photo = block.settings[k_photo]
             -%}
             {% if q != blank %}
               <div class="quote-card">
+                {% if photo %}
+                  <div class="quote-photo"><img src="{{ photo | image_url: width: 800 }}" alt="{{ nm | escape }}" loading="lazy" width="500" height="500"></div>
+                {% endif %}
                 <div class="quote-mark" aria-hidden="true">"</div>
                 <div class="stars" aria-hidden="true">★★★★★</div>
                 <p>{{ q }}</p>
                 <div class="who">
-                  <span class="avatar a{{ i }}">{{ ini }}</span>
+                  {% if avatar %}
+                    <span class="avatar avatar--img"><img src="{{ avatar | image_url: width: 120 }}" alt="" loading="lazy" width="48" height="48"></span>
+                  {% else %}
+                    <span class="avatar a{{ i }}">{{ ini }}</span>
+                  {% endif %}
                   <div class="who-meta">
                     <div class="who-name">{{ nm }}</div>
                     <div class="who-verified"><span class="verified-dot"></span>Verified · {{ loc }}</div>
@@ -67,16 +78,22 @@
       { "type": "text", "id": "q1_name", "label": "Name", "default": "Sarah M." },
       { "type": "text", "id": "q1_initials", "label": "Initials", "default": "SM" },
       { "type": "text", "id": "q1_location", "label": "Location", "default": "Austin, TX" },
+      { "type": "image_picker", "id": "q1_image", "label": "Avatar (circle)" },
+      { "type": "image_picker", "id": "q1_photo", "label": "Photo above quote (e.g. customer's feet result)" },
       { "type": "header", "content": "Quote 2" },
       { "type": "textarea", "id": "q2_quote", "label": "Quote", "default": "Replaced every tool I had. My cat actually lets me use it on her." },
       { "type": "text", "id": "q2_name", "label": "Name", "default": "James R." },
       { "type": "text", "id": "q2_initials", "label": "Initials", "default": "JR" },
       { "type": "text", "id": "q2_location", "label": "Location", "default": "Melbourne, AU" },
+      { "type": "image_picker", "id": "q2_image", "label": "Avatar (circle)" },
+      { "type": "image_picker", "id": "q2_photo", "label": "Photo above quote" },
       { "type": "header", "content": "Quote 3" },
       { "type": "textarea", "id": "q3_quote", "label": "Quote", "default": "I was skeptical. Two weeks later I bought the three pack." },
       { "type": "text", "id": "q3_name", "label": "Name", "default": "Lisa T." },
       { "type": "text", "id": "q3_initials", "label": "Initials", "default": "LT" },
-      { "type": "text", "id": "q3_location", "label": "Location", "default": "London, UK" }
+      { "type": "text", "id": "q3_location", "label": "Location", "default": "London, UK" },
+      { "type": "image_picker", "id": "q3_image", "label": "Avatar (circle)" },
+      { "type": "image_picker", "id": "q3_photo", "label": "Photo above quote" }
     ]},
     { "type": "rich_text", "name": "Rich text", "settings": [ { "type": "richtext", "id": "content", "label": "Content", "default": "<p>Add anything here.</p>" } ] }
   ],

@@ -256,7 +256,7 @@ h1.title em { font-style: italic; color: var(--accent-deep); font-weight: 400; }
   font-size: 14.5px; color: var(--ink-2); font-weight: 500;
 }
 .bullets li { display: flex; align-items: center; gap: 10px; }
-.bullets li::before { content: '🐾'; font-size: 15px; flex: 0 0 auto; }
+.bullets li::before { content: '✦'; font-size: 15px; flex: 0 0 auto; }
 
 /* Bundle picker */
 .bundles { display: flex; flex-direction: column; gap: 12px; margin-top: 6px; }
@@ -479,6 +479,10 @@ table thead .brand-col { background: var(--accent); color: #fff; }
 .quote-card:nth-child(1) { background: linear-gradient(160deg, #fff8eb, var(--surface)); }
 .quote-card:nth-child(2) { background: linear-gradient(160deg, #f5ece1, var(--surface)); }
 .quote-card:nth-child(3) { background: linear-gradient(160deg, #fbeee1, var(--surface)); }
+.quote-photo { margin: -32px -28px 4px; aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-lg) var(--radius-lg) 0 0; background: #eee; }
+.quote-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.avatar--img { padding: 0 !important; overflow: hidden; }
+.avatar--img img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
 .quote-mark {
   font-family: var(--font-heading); font-size: 80px; line-height: 0.6;
   color: var(--accent); font-style: italic; font-weight: 700;
