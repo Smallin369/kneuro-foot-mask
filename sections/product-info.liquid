@@ -19,7 +19,7 @@
   <div class="gallery" style="align-items: var(--gallery-align);">
     <div class="gallery-main" id="galleryMain">
       {% if section.settings.badge_text != blank %}
-        <span class="gallery-badge">🐾 {{ section.settings.badge_text }}</span>
+        <span class="gallery-badge">{{ section.settings.badge_text }}</span>
       {% endif %}
       {% if has_override and g1 %}
         <img src="{{ g1 | image_url: width: 900 }}"
@@ -323,9 +323,9 @@
       { "type": "text", "id": "t2_icon", "label": "Badge 2 icon", "default": "🔒" },
       { "type": "text", "id": "t2_title", "label": "Badge 2 title", "default": "Secure checkout" },
       { "type": "text", "id": "t2_body", "label": "Badge 2 body", "default": "via Shopify" },
-      { "type": "text", "id": "t3_icon", "label": "Badge 3 icon", "default": "🐾" },
-      { "type": "text", "id": "t3_title", "label": "Badge 3 title", "default": "Pet-first design" },
-      { "type": "text", "id": "t3_body", "label": "Badge 3 body", "default": "made to last" }
+      { "type": "text", "id": "t3_icon", "label": "Badge 3 icon", "default": "✦" },
+      { "type": "text", "id": "t3_title", "label": "Badge 3 title", "default": "Clean ingredients" },
+      { "type": "text", "id": "t3_body", "label": "Badge 3 body", "default": "pregnancy-safe" }
     ]},
     { "type": "description", "name": "Product description", "limit": 1, "settings": [] },
     { "type": "custom_html", "name": "Custom HTML", "settings": [

@@ -256,7 +256,7 @@ h1.title em { font-style: italic; color: var(--accent-deep); font-weight: 400; }
   font-size: 14.5px; color: var(--ink-2); font-weight: 500;
 }
 .bullets li { display: flex; align-items: center; gap: 10px; }
-.bullets li::before { content: '🐾'; font-size: 15px; flex: 0 0 auto; }
+.bullets li::before { content: '✦'; font-size: 15px; flex: 0 0 auto; }
 
 /* Bundle picker */
 .bundles { display: flex; flex-direction: column; gap: 12px; margin-top: 6px; }
