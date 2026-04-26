@@ -121,11 +121,9 @@
         next.style.transition = 'opacity .25s ease';
         next.style.opacity = '0';
         main.appendChild(next);
-        // Force reflow then fade in on the next frame
         next.getBoundingClientRect();
-        requestAnimationFrame(() => {
-          next.style.opacity = '1';
-        });
+        // Use setTimeout so the browser commits the initial 0 before transitioning to 1
+        setTimeout(() => { next.style.opacity = '1'; }, 30);
       }, 210);
     });
   });
