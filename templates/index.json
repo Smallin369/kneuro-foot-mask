@@ -325,15 +325,15 @@
         "img1",
         "q_hannah",
         "p2",
-        "ing",
-        "cta1",
         "img2",
         "p_science",
         "q_priya",
         "quote",
         "p3",
         "img3",
-        "q_daniel"
+        "q_daniel",
+        "ing",
+        "cta1"
       ],
       "settings": {
         "cta_url": "/products/goat-milk-foot-mask",
