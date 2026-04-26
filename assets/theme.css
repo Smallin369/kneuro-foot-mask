@@ -432,6 +432,8 @@ h1.title em { font-style: italic; color: var(--accent-deep); font-weight: 400; }
 }
 .step .img { aspect-ratio: 4/3; overflow: hidden; background: #eee; }
 .step .img img { width: 100%; height: 100%; object-fit: cover; }
+.step .img--placeholder { display: flex; align-items: center; justify-content: center; background: linear-gradient(160deg, var(--cream-soft, #fbf6ee), var(--cream, #f5e8d1)); }
+.step-num-big { font-family: var(--font-heading, Georgia, serif); font-size: clamp(3rem, 8vw, 5rem); font-weight: 700; color: var(--accent, #e8833a); opacity: .55; letter-spacing: -.02em; }
 .step .body { padding: 22px 24px 26px; }
 .step .num {
   font-family: var(--font-heading); font-size: 38px; font-weight: 700;

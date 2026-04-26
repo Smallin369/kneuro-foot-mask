@@ -25,13 +25,17 @@
             -%}
             {% if s_title != blank %}
               <div class="step">
-                <div class="img">
-                  {% if s_image %}
+                {% if s_image %}
+                  <div class="img">
                     <img src="{{ s_image | image_url: width: 900 }}" alt="{{ s_title | escape }}" loading="lazy" width="600" height="450">
-                  {% else %}
+                  </div>
+                {% elsif fallback != blank %}
+                  <div class="img">
                     <img src="{{ fallback | asset_url }}" alt="{{ s_title | escape }}" loading="lazy" width="600" height="450">
-                  {% endif %}
-                </div>
+                  </div>
+                {% else %}
+                  <div class="img img--placeholder"><span class="step-num-big">{{ num_str }}</span></div>
+                {% endif %}
                 <div class="body">
                   <div class="num">{{ num_str }}</div>
                   <h3>{{ s_title }}</h3>
