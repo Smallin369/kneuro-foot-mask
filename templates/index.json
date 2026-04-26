@@ -271,14 +271,47 @@
         "padding_top": 64,
         "padding_bottom": 80
       }
+    },
+    "br1": {
+      "type": "section-bridge",
+      "settings": {
+        "label": "Read Sarah's story",
+        "target_anchor": "",
+        "bg": "",
+        "padding_top": 16,
+        "padding_bottom": 28
+      }
+    },
+    "br2": {
+      "type": "section-bridge",
+      "settings": {
+        "label": "See real results",
+        "target_anchor": "",
+        "bg": "",
+        "padding_top": 16,
+        "padding_bottom": 28
+      }
+    },
+    "br3": {
+      "type": "section-bridge",
+      "settings": {
+        "label": "Got questions? See FAQ",
+        "target_anchor": "",
+        "bg": "",
+        "padding_top": 16,
+        "padding_bottom": 28
+      }
     }
   },
   "order": [
     "scarcity",
     "hero",
+    "br1",
     "story",
+    "br2",
     "ba",
     "final",
+    "br3",
     "faq"
   ]
 }
