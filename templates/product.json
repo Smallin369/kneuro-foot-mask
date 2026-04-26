@@ -288,10 +288,10 @@
   },
   "order": [
     "main",
+    "description",
     "compare",
     "quotes",
     "faq",
-    "description",
     "final"
   ]
 }

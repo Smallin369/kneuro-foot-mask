@@ -41,23 +41,64 @@
   });
 })();
 
-// ---------- Gallery thumbnail swap (crossfade) ----------
-(function gallerySwap() {
-  const thumbs = document.querySelectorAll('.gallery-thumbs .th');
+// ---------- Gallery: crossfade swap + click-to-zoom lightbox ----------
+(function galleryEnhance() {
   const main = document.getElementById('galleryMain');
-  if (!thumbs.length || !main) return;
+  if (!main) return;
+  main.style.position = main.style.position || 'relative';
 
-  if (!main.dataset.gsInit) {
-    main.dataset.gsInit = '1';
-    main.style.position = main.style.position || 'relative';
-    main.querySelectorAll('img, video').forEach((el) => {
-      el.classList.add('gs-layer', 'is-active');
+  // Lightbox singleton
+  let lightbox = document.getElementById('gsLightbox');
+  if (!lightbox) {
+    lightbox = document.createElement('div');
+    lightbox.id = 'gsLightbox';
+    lightbox.className = 'gs-lightbox';
+    lightbox.innerHTML = '<button class="gs-lightbox-close" type="button" aria-label="Close">×</button>';
+    document.body.appendChild(lightbox);
+    const close = () => {
+      lightbox.classList.remove('is-open');
+      const m = lightbox.querySelector('img, video');
+      if (m) m.remove();
+      document.body.style.overflow = '';
+    };
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.classList.contains('gs-lightbox-close')) close();
     });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
   }
+
+  const openLightbox = (src, type) => {
+    const old = lightbox.querySelector('img, video');
+    if (old) old.remove();
+    let el;
+    if (type === 'video') {
+      el = document.createElement('video');
+      el.src = src; el.controls = true; el.autoplay = true; el.playsInline = true;
+    } else {
+      el = document.createElement('img');
+      el.src = src; el.alt = '';
+    }
+    lightbox.appendChild(el);
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  // Click main image → lightbox at full resolution
+  main.addEventListener('click', (e) => {
+    const target = e.target.closest('img, video');
+    if (!target) return;
+    const src = target.currentSrc || target.src;
+    openLightbox(src, target.tagName === 'VIDEO' ? 'video' : 'img');
+  });
+
+  // Crossfade thumbnail swap
+  const thumbs = document.querySelectorAll('.gallery-thumbs .th');
+  if (!thumbs.length) return;
 
   let busy = false;
   thumbs.forEach((t) => {
-    t.addEventListener('click', () => {
+    t.addEventListener('click', (ev) => {
+      ev.stopPropagation();
       if (busy) return;
       const src = t.dataset.src;
       if (!src) return;
@@ -66,36 +107,31 @@
       thumbs.forEach((x) => x.classList.remove('active'));
       t.classList.add('active');
 
-      const current = main.querySelector('.gs-layer.is-active');
-      if (current && current.dataset.src === src) return;
+      const current = main.querySelector('img, video');
+      if (current && (current.currentSrc === src || current.src === src)) return;
 
       busy = true;
       let next;
       if (type === 'video') {
         next = document.createElement('video');
-        next.src = src;
-        next.autoplay = true;
-        next.muted = true;
-        next.loop = true;
-        next.playsInline = true;
+        next.src = src; next.autoplay = true; next.muted = true; next.loop = true; next.playsInline = true;
       } else {
         next = document.createElement('img');
-        next.src = src;
-        next.alt = '';
+        next.src = src; next.alt = '';
       }
-      next.dataset.src = src;
-      next.classList.add('gs-layer');
+      next.classList.add('gs-layer', 'gs-out');
       main.appendChild(next);
 
       const reveal = () => {
         requestAnimationFrame(() => {
-          next.classList.add('is-active');
-          if (current) current.classList.remove('is-active');
-          const cleanup = () => {
+          next.classList.remove('gs-out');
+          if (current) {
+            current.classList.add('gs-layer', 'gs-out');
+          }
+          setTimeout(() => {
             if (current && current.parentNode) current.parentNode.removeChild(current);
             busy = false;
-          };
-          setTimeout(cleanup, 420);
+          }, 380);
         });
       };
 
