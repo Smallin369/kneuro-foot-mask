@@ -196,7 +196,9 @@ h1, h2, h3 {
 .atc-modal__close:hover { background: rgba(0,0,0,.06); }
 .atc-modal__check { width: 56px; height: 56px; border-radius: 50%; background: var(--accent, #e8833a); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; margin: 0 auto 14px; box-shadow: 0 10px 24px -10px rgba(232,131,58,.6); }
 .atc-modal__title { font-family: var(--font-heading, Georgia, serif); font-size: 1.5rem; font-weight: 700; margin: 0 0 6px; color: var(--ink, #2a1c12); }
-.atc-modal__line { color: var(--ink-2, #4a3a2a); margin: 0 0 16px; font-size: .95rem; }
+.atc-modal__line { color: var(--ink-2, #4a3a2a); margin: 0 0 16px; font-size: .95rem; display: flex; flex-direction: column; gap: 4px; align-items: center; }
+.atc-modal__line strong { color: var(--ink, #2a1c12); font-weight: 700; font-size: 1rem; }
+.atc-modal__variant { display: inline-block; padding: 3px 10px; background: var(--cream-soft, #fbf6ee); border-radius: 999px; font-size: .8rem; color: var(--accent-deep, #c4651b); font-weight: 600; }
 .atc-modal__summary { background: #fbf6ee; border-radius: 12px; padding: 14px 16px; margin: 0 0 20px; text-align: left; font-size: .88rem; }
 .atc-modal__row { display: flex; justify-content: space-between; align-items: baseline; padding: 4px 0; color: var(--ink-2, #4a3a2a); }
 .atc-modal__row strong { color: var(--ink, #2a1c12); font-weight: 700; }
