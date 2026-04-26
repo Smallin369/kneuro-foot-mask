@@ -277,22 +277,7 @@
             "row_5_brand": "yes",
             "row_5_c2": "no",
             "row_5_c3": "no",
-            "row_5_c4": "partial",
-            "row_6_label": "Safe for diabetics",
-            "row_6_brand": "yes",
-            "row_6_c2": "no",
-            "row_6_c3": "no",
-            "row_6_c4": "yes",
-            "row_7_label": "Works on hands too",
-            "row_7_brand": "yes",
-            "row_7_c2": "no",
-            "row_7_c3": "no",
-            "row_7_c4": "yes",
-            "row_8_label": "Under $25",
-            "row_8_brand": "yes",
-            "row_8_c2": "no",
-            "row_8_c3": "yes",
-            "row_8_c4": "yes"
+            "row_5_c4": "partial"
           }
         }
       },
