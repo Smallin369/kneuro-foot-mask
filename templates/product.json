@@ -403,15 +403,81 @@
         "padding_top": 48,
         "padding_bottom": 56
       }
+    },
+    "br1": {
+      "type": "section-bridge",
+      "settings": {
+        "label": "See how it works",
+        "target_anchor": "",
+        "padding_top": 16,
+        "padding_bottom": 28,
+        "bg": ""
+      }
+    },
+    "br2": {
+      "type": "section-bridge",
+      "settings": {
+        "label": "What does it actually look like?",
+        "target_anchor": "",
+        "padding_top": 16,
+        "padding_bottom": 28,
+        "bg": ""
+      }
+    },
+    "br3": {
+      "type": "section-bridge",
+      "settings": {
+        "label": "Here's the secret formula",
+        "target_anchor": "",
+        "padding_top": 16,
+        "padding_bottom": 28,
+        "bg": ""
+      }
+    },
+    "br4": {
+      "type": "section-bridge",
+      "settings": {
+        "label": "How does it compare?",
+        "target_anchor": "",
+        "padding_top": 16,
+        "padding_bottom": 28,
+        "bg": ""
+      }
+    },
+    "br5": {
+      "type": "section-bridge",
+      "settings": {
+        "label": "What do customers say?",
+        "target_anchor": "reviews",
+        "padding_top": 16,
+        "padding_bottom": 28,
+        "bg": ""
+      }
+    },
+    "br6": {
+      "type": "section-bridge",
+      "settings": {
+        "label": "Got questions?",
+        "target_anchor": "",
+        "padding_top": 16,
+        "padding_bottom": 28,
+        "bg": ""
+      }
     }
   },
   "order": [
     "main",
+    "br1",
     "howto",
+    "br2",
     "baproof",
+    "br3",
     "ingredients",
+    "br4",
     "compare",
+    "br5",
     "quotes",
+    "br6",
     "faq",
     "final"
   ]
