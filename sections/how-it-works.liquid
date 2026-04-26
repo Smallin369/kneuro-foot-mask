@@ -9,7 +9,7 @@
         <p class="section-sub" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
       {% when 'steps_row' %}
         {%- liquid
-          assign step_imgs = 'step1.jpg,step2.jpg,macro-fur.jpg' | split: ','
+          assign step_imgs = '' | split: ','
         -%}
         <div class="steps" {{ block.shopify_attributes }}>
           {% for i in (1..3) %}
@@ -73,7 +73,7 @@
       { "type": "textarea", "id": "s1_body", "label": "Body", "default": "Adjustable strap fits any hand." },
       { "type": "header", "content": "Step 2" },
       { "type": "image_picker", "id": "s2_image", "label": "Image (optional)" },
-      { "type": "text", "id": "s2_title", "label": "Title", "default": "One swipe" },
+      { "type": "text", "id": "s2_title", "label": "Title", "default": "Wait 30 minutes" },
       { "type": "textarea", "id": "s2_body", "label": "Body", "default": "Fur lifts into the mesh." },
       { "type": "header", "content": "Step 3" },
       { "type": "image_picker", "id": "s3_image", "label": "Image (optional)" },

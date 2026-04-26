@@ -31,7 +31,7 @@
     </div>
 
     {% if section.settings.cta_label != blank %}
-      <a class="rr__cta" href="{{ section.settings.cta_url | default: '/products/furgone-gloves' }}">{{ section.settings.cta_label }}</a>
+      <a class="rr__cta" href="{{ section.settings.cta_url | default: '/products/kneuro-gloves' }}">{{ section.settings.cta_label }}</a>
     {% endif %}
   </div>
 </section>
@@ -68,7 +68,7 @@
     { "type": "text", "id": "kicker", "label": "Kicker", "default": "Real customers, real reviews" },
     { "type": "text", "id": "heading_lead", "label": "Heading lead", "default": "What pet parents" },
     { "type": "text", "id": "heading_accent", "label": "Heading accent", "default": "actually say." },
-    { "type": "text", "id": "subhead", "label": "Subhead", "default": "Verified reviews from FurGone customers — including the honest ones." },
+    { "type": "text", "id": "subhead", "label": "Subhead", "default": "Verified reviews from Kneuro customers — including the honest ones." },
     { "type": "header", "content": "CTA" },
     { "type": "text", "id": "cta_label", "label": "Button label", "default": "Get yours — from $29.99 →" },
     { "type": "url", "id": "cta_url", "label": "Button link" },
@@ -80,7 +80,7 @@
   "blocks": [
     { "type": "review", "name": "Review", "settings": [
       { "type": "image_picker", "id": "image", "label": "Customer photo (preferred)" },
-      { "type": "text", "id": "image_asset", "label": "Theme asset filename (e.g. glove_review_1.avif)" },
+      { "type": "text", "id": "image_asset", "label": "Theme asset filename" },
       { "type": "url", "id": "image_url", "label": "Customer photo URL (fallback)" },
       { "type": "range", "id": "rating", "label": "Stars", "min": 1, "max": 5, "step": 1, "default": 5 },
       { "type": "textarea", "id": "review", "label": "Review text", "default": "Honest review goes here." },
