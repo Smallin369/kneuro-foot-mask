@@ -13,7 +13,7 @@
       "type": "scarcity-bar",
       "settings": {
         "icon": "",
-        "text": "LIMITED TIME \u2014 SAVE UP TO 30% ON THE 3-PACK \u00b7 FREE SHIPPING OVER $30",
+        "text": "LIMITED TIME — SAVE UP TO 30% ON THE 3-PACK · FREE SHIPPING OVER $30",
         "show_timer": false,
         "timer_end_iso": "",
         "bg": "#1a1a1a",
@@ -23,16 +23,10 @@
     "hero": {
       "type": "advertorial-hero",
       "settings": {
-        "eyebrow": "\u2605 4.8 \u00b7 1,200+ REVIEWS",
         "headline": "Soft feet. In 30 minutes.",
         "subhead": "Cracked heels? Dry skin? Our goat milk + niacinamide foot mask softens without harsh acids. Gentle, pregnancy-safe, dermatologist-tested.",
-        "chip_1": "Pregnancy-safe",
-        "chip_2": "No harsh acids",
-        "chip_3": "30-min results",
-        "cta_label": "Shop now \u2014 from $19.99",
-        "cta_subtext": "Free US shipping over $30 \u00b7 30-day money-back guarantee",
-        "cta_url": "/products/null-1777186869995",
         "caption": "Real customer photo. One pair, one nap, soft feet.",
+        "cta_url": "/products/null-1777186869995",
         "bg": "",
         "padding_top": 32,
         "padding_bottom": 32
@@ -45,16 +39,7 @@
         "heading_lead": "Before & after,",
         "heading_accent": "in 30 minutes.",
         "subhead": "Submitted by Kneuro customers. One pair, one application, visibly softer feet.",
-        "pair_1_label": "Cracked heels \u00b7 1 application",
-        "pair_1_quote": "I've tried Baby Foot, the harsh acid ones, and they always burned and made my feet flake painfully for two weeks. This one is gentle \u2014 no peeling, no burning, just soft hydrated feet the next morning.",
-        "pair_1_attr": "Hannah M. \u00b7 Sensitive skin \u00b7 Verified buyer",
-        "pair_2_label": "Dry hands \u00b7 2 applications",
-        "pair_2_quote": "I bought this because I'm pregnant and couldn't use the regular foot peels (salicylic acid is a no-go). My feet were so dry from the swelling. Used this and they actually felt soft for the first time in months. Genuine relief.",
-        "pair_2_attr": "Priya R. \u00b7 Pregnant \u00b7 Verified buyer",
-        "pair_3_label": "Rough elbows \u00b7 1 application",
-        "pair_3_quote": "Bought the 3-pack for me, my mom, and my sister. All three of us texted each other the next day in caps lock. The soft sock shape is silly cute but the formula is real.",
-        "pair_3_attr": "Daniel K. \u00b7 Bought as a gift \u00b7 Verified buyer",
-        "cta_label": "Get yours \u2014 from $19.99 \u2192",
+        "cta_label": "Get yours — from $19.99 →",
         "cta_url": "/products/null-1777186869995",
         "bg": "",
         "padding_top": 64,
@@ -143,13 +128,13 @@
           "type": "faq_list",
           "settings": {
             "q1_question": "Is this safe to use during pregnancy?",
-            "q1_answer": "Yes. Our formula uses goat milk, niacinamide, glycerin, and allantoin \u2014 all pregnancy-safe. Unlike most foot peels, we contain no salicylic acid, no glycolic acid, and no essential oils. If you have any concerns, check with your OB-GYN first.",
+            "q1_answer": "Yes. Our formula uses goat milk, niacinamide, glycerin, and allantoin — all pregnancy-safe. Unlike most foot peels, we contain no salicylic acid, no glycolic acid, and no essential oils. If you have any concerns, check with your OB-GYN first.",
             "q2_question": "How fast will I see results?",
-            "q2_answer": "Most customers see softer, more hydrated feet after one 30-minute session. For deeply cracked heels, we recommend 2\u20133 applications spaced a week apart for best results.",
+            "q2_answer": "Most customers see softer, more hydrated feet after one 30-minute session. For deeply cracked heels, we recommend 2–3 applications spaced a week apart for best results.",
             "q3_question": "How is this different from Baby Foot?",
-            "q3_answer": "Baby Foot uses a strong acid blend (glycolic, lactic, salicylic) that causes dramatic peeling 3\u20137 days after application. We use a goat milk + niacinamide hydrating formula that softens skin gradually without the painful peel. Better for sensitive skin, pregnancy, diabetes, and anyone who can't be barefoot in public for a week.",
+            "q3_answer": "Baby Foot uses a strong acid blend (glycolic, lactic, salicylic) that causes dramatic peeling 3–7 days after application. We use a goat milk + niacinamide hydrating formula that softens skin gradually without the painful peel. Better for sensitive skin, pregnancy, diabetes, and anyone who can't be barefoot in public for a week.",
             "q4_question": "What's your return policy?",
-            "q4_answer": "30-day money-back guarantee, no questions asked. If you're not happy with your results, email us and we'll refund you in full \u2014 even if the box is opened.",
+            "q4_answer": "30-day money-back guarantee, no questions asked. If you're not happy with your results, email us and we'll refund you in full — even if the box is opened.",
             "q5_question": "Can I use it on my hands and elbows too?",
             "q5_answer": "Absolutely. The same formula works on dry hands, rough elbows, and even knees. Many customers buy the 3-pack specifically to use across multiple body areas."
           }
@@ -191,7 +176,7 @@
         "c1": {
           "type": "card",
           "settings": {
-            "emoji": "\ud83e\udd5b",
+            "emoji": "🥛",
             "title": "Goat Milk",
             "body": "Lactic acid and natural fats deeply hydrate without irritation. 4,000 years of skincare history."
           }
@@ -199,7 +184,7 @@
         "c2": {
           "type": "card",
           "settings": {
-            "emoji": "\u2728",
+            "emoji": "✨",
             "title": "Niacinamide",
             "body": "Vitamin B3 evens skin tone, brightens, and strengthens the skin barrier."
           }
@@ -207,7 +192,7 @@
         "c3": {
           "type": "card",
           "settings": {
-            "emoji": "\ud83d\udca7",
+            "emoji": "💧",
             "title": "Glycerin",
             "body": "A humectant that pulls moisture into the deepest layers of skin."
           }
@@ -215,9 +200,9 @@
         "c4": {
           "type": "card",
           "settings": {
-            "emoji": "\ud83c\udf3f",
+            "emoji": "🌿",
             "title": "Allantoin",
-            "body": "Soothes irritation and accelerates skin renewal \u2014 gentle on sensitive skin."
+            "body": "Soothes irritation and accelerates skin renewal — gentle on sensitive skin."
           }
         }
       },
@@ -242,7 +227,7 @@
         "i1": {
           "type": "item",
           "settings": {
-            "emoji": "\ud83c\udf3f",
+            "emoji": "🌿",
             "title": "Pregnancy-safe",
             "body": "no salicylic acid"
           }
@@ -250,7 +235,7 @@
         "i2": {
           "type": "item",
           "settings": {
-            "emoji": "\ud83e\uddea",
+            "emoji": "🧪",
             "title": "Dermatologist-tested",
             "body": "for sensitive skin"
           }
@@ -258,7 +243,7 @@
         "i3": {
           "type": "item",
           "settings": {
-            "emoji": "\ud83d\udcb0",
+            "emoji": "💰",
             "title": "30-day guarantee",
             "body": "full refund, no questions"
           }
@@ -266,7 +251,7 @@
         "i4": {
           "type": "item",
           "settings": {
-            "emoji": "\ud83d\ude9a",
+            "emoji": "🚚",
             "title": "Free US shipping",
             "body": "on orders over $30"
           }
@@ -290,7 +275,7 @@
         "heading_lead": "Stop living with",
         "heading_accent": "cracked, dry feet.",
         "body": "Goat milk. Niacinamide. 30 minutes. Soft feet that last.",
-        "cta_label": "Get the Goat Milk Mask \u2014 from $19.99",
+        "cta_label": "Get the Goat Milk Mask — from $19.99",
         "cta_link": "",
         "guarantee": "Backed by our 30-day money-back guarantee",
         "padding_top": 64,
