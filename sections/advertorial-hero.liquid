@@ -32,6 +32,42 @@
       </figure>
     {% endif %}
 
+    {% if section.settings.i1_title != blank or section.settings.i2_title != blank or section.settings.i3_title != blank or section.settings.i4_title != blank %}
+      <div class="adv-hero__ing">
+        {% if section.settings.ing_heading != blank %}<h3 class="adv-hero__ing-h">{{ section.settings.ing_heading }}</h3>{% endif %}
+        <div class="adv-hero__ing-grid">
+          {% if section.settings.i1_title != blank %}
+            <div class="adv-hero__ing-card">
+              <span class="adv-hero__ing-ico">{{ section.settings.i1_emoji }}</span>
+              <strong>{{ section.settings.i1_title }}</strong>
+              <span class="adv-hero__ing-body">{{ section.settings.i1_body }}</span>
+            </div>
+          {% endif %}
+          {% if section.settings.i2_title != blank %}
+            <div class="adv-hero__ing-card">
+              <span class="adv-hero__ing-ico">{{ section.settings.i2_emoji }}</span>
+              <strong>{{ section.settings.i2_title }}</strong>
+              <span class="adv-hero__ing-body">{{ section.settings.i2_body }}</span>
+            </div>
+          {% endif %}
+          {% if section.settings.i3_title != blank %}
+            <div class="adv-hero__ing-card">
+              <span class="adv-hero__ing-ico">{{ section.settings.i3_emoji }}</span>
+              <strong>{{ section.settings.i3_title }}</strong>
+              <span class="adv-hero__ing-body">{{ section.settings.i3_body }}</span>
+            </div>
+          {% endif %}
+          {% if section.settings.i4_title != blank %}
+            <div class="adv-hero__ing-card">
+              <span class="adv-hero__ing-ico">{{ section.settings.i4_emoji }}</span>
+              <strong>{{ section.settings.i4_title }}</strong>
+              <span class="adv-hero__ing-body">{{ section.settings.i4_body }}</span>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
   </div>
 </section>
 
@@ -48,10 +84,18 @@
   .adv-hero__fig { margin: 0 0 8px; }
   .adv-hero__img { width: 100%; max-height: 460px; object-fit: cover; border-radius: 6px; display: block; }
   .adv-hero__caption { color: var(--muted); font-size: .8rem; font-style: italic; margin: 10px 0 0; line-height: 1.45; }
+  .adv-hero__ing { margin: 22px 0 4px; padding: 18px 16px; background: var(--cream-soft, #fbf6ee); border-radius: 14px; }
+  .adv-hero__ing-h { font-family: var(--font-heading); font-size: .98rem; font-weight: 700; color: var(--ink); margin: 0 0 12px; text-align: center; letter-spacing: -0.01em; }
+  .adv-hero__ing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .adv-hero__ing-card { display: flex; flex-direction: column; gap: 2px; padding: 10px 8px; background: #fff; border-radius: 10px; text-align: center; align-items: center; }
+  .adv-hero__ing-ico { font-size: 1.3rem; margin-bottom: 2px; }
+  .adv-hero__ing-card strong { font-size: .82rem; font-weight: 700; color: var(--ink); line-height: 1.2; }
+  .adv-hero__ing-body { font-size: .68rem; line-height: 1.35; color: var(--muted); margin-top: 2px; }
   @media (max-width: 480px) {
     .adv-hero__title { font-size: 1.6rem; }
     .adv-hero__sub { font-size: 1rem; }
     .adv-hero__img { max-height: 360px; }
+    .adv-hero__ing-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   }
 </style>
 
@@ -71,6 +115,20 @@
     { "type": "header", "content": "Lead image" },
     { "type": "image_picker", "id": "hero_image", "label": "Lead image (UGC-style works best)" },
     { "type": "text", "id": "caption", "label": "Image caption", "default": "Real customer photo. One pair, one nap, soft feet." },
+    { "type": "header", "content": "Ingredient cards (4 max)" },
+    { "type": "text", "id": "ing_heading", "label": "Heading", "default": "Four ingredients, zero compromise" },
+    { "type": "text", "id": "i1_emoji", "label": "Card 1 icon", "default": "🥛" },
+    { "type": "text", "id": "i1_title", "label": "Card 1 title", "default": "Goat Milk" },
+    { "type": "textarea", "id": "i1_body", "label": "Card 1 body", "default": "Gentle lactic acid hydrates without stripping the skin barrier." },
+    { "type": "text", "id": "i2_emoji", "label": "Card 2 icon", "default": "✨" },
+    { "type": "text", "id": "i2_title", "label": "Card 2 title", "default": "Niacinamide" },
+    { "type": "textarea", "id": "i2_body", "label": "Card 2 body", "default": "Vitamin B3 strengthens the barrier and evens skin tone." },
+    { "type": "text", "id": "i3_emoji", "label": "Card 3 icon", "default": "💧" },
+    { "type": "text", "id": "i3_title", "label": "Card 3 title", "default": "Glycerin" },
+    { "type": "textarea", "id": "i3_body", "label": "Card 3 body", "default": "Pulls deep moisture into the dermis — soft for days, not hours." },
+    { "type": "text", "id": "i4_emoji", "label": "Card 4 icon", "default": "🌿" },
+    { "type": "text", "id": "i4_title", "label": "Card 4 title", "default": "Allantoin" },
+    { "type": "textarea", "id": "i4_body", "label": "Card 4 body", "default": "Soothes irritation. Safe for sensitive, pregnant, and diabetic skin." },
     { "type": "header", "content": "Hidden / legacy" },
     { "type": "url", "id": "cta_url", "label": "CTA link (used by inline links)" },
     { "type": "header", "content": "Layout" },
