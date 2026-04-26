@@ -1,0 +1,111 @@
+<section class="container" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'kicker' %}
+        <div class="section-kicker" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+      {% when 'heading' %}
+        <h2 class="section-title" {{ block.shopify_attributes }}>{{ block.settings.lead }} <em>{{ block.settings.accent }}</em></h2>
+      {% when 'table' %}
+        <div class="compare" {{ block.shopify_attributes }}>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th class="brand-col">{{ block.settings.col_brand }}</th>
+                <th>{{ block.settings.col_2 }}</th>
+                <th>{{ block.settings.col_3 }}</th>
+                <th>{{ block.settings.col_4 }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in (1..8) %}
+                {%- liquid
+                  assign k_label = 'row_' | append: row | append: '_label'
+                  assign label = block.settings[k_label]
+                -%}
+                {% if label != blank %}
+                  <tr>
+                    <td>{{ label }}</td>
+                    {%- assign cols = 'brand,c2,c3,c4' | split: ',' -%}
+                    {% for col in cols %}
+                      {%- liquid
+                        assign k_val = 'row_' | append: row | append: '_' | append: col
+                        assign val = block.settings[k_val]
+                      -%}
+                      <td class="{% if col == 'brand' %}brand-col{% endif %}">{% if val == 'yes' %}<span class="check">✓</span>{% elsif val == 'no' %}<span class="x">✗</span>{% else %}<span class="mid">{{ val }}</span>{% endif %}</td>
+                    {% endfor %}
+                  </tr>
+                {% endif %}
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% when 'rich_text' %}
+        <div class="rich-text-block" {{ block.shopify_attributes }}>{{ block.settings.content }}</div>
+      {% when '@app' %}
+        {% render block %}
+    {% endcase %}
+  {% endfor %}
+</section>
+
+{% schema %}
+{
+  "name": "Comparison table",
+  "settings": [
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 88 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 88 },
+    { "type": "color", "id": "bg_color", "label": "Background" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    { "type": "kicker", "name": "Kicker", "settings": [ { "type": "text", "id": "text", "label": "Text", "default": "The honest comparison" } ] },
+    { "type": "heading", "name": "Heading", "settings": [
+      { "type": "text", "id": "lead", "label": "Lead", "default": "FurGone vs." },
+      { "type": "text", "id": "accent", "label": "Italic accent", "default": "everything else." }
+    ]},
+    { "type": "table", "name": "Table (up to 8 rows)", "limit": 1, "settings": [
+      { "type": "text", "id": "col_brand", "label": "Column brand", "default": "FurGone 🐾" },
+      { "type": "text", "id": "col_2", "label": "Column 2", "default": "Lint roller" },
+      { "type": "text", "id": "col_3", "label": "Column 3", "default": "Vacuum" },
+      { "type": "text", "id": "col_4", "label": "Column 4", "default": "Deshed brush" },
+      { "type": "header", "content": "Row 1" },
+      { "type": "text", "id": "row_1_label", "label": "Label", "default": "Works on couches" },
+      { "type": "text", "id": "row_1_brand", "label": "FurGone", "default": "yes" },
+      { "type": "text", "id": "row_1_c2", "label": "Col 2", "default": "slow" },
+      { "type": "text", "id": "row_1_c3", "label": "Col 3", "default": "no" },
+      { "type": "text", "id": "row_1_c4", "label": "Col 4", "default": "no" },
+      { "type": "header", "content": "Row 2" },
+      { "type": "text", "id": "row_2_label", "label": "Label", "default": "Works on pet fur" },
+      { "type": "text", "id": "row_2_brand", "label": "FurGone", "default": "yes" },
+      { "type": "text", "id": "row_2_c2", "label": "Col 2", "default": "yes" },
+      { "type": "text", "id": "row_2_c3", "label": "Col 3", "default": "partial" },
+      { "type": "text", "id": "row_2_c4", "label": "Col 4", "default": "yes" },
+      { "type": "header", "content": "Row 3" },
+      { "type": "text", "id": "row_3_label", "label": "Label", "default": "Reusable" },
+      { "type": "text", "id": "row_3_brand", "label": "FurGone", "default": "yes" },
+      { "type": "text", "id": "row_3_c2", "label": "Col 2", "default": "no" },
+      { "type": "text", "id": "row_3_c3", "label": "Col 3", "default": "yes" },
+      { "type": "text", "id": "row_3_c4", "label": "Col 4", "default": "yes" },
+      { "type": "header", "content": "Row 4" },
+      { "type": "text", "id": "row_4_label", "label": "Label", "default": "Zero waste" },
+      { "type": "text", "id": "row_4_brand", "label": "FurGone", "default": "yes" },
+      { "type": "text", "id": "row_4_c2", "label": "Col 2", "default": "no" },
+      { "type": "text", "id": "row_4_c3", "label": "Col 3", "default": "no" },
+      { "type": "text", "id": "row_4_c4", "label": "Col 4", "default": "no" },
+      { "type": "header", "content": "Row 5" },
+      { "type": "text", "id": "row_5_label", "label": "Label", "default": "Rinses clean" },
+      { "type": "text", "id": "row_5_brand", "label": "FurGone", "default": "yes" },
+      { "type": "text", "id": "row_5_c2", "label": "Col 2", "default": "no" },
+      { "type": "text", "id": "row_5_c3", "label": "Col 3", "default": "no" },
+      { "type": "text", "id": "row_5_c4", "label": "Col 4", "default": "partial" }
+    ]},
+    { "type": "rich_text", "name": "Rich text", "settings": [ { "type": "richtext", "id": "content", "label": "Content", "default": "<p>Add anything here.</p>" } ] }
+  ],
+  "max_blocks": 20,
+  "presets": [{
+    "name": "Comparison table",
+    "blocks": [ { "type": "kicker" }, { "type": "heading" }, { "type": "table" } ]
+  }]
+}
+{% endschema %}

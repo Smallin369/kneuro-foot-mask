@@ -1,0 +1,41 @@
+<section class="container" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
+  <div class="problem">
+    <div class="problem-img">
+      {% if section.settings.image %}
+        <img src="{{ section.settings.image | image_url: width: 1200 }}" alt="" loading="lazy" width="600" height="750">
+      {% else %}
+        <img src="{{ 'lifestyle-dog.jpg' | asset_url }}" alt="" loading="lazy" width="600" height="750">
+      {% endif %}
+    </div>
+    <div>
+      <div class="section-kicker">{{ section.settings.kicker }}</div>
+      <h2>{{ section.settings.heading_lead }} <em>{{ section.settings.heading_accent }}</em> {{ section.settings.heading_trail }}</h2>
+      <p>{{ section.settings.body_1 }}</p>
+      <p>{{ section.settings.body_2 }}</p>
+      <div style="margin-top: 24px;">
+        <a href="#ProductForm" class="btn-ghost" style="display:inline-block">{{ section.settings.cta_label }} →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Problem block",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Sound familiar?" },
+    { "type": "text", "id": "heading_lead", "label": "Heading start", "default": "Vacuums miss it. Lint rollers" },
+    { "type": "text", "id": "heading_accent", "label": "Italic accent", "default": "eat through rolls." },
+    { "type": "text", "id": "heading_trail", "label": "Heading end", "default": "And the dog hates the brush." },
+    { "type": "textarea", "id": "body_1", "label": "Paragraph 1", "default": "You've tried the gadgets. You've paid for the upgrades. The fur keeps winning." },
+    { "type": "textarea", "id": "body_2", "label": "Paragraph 2", "default": "FurGone is the one-tool answer. Slip it on. Swipe. Done — on your couch, your pet, or your black leggings." },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Bring peace home" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 88 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 88 },
+    { "type": "color", "id": "bg_color", "label": "Background (leave blank for default)" }
+  ],
+  "presets": [{ "name": "Problem block" }]
+}
+{% endschema %}

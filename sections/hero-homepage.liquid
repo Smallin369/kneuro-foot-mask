@@ -1,0 +1,22 @@
+<section class="hero-home" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
+  <div class="hero-kicker">{{ section.settings.kicker }}</div>
+  <h1>{{ section.settings.heading_lead }} <em>{{ section.settings.heading_accent }}</em></h1>
+  <p>{{ section.settings.subheading }}</p>
+</section>
+
+{% schema %}
+{
+  "name": "Homepage hero",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Kneuro" },
+    { "type": "text", "id": "heading_lead", "label": "Heading", "default": "Tools for a" },
+    { "type": "text", "id": "heading_accent", "label": "Italic accent", "default": "calmer home." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Pet-first essentials, rigorously designed. Fewer things. Slower. Only if they earn a place in your home." },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 100 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 60 },
+    { "type": "color", "id": "bg_color", "label": "Background (leave blank for default)" }
+  ],
+  "presets": [{ "name": "Homepage hero" }]
+}
+{% endschema %}

@@ -1,0 +1,69 @@
+<section class="container" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
+  <div style="text-align:center">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'kicker' %}
+          <div class="section-kicker" style="justify-content:center;display:inline-flex" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+        {% when 'heading' %}
+          <h2 class="section-title" style="margin: 0 auto" {{ block.shopify_attributes }}>{{ block.settings.lead }} <em>{{ block.settings.accent }}</em></h2>
+        {% when 'faq_list' %}
+          <div class="faq" style="margin-top: 36px" {{ block.shopify_attributes }}>
+            {% for i in (1..10) %}
+              {%- liquid
+                assign k_q = 'q' | append: i | append: '_question'
+                assign k_a = 'q' | append: i | append: '_answer'
+                assign q = block.settings[k_q]
+                assign a = block.settings[k_a]
+              -%}
+              {% if q != blank %}
+                <details {% if i == 1 %}open{% endif %}>
+                  <summary>{{ q }}</summary>
+                  <p>{{ a }}</p>
+                </details>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% when 'rich_text' %}
+          <div class="rich-text-block" {{ block.shopify_attributes }}>{{ block.settings.content }}</div>
+        {% when '@app' %}
+          {% render block %}
+      {% endcase %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 88 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 88 },
+    { "type": "color", "id": "bg_color", "label": "Background" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    { "type": "kicker", "name": "Kicker", "settings": [ { "type": "text", "id": "text", "label": "Text", "default": "Questions, answered" } ] },
+    { "type": "heading", "name": "Heading", "settings": [
+      { "type": "text", "id": "lead", "label": "Lead", "default": "The" },
+      { "type": "text", "id": "accent", "label": "Italic accent", "default": "honest answers." }
+    ]},
+    { "type": "faq_list", "name": "FAQ list (up to 10 items)", "limit": 1, "settings": [
+      { "type": "header", "content": "Q1" }, { "type": "text", "id": "q1_question", "label": "Question", "default": "What surfaces does it work on?" }, { "type": "textarea", "id": "q1_answer", "label": "Answer", "default": "Couches, fabric upholstery, car seats, rugs, clothes." },
+      { "type": "header", "content": "Q2" }, { "type": "text", "id": "q2_question", "label": "Question", "default": "How do I clean the trapped fur?" }, { "type": "textarea", "id": "q2_answer", "label": "Answer", "default": "Peel the mat off, rinse under running water." },
+      { "type": "header", "content": "Q3" }, { "type": "text", "id": "q3_question", "label": "Question", "default": "Is it reusable?" }, { "type": "textarea", "id": "q3_answer", "label": "Answer", "default": "Yes. Rinse after use and air dry." },
+      { "type": "header", "content": "Q4" }, { "type": "text", "id": "q4_question", "label": "Question", "default": "How long does shipping take?" }, { "type": "textarea", "id": "q4_answer", "label": "Answer", "default": "7-14 days depending on your location." },
+      { "type": "header", "content": "Q5" }, { "type": "text", "id": "q5_question", "label": "Question", "default": "What's your return policy?" }, { "type": "textarea", "id": "q5_answer", "label": "Answer", "default": "30-day returns on unused product." },
+      { "type": "header", "content": "Q6" }, { "type": "text", "id": "q6_question", "label": "Question" }, { "type": "textarea", "id": "q6_answer", "label": "Answer" },
+      { "type": "header", "content": "Q7" }, { "type": "text", "id": "q7_question", "label": "Question" }, { "type": "textarea", "id": "q7_answer", "label": "Answer" },
+      { "type": "header", "content": "Q8" }, { "type": "text", "id": "q8_question", "label": "Question" }, { "type": "textarea", "id": "q8_answer", "label": "Answer" }
+    ]},
+    { "type": "rich_text", "name": "Rich text", "settings": [ { "type": "richtext", "id": "content", "label": "Content", "default": "<p>Add anything here.</p>" } ] }
+  ],
+  "max_blocks": 20,
+  "presets": [{
+    "name": "FAQ",
+    "blocks": [ { "type": "kicker" }, { "type": "heading" }, { "type": "faq_list" } ]
+  }]
+}
+{% endschema %}

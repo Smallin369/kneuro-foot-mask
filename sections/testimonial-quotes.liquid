@@ -1,0 +1,89 @@
+<section class="container" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'kicker' %}
+        <div class="section-kicker" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+      {% when 'heading' %}
+        <h2 class="section-title" {{ block.shopify_attributes }}>{{ block.settings.lead }} <em>{{ block.settings.accent }}</em></h2>
+      {% when 'subheading' %}
+        <p class="section-sub" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+      {% when 'quotes_row' %}
+        <div class="quotes" {{ block.shopify_attributes }}>
+          {% for i in (1..3) %}
+            {%- liquid
+              assign k_quote = 'q' | append: i | append: '_quote'
+              assign k_name = 'q' | append: i | append: '_name'
+              assign k_initials = 'q' | append: i | append: '_initials'
+              assign k_location = 'q' | append: i | append: '_location'
+              assign q = block.settings[k_quote]
+              assign nm = block.settings[k_name]
+              assign ini = block.settings[k_initials]
+              assign loc = block.settings[k_location]
+            -%}
+            {% if q != blank %}
+              <div class="quote-card">
+                <div class="quote-mark" aria-hidden="true">"</div>
+                <div class="stars" aria-hidden="true">★★★★★</div>
+                <p>{{ q }}</p>
+                <div class="who">
+                  <span class="avatar a{{ i }}">{{ ini }}</span>
+                  <div class="who-meta">
+                    <div class="who-name">{{ nm }}</div>
+                    <div class="who-verified"><span class="verified-dot"></span>Verified · {{ loc }}</div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% when 'rich_text' %}
+        <div class="rich-text-block" {{ block.shopify_attributes }}>{{ block.settings.content }}</div>
+      {% when '@app' %}
+        {% render block %}
+    {% endcase %}
+  {% endfor %}
+</section>
+
+{% schema %}
+{
+  "name": "Testimonial quotes",
+  "settings": [
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 88 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 88 },
+    { "type": "color", "id": "bg_color", "label": "Background" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    { "type": "kicker", "name": "Kicker", "settings": [ { "type": "text", "id": "text", "label": "Text", "default": "What pet parents say" } ] },
+    { "type": "heading", "name": "Heading", "settings": [
+      { "type": "text", "id": "lead", "label": "Lead", "default": "What pet parents" },
+      { "type": "text", "id": "accent", "label": "Italic accent", "default": "are saying." }
+    ]},
+    { "type": "subheading", "name": "Subheading", "settings": [ { "type": "textarea", "id": "text", "label": "Text", "default": "Be the first to add yours." } ] },
+    { "type": "quotes_row", "name": "Quotes row (3 quotes)", "limit": 1, "settings": [
+      { "type": "header", "content": "Quote 1" },
+      { "type": "textarea", "id": "q1_quote", "label": "Quote", "default": "My golden sheds like it's his full-time job. First swipe pulled up a handful of fur." },
+      { "type": "text", "id": "q1_name", "label": "Name", "default": "Sarah M." },
+      { "type": "text", "id": "q1_initials", "label": "Initials", "default": "SM" },
+      { "type": "text", "id": "q1_location", "label": "Location", "default": "Austin, TX" },
+      { "type": "header", "content": "Quote 2" },
+      { "type": "textarea", "id": "q2_quote", "label": "Quote", "default": "Replaced every tool I had. My cat actually lets me use it on her." },
+      { "type": "text", "id": "q2_name", "label": "Name", "default": "James R." },
+      { "type": "text", "id": "q2_initials", "label": "Initials", "default": "JR" },
+      { "type": "text", "id": "q2_location", "label": "Location", "default": "Melbourne, AU" },
+      { "type": "header", "content": "Quote 3" },
+      { "type": "textarea", "id": "q3_quote", "label": "Quote", "default": "I was skeptical. Two weeks later I bought the three pack." },
+      { "type": "text", "id": "q3_name", "label": "Name", "default": "Lisa T." },
+      { "type": "text", "id": "q3_initials", "label": "Initials", "default": "LT" },
+      { "type": "text", "id": "q3_location", "label": "Location", "default": "London, UK" }
+    ]},
+    { "type": "rich_text", "name": "Rich text", "settings": [ { "type": "richtext", "id": "content", "label": "Content", "default": "<p>Add anything here.</p>" } ] }
+  ],
+  "max_blocks": 20,
+  "presets": [{
+    "name": "Testimonial quotes",
+    "blocks": [ { "type": "kicker" }, { "type": "heading" }, { "type": "subheading" }, { "type": "quotes_row" } ]
+  }]
+}
+{% endschema %}

@@ -1,0 +1,118 @@
+{%- liquid
+  assign cta_url = section.settings.cta_url | default: '/products/furgone-gloves'
+-%}
+<section class="adv-story" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
+  <div class="adv-story__inner">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'paragraph' %}
+          <p class="adv-story__p" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+        {% when 'heading' %}
+          <h2 class="adv-story__h" {{ block.shopify_attributes }}>{{ block.settings.text }}</h2>
+        {% when 'image' %}
+          <figure class="adv-story__fig" {{ block.shopify_attributes }}>
+            {% if block.settings.image %}
+              <img src="{{ block.settings.image | image_url: width: 1200 }}" srcset="{{ block.settings.image | image_url: width: 600 }} 600w, {{ block.settings.image | image_url: width: 1200 }} 1200w" sizes="(max-width:768px) 100vw, 700px" alt="{{ block.settings.alt | escape }}" loading="lazy" width="900" height="675">
+            {% endif %}
+            {% if block.settings.caption != blank %}<figcaption>{{ block.settings.caption }}</figcaption>{% endif %}
+          </figure>
+        {% when 'pullquote' %}
+          <blockquote class="adv-story__quote" {{ block.shopify_attributes }}>
+            <p>"{{ block.settings.quote }}"</p>
+            {% if block.settings.attribution != blank %}<cite>— {{ block.settings.attribution }}</cite>{% endif %}
+          </blockquote>
+        {% when 'checkmarks' %}
+          <ul class="adv-story__checks" {{ block.shopify_attributes }}>
+            {% if block.settings.t1 != blank %}<li>{{ block.settings.t1 }}</li>{% endif %}
+            {% if block.settings.t2 != blank %}<li>{{ block.settings.t2 }}</li>{% endif %}
+            {% if block.settings.t3 != blank %}<li>{{ block.settings.t3 }}</li>{% endif %}
+            {% if block.settings.t4 != blank %}<li>{{ block.settings.t4 }}</li>{% endif %}
+            {% if block.settings.t5 != blank %}<li>{{ block.settings.t5 }}</li>{% endif %}
+          </ul>
+        {% when 'inline_cta' %}
+          <div class="adv-story__cta-wrap" {{ block.shopify_attributes }}>
+            <a class="adv-story__cta" href="{{ block.settings.url | default: cta_url }}">{{ block.settings.label }}</a>
+            {% if block.settings.subtext != blank %}<small>{{ block.settings.subtext }}</small>{% endif %}
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+  .adv-story { background: #fff; }
+  .adv-story__inner { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+  .adv-story__p { font-size:1.08rem; line-height:1.75; color: var(--ink-2); margin: 0 0 22px; }
+  .adv-story__p:first-letter { font-size: 2.4em; line-height: .9; float: left; padding: 6px 8px 0 0; font-family: var(--font-heading); color: var(--accent-deep); font-weight: 600; }
+  .adv-story__p:not(:first-of-type):first-letter { font-size:inherit; float: none; padding: 0; color: inherit; font-weight: inherit; }
+  .adv-story__h { font-family: var(--font-heading); font-size: clamp(1.4rem, 3.4vw, 1.9rem); font-weight: 600; color: var(--ink); margin: 36px 0 16px; line-height:1.25; }
+  .adv-story__fig { margin: 28px -8px; }
+  .adv-story__fig img { width: 100%; border-radius: 14px; box-shadow: 0 12px 30px -12px rgba(42,28,18,.2); }
+  .adv-story__fig figcaption { color: var(--muted); font-size:.85rem; font-style: italic; text-align:center; margin-top: 10px; }
+  .adv-story__quote { border-left: 3px solid var(--accent); padding: 8px 0 8px 22px; margin: 28px 0; }
+  .adv-story__quote p { font-family: var(--font-heading); font-size: 1.3rem; font-style: italic; color: var(--ink); margin: 0 0 6px; line-height:1.4; }
+  .adv-story__quote cite { color: var(--muted); font-style: normal; font-size: .9rem; }
+  .adv-story__checks { list-style: none; padding: 0; margin: 24px 0; background: var(--cream-soft); border-radius: 12px; padding: 20px 24px; }
+  .adv-story__checks li { padding: 6px 0 6px 28px; position: relative; color: var(--ink-2); font-size:1rem; }
+  .adv-story__checks li::before { content: "✓"; position: absolute; left: 0; top: 6px; color: var(--accent-deep); font-weight: 700; }
+  .adv-story__cta-wrap { text-align: center; margin: 30px 0; }
+  .adv-story__cta { display:inline-block; background: var(--accent); color:#fff; text-decoration:none; padding:13px 24px; border-radius:999px; font-weight:700; box-shadow:0 8px 22px -8px rgba(232,131,58,.55); }
+  .adv-story__cta:hover { background: var(--accent-deep); }
+  .adv-story__cta-wrap small { display:block; color:var(--muted); margin-top:10px; font-size:.82rem; }
+</style>
+
+{% schema %}
+{
+  "name": "Advertorial story",
+  "settings": [
+    { "type": "url", "id": "cta_url", "label": "Default CTA link" },
+    { "type": "color", "id": "bg", "label": "Background" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 24 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 40 }
+  ],
+  "blocks": [
+    { "type": "paragraph", "name": "Paragraph", "settings": [
+      { "type": "richtext", "id": "text", "label": "Text", "default": "<p>I'd given up on my couch by the third month. Two goldens, six pounds of fur a week, and a black sectional that looked like a cashmere sweater after one nap.</p>" }
+    ]},
+    { "type": "heading", "name": "Heading", "settings": [
+      { "type": "text", "id": "text", "label": "Text", "default": "Then a friend sent me a 30-second video." }
+    ]},
+    { "type": "image", "name": "Image", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "text", "id": "alt", "label": "Alt text" },
+      { "type": "text", "id": "caption", "label": "Caption" }
+    ]},
+    { "type": "pullquote", "name": "Pull quote", "settings": [
+      { "type": "textarea", "id": "quote", "label": "Quote", "default": "I genuinely thought it was a scam. Then I tried it on my couch." },
+      { "type": "text", "id": "attribution", "label": "Attribution", "default": "Sarah, three weeks ago" }
+    ]},
+    { "type": "checkmarks", "name": "Checkmark list", "settings": [
+      { "type": "text", "id": "t1", "label": "Item 1", "default": "Picks up fur in one swipe — no batteries, no sticky tape" },
+      { "type": "text", "id": "t2", "label": "Item 2", "default": "Works on couches, car seats, leggings, the dog itself" },
+      { "type": "text", "id": "t3", "label": "Item 3", "default": "Rinses clean in 10 seconds, reusable forever" },
+      { "type": "text", "id": "t4", "label": "Item 4", "default": "Replaces every lint roller you'll ever buy again" },
+      { "type": "text", "id": "t5", "label": "Item 5", "default": "Backed by a 30-day money-back guarantee" }
+    ]},
+    { "type": "inline_cta", "name": "Inline CTA", "settings": [
+      { "type": "text", "id": "label", "label": "Button label", "default": "Get FurGone — from $29.99 →" },
+      { "type": "url", "id": "url", "label": "Override link" },
+      { "type": "text", "id": "subtext", "label": "Sub-text under button", "default": "Free returns · Ships within 24 hours" }
+    ]}
+  ],
+  "max_blocks": 30,
+  "presets": [{
+    "name": "Advertorial story",
+    "blocks": [
+      { "type": "paragraph" },
+      { "type": "paragraph" },
+      { "type": "heading" },
+      { "type": "image" },
+      { "type": "paragraph" },
+      { "type": "pullquote" },
+      { "type": "paragraph" },
+      { "type": "checkmarks" },
+      { "type": "inline_cta" }
+    ]
+  }]
+}
+{% endschema %}

@@ -1,0 +1,26 @@
+<section class="container" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;">
+  <div class="final">
+    <h2>{{ section.settings.heading_lead }} <em>{{ section.settings.heading_accent }}</em></h2>
+    <p>{{ section.settings.body }}</p>
+    <a href="{{ section.settings.cta_link | default: '#ProductForm' }}" class="cta" style="display:inline-block; max-width:340px; margin: 0 auto; text-decoration:none;">{{ section.settings.cta_label }}</a>
+    <div class="guarantee">🐾 {{ section.settings.guarantee }}</div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Final CTA",
+  "settings": [
+    { "type": "text", "id": "heading_lead", "label": "Heading", "default": "Stop living with" },
+    { "type": "text", "id": "heading_accent", "label": "Italic accent", "default": "fur everywhere." },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "One mitt. Every surface. Your couch will thank you." },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Get FurGone — from $29.99" },
+    { "type": "url", "id": "cta_link", "label": "CTA link (leave empty to jump to form)" },
+    { "type": "text", "id": "guarantee", "label": "Guarantee line", "default": "Backed by our 30-day money-back guarantee" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 60 }
+  ],
+  "presets": [{ "name": "Final CTA" }]
+}
+{% endschema %}

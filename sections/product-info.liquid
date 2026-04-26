@@ -1,0 +1,345 @@
+{%- assign cv = product.selected_or_first_available_variant -%}
+{%- liquid
+  assign g1 = section.settings.gallery_image_1
+  assign g2 = section.settings.gallery_image_2
+  assign g3 = section.settings.gallery_image_3
+  assign g4 = section.settings.gallery_image_4
+  assign has_override = false
+  if g1 or g2 or g3 or g4
+    assign has_override = true
+  endif
+-%}
+
+<section class="pdp" data-product-id="{{ product.id }}" style="
+  --gallery-align: {{ section.settings.gallery_align | default: 'center' }};
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+  background: {{ section.settings.bg_color | default: 'transparent' }};
+">
+  <div class="gallery" style="align-items: var(--gallery-align);">
+    <div class="gallery-main" id="galleryMain">
+      {% if section.settings.badge_text != blank %}
+        <span class="gallery-badge">🐾 {{ section.settings.badge_text }}</span>
+      {% endif %}
+      {% if has_override and g1 %}
+        <img src="{{ g1 | image_url: width: 900 }}"
+             srcset="{{ g1 | image_url: width: 600 }} 600w, {{ g1 | image_url: width: 900 }} 900w, {{ g1 | image_url: width: 1200 }} 1200w"
+             sizes="(max-width: 768px) 100vw, 600px"
+             alt="{{ product.title | escape }}"
+             width="800" height="800"
+             fetchpriority="high" loading="eager" decoding="async">
+      {% elsif product.featured_image %}
+        <img src="{{ product.featured_image | image_url: width: 900 }}"
+             srcset="{{ product.featured_image | image_url: width: 600 }} 600w, {{ product.featured_image | image_url: width: 900 }} 900w, {{ product.featured_image | image_url: width: 1200 }} 1200w"
+             sizes="(max-width: 768px) 100vw, 600px"
+             alt="{{ product.title | escape }}"
+             width="800" height="800"
+             fetchpriority="high" loading="eager" decoding="async">
+      {% else %}
+        <div class="gallery-empty">Add images via the product admin or the section settings</div>
+      {% endif %}
+    </div>
+    {% if has_override %}
+      <div class="gallery-thumbs">
+        {% if g1 %}<button type="button" class="th active" data-type="img" data-src="{{ g1 | image_url: width: 1200 }}"><img src="{{ g1 | image_url: width: 240 }}" alt="" loading="lazy" width="120" height="120"></button>{% endif %}
+        {% if g2 %}<button type="button" class="th" data-type="img" data-src="{{ g2 | image_url: width: 1200 }}"><img src="{{ g2 | image_url: width: 240 }}" alt="" loading="lazy" width="120" height="120"></button>{% endif %}
+        {% if g3 %}<button type="button" class="th" data-type="img" data-src="{{ g3 | image_url: width: 1200 }}"><img src="{{ g3 | image_url: width: 240 }}" alt="" loading="lazy" width="120" height="120"></button>{% endif %}
+        {% if g4 %}<button type="button" class="th" data-type="img" data-src="{{ g4 | image_url: width: 1200 }}"><img src="{{ g4 | image_url: width: 240 }}" alt="" loading="lazy" width="120" height="120"></button>{% endif %}
+      </div>
+    {% elsif product.media.size > 1 %}
+      <div class="gallery-thumbs">
+        {% for media in product.media limit: 6 %}
+          <button type="button" class="th{% if forloop.first %} active{% endif %}" data-type="img" data-src="{{ media | image_url: width: 1200 }}" aria-label="Image {{ forloop.index }}">
+            <img src="{{ media | image_url: width: 240 }}" alt="" loading="lazy" width="120" height="120">
+          </button>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="info">
+    <form action="{{ routes.cart_url }}/add" method="post" enctype="multipart/form-data" id="ProductForm">
+      <input type="hidden" name="id" id="variantId" value="{{ cv.id }}">
+
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'eyebrow' %}
+            <span class="eyebrow" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+          {% when 'title' %}
+            <h1 class="title" {{ block.shopify_attributes }}>{{ block.settings.lead }} <em>{{ block.settings.accent }}</em></h1>
+          {% when 'rating' %}
+            {% if block.settings.text != blank or block.settings.review_count != blank %}
+              <a class="rating rating--link" href="#reviews" {{ block.shopify_attributes }}>
+                {% if block.settings.show_stars %}
+                  <span class="stars" aria-hidden="true">
+                    {%- assign r = block.settings.star_value | default: 4.8 -%}
+                    {%- assign full = r | floor -%}
+                    {%- for i in (1..5) -%}
+                      {%- if i <= full -%}★{%- else -%}☆{%- endif -%}
+                    {%- endfor -%}
+                  </span>
+                  <span class="rating-value">{{ block.settings.star_value | default: 4.8 }}</span>
+                {% endif %}
+                {% if block.settings.review_count != blank %}
+                  <span class="rating-count">({{ block.settings.review_count }} reviews)</span>
+                {% endif %}
+                {% if block.settings.text != blank %}<span class="rating-text">· {{ block.settings.text }}</span>{% endif %}
+              </a>
+            {% endif %}
+          {% when 'price' %}
+            <div class="price-row" {{ block.shopify_attributes }}>
+              <span class="price" id="priceLabel">{{ cv.price | money }}</span>
+              {% if cv.compare_at_price and cv.compare_at_price > cv.price %}
+                <span class="price-was">{{ cv.compare_at_price | money }}</span>
+              {% endif %}
+            </div>
+          {% when 'bullets' %}
+            <ul class="bullets" {{ block.shopify_attributes }}>
+              {% if block.settings.b1 != blank %}<li>{{ block.settings.b1 }}</li>{% endif %}
+              {% if block.settings.b2 != blank %}<li>{{ block.settings.b2 }}</li>{% endif %}
+              {% if block.settings.b3 != blank %}<li>{{ block.settings.b3 }}</li>{% endif %}
+              {% if block.settings.b4 != blank %}<li>{{ block.settings.b4 }}</li>{% endif %}
+            </ul>
+          {% when 'bundle_picker' %}
+            {% if product.variants.size > 1 %}
+              <div class="bundles" role="radiogroup" {{ block.shopify_attributes }}>
+                {% for variant in product.variants %}
+                  {%- comment -%} Robust pack-quantity parser: tries "2", "2-Pack", "2 Pack", "Pack of 2" {%- endcomment -%}
+                  {%- assign t = variant.title | downcase -%}
+                  {%- assign t1 = t | split: ' ' | first | split: '-' | first | plus: 0 -%}
+                  {%- assign pack_qty = t1 -%}
+                  {%- if pack_qty < 1 -%}
+                    {%- assign t2 = t | split: 'of ' | last | split: ' ' | first | plus: 0 -%}
+                    {%- assign pack_qty = t2 -%}
+                  {%- endif -%}
+                  {%- if pack_qty < 1 -%}{%- assign pack_qty = forloop.index -%}{%- endif -%}
+                  {%- assign per_unit = variant.price | divided_by: pack_qty -%}
+                  {%- assign savings = 0 -%}
+                  {%- if variant.compare_at_price and variant.compare_at_price > variant.price -%}
+                    {%- assign savings = variant.compare_at_price | minus: variant.price -%}
+                  {%- endif -%}
+                  {%- assign ribbon = '' -%}
+                  {%- if forloop.index == 2 -%}{%- assign ribbon = 'MOST POPULAR' -%}{%- endif -%}
+                  {%- if forloop.last and product.variants.size >= 3 -%}{%- assign ribbon = 'BEST VALUE' -%}{%- endif -%}
+                  <button type="button" class="bundle{% if variant.id == cv.id %} selected{% endif %}{% unless variant.available %} unavailable{% endunless %}"
+                          data-variant-id="{{ variant.id }}"
+                          data-price="{{ variant.price | money }}"
+                          data-price-raw="{{ variant.price }}"
+                          {% unless variant.available %}disabled{% endunless %}>
+                    {% if ribbon != blank %}<span class="bundle-ribbon">{{ ribbon }}</span>{% endif %}
+                    <div class="left">
+                      <span class="radio" aria-hidden="true"></span>
+                      <span>
+                        <div class="bundle-title">{{ variant.title }}</div>
+                        <div class="bundle-sub">{{ per_unit | money }} / each</div>
+                      </span>
+                    </div>
+                    <div class="bundle-right">
+                      {% if savings > 0 %}<div class="bundle-save">SAVE {{ savings | money_without_trailing_zeros }}</div>{% endif %}
+                      <div class="bundle-price">{{ variant.price | money }}</div>
+                      {% if variant.compare_at_price and variant.compare_at_price > variant.price %}
+                        <div class="bundle-compare">{{ variant.compare_at_price | money }}</div>
+                      {% endif %}
+                    </div>
+                  </button>
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% when 'buy_button' %}
+            <button type="submit" class="cta" name="add" {% unless cv.available %}disabled{% endunless %} {{ block.shopify_attributes }}>
+              {% if cv.available %}
+                {{ block.settings.label | default: 'Add to cart' }} — <span id="ctaPrice">{{ cv.price | money }}</span>
+              {% else %}
+                {{ block.settings.sold_out_label | default: 'Sold out' }}
+              {% endif %}
+            </button>
+          {% when 'pay_note' %}
+            <div class="pay-row" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+          {% when 'trust' %}
+            <div class="trust" {{ block.shopify_attributes }}>
+              {% if block.settings.t1_title != blank %}<div class="t"><span class="ico">{{ block.settings.t1_icon }}</span><b>{{ block.settings.t1_title }}</b><span>{{ block.settings.t1_body }}</span></div>{% endif %}
+              {% if block.settings.t2_title != blank %}<div class="t"><span class="ico">{{ block.settings.t2_icon }}</span><b>{{ block.settings.t2_title }}</b><span>{{ block.settings.t2_body }}</span></div>{% endif %}
+              {% if block.settings.t3_title != blank %}<div class="t"><span class="ico">{{ block.settings.t3_icon }}</span><b>{{ block.settings.t3_title }}</b><span>{{ block.settings.t3_body }}</span></div>{% endif %}
+            </div>
+          {% when 'custom_html' %}
+            <div class="custom-html-block" {{ block.shopify_attributes }}>{{ block.settings.html }}</div>
+          {% when 'description' %}
+            <div class="product-desc" {{ block.shopify_attributes }}>{{ product.description }}</div>
+          {% when '@app' %}
+            {% render block %}
+        {% endcase %}
+      {% endfor %}
+    </form>
+  </div>
+</section>
+
+<div class="sticky-atc" aria-hidden="false">
+  <div class="sticky-atc__inner">
+    <div class="sticky-atc__info">
+      <div class="sticky-atc__title">{{ product.title | truncate: 28 }}</div>
+      <div class="sticky-atc__price" id="stickyPrice">{{ cv.price | money }}</div>
+    </div>
+    <button type="button" class="sticky-atc__btn" data-sticky-atc>Add to cart</button>
+  </div>
+</div>
+
+<style>
+  .rating--link { display:inline-flex; align-items:center; gap:.4rem; text-decoration:none; color:inherit; flex-wrap:wrap; }
+  .rating--link:hover { opacity:.8; }
+  .rating .stars { color:#e8833a; letter-spacing:1px; font-size:1.05em; }
+  .rating-value { font-weight:600; }
+  .rating-count { color:var(--muted); font-size:.9em; text-decoration:underline; text-underline-offset:2px; }
+  .rating-text { color:var(--muted); font-size:.9em; }
+
+  .bundle { position:relative; }
+  .bundle-ribbon {
+    position:absolute; top:-10px; right:14px;
+    background:var(--accent); color:#fff;
+    font-size:.68rem; font-weight:700; letter-spacing:.5px;
+    padding:3px 10px; border-radius:999px;
+    box-shadow:0 2px 6px rgba(0,0,0,.12);
+  }
+  .bundle.selected { border-color:var(--accent); box-shadow:0 0 0 2px rgba(232,131,58,.15); }
+  .bundle-sub { font-size:.8rem; color:var(--muted); margin-top:2px; }
+  .bundle-save {
+    display:inline-block; background:#fef1e6; color:var(--accent-deep);
+    font-size:.7rem; font-weight:700; padding:2px 8px; border-radius:4px;
+    margin-bottom:4px;
+  }
+  .bundle-compare {
+    font-size:.8rem; color:var(--muted); text-decoration:line-through;
+  }
+
+  .sticky-atc {
+    position:fixed; left:0; right:0; bottom:0; z-index:40;
+    background:#fff; border-top:1px solid var(--line);
+    padding:10px 14px env(safe-area-inset-bottom) 10px;
+    box-shadow:0 -4px 18px rgba(42,28,18,.08);
+    transform:translateY(110%); transition:transform .25s ease;
+    display:none;
+  }
+  .sticky-atc.show { transform:translateY(0); }
+  .sticky-atc__inner { display:flex; align-items:center; gap:12px; max-width:560px; margin:0 auto; }
+  .sticky-atc__info { flex:1; min-width:0; }
+  .sticky-atc__title { font-size:.85rem; color:var(--ink-2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .sticky-atc__price { font-weight:700; color:var(--ink); font-size:1.05rem; }
+  .sticky-atc__btn {
+    background:var(--accent); color:#fff; border:0; border-radius:999px;
+    padding:12px 22px; font-weight:700; font-size:.95rem; cursor:pointer;
+    white-space:nowrap;
+  }
+  .sticky-atc__btn:active { transform:scale(.97); }
+
+  @media (max-width: 768px) {
+    .sticky-atc { display:block; }
+    body { padding-bottom:72px; }
+  }
+</style>
+
+<script>
+  (function(){
+    var bar = document.querySelector('.sticky-atc');
+    var form = document.getElementById('ProductForm');
+    var cta = form && form.querySelector('button[type="submit"].cta');
+    var priceEl = document.getElementById('stickyPrice');
+    var mainCtaPrice = document.getElementById('ctaPrice');
+    if (!bar || !cta) return;
+
+    // Show after scrolling past the main CTA
+    var sentinel = cta;
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) bar.classList.add('show');
+        else bar.classList.remove('show');
+      });
+    }, { threshold: 0 });
+    obs.observe(sentinel);
+
+    // Sticky button submits the main form
+    bar.querySelector('[data-sticky-atc]').addEventListener('click', function(){
+      if (form.requestSubmit) form.requestSubmit(); else cta.click();
+    });
+
+    // Mirror price updates from variant changes
+    var mo = new MutationObserver(function(){
+      if (mainCtaPrice && priceEl) priceEl.textContent = mainCtaPrice.textContent;
+    });
+    if (mainCtaPrice) mo.observe(mainCtaPrice, { childList:true, characterData:true, subtree:true });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Product info",
+  "settings": [
+    { "type": "header", "content": "Layout" },
+    { "type": "select", "id": "gallery_align", "label": "Gallery alignment", "options": [
+      { "value": "flex-start", "label": "Left" },
+      { "value": "center", "label": "Center" },
+      { "value": "flex-end", "label": "Right" }
+    ], "default": "center" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 72 },
+    { "type": "color", "id": "bg_color", "label": "Background" },
+    { "type": "header", "content": "Gallery" },
+    { "type": "image_picker", "id": "gallery_image_1", "label": "Override image 1" },
+    { "type": "image_picker", "id": "gallery_image_2", "label": "Override image 2" },
+    { "type": "image_picker", "id": "gallery_image_3", "label": "Override image 3" },
+    { "type": "image_picker", "id": "gallery_image_4", "label": "Override image 4" },
+    { "type": "text", "id": "badge_text", "label": "Gallery badge", "default": "New" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    { "type": "eyebrow", "name": "Eyebrow", "settings": [ { "type": "text", "id": "text", "label": "Text", "default": "Kneuro Pet Collection" } ] },
+    { "type": "title", "name": "Title", "limit": 1, "settings": [
+      { "type": "text", "id": "lead", "label": "Lead", "default": "Fur, gone." },
+      { "type": "text", "id": "accent", "label": "Italic accent", "default": "In one swipe." }
+    ]},
+    { "type": "rating", "name": "Rating", "settings": [
+      { "type": "text", "id": "star_value", "label": "Star value (0-5)", "default": "4.8" },
+      { "type": "text", "id": "review_count", "label": "Review count", "default": "1,247" },
+      { "type": "text", "id": "text", "label": "Rating text", "default": "Loved by pet parents" },
+      { "type": "checkbox", "id": "show_stars", "label": "Show stars", "default": true }
+    ]},
+    { "type": "price", "name": "Price", "limit": 1, "settings": [] },
+    { "type": "bullets", "name": "Bullets", "settings": [
+      { "type": "text", "id": "b1", "label": "Bullet 1", "default": "Dual-sided mesh" },
+      { "type": "text", "id": "b2", "label": "Bullet 2", "default": "Replaces lint rollers" },
+      { "type": "text", "id": "b3", "label": "Bullet 3", "default": "Rinses in 10s" },
+      { "type": "text", "id": "b4", "label": "Bullet 4", "default": "Reusable forever" }
+    ]},
+    { "type": "bundle_picker", "name": "Bundle picker", "limit": 1, "settings": [] },
+    { "type": "buy_button", "name": "Add to cart button", "limit": 1, "settings": [
+      { "type": "text", "id": "label", "label": "Button label", "default": "Add to cart" },
+      { "type": "text", "id": "sold_out_label", "label": "Sold out label", "default": "Sold out" }
+    ]},
+    { "type": "pay_note", "name": "Payment note", "settings": [
+      { "type": "html", "id": "text", "label": "Text", "default": "<b>Pay in 4</b> with Shop Pay" }
+    ]},
+    { "type": "trust", "name": "Trust badges", "settings": [
+      { "type": "text", "id": "t1_icon", "label": "Badge 1 icon", "default": "🏡" },
+      { "type": "text", "id": "t1_title", "label": "Badge 1 title", "default": "30-day returns" },
+      { "type": "text", "id": "t1_body", "label": "Badge 1 body", "default": "no questions asked" },
+      { "type": "text", "id": "t2_icon", "label": "Badge 2 icon", "default": "🔒" },
+      { "type": "text", "id": "t2_title", "label": "Badge 2 title", "default": "Secure checkout" },
+      { "type": "text", "id": "t2_body", "label": "Badge 2 body", "default": "via Shopify" },
+      { "type": "text", "id": "t3_icon", "label": "Badge 3 icon", "default": "🐾" },
+      { "type": "text", "id": "t3_title", "label": "Badge 3 title", "default": "Pet-first design" },
+      { "type": "text", "id": "t3_body", "label": "Badge 3 body", "default": "made to last" }
+    ]},
+    { "type": "description", "name": "Product description", "limit": 1, "settings": [] },
+    { "type": "custom_html", "name": "Custom HTML", "settings": [
+      { "type": "html", "id": "html", "label": "HTML", "default": "<p>Custom HTML</p>" }
+    ]}
+  ],
+  "max_blocks": 30,
+  "presets": [{
+    "name": "Product info",
+    "blocks": [
+      { "type": "eyebrow" }, { "type": "title" }, { "type": "rating" }, { "type": "price" },
+      { "type": "bullets" }, { "type": "bundle_picker" }, { "type": "buy_button" },
+      { "type": "pay_note" }, { "type": "trust" }
+    ]
+  }]
+}
+{% endschema %}

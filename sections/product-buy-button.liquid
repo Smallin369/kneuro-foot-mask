@@ -1,0 +1,39 @@
+{%- assign cv = product.selected_or_first_available_variant -%}
+
+<section class="pdp-standalone" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
+  <div class="pdp-inner">
+    {% form 'product', product %}
+      <input type="hidden" name="id" id="variantId" value="{{ cv.id }}">
+      <button type="submit" class="cta" name="add" {% unless cv.available %}disabled{% endunless %}>
+        {% if cv.available %}
+          {{ section.settings.label | default: 'Add to cart' }} — <span id="ctaPrice">{{ cv.price | money }}</span>
+        {% else %}
+          {{ section.settings.sold_out_label | default: 'Sold out' }}
+        {% endif %}
+      </button>
+      {% if section.settings.show_dynamic_checkout and additional_checkout_buttons %}
+        <div class="dynamic-checkout">{{ content_for_additional_checkout_buttons }}</div>
+      {% endif %}
+      {% if section.settings.pay_note != blank %}
+        <div class="pay-row">{{ section.settings.pay_note }}</div>
+      {% endif %}
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product buy button",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Button label", "default": "Add to cart" },
+    { "type": "text", "id": "sold_out_label", "label": "Sold out label", "default": "Sold out" },
+    { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Show Shop Pay / dynamic checkout buttons", "default": false },
+    { "type": "html", "id": "pay_note", "label": "Payment note", "default": "<b>Pay in 4</b> with Shop Pay · Klarna · Afterpay" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 12 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 16 },
+    { "type": "color", "id": "bg_color", "label": "Background" }
+  ],
+  "presets": [{ "name": "Product buy button" }]
+}
+{% endschema %}

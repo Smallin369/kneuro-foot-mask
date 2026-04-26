@@ -1,0 +1,49 @@
+{%- assign p = section.settings.product -%}
+
+<section class="container shop" id="shop" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
+  <div class="grid single">
+    {% if p %}
+      <a href="{{ p.url }}" class="card">
+        <div class="media">
+          <span class="tag">{{ section.settings.tag | default: 'New' }}</span>
+          {% if p.featured_image %}
+            <img src="{{ p.featured_image | image_url: width: 800 }}" alt="{{ p.title | escape }}" loading="lazy" width="600" height="600">
+          {% endif %}
+        </div>
+        <div class="body">
+          <div class="cat">{{ section.settings.category | default: 'Pet Collection' }}</div>
+          <h3>{{ p.title }}</h3>
+          <p>{{ section.settings.pitch | default: 'The dual-sided mitt that clears fur off every surface in your home — in one swipe.' }}</p>
+          <div class="foot">
+            <div class="price">From {{ p.price_min | money }}</div>
+            <div class="rating"><span class="s">★★★★★</span> 4.8</div>
+          </div>
+        </div>
+      </a>
+    {% else %}
+      <div class="card placeholder">
+        <div class="body">
+          <h3>Choose a product</h3>
+          <p>Select a product in the section settings.</p>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured product",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "text", "id": "tag", "label": "Badge", "default": "New" },
+    { "type": "text", "id": "category", "label": "Category label", "default": "Pet Collection" },
+    { "type": "textarea", "id": "pitch", "label": "Pitch", "default": "The dual-sided mitt that clears fur off every surface in your home — in one swipe." },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 80 },
+    { "type": "color", "id": "bg_color", "label": "Background (leave blank for default)" }
+  ],
+  "presets": [{ "name": "Featured product" }]
+}
+{% endschema %}

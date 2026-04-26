@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ page_title }}</title>
+
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+
+  <style>
+    :root {
+      --cream: #f5e8d1;
+      --cream-soft: #fbf3e3;
+      --surface: #fffaee;
+      --ink: #2a1c12;
+      --ink-2: #4a372a;
+      --muted: #8a7560;
+      --line: #e6d5b8;
+      --accent: #e8833a;
+      --accent-deep: #c26521;
+      --sage: #6d8c6a;
+      --rose: #e4a896;
+      --font-heading: 'Fraunces', Georgia, serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  {%- assign google_fonts_url = 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap' -%}
+  <link rel="preload" as="style" href="{{ google_fonts_url }}">
+  <link rel="stylesheet" href="{{ google_fonts_url }}" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="{{ google_fonts_url }}"></noscript>
+
+  {%- if template contains 'product' and product.featured_image -%}
+    <link rel="preload" as="image"
+          href="{{ product.featured_image | image_url: width: 900 }}"
+          imagesrcset="{{ product.featured_image | image_url: width: 600 }} 600w, {{ product.featured_image | image_url: width: 900 }} 900w, {{ product.featured_image | image_url: width: 1200 }} 1200w"
+          imagesizes="(max-width: 768px) 100vw, 600px"
+          fetchpriority="high">
+  {%- endif -%}
+
+  <script src="{{ 'theme.js' | asset_url }}" type="module" defer></script>
+
+  {{ content_for_header }}
+</head>
+<body>
+  {%- unless template.suffix == 'advertorial' or template.suffix == 'quick-sell' or template.name == 'index' -%}
+    {% section 'site-header' %}
+  {%- endunless -%}
+  <main id="MainContent" role="main">
+    {{ content_for_layout }}
+  </main>
+  {% section 'site-footer' %}
+</body>
+</html>

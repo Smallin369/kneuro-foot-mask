@@ -1,0 +1,51 @@
+{%- liquid
+  assign bg = section.settings.bg | default: '#2a1c12'
+  assign fg = section.settings.fg | default: '#fbf3e3'
+-%}
+<div class="scarcity-bar" style="background:{{ bg }}; color:{{ fg }};">
+  <div class="scarcity-bar__inner">
+    <span class="scarcity-bar__icon">{{ section.settings.icon }}</span>
+    <span class="scarcity-bar__text">{{ section.settings.text }}</span>
+    {% if section.settings.show_timer %}
+      <span class="scarcity-bar__timer" data-countdown data-end="{{ section.settings.timer_end_iso }}">--:--:--</span>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  .scarcity-bar { padding: 10px 16px; text-align:center; font-size:.9rem; font-weight:500; letter-spacing:.2px; }
+  .scarcity-bar__inner { display:flex; gap:.6rem; align-items:center; justify-content:center; flex-wrap:wrap; max-width:900px; margin:0 auto; }
+  .scarcity-bar__icon { font-size:1.05em; }
+  .scarcity-bar__timer { font-variant-numeric: tabular-nums; font-weight:700; padding:2px 8px; border-radius:4px; background: rgba(255,255,255,.12); }
+</style>
+
+{% if section.settings.show_timer %}
+<script>
+  (function(){
+    var el = document.querySelector('[data-countdown]');
+    if (!el) return;
+    var end = new Date(el.dataset.end || Date.now() + 86400000).getTime();
+    function tick(){
+      var diff = Math.max(0, end - Date.now());
+      var h = Math.floor(diff/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
+      el.textContent = String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+    }
+    tick(); setInterval(tick, 1000);
+  })();
+</script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Scarcity bar",
+  "settings": [
+    { "type": "text", "id": "icon", "label": "Icon", "default": "⚡" },
+    { "type": "text", "id": "text", "label": "Message", "default": "Spring shed sale — 47 mitts left at this price" },
+    { "type": "checkbox", "id": "show_timer", "label": "Show countdown timer", "default": false },
+    { "type": "text", "id": "timer_end_iso", "label": "Timer ends (ISO date, e.g. 2026-04-30T23:59:59)" },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#2a1c12" },
+    { "type": "color", "id": "fg", "label": "Text color", "default": "#fbf3e3" }
+  ],
+  "presets": [{ "name": "Scarcity bar" }]
+}
+{% endschema %}

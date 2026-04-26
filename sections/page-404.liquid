@@ -1,0 +1,22 @@
+<section class="container" style="text-align:center; padding: {{ section.settings.padding_top }}px 22px {{ section.settings.padding_bottom }}px;">
+  <div class="section-kicker" style="justify-content:center;display:inline-flex">{{ section.settings.kicker }}</div>
+  <h1 class="section-title" style="margin:0 auto">{{ section.settings.heading_lead }} <em>{{ section.settings.heading_accent }}</em></h1>
+  <p class="section-sub" style="margin: 20px auto 32px">{{ section.settings.body }}</p>
+  <a class="btn-primary" href="{{ routes.root_url }}">{{ section.settings.cta_label }}</a>
+</section>
+
+{% schema %}
+{
+  "name": "404 page",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Lost in the fur" },
+    { "type": "text", "id": "heading_lead", "label": "Heading", "default": "This page" },
+    { "type": "text", "id": "heading_accent", "label": "Heading (italic)", "default": "wandered off." },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "The link you followed might be broken, or the page may have been moved." },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Take me home →" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 240, "step": 4, "unit": "px", "default": 120 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 240, "step": 4, "unit": "px", "default": 120 }
+  ]
+}
+{% endschema %}

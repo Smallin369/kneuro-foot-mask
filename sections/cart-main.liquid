@@ -1,0 +1,63 @@
+<section class="container cart-page">
+  <div class="section-kicker">{{ section.settings.kicker }}</div>
+  <h1 class="section-title">{{ section.settings.heading_lead }} <em>{{ section.settings.heading_accent }}</em></h1>
+
+  {% if cart.item_count == 0 %}
+    <p class="section-sub">{{ section.settings.empty_text }}</p>
+    <a class="btn-primary" href="{{ routes.root_url }}">{{ section.settings.empty_cta }}</a>
+  {% else %}
+    <form action="{{ routes.cart_url }}" method="post" novalidate class="cart-form">
+      <div class="cart-list">
+        {% for item in cart.items %}
+          <div class="cart-item">
+            <div class="cart-item-media">
+              {% if item.image %}
+                <img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.title | escape }}" loading="lazy" width="80" height="80">
+              {% endif %}
+            </div>
+            <div class="cart-item-body">
+              <a class="cart-item-title" href="{{ item.url }}">{{ item.product.title }}</a>
+              {% if item.variant.title != 'Default Title' %}
+                <div class="cart-item-variant">{{ item.variant.title }}</div>
+              {% endif %}
+              <div class="cart-item-price">{{ item.final_line_price | money }}</div>
+            </div>
+            <div class="cart-item-qty">
+              <label class="visually-hidden" for="q-{{ item.key }}">Quantity</label>
+              <input id="q-{{ item.key }}" type="number" name="updates[{{ item.key }}]" value="{{ item.quantity }}" min="0" inputmode="numeric">
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="cart-foot">
+        <div class="cart-subtotal">
+          <span>{{ section.settings.subtotal_label }}</span>
+          <strong>{{ cart.total_price | money }}</strong>
+        </div>
+        <div class="cart-actions">
+          <button type="submit" name="update" class="btn-ghost">{{ section.settings.update_label }}</button>
+          <button type="submit" name="checkout" class="btn-primary">{{ section.settings.checkout_label }}</button>
+        </div>
+        <p class="cart-note">{{ section.settings.tax_note }}</p>
+      </div>
+    </form>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Cart",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Your cart" },
+    { "type": "text", "id": "heading_lead", "label": "Heading", "default": "Ready when you" },
+    { "type": "text", "id": "heading_accent", "label": "Heading (italic)", "default": "are." },
+    { "type": "textarea", "id": "empty_text", "label": "Empty state text", "default": "Your cart is empty." },
+    { "type": "text", "id": "empty_cta", "label": "Empty state CTA", "default": "Continue shopping" },
+    { "type": "text", "id": "subtotal_label", "label": "Subtotal label", "default": "Subtotal" },
+    { "type": "text", "id": "update_label", "label": "Update button", "default": "Update" },
+    { "type": "text", "id": "checkout_label", "label": "Checkout button", "default": "Checkout →" },
+    { "type": "text", "id": "tax_note", "label": "Tax note", "default": "Taxes and shipping calculated at checkout." }
+  ]
+}
+{% endschema %}

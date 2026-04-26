@@ -1,0 +1,71 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "sections": {
+      "site-header": {
+        "type": "site-header",
+        "settings": {
+          "brand_name": "",
+          "menu": "",
+          "cart_label": "Cart",
+          "ship_bar_text": "30-day returns · Secure checkout",
+          "ship_bar_bg": "#2a1c12",
+          "ship_bar_color": "#fbf3e3"
+        }
+      },
+      "site-footer": {
+        "type": "site-footer",
+        "blocks": {
+          "site-footer-0": {
+            "type": "menu",
+            "settings": {
+              "heading": "Shop",
+              "menu": ""
+            }
+          },
+          "site-footer-1": {
+            "type": "menu",
+            "settings": {
+              "heading": "Shop",
+              "menu": ""
+            }
+          },
+          "site-footer-2": {
+            "type": "menu",
+            "settings": {
+              "heading": "Shop",
+              "menu": ""
+            }
+          }
+        },
+        "block_order": [
+          "site-footer-0",
+          "site-footer-1",
+          "site-footer-2"
+        ],
+        "settings": {
+          "tagline": "Tools for a calmer home."
+        }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "9752555012629308362": {
+        "type": "shopify://apps/parkour-facebook-pixel/blocks/threasury_pixel/f23b2ffe-4c53-446e-ad3a-7976ffbee5c2",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  },
+  "presets": {
+    "Default": {}
+  }
+}

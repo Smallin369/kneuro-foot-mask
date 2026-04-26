@@ -1,0 +1,77 @@
+{%- liquid
+  assign grid_open = false
+-%}
+<section class="container" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'kicker' %}
+        {% if grid_open %}</div>{% assign grid_open = false %}{% endif %}
+        <div class="section-kicker" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+      {% when 'heading' %}
+        {% if grid_open %}</div>{% assign grid_open = false %}{% endif %}
+        <h2 class="section-title" {{ block.shopify_attributes }}>{{ block.settings.lead }} <em>{{ block.settings.accent }}</em></h2>
+      {% when 'subheading' %}
+        {% if grid_open %}</div>{% assign grid_open = false %}{% endif %}
+        <p class="section-sub" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+      {% when 'card' %}
+        {% unless grid_open %}<div class="why-grid">{% assign grid_open = true %}{% endunless %}
+        <div class="why-card" {{ block.shopify_attributes }}>
+          {% if block.settings.image %}
+            <div class="why-card-image"><img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="300" height="300"></div>
+          {% elsif block.settings.emoji != blank %}
+            <div class="emoji">{{ block.settings.emoji }}</div>
+          {% endif %}
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.body }}</p>
+        </div>
+      {% when 'rich_text' %}
+        {% if grid_open %}</div>{% assign grid_open = false %}{% endif %}
+        <div class="rich-text-block" {{ block.shopify_attributes }}>{{ block.settings.content }}</div>
+      {% when '@app' %}
+        {% if grid_open %}</div>{% assign grid_open = false %}{% endif %}
+        {% render block %}
+    {% endcase %}
+  {% endfor %}
+  {% if grid_open %}</div>{% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Why grid",
+  "settings": [
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 88 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 88 },
+    { "type": "color", "id": "bg_color", "label": "Background" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    { "type": "kicker", "name": "Kicker", "settings": [ { "type": "text", "id": "text", "label": "Text", "default": "Why pet parents switch" } ] },
+    { "type": "heading", "name": "Heading", "settings": [
+      { "type": "text", "id": "lead", "label": "Lead", "default": "Four things a lint roller" },
+      { "type": "text", "id": "accent", "label": "Italic accent", "default": "will never do." }
+    ]},
+    { "type": "subheading", "name": "Subheading", "settings": [ { "type": "textarea", "id": "text", "label": "Text", "default": "We obsessed over this mitt so you can go back to obsessing over your pet." } ] },
+    { "type": "card", "name": "Card", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Image (optional)" },
+      { "type": "text", "id": "emoji", "label": "Emoji (if no image)", "default": "🪄" },
+      { "type": "text", "id": "title", "label": "Title", "default": "One-swipe pickup" },
+      { "type": "textarea", "id": "body", "label": "Body", "default": "Dual-sided mesh grabs fur in a single pass." }
+    ]},
+    { "type": "rich_text", "name": "Rich text", "settings": [ { "type": "richtext", "id": "content", "label": "Content", "default": "<p>Add anything here.</p>" } ] }
+  ],
+  "max_blocks": 20,
+  "presets": [{
+    "name": "Why grid",
+    "blocks": [
+      { "type": "kicker" },
+      { "type": "heading" },
+      { "type": "subheading" },
+      { "type": "card", "settings": { "emoji": "🪄", "title": "One-swipe pickup", "body": "Dual-sided mesh grabs fur in a single pass." } },
+      { "type": "card", "settings": { "emoji": "🐾", "title": "Gentle on pets", "body": "Soft mesh doubles as a calming grooming tool." } },
+      { "type": "card", "settings": { "emoji": "🛋️", "title": "Every surface", "body": "Hardwood, rugs, couches, clothes, car seats." } },
+      { "type": "card", "settings": { "emoji": "💧", "title": "Rinses in 10s", "body": "Peel the mat off, run it under the tap." } }
+    ]
+  }]
+}
+{% endschema %}

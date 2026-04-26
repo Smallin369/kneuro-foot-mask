@@ -1,0 +1,57 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="brand" style="font-size:22px;margin-bottom:10px">
+        <span class="brand-dot"></span>{{ shop.name }}
+      </div>
+      <div style="max-width:320px;line-height:1.7">
+        {{ section.settings.tagline }}
+      </div>
+    </div>
+    {% for block in section.blocks %}
+      <div {{ block.shopify_attributes }}>
+        <h4>{{ block.settings.heading }}</h4>
+        {% if block.settings.menu != blank %}
+          {% for link in linklists[block.settings.menu].links %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  <div class="footer-bottom">
+    <div>&copy; {{ shop.name }}</div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Brand tagline",
+      "default": "Tools for a calmer home."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu column",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Column heading", "default": "Shop" },
+        { "type": "link_list", "id": "menu", "label": "Menu" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "default": {
+    "blocks": [
+      { "type": "menu" },
+      { "type": "menu" },
+      { "type": "menu" }
+    ]
+  }
+}
+{% endschema %}

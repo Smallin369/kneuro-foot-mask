@@ -1,0 +1,40 @@
+<section class="pdp-standalone" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
+  <div class="pdp-inner">
+    <ul class="bullets">
+      {% for block in section.blocks %}
+        <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product bullets",
+  "settings": [
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 12 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 16 },
+    { "type": "color", "id": "bg_color", "label": "Background" }
+  ],
+  "blocks": [
+    {
+      "type": "bullet",
+      "name": "Bullet",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Dual-sided mesh for every surface" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [{
+    "name": "Product bullets",
+    "blocks": [
+      { "type": "bullet", "settings": { "text": "Dual-sided mesh for every surface" } },
+      { "type": "bullet", "settings": { "text": "Replaces every lint roller you own" } },
+      { "type": "bullet", "settings": { "text": "Rinses clean in 10 seconds" } },
+      { "type": "bullet", "settings": { "text": "Reusable forever" } }
+    ]
+  }]
+}
+{% endschema %}

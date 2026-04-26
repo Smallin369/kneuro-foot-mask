@@ -1,0 +1,43 @@
+<section class="container trust-strip" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
+  <div class="trust-row">
+    {% for block in section.blocks %}
+      <div class="t" {{ block.shopify_attributes }}>
+        <span class="ico">{{ block.settings.emoji }}</span>
+        <b>{{ block.settings.title }}</b>
+        <span>{{ block.settings.body }}</span>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trust strip",
+  "settings": [
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 80 },
+    { "type": "color", "id": "bg_color", "label": "Background (leave blank for default)" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "text", "id": "emoji", "label": "Emoji", "default": "🏡" },
+        { "type": "text", "id": "title", "label": "Title", "default": "30-day returns" },
+        { "type": "text", "id": "body", "label": "Subtitle", "default": "no questions asked" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [{
+    "name": "Trust strip",
+    "blocks": [
+      { "type": "item", "settings": { "emoji": "🏡", "title": "30-day returns", "body": "no questions asked" } },
+      { "type": "item", "settings": { "emoji": "🔒", "title": "Secure checkout", "body": "via Shopify" } },
+      { "type": "item", "settings": { "emoji": "🐾", "title": "Pet-first design", "body": "rigorously tested" } }
+    ]
+  }]
+}
+{% endschema %}

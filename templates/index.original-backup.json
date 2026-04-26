@@ -1,0 +1,40 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero-homepage",
+      "settings": {
+        "kicker": "Kneuro",
+        "heading_lead": "Tools for a",
+        "heading_accent": "calmer home.",
+        "subheading": "Pet-first essentials, rigorously designed. Fewer things. Slower. Only if they earn a place in your home."
+      }
+    },
+    "featured": {
+      "type": "featured-product",
+      "settings": {
+        "product": "furgone-gloves",
+        "tag": "New",
+        "category": "Pet Collection",
+        "pitch": "The dual-sided mitt that clears fur off every surface in your home — in one swipe."
+      }
+    },
+    "trust": {
+      "type": "trust-strip",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "featured",
+    "trust"
+  ]
+}

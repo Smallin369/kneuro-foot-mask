@@ -1,0 +1,40 @@
+<section class="cp" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
+  <div class="cp__inner">
+    {% if section.settings.heading != blank %}<h3 class="cp__heading">{{ section.settings.heading }}</h3>{% endif %}
+    <ul class="cp__list">
+      {% for i in (1..5) %}
+        {%- assign t_key = 'item_' | append: i -%}
+        {%- assign t = section.settings[t_key] -%}
+        {% if t != blank %}<li>{{ t }}</li>{% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .cp { background: var(--cream-soft); }
+  .cp__inner { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  .cp__heading { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 600; color: var(--ink); margin: 0 0 16px; text-align: center; letter-spacing: .04em; text-transform: uppercase; }
+  .cp__list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; grid-template-columns: 1fr; }
+  @media(min-width: 700px) { .cp__list { grid-template-columns: 1fr 1fr; } }
+  .cp__list li { padding: 10px 14px 10px 38px; position: relative; color: var(--ink-2); font-size: .98rem; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px -4px rgba(42,28,18,.08); }
+  .cp__list li::before { content: "✓"; position: absolute; left: 14px; top: 10px; color: var(--accent-deep); font-weight: 800; font-size: 1.05em; }
+</style>
+
+{% schema %}
+{
+  "name": "Customer promise",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Our customer promise" },
+    { "type": "text", "id": "item_1", "label": "Promise 1", "default": "30-day money-back guarantee — no questions asked" },
+    { "type": "text", "id": "item_2", "label": "Promise 2", "default": "Tracking number with every order" },
+    { "type": "text", "id": "item_3", "label": "Promise 3", "default": "Secure checkout via Shopify · Pay how you want" },
+    { "type": "text", "id": "item_4", "label": "Promise 4", "default": "Real human support — reply within 24 hours" },
+    { "type": "text", "id": "item_5", "label": "Promise 5", "default": "Best-price guarantee — find it cheaper, we'll match" },
+    { "type": "color", "id": "bg", "label": "Background" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 56 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 56 }
+  ],
+  "presets": [{ "name": "Customer promise" }]
+}
+{% endschema %}

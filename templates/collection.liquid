@@ -1,0 +1,26 @@
+{%- layout 'theme' -%}
+
+<section class="container">
+  <div class="section-kicker">Shop</div>
+  <h1 class="section-title">{{ collection.title | default: 'All products' }}</h1>
+
+  <div class="grid">
+    {% for product in collection.products %}
+      <a href="{{ product.url }}" class="card">
+        <div class="media">
+          {% if product.featured_image %}
+            <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}" loading="lazy" width="400" height="400">
+          {% endif %}
+        </div>
+        <div class="body">
+          <h3>{{ product.title }}</h3>
+          <div class="foot">
+            <div class="price">{{ product.price_min | money }}</div>
+          </div>
+        </div>
+      </a>
+    {% else %}
+      <p class="section-sub">No products yet.</p>
+    {% endfor %}
+  </div>
+</section>

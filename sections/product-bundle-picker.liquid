@@ -1,0 +1,43 @@
+{%- assign cv = product.selected_or_first_available_variant -%}
+
+<section class="pdp-standalone" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
+  <div class="pdp-inner">
+    {% if product.variants.size > 1 %}
+      <div class="bundles" role="radiogroup" aria-label="{{ section.settings.aria_label }}">
+        {% for variant in product.variants %}
+          <button type="button" class="bundle{% if variant.id == cv.id %} selected{% endif %}{% unless variant.available %} unavailable{% endunless %}"
+                  data-variant-id="{{ variant.id }}"
+                  data-price="{{ variant.price | money }}"
+                  data-price-raw="{{ variant.price }}"
+                  role="radio"
+                  aria-checked="{% if variant.id == cv.id %}true{% else %}false{% endif %}"
+                  {% unless variant.available %}disabled{% endunless %}>
+            <div class="left">
+              <span class="radio" aria-hidden="true"></span>
+              <span><div class="bundle-title">{{ variant.title }}</div></span>
+            </div>
+            <div class="bundle-right">
+              <div class="bundle-price">{{ variant.price | money }}</div>
+            </div>
+          </button>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p style="color:var(--muted);font-size:14px;">Add more variants in admin to show a bundle picker here.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product bundle picker",
+  "settings": [
+    { "type": "text", "id": "aria_label", "label": "Accessibility label", "default": "Choose a pack" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 16 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 16 },
+    { "type": "color", "id": "bg_color", "label": "Background" }
+  ],
+  "presets": [{ "name": "Product bundle picker" }]
+}
+{% endschema %}

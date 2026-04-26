@@ -1,0 +1,44 @@
+<section class="pdp-standalone" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
+  <div class="pdp-inner">
+    {% if section.settings.eyebrow != blank %}
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
+    {% if section.settings.headline_lead != blank or section.settings.headline_accent != blank %}
+      <h1 class="title">{{ section.settings.headline_lead }} <em>{{ section.settings.headline_accent }}</em></h1>
+    {% endif %}
+    {% if section.settings.rating_text != blank %}
+      <div class="rating">
+        {% if section.settings.show_stars %}<span class="stars" aria-hidden="true">★★★★★</span>{% endif %}
+        <span>{{ section.settings.rating_text }}</span>
+      </div>
+    {% endif %}
+    {% if section.settings.show_price %}
+      {%- assign cv = product.selected_or_first_available_variant -%}
+      <div class="price-row">
+        <span class="price" id="priceLabel">{{ cv.price | money }}</span>
+        {% if cv.compare_at_price and cv.compare_at_price > cv.price %}
+          <span class="price-was">{{ cv.compare_at_price | money }}</span>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product header",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Kneuro Pet Collection" },
+    { "type": "text", "id": "headline_lead", "label": "Headline", "default": "Fur, gone." },
+    { "type": "text", "id": "headline_accent", "label": "Headline (italic)", "default": "In one swipe." },
+    { "type": "text", "id": "rating_text", "label": "Rating text (leave blank to hide)", "default": "Loved by pet parents" },
+    { "type": "checkbox", "id": "show_stars", "label": "Show stars", "default": true },
+    { "type": "checkbox", "id": "show_price", "label": "Show price", "default": true },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 20 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 16 },
+    { "type": "color", "id": "bg_color", "label": "Background" }
+  ],
+  "presets": [{ "name": "Product header" }]
+}
+{% endschema %}

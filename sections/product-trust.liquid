@@ -1,0 +1,45 @@
+<section class="pdp-standalone" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
+  <div class="pdp-inner">
+    <div class="trust">
+      {% for block in section.blocks %}
+        <div class="t" {{ block.shopify_attributes }}>
+          <span class="ico">{{ block.settings.icon }}</span>
+          <b>{{ block.settings.title }}</b>
+          <span>{{ block.settings.body }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product trust row",
+  "settings": [
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 12 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 20 },
+    { "type": "color", "id": "bg_color", "label": "Background" }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon", "default": "🏡" },
+        { "type": "text", "id": "title", "label": "Title", "default": "30-day returns" },
+        { "type": "text", "id": "body", "label": "Subtitle", "default": "no questions asked" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [{
+    "name": "Product trust row",
+    "blocks": [
+      { "type": "badge", "settings": { "icon": "🏡", "title": "30-day returns", "body": "no questions asked" } },
+      { "type": "badge", "settings": { "icon": "🔒", "title": "Secure checkout", "body": "via Shopify" } },
+      { "type": "badge", "settings": { "icon": "🐾", "title": "Pet-first design", "body": "made to last" } }
+    ]
+  }]
+}
+{% endschema %}
