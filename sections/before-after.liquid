@@ -1,6 +1,9 @@
 {%- liquid
   assign cta_url = section.settings.cta_url | default: '/products/goat-milk-foot-mask'
-  assign review_url = section.settings.review_url | default: '/products/goat-milk-foot-mask#reviews'
+  assign review_url = section.settings.review_url
+  assign hero_before = section.settings.hero_before
+  assign hero_after = section.settings.hero_after
+  assign hero_caption = section.settings.hero_caption
 -%}
 <section class="ba" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
   <div class="ba__inner">
@@ -8,57 +11,54 @@
     <h2 class="ba__heading">{{ section.settings.heading_lead }} <em>{{ section.settings.heading_accent }}</em></h2>
     {% if section.settings.subhead != blank %}<p class="ba__sub">{{ section.settings.subhead }}</p>{% endif %}
 
-    <div class="ba__grid">
+    {% if hero_before or hero_after %}
+      <div class="ba__hero">
+        <div class="ba__hero-shot ba__hero-shot--before">
+          <span class="ba__ribbon ba__ribbon--before">BEFORE</span>
+          {% if hero_before %}
+            <img src="{{ hero_before | image_url: width: 900 }}" alt="Before" loading="lazy" width="600" height="600">
+          {% endif %}
+        </div>
+        <div class="ba__hero-shot ba__hero-shot--after">
+          <span class="ba__ribbon ba__ribbon--after">AFTER</span>
+          {% if hero_after %}
+            <img src="{{ hero_after | image_url: width: 900 }}" alt="After" loading="lazy" width="600" height="600">
+          {% endif %}
+        </div>
+      </div>
+      {% if hero_caption != blank %}<p class="ba__hero-cap">{{ hero_caption }}</p>{% endif %}
+    {% endif %}
+
+    <div class="ba__cards">
       {%- for i in (1..3) -%}
         {%- case i -%}
           {%- when 1 -%}
-            {%- assign before = section.settings.pair_1_before -%}
-            {%- assign after = section.settings.pair_1_after -%}
-            {%- assign label = section.settings.pair_1_label -%}
-            {%- assign quote = section.settings.pair_1_quote -%}
-            {%- assign attr = section.settings.pair_1_attr -%}
+            {%- assign quote = section.settings.t1_quote -%}
+            {%- assign attr = section.settings.t1_attr -%}
+            {%- assign meta = section.settings.t1_meta -%}
           {%- when 2 -%}
-            {%- assign before = section.settings.pair_2_before -%}
-            {%- assign after = section.settings.pair_2_after -%}
-            {%- assign label = section.settings.pair_2_label -%}
-            {%- assign quote = section.settings.pair_2_quote -%}
-            {%- assign attr = section.settings.pair_2_attr -%}
+            {%- assign quote = section.settings.t2_quote -%}
+            {%- assign attr = section.settings.t2_attr -%}
+            {%- assign meta = section.settings.t2_meta -%}
           {%- when 3 -%}
-            {%- assign before = section.settings.pair_3_before -%}
-            {%- assign after = section.settings.pair_3_after -%}
-            {%- assign label = section.settings.pair_3_label -%}
-            {%- assign quote = section.settings.pair_3_quote -%}
-            {%- assign attr = section.settings.pair_3_attr -%}
+            {%- assign quote = section.settings.t3_quote -%}
+            {%- assign attr = section.settings.t3_attr -%}
+            {%- assign meta = section.settings.t3_meta -%}
         {%- endcase -%}
 
-        <article class="ba__card">
-          <div class="ba__shots">
-            <div class="ba__shot">
-              <span class="ba__tag ba__tag--before">BEFORE</span>
-              {% if before %}
-                <img src="{{ before | image_url: width: 480 }}" alt="Before" loading="lazy" width="240" height="240">
-              {% else %}
-                <div class="ba__shot-empty">no image</div>
-              {% endif %}
+        {% if quote != blank %}
+          <article class="ba__card">
+            <div class="ba__stars">★★★★★</div>
+            <blockquote class="ba__quote">"{{ quote }}"</blockquote>
+            <div class="ba__byline">
+              {% if attr != blank %}<strong>{{ attr }}</strong>{% endif %}
+              {% if meta != blank %}<span>{{ meta }}</span>{% endif %}
             </div>
-            <div class="ba__shot">
-              <span class="ba__tag ba__tag--after">AFTER</span>
-              {% if after %}
-                <img src="{{ after | image_url: width: 480 }}" alt="After" loading="lazy" width="240" height="240">
-              {% else %}
-                <div class="ba__shot-empty">no image</div>
-              {% endif %}
-            </div>
-          </div>
-          <div class="ba__body">
-            {% if label != blank %}<p class="ba__label">{{ label }}</p>{% endif %}
-            {% if quote != blank %}
-              <blockquote class="ba__quote">"{{ quote | truncate: 140 }}"</blockquote>
+            {% if review_url != blank %}
+              <a class="ba__more" href="{{ review_url }}">Read full review →</a>
             {% endif %}
-            {% if attr != blank %}<cite class="ba__attr">— {{ attr }}</cite>{% endif %}
-            <a class="ba__more" href="{{ review_url }}">Read full review →</a>
-          </div>
-        </article>
+          </article>
+        {% endif %}
       {%- endfor -%}
     </div>
 
@@ -74,26 +74,32 @@
   .ba__kicker { display:inline-block; text-transform:uppercase; letter-spacing:.18em; font-size:.72rem; font-weight:700; color:var(--accent-deep); margin-bottom:14px; }
   .ba__heading { font-family: var(--font-heading); font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 600; color: var(--ink); margin: 0 0 12px; line-height: 1.2; }
   .ba__heading em { font-style: italic; color: var(--accent-deep); }
-  .ba__sub { color: var(--ink-2); margin: 0 auto 36px; max-width: 560px; }
-  .ba__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 0 auto; text-align: left; }
-  .ba__card { background: #fff; border-radius: 14px; padding: 14px; box-shadow: 0 8px 22px -10px rgba(42,28,18,.18); display: flex; flex-direction: column; gap: 12px; }
-  .ba__shots { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-  .ba__shot { position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 1/1; background:#eee; }
-  .ba__shot img { width: 100%; height: 100%; object-fit: cover; display:block; }
-  .ba__shot-empty { width:100%; height:100%; display:flex; align-items:center; justify-content:center; color: #aaa; font-size:.7rem; text-transform: uppercase; letter-spacing: .12em; }
-  .ba__tag { position: absolute; top: 6px; left: 6px; font-size:.55rem; font-weight: 800; letter-spacing: .12em; padding: 3px 6px; border-radius: 3px; color: #fff; z-index:1; }
-  .ba__tag--before { background: rgba(42,28,18,.85); }
-  .ba__tag--after { background: var(--accent); }
-  .ba__body { display: flex; flex-direction: column; gap: 6px; }
-  .ba__label { color: var(--ink-2); margin: 0; font-size: .78rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
-  .ba__quote { margin: 0; font-style: italic; color: var(--ink); font-size: .92rem; line-height: 1.45; }
-  .ba__attr { font-style: normal; font-size: .76rem; color: var(--muted); }
-  .ba__more { font-size: .8rem; font-weight: 700; color: var(--accent-deep); text-decoration: none; margin-top: 4px; }
+  .ba__sub { color: var(--ink-2); margin: 0 auto 32px; max-width: 560px; }
+
+  .ba__hero { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 880px; margin: 0 auto 14px; border-radius: 18px; overflow: hidden; box-shadow: 0 18px 40px -16px rgba(42,28,18,.25); background: #fff; padding: 14px; }
+  .ba__hero-shot { position: relative; aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; background: #eee; }
+  .ba__hero-shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ba__ribbon { position: absolute; top: 14px; padding: 6px 14px 6px 18px; font-size: .72rem; font-weight: 800; letter-spacing: .14em; color: #fff; z-index: 2; clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 50%, 100% 100%, 0 100%); }
+  .ba__ribbon--before { left: 0; background: rgba(42,28,18,.92); }
+  .ba__ribbon--after { left: 0; background: var(--accent, #e8833a); }
+  .ba__hero-cap { color: var(--muted); font-size: .85rem; font-style: italic; margin: 0 0 36px; }
+
+  .ba__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1000px; margin: 0 auto; text-align: left; }
+  .ba__card { background: #fff; border-radius: 14px; padding: 22px; box-shadow: 0 6px 18px -10px rgba(42,28,18,.16); display: flex; flex-direction: column; gap: 10px; border: 1px solid #f0e9dd; }
+  .ba__stars { color: var(--accent, #e8833a); font-size: .95rem; letter-spacing: .08em; }
+  .ba__quote { margin: 0; font-style: italic; color: var(--ink); font-size: .98rem; line-height: 1.5; flex: 1; }
+  .ba__byline { display: flex; flex-direction: column; gap: 2px; margin-top: 6px; }
+  .ba__byline strong { font-size: .88rem; color: var(--ink); font-weight: 700; }
+  .ba__byline span { font-size: .76rem; color: var(--muted); }
+  .ba__more { font-size: .8rem; font-weight: 700; color: var(--accent-deep); text-decoration: none; margin-top: 6px; }
   .ba__more:hover { text-decoration: underline; }
-  .ba__cta { display: inline-block; margin-top: 36px; background: var(--accent); color: #fff; padding: 14px 28px; border-radius: 999px; font-weight: 700; text-decoration: none; box-shadow: 0 8px 22px -8px rgba(232,131,58,.55); }
+
+  .ba__cta { display: inline-block; margin-top: 36px; background: var(--accent, #e8833a); color: #fff; padding: 14px 28px; border-radius: 999px; font-weight: 700; text-decoration: none; box-shadow: 0 8px 22px -8px rgba(232,131,58,.55); }
   .ba__cta:hover { background: var(--accent-deep); }
+
   @media (max-width: 768px) {
-    .ba__grid { grid-template-columns: 1fr; gap: 16px; }
+    .ba__cards { grid-template-columns: 1fr; gap: 14px; }
+    .ba__hero { padding: 10px; gap: 8px; }
   }
 </style>
 
@@ -105,26 +111,24 @@
     { "type": "text", "id": "kicker", "label": "Kicker", "default": "Real customers, real heels" },
     { "type": "text", "id": "heading_lead", "label": "Heading lead", "default": "Before & after," },
     { "type": "text", "id": "heading_accent", "label": "Heading accent", "default": "in 30 minutes." },
-    { "type": "text", "id": "subhead", "label": "Subhead", "default": "Submitted by Kneuro customers. Tap any review to see the full story." },
-    { "type": "url", "id": "review_url", "label": "Full reviews link" },
-    { "type": "header", "content": "Pair 1" },
-    { "type": "image_picker", "id": "pair_1_before", "label": "Before image" },
-    { "type": "image_picker", "id": "pair_1_after", "label": "After image" },
-    { "type": "text", "id": "pair_1_label", "label": "Caption" },
-    { "type": "textarea", "id": "pair_1_quote", "label": "Review quote" },
-    { "type": "text", "id": "pair_1_attr", "label": "Review attribution" },
-    { "type": "header", "content": "Pair 2" },
-    { "type": "image_picker", "id": "pair_2_before", "label": "Before image" },
-    { "type": "image_picker", "id": "pair_2_after", "label": "After image" },
-    { "type": "text", "id": "pair_2_label", "label": "Caption" },
-    { "type": "textarea", "id": "pair_2_quote", "label": "Review quote" },
-    { "type": "text", "id": "pair_2_attr", "label": "Review attribution" },
-    { "type": "header", "content": "Pair 3" },
-    { "type": "image_picker", "id": "pair_3_before", "label": "Before image" },
-    { "type": "image_picker", "id": "pair_3_after", "label": "After image" },
-    { "type": "text", "id": "pair_3_label", "label": "Caption" },
-    { "type": "textarea", "id": "pair_3_quote", "label": "Review quote" },
-    { "type": "text", "id": "pair_3_attr", "label": "Review attribution" },
+    { "type": "text", "id": "subhead", "label": "Subhead", "default": "One pair, one application, visibly softer feet." },
+    { "type": "url", "id": "review_url", "label": "Full reviews link (e.g. PDP #reviews)" },
+    { "type": "header", "content": "Hero before/after pair" },
+    { "type": "image_picker", "id": "hero_before", "label": "Before image" },
+    { "type": "image_picker", "id": "hero_after", "label": "After image" },
+    { "type": "text", "id": "hero_caption", "label": "Caption under pair" },
+    { "type": "header", "content": "Testimonial 1" },
+    { "type": "textarea", "id": "t1_quote", "label": "Quote" },
+    { "type": "text", "id": "t1_attr", "label": "Name" },
+    { "type": "text", "id": "t1_meta", "label": "Meta (e.g. Verified buyer)" },
+    { "type": "header", "content": "Testimonial 2" },
+    { "type": "textarea", "id": "t2_quote", "label": "Quote" },
+    { "type": "text", "id": "t2_attr", "label": "Name" },
+    { "type": "text", "id": "t2_meta", "label": "Meta" },
+    { "type": "header", "content": "Testimonial 3" },
+    { "type": "textarea", "id": "t3_quote", "label": "Quote" },
+    { "type": "text", "id": "t3_attr", "label": "Name" },
+    { "type": "text", "id": "t3_meta", "label": "Meta" },
     { "type": "header", "content": "CTA" },
     { "type": "text", "id": "cta_label", "label": "Button label", "default": "Get yours — from $19.99 →" },
     { "type": "url", "id": "cta_url", "label": "Button link" },

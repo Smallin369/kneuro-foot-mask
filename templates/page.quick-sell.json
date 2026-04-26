@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "scarcity": {
@@ -11,12 +20,10 @@
     "hero": {
       "type": "advertorial-hero",
       "settings": {
-        "eyebrow": "★★★★★ 1,247 PET PARENTS",
         "headline": "Pet hair, gone in one swipe.",
         "subhead": "The reusable mesh mitt that lifts fur off your couch, car, and cat in a single pass. No batteries. No sticky tape. Rinses clean in 10 seconds.",
         "byline": "",
         "caption": "Real customer photo. Three swipes, one cushion.",
-        "cta_label": "See the bundle — from $29.99 →",
         "cta_url": "/products/furgone-gloves",
         "padding_top": 48,
         "padding_bottom": 32
@@ -51,12 +58,17 @@
           "type": "inline_cta",
           "settings": {
             "label": "Get FurGone — from $29.99 →",
-            "subtext": "Free returns · Ships within 24 hours",
-            "url": "/products/furgone-gloves"
+            "url": "/products/furgone-gloves",
+            "subtext": "Free returns · Ships within 24 hours"
           }
         }
       },
-      "block_order": ["p1", "p2", "checks", "cta1"],
+      "block_order": [
+        "p1",
+        "p2",
+        "checks",
+        "cta1"
+      ],
       "settings": {
         "cta_url": "/products/furgone-gloves",
         "padding_top": 16,
@@ -70,9 +82,6 @@
         "heading_lead": "Before & after,",
         "heading_accent": "in 90 seconds.",
         "subhead": "",
-        "pair_1_label": "Couch · 3 swipes",
-        "pair_2_label": "Car seat · 5 swipes",
-        "pair_3_label": "Black leggings · 2 swipes",
         "cta_label": "Get yours →",
         "cta_url": "/products/furgone-gloves",
         "padding_top": 48,
@@ -100,5 +109,12 @@
       }
     }
   },
-  "order": ["scarcity", "hero", "story", "ba", "promise", "final"]
+  "order": [
+    "scarcity",
+    "hero",
+    "story",
+    "ba",
+    "promise",
+    "final"
+  ]
 }
