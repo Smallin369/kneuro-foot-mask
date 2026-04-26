@@ -3,7 +3,14 @@
     <header class="cart-page__head">
       <h1 class="cart-page__title">{{ section.settings.heading | default: 'Your cart' }}</h1>
       {% if cart.item_count > 0 %}
-        <button type="button" class="cart-page__clear" data-cart-clear>Clear cart</button>
+        <button type="button" class="cart-page__clear" data-cart-clear>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
+            <path d="M10 11v6M14 11v6"></path>
+          </svg>
+          Clear cart
+        </button>
       {% endif %}
     </header>
 
@@ -56,8 +63,10 @@
   .cart-page__inner { max-width: 880px; margin: 0 auto; }
   .cart-page__head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 28px; gap: 12px; flex-wrap: wrap; }
   .cart-page__title { font-family: var(--font-heading, Georgia, serif); font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700; margin: 0; color: var(--ink, #2a1c12); }
-  .cart-page__clear { background: transparent; border: none; color: var(--muted, #8a7e6e); font-size: .85rem; cursor: pointer; text-decoration: underline; padding: 4px 8px; }
-  .cart-page__clear:hover { color: #c44; }
+  .cart-page__clear { display: inline-flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #e8e0d0; color: var(--ink-2, #4a3a2a); font-size: .82rem; cursor: pointer; padding: 8px 14px; border-radius: 999px; font-weight: 600; transition: all .15s ease; }
+  .cart-page__clear:hover { color: #c44; border-color: #f0c8c8; background: #fdecec; }
+  .cart-page__clear:disabled { opacity: .6; cursor: wait; }
+  .cart-page__clear svg { display: block; }
   .cart-page__empty { background: #fff; border-radius: 18px; padding: 56px 24px; text-align: center; box-shadow: 0 8px 22px -10px rgba(42,28,18,.16); }
   .cart-page__empty-icon { font-size: 3rem; margin-bottom: 14px; }
   .cart-page__empty p { color: var(--ink-2, #4a3a2a); font-size: 1rem; margin: 0 0 22px; }
@@ -147,9 +156,22 @@
     if (remove) { updateQty(remove.dataset.key, 0); return; }
     const clear = e.target.closest('[data-cart-clear]');
     if (clear) {
+      e.preventDefault();
       if (!confirm('Remove all items from your cart?')) return;
-      fetch('/cart/clear.js', { method: 'POST', headers: { 'Accept': 'application/json' } })
-        .then(() => window.location.reload());
+      clear.disabled = true;
+      clear.textContent = 'Clearing…';
+      fetch('/cart/clear.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+      })
+        .then(r => r.json())
+        .then(() => { window.location.href = '/cart'; })
+        .catch(err => {
+          console.error('clear cart failed', err);
+          clear.disabled = false;
+          clear.textContent = 'Clear cart';
+          alert('Could not clear cart — please try again or remove items individually.');
+        });
     }
   });
 
