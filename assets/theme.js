@@ -2,6 +2,80 @@
    Kneuro theme — vanilla JS for PDP interactions
    ============================================================ */
 
+// ---------- AJAX add-to-cart with confirm modal → straight to checkout ----------
+(function ajaxAtc() {
+  const form = document.getElementById('ProductForm');
+  if (!form) return;
+
+  // Build modal once
+  let modal = document.getElementById('atcModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'atcModal';
+    modal.className = 'atc-modal';
+    modal.innerHTML = [
+      '<div class="atc-modal__backdrop" data-atc-close></div>',
+      '<div class="atc-modal__panel" role="dialog" aria-labelledby="atcTitle" aria-modal="true">',
+      '  <button class="atc-modal__close" type="button" data-atc-close aria-label="Close">×</button>',
+      '  <div class="atc-modal__check">✓</div>',
+      '  <h3 id="atcTitle" class="atc-modal__title">Added to cart</h3>',
+      '  <p class="atc-modal__line" id="atcLine"></p>',
+      '  <div class="atc-modal__actions">',
+      '    <button type="button" class="atc-modal__btn atc-modal__btn--ghost" data-atc-close>Keep shopping</button>',
+      '    <button type="button" class="atc-modal__btn atc-modal__btn--primary" data-atc-checkout>Checkout now →</button>',
+      '  </div>',
+      '</div>'
+    ].join('');
+    document.body.appendChild(modal);
+
+    const close = () => {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    };
+    modal.addEventListener('click', (e) => {
+      if (e.target.closest('[data-atc-close]')) close();
+      if (e.target.closest('[data-atc-checkout]')) {
+        window.location.href = '/checkout';
+      }
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  }
+
+  const open = (productTitle, qty) => {
+    const line = document.getElementById('atcLine');
+    if (line) line.textContent = (qty || 1) + ' × ' + (productTitle || 'Item');
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const setLoading = (isLoading) => {
+    const btns = form.querySelectorAll('button[type="submit"], [data-sticky-atc]');
+    btns.forEach((b) => {
+      b.disabled = isLoading;
+      b.classList.toggle('is-loading', isLoading);
+    });
+  };
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const fd = new FormData(form);
+      const res = await fetch('/cart/add.js', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } });
+      if (!res.ok) throw new Error('add failed');
+      const item = await res.json();
+      const title = item.product_title || item.title || document.querySelector('.title')?.textContent?.trim();
+      open(title, item.quantity);
+    } catch (err) {
+      // Fallback to default form post
+      form.removeEventListener('submit', arguments.callee);
+      form.submit();
+    } finally {
+      setLoading(false);
+    }
+  });
+})();
+
 // ---------- Bundle / variant picker ----------
 (function bundlePicker() {
   const bundles = document.querySelectorAll('.bundle');
