@@ -68,15 +68,15 @@
         "trust": {
           "type": "trust",
           "settings": {
-            "t1_icon": "🌿",
-            "t1_title": "30-day returns",
-            "t1_body": "no questions asked",
-            "t2_icon": "🔒",
-            "t2_title": "Secure checkout",
-            "t2_body": "via Shopify",
-            "t3_icon": "✨",
-            "t3_title": "Clean ingredients",
-            "t3_body": "pregnancy-safe formula"
+            "t1_icon": "✅",
+            "t1_title": "30 Days Return Policy",
+            "t1_body": "",
+            "t2_icon": "♻️",
+            "t2_title": "Organic Ingredients Only",
+            "t2_body": "",
+            "t3_icon": "⏱️",
+            "t3_title": "Quick 30 Minutes Treatment",
+            "t3_body": ""
           }
         }
       },
@@ -97,6 +97,76 @@
         "padding_bottom": 72,
         "bg_color": "",
         "badge_text": "New"
+      }
+    },
+    "ingredients": {
+      "type": "why-grid",
+      "blocks": {
+        "k": {
+          "type": "kicker",
+          "settings": {
+            "text": "What's inside"
+          }
+        },
+        "h": {
+          "type": "heading",
+          "settings": {
+            "lead": "Four ingredients,",
+            "accent": "zero compromise."
+          }
+        },
+        "s": {
+          "type": "subheading",
+          "settings": {
+            "text": "Pregnancy-safe. Diabetes-safe. No salicylic acid, no fragrance, no essential oils."
+          }
+        },
+        "c1": {
+          "type": "card",
+          "settings": {
+            "emoji": "🥛",
+            "title": "Goat Milk",
+            "body": "Gentle lactic acid — 1/10 the strength of Baby Foot. Hydrates without stripping."
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "emoji": "✨",
+            "title": "Niacinamide (B3)",
+            "body": "Strengthens the skin barrier and evens tone."
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "emoji": "💧",
+            "title": "Glycerin",
+            "body": "Humectant that pulls moisture deep into the dermis."
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "emoji": "🌿",
+            "title": "Allantoin",
+            "body": "Soothes irritation. Safe for sensitive, pregnant, and diabetic skin."
+          }
+        }
+      },
+      "block_order": [
+        "k",
+        "h",
+        "s",
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "padding_top": 48,
+        "padding_bottom": 56,
+        "bg_color": ""
       }
     },
     "howto": {
@@ -127,6 +197,7 @@
             "s1_image": "shopify://shop_images/ChatGPT_Image_Apr_27_2026_at_03_37_36_AM.png",
             "s1_title": "Slip them on",
             "s1_body": "Open the foil pouch, slide the pre-filled soft socks over clean feet, peel and stick the seal.",
+            "s2_image": "shopify://shop_images/b742d40f-3255-4eef-aa25-67d7a9799513.png",
             "s2_title": "Wait 30 minutes",
             "s2_body": "Read, watch TV, scroll your phone. The goat milk + niacinamide serum soaks in while you do nothing.",
             "s3_title": "Peel & rinse",
@@ -206,73 +277,58 @@
         "padding_bottom": 48
       }
     },
-    "ingredients": {
-      "type": "why-grid",
+    "quotes": {
+      "type": "testimonial-quotes",
       "blocks": {
         "k": {
           "type": "kicker",
           "settings": {
-            "text": "What's inside"
+            "text": "What clean-skincare fans say"
           }
         },
         "h": {
           "type": "heading",
           "settings": {
-            "lead": "Four ingredients,",
-            "accent": "zero compromise."
+            "lead": "What customers",
+            "accent": "are saying."
+          }
+        },
+        "q": {
+          "type": "quotes_row",
+          "settings": {
+            "q1_quote": "My heels were so cracked I'd given up on sandals. One application and I was barefoot at brunch.",
+            "q1_name": "Sarah M.",
+            "q1_initials": "SM",
+            "q1_location": "Austin, TX",
+            "q1_photo": "shopify://shop_images/A98cdf404c169432580ed0d0c53f6d3f68_jpg_960x960q75_jpg.avif",
+            "q2_quote": "Pregnant and couldn't use Baby Foot. This was the gentle answer I needed for my dry, swollen feet.",
+            "q2_name": "Priya R.",
+            "q2_initials": "PR",
+            "q2_location": "Toronto, CA",
+            "q2_photo": "shopify://shop_images/A039432e9ccb048d583261b402c5f7e61C_jpg_960x960q75_jpg.avif",
+            "q3_quote": "Bought it for the spa-at-home aesthetic. Stayed for the actual results. Reordered the 3-pack.",
+            "q3_name": "Lisa T.",
+            "q3_initials": "LT",
+            "q3_location": "London, UK",
+            "q3_photo": "shopify://shop_images/Af79bea4abcbd492d9f0e151bd335c8cb0_jpg_960x960q75_jpg.avif"
           }
         },
         "s": {
           "type": "subheading",
           "settings": {
-            "text": "Pregnancy-safe. Diabetes-safe. No salicylic acid, no fragrance, no essential oils."
-          }
-        },
-        "c1": {
-          "type": "card",
-          "settings": {
-            "emoji": "🥛",
-            "title": "Goat Milk",
-            "body": "Gentle lactic acid — 1/10 the strength of Baby Foot. Hydrates without stripping."
-          }
-        },
-        "c2": {
-          "type": "card",
-          "settings": {
-            "emoji": "✨",
-            "title": "Niacinamide (B3)",
-            "body": "Strengthens the skin barrier and evens tone."
-          }
-        },
-        "c3": {
-          "type": "card",
-          "settings": {
-            "emoji": "💧",
-            "title": "Glycerin",
-            "body": "Humectant that pulls moisture deep into the dermis."
-          }
-        },
-        "c4": {
-          "type": "card",
-          "settings": {
-            "emoji": "🌿",
-            "title": "Allantoin",
-            "body": "Soothes irritation. Safe for sensitive, pregnant, and diabetic skin."
+            "text": ""
           }
         }
       },
       "block_order": [
         "k",
         "h",
-        "s",
-        "c1",
-        "c2",
-        "c3",
-        "c4"
+        "q",
+        "s"
       ],
       "settings": {
-        "padding_top": 48,
-        "padding_bottom": 56,
+        "padding_top": 88,
+        "padding_bottom": 88,
         "bg_color": ""
       }
     },
@@ -331,60 +387,6 @@
         "k",
         "h",
         "t"
-      ],
-      "settings": {
-        "padding_top": 88,
-        "padding_bottom": 88,
-        "bg_color": ""
-      }
-    },
-    "quotes": {
-      "type": "testimonial-quotes",
-      "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "What clean-skincare fans say"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "What customers",
-            "accent": "are saying."
-          }
-        },
-        "q": {
-          "type": "quotes_row",
-          "settings": {
-            "q1_quote": "My heels were so cracked I'd given up on sandals. One application and I was barefoot at brunch.",
-            "q1_name": "Sarah M.",
-            "q1_initials": "SM",
-            "q1_location": "Austin, TX",
-            "q1_photo": "shopify://shop_images/A98cdf404c169432580ed0d0c53f6d3f68_jpg_960x960q75_jpg.avif",
-            "q2_quote": "Pregnant and couldn't use Baby Foot. This was the gentle answer I needed for my dry, swollen feet.",
-            "q2_name": "Priya R.",
-            "q2_initials": "PR",
-            "q2_location": "Toronto, CA",
-            "q2_photo": "shopify://shop_images/A039432e9ccb048d583261b402c5f7e61C_jpg_960x960q75_jpg.avif",
-            "q3_quote": "Bought it for the spa-at-home aesthetic. Stayed for the actual results. Reordered the 3-pack.",
-            "q3_name": "Lisa T.",
-            "q3_initials": "LT",
-            "q3_location": "London, UK"
-          }
-        },
-        "s": {
-          "type": "subheading",
-          "settings": {
-            "text": "Be the first to add yours."
-          }
-        }
-      },
-      "block_order": [
-        "k",
-        "h",
-        "q",
-        "s"
       ],
       "settings": {
         "padding_top": 88,
@@ -473,9 +475,9 @@
   },
   "order": [
     "main",
+    "ingredients",
     "howto",
     "baproof",
-    "ingredients",
     "quotes",
     "compare",
     "faq",
