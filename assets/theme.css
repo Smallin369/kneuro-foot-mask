@@ -196,7 +196,14 @@ h1, h2, h3 {
 .atc-modal__close:hover { background: rgba(0,0,0,.06); }
 .atc-modal__check { width: 56px; height: 56px; border-radius: 50%; background: var(--accent, #e8833a); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; margin: 0 auto 14px; box-shadow: 0 10px 24px -10px rgba(232,131,58,.6); }
 .atc-modal__title { font-family: var(--font-heading, Georgia, serif); font-size: 1.5rem; font-weight: 700; margin: 0 0 6px; color: var(--ink, #2a1c12); }
-.atc-modal__line { color: var(--ink-2, #4a3a2a); margin: 0 0 22px; font-size: .95rem; }
+.atc-modal__line { color: var(--ink-2, #4a3a2a); margin: 0 0 16px; font-size: .95rem; }
+.atc-modal__summary { background: #fbf6ee; border-radius: 12px; padding: 14px 16px; margin: 0 0 20px; text-align: left; font-size: .88rem; }
+.atc-modal__row { display: flex; justify-content: space-between; align-items: baseline; padding: 4px 0; color: var(--ink-2, #4a3a2a); }
+.atc-modal__row strong { color: var(--ink, #2a1c12); font-weight: 700; }
+.atc-modal__row--save strong { color: #2a9d3f; }
+.atc-modal__row--total { border-top: 1px solid #e8ddc8; margin-top: 6px; padding-top: 10px; font-size: 1rem; }
+.atc-modal__row--total strong { font-size: 1.15rem; }
+.atc-modal__note { color: var(--muted, #8a7e6e); font-size: .76rem; margin-top: 8px; text-align: center; font-style: italic; }
 .atc-modal__actions { display: flex; gap: 10px; flex-direction: column; }
 .atc-modal__btn { padding: 14px 22px; border-radius: 999px; font-weight: 700; font-size: .95rem; cursor: pointer; border: none; transition: transform .12s ease, background .12s ease; }
 .atc-modal__btn--primary { background: var(--ink, #2a1c12); color: #fff; }
