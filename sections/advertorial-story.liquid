@@ -29,6 +29,40 @@
             {% if block.settings.t4 != blank %}<li>{{ block.settings.t4 }}</li>{% endif %}
             {% if block.settings.t5 != blank %}<li>{{ block.settings.t5 }}</li>{% endif %}
           </ul>
+        {% when 'ingredients' %}
+          <div class="adv-story__ing" {{ block.shopify_attributes }}>
+            {% if block.settings.heading != blank %}<h3 class="adv-story__ing-h">{{ block.settings.heading }}</h3>{% endif %}
+            <div class="adv-story__ing-grid">
+              {% if block.settings.i1_title != blank %}
+                <div class="adv-story__ing-card">
+                  <span class="adv-story__ing-ico">{{ block.settings.i1_emoji }}</span>
+                  <strong>{{ block.settings.i1_title }}</strong>
+                  <span class="adv-story__ing-body">{{ block.settings.i1_body }}</span>
+                </div>
+              {% endif %}
+              {% if block.settings.i2_title != blank %}
+                <div class="adv-story__ing-card">
+                  <span class="adv-story__ing-ico">{{ block.settings.i2_emoji }}</span>
+                  <strong>{{ block.settings.i2_title }}</strong>
+                  <span class="adv-story__ing-body">{{ block.settings.i2_body }}</span>
+                </div>
+              {% endif %}
+              {% if block.settings.i3_title != blank %}
+                <div class="adv-story__ing-card">
+                  <span class="adv-story__ing-ico">{{ block.settings.i3_emoji }}</span>
+                  <strong>{{ block.settings.i3_title }}</strong>
+                  <span class="adv-story__ing-body">{{ block.settings.i3_body }}</span>
+                </div>
+              {% endif %}
+              {% if block.settings.i4_title != blank %}
+                <div class="adv-story__ing-card">
+                  <span class="adv-story__ing-ico">{{ block.settings.i4_emoji }}</span>
+                  <strong>{{ block.settings.i4_title }}</strong>
+                  <span class="adv-story__ing-body">{{ block.settings.i4_body }}</span>
+                </div>
+              {% endif %}
+            </div>
+          </div>
         {% when 'inline_cta' %}
           <div class="adv-story__cta-wrap" {{ block.shopify_attributes }}>
             <a class="adv-story__cta" href="{{ block.settings.url | default: cta_url }}">{{ block.settings.label }}</a>
@@ -59,6 +93,16 @@
   .adv-story__cta { display:inline-block; background: var(--accent); color:#fff; text-decoration:none; padding:13px 24px; border-radius:999px; font-weight:700; box-shadow:0 8px 22px -8px rgba(232,131,58,.55); }
   .adv-story__cta:hover { background: var(--accent-deep); }
   .adv-story__cta-wrap small { display:block; color:var(--muted); margin-top:10px; font-size:.82rem; }
+  .adv-story__ing { margin: 28px 0; padding: 22px 20px; background: var(--cream-soft); border-radius: 14px; }
+  .adv-story__ing-h { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--ink); margin: 0 0 16px; text-align: center; }
+  .adv-story__ing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .adv-story__ing-card { display: flex; flex-direction: column; gap: 4px; padding: 12px; background: #fff; border-radius: 10px; }
+  .adv-story__ing-ico { font-size: 1.4rem; margin-bottom: 4px; }
+  .adv-story__ing-card strong { font-size: .9rem; color: var(--ink); line-height: 1.2; }
+  .adv-story__ing-body { font-size: .76rem; color: var(--muted); line-height: 1.4; }
+  @media (max-width: 480px) {
+    .adv-story__ing-grid { grid-template-columns: 1fr; gap: 10px; }
+  }
 </style>
 
 {% schema %}
@@ -85,6 +129,25 @@
     { "type": "pullquote", "name": "Pull quote", "settings": [
       { "type": "textarea", "id": "quote", "label": "Quote", "default": "I genuinely thought it was a scam. Then I tried it on my couch." },
       { "type": "text", "id": "attribution", "label": "Attribution", "default": "Sarah, three weeks ago" }
+    ]},
+    { "type": "ingredients", "name": "Ingredients grid (4 cards)", "settings": [
+      { "type": "text", "id": "heading", "label": "Heading", "default": "Four ingredients, zero compromise" },
+      { "type": "header", "content": "Card 1" },
+      { "type": "text", "id": "i1_emoji", "label": "Icon", "default": "🥛" },
+      { "type": "text", "id": "i1_title", "label": "Title", "default": "Goat Milk" },
+      { "type": "textarea", "id": "i1_body", "label": "Body", "default": "Gentle lactic acid hydrates without stripping the skin barrier." },
+      { "type": "header", "content": "Card 2" },
+      { "type": "text", "id": "i2_emoji", "label": "Icon", "default": "✨" },
+      { "type": "text", "id": "i2_title", "label": "Title", "default": "Niacinamide" },
+      { "type": "textarea", "id": "i2_body", "label": "Body", "default": "Vitamin B3 strengthens the barrier and evens skin tone." },
+      { "type": "header", "content": "Card 3" },
+      { "type": "text", "id": "i3_emoji", "label": "Icon", "default": "💧" },
+      { "type": "text", "id": "i3_title", "label": "Title", "default": "Glycerin" },
+      { "type": "textarea", "id": "i3_body", "label": "Body", "default": "Pulls deep moisture into the dermis — soft for days, not hours." },
+      { "type": "header", "content": "Card 4" },
+      { "type": "text", "id": "i4_emoji", "label": "Icon", "default": "🌿" },
+      { "type": "text", "id": "i4_title", "label": "Title", "default": "Allantoin" },
+      { "type": "textarea", "id": "i4_body", "label": "Body", "default": "Soothes irritation. Safe for sensitive, pregnant, and diabetic skin." }
     ]},
     { "type": "checkmarks", "name": "Checkmark list", "settings": [
       { "type": "text", "id": "t1", "label": "Item 1", "default": "Picks up fur in one swipe — no batteries, no sticky tape" },

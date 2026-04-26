@@ -337,6 +337,24 @@
             "t5": "Backed by a 30-day money-back guarantee"
           }
         },
+        "ing": {
+          "type": "ingredients",
+          "settings": {
+            "heading": "Four ingredients, zero compromise",
+            "i1_emoji": "🥛",
+            "i1_title": "Goat Milk",
+            "i1_body": "Gentle lactic acid hydrates without stripping the skin barrier.",
+            "i2_emoji": "✨",
+            "i2_title": "Niacinamide",
+            "i2_body": "Vitamin B3 strengthens the barrier and evens skin tone.",
+            "i3_emoji": "💧",
+            "i3_title": "Glycerin",
+            "i3_body": "Pulls deep moisture into the dermis — soft for days, not hours.",
+            "i4_emoji": "🌿",
+            "i4_title": "Allantoin",
+            "i4_body": "Soothes irritation. Safe for sensitive, pregnant, and diabetic skin."
+          }
+        },
         "cta1": {
           "type": "inline_cta",
           "settings": {
@@ -356,7 +374,7 @@
         "p3",
         "img3",
         "p4",
-        "checks",
+        "ing",
         "cta1"
       ],
       "settings": {
@@ -513,7 +531,6 @@
     "hero",
     "story",
     "howto",
-    "ingredients",
     "ba",
     "comparison",
     "reviews",
