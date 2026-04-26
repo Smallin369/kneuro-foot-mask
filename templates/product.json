@@ -228,16 +228,6 @@
         "bg_color": "#fbf6ee"
       }
     },
-    "br2": {
-      "type": "section-bridge",
-      "settings": {
-        "label": "Side by Side Transfomation?",
-        "target_anchor": "",
-        "bg": "",
-        "padding_top": 16,
-        "padding_bottom": 28
-      }
-    },
     "baproof": {
       "type": "before-after",
       "settings": {
@@ -451,14 +441,14 @@
         "k": {
           "type": "kicker",
           "settings": {
-            "text": "Questions, answered"
+            "text": "You asked, We Answered"
           }
         },
         "h": {
           "type": "heading",
           "settings": {
-            "lead": "The",
-            "accent": "honest answers."
+            "lead": "Q & A",
+            "accent": ""
           }
         },
         "l": {
@@ -529,7 +519,6 @@
     "ingredients",
     "br1",
     "howto",
-    "br2",
     "baproof",
     "br5",
     "quotes",
