@@ -262,16 +262,6 @@
             "caption": "30 minutes later. First time my heels felt soft in three years."
           }
         },
-        "checks": {
-          "type": "checkmarks",
-          "settings": {
-            "t1": "Goat milk + niacinamide — gentle, no harsh acids",
-            "t2": "Pregnancy-safe ingredients (no salicylic acid)",
-            "t3": "Visible results in one 30-minute session",
-            "t4": "Works on cracked heels, dry hands, rough elbows",
-            "t5": "Backed by a 30-day money-back guarantee"
-          }
-        },
         "q_hannah": {
           "type": "pullquote",
           "settings": {
