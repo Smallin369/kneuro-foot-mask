@@ -260,7 +260,31 @@
         "p1": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Three years of cracked heels. Two foot creams, a pumice stone, a $40 electric callus remover, and a $90 pedicure that lasted exactly four days. My dermatologist had warned me off Baby Foot and the other harsh-acid peels — too rough on sensitive skin. <strong>Then a friend in Seoul sent me a goat milk foot mask. I tried it that night. The next morning my heels were soft for the first time in three years.</strong></p>"
+            "text": "<p>For three years my heels cracked every winter and stayed cracked through summer. The kind of dryness that catches on bedsheets, snags on tights, and makes you keep your socks on at the beach. I'd burned through two foot creams, a pumice stone, a $40 electric callus remover, and a $90 pedicure that lasted exactly four days. <strong>My dermatologist had warned me off the harsh-acid peels — Baby Foot territory.</strong> Salicylic acid and glycolic acid would burn my sensitive skin and could trigger eczema flares. So I lived with it. I stopped wearing sandals. I stopped letting anyone see my feet.</p>"
+          }
+        },
+        "p2": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Then a friend in Seoul sent me a video. A cat-paw shaped sock filled with white liquid, slipped onto a woman's feet while she watched TV. <em>K-beauty</em>, she texted. <em>Goat milk and niacinamide. No acids. No peeling. Just soft feet in 30 minutes.</em> I was skeptical — I'd already spent $200 on things that didn't work — but at $25, the math was easy. I ordered one.</p>"
+          }
+        },
+        "p_science": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p><strong>Here's why goat milk works where harsh acids fail:</strong> goat milk contains naturally-occurring lactic acid in low, gentle concentrations — about 1/10th the strength of a Baby Foot peel. It's enough to soften and exfoliate dead skin without stripping the barrier. Combined with niacinamide (Vitamin B3), which strengthens the skin barrier and fades discoloration, and glycerin and allantoin which lock moisture deep into the dermis, you get the same softening result as a chemical peel — but gentle enough for pregnant women, diabetics, and sensitive skin. <strong>The 30 minutes you wear the sock is the entire treatment.</strong> No 5-day peeling phase. No painful sloughing. No staying barefoot at home for a week.</p>"
+          }
+        },
+        "p3": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>The first time I tried it I expected to feel something — tingling, warmth, the sting that comes with retinols. Nothing. I sat on the couch for 30 minutes, peeled the sock off, rinsed, and went to bed. The next morning my heels were soft. Not <em>kind of soft</em>. Genuinely, palm-of-your-hand soft. For the first time in three years.</p>"
+          }
+        },
+        "p4": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Three weeks in, I've used it before every important event: date nights, my sister's wedding, a beach trip. I bought the 3-pack so I never run out. My dermatologist actually approved it after I sent her the ingredient list — no salicylic acid, no glycolic acid, no fragrance, no essential oils. <strong>Pregnancy-safe. Diabetes-safe. Eczema-safe.</strong> Just goat milk, niacinamide, glycerin, and allantoin doing 4,000 years of skincare history's job.</p>"
           }
         },
         "img1": {
@@ -324,7 +348,15 @@
       },
       "block_order": [
         "p1",
+        "img1",
+        "p2",
+        "img2",
+        "p_science",
         "quote",
+        "p3",
+        "img3",
+        "p4",
+        "checks",
         "cta1"
       ],
       "settings": {
@@ -479,10 +511,11 @@
   "order": [
     "scarcity",
     "hero",
-    "howto",
     "story",
+    "howto",
     "ingredients",
     "ba",
+    "comparison",
     "reviews",
     "final",
     "faq"
