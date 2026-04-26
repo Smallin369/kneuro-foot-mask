@@ -1,4 +1,4 @@
-<section class="container" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
+<section id="reviews" class="container" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
   {% for block in section.blocks %}
     {% case block.type %}
       {% when 'kicker' %}
