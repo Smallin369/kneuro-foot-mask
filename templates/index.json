@@ -23,20 +23,19 @@
     "hero": {
       "type": "advertorial-hero",
       "settings": {
-        "eyebrow": "★ 4.8 · 1,200+ REVIEWS",
-        "headline": "Soft feet. In 30 minutes.",
-        "subhead": "Cracked heels? Dry skin? Our goat milk + niacinamide foot mask softens without harsh acids. Gentle, pregnancy-safe, dermatologist-tested.",
-        "chip_1": "Pregnancy-safe",
-        "chip_2": "No harsh acids",
-        "chip_3": "30-min results",
-        "cta_label": "Shop now — from $19.99",
-        "cta_subtext": "Free US shipping over $30 · 30-day money-back guarantee",
+        "publication": "Soft Skin Daily",
+        "category": "Skincare",
+        "headline": "I tried 6 foot creams, 2 peels, and a $90 pedicure. Only one thing actually softened my heels.",
+        "subhead": "Three years of cracked, dry heels. A goat milk mask from Seoul fixed it in 30 minutes — without the harsh acids my dermatologist warned me about.",
+        "byline": "Sarah K.",
+        "date": "April 26, 2026",
+        "read_time": "4 min read",
         "cta_url": "/products/goat-milk-foot-mask",
         "hero_image": "shopify://shop_images/5pack.png",
         "caption": "Real customer photo. One pair, one nap, soft feet.",
         "bg": "",
-        "padding_top": 32,
-        "padding_bottom": 32
+        "padding_top": 28,
+        "padding_bottom": 24
       }
     },
     "press": {
@@ -444,13 +443,13 @@
   "order": [
     "scarcity",
     "hero",
-    "press",
-    "reviews",
+    "story",
     "ingredients",
     "ba",
-    "story",
     "comparison",
+    "reviews",
     "faq",
+    "press",
     "final"
   ]
 }

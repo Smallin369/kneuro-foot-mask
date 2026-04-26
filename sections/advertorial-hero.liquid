@@ -4,8 +4,11 @@
 <section class="adv-hero" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
   <div class="adv-hero__inner">
 
-    {% if section.settings.eyebrow != blank %}
-      <span class="adv-hero__eyebrow">{{ section.settings.eyebrow }}</span>
+    {% if section.settings.publication != blank or section.settings.category != blank %}
+      <div class="adv-hero__pub">
+        {% if section.settings.publication != blank %}<span class="adv-hero__pub-name">{{ section.settings.publication }}</span>{% endif %}
+        {% if section.settings.category != blank %}<span class="adv-hero__pub-cat">{{ section.settings.category }}</span>{% endif %}
+      </div>
     {% endif %}
 
     <h1 class="adv-hero__title">{{ section.settings.headline }}</h1>
@@ -14,76 +17,41 @@
       <p class="adv-hero__sub">{{ section.settings.subhead }}</p>
     {% endif %}
 
-    {% if section.settings.chip_1 != blank or section.settings.chip_2 != blank or section.settings.chip_3 != blank %}
-      <ul class="adv-hero__chips">
-        {% if section.settings.chip_1 != blank %}<li>{{ section.settings.chip_1 }}</li>{% endif %}
-        {% if section.settings.chip_2 != blank %}<li>{{ section.settings.chip_2 }}</li>{% endif %}
-        {% if section.settings.chip_3 != blank %}<li>{{ section.settings.chip_3 }}</li>{% endif %}
-      </ul>
+    {% if section.settings.byline != blank or section.settings.date != blank or section.settings.read_time != blank %}
+      <div class="adv-hero__byline">
+        {% if section.settings.byline != blank %}<span>By <strong>{{ section.settings.byline }}</strong></span>{% endif %}
+        {% if section.settings.date != blank %}<span>· {{ section.settings.date }}</span>{% endif %}
+        {% if section.settings.read_time != blank %}<span>· {{ section.settings.read_time }}</span>{% endif %}
+      </div>
     {% endif %}
 
     {% if section.settings.hero_image %}
-      <a class="adv-hero__img-link" href="{{ cta_url }}" aria-label="{{ section.settings.cta_label | default: 'Shop now' | escape }}">
-        <span class="adv-hero__img-badge">Shop now →</span>
+      <figure class="adv-hero__fig">
         <img class="adv-hero__img" src="{{ section.settings.hero_image | image_url: width: 1200 }}" srcset="{{ section.settings.hero_image | image_url: width: 600 }} 600w, {{ section.settings.hero_image | image_url: width: 1200 }} 1200w" sizes="(max-width:768px) 100vw, 720px" alt="{{ section.settings.headline | escape }}" width="900" height="900" fetchpriority="high">
-      </a>
-      <a class="adv-hero__img-hint" href="{{ cta_url }}">
-        <span class="adv-hero__img-hint-pill">👆 Tap to see the mask</span>
-        {% if section.settings.cta_subtext != blank %}<small>{{ section.settings.cta_subtext }}</small>{% endif %}
-      </a>
-    {% else %}
-      <div class="adv-hero__img-placeholder">Product image goes here</div>
+        {% if section.settings.caption != blank %}<figcaption class="adv-hero__caption">{{ section.settings.caption }}</figcaption>{% endif %}
+      </figure>
     {% endif %}
 
-    {% if section.settings.caption != blank %}
-      <p class="adv-hero__caption">{{ section.settings.caption }}</p>
-    {% endif %}
-
-    <a href="#reviews" class="adv-hero__scroll" aria-label="Scroll to reviews">
-      <span>Read 1,200+ reviews</span>
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-    </a>
   </div>
 </section>
 
 <style>
   .adv-hero { background: #ffffff; }
-  .adv-hero__inner { max-width: 720px; margin: 0 auto; padding: 0 20px; text-align: center; }
-  .adv-hero__eyebrow { display:inline-block; text-transform:uppercase; letter-spacing:.14em; font-size:.7rem; font-weight:700; color:var(--ink-2); margin-bottom:18px; }
-  .adv-hero__title { font-family: var(--font-heading); font-size: clamp(1.9rem, 6.5vw, 3rem); font-weight:800; line-height:1.05; letter-spacing:-0.02em; margin: 0 0 14px; color: var(--ink); }
-  .adv-hero__sub { font-size: 1.05rem; line-height:1.55; color: var(--ink-2); margin: 0 auto 22px; max-width: 540px; }
-  .adv-hero__chips { list-style:none; padding:0; margin:0 0 22px; display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
-  .adv-hero__chips li { font-size:.78rem; font-weight:600; color:var(--ink-2); background:#f4f0eb; padding:6px 12px; border-radius:999px; }
-  .adv-hero__cta-wrap { margin: 0 0 26px; }
-  .adv-hero__cta { display:inline-block; background: var(--ink); color:#fff; text-decoration:none; padding:16px 32px; border-radius:999px; font-weight:700; font-size:1rem; letter-spacing:.01em; transition: transform .15s ease, background .15s ease; }
-  .adv-hero__cta:hover { background: var(--accent-deep); transform: translateY(-1px); }
-  .adv-hero__cta-wrap small { display:block; color:var(--muted); margin-top:10px; font-size:.78rem; }
-  .adv-hero__img-link { position:relative; display:block; width:100%; max-width:440px; margin: 14px auto 18px; padding:14px; background: linear-gradient(180deg,#ffffff 0%,#fbf6ee 100%); border:2px solid var(--ink); border-radius:22px; box-shadow: 0 10px 0 -4px var(--ink), 0 18px 36px rgba(0,0,0,.10); transition: transform .2s ease, box-shadow .2s ease; cursor: pointer; animation: adv-hero-img-pulse 2.6s ease-in-out infinite; }
-  .adv-hero__img-link:hover { transform: translateY(-4px); box-shadow: 0 14px 0 -4px var(--ink), 0 26px 44px rgba(0,0,0,.14); }
-  .adv-hero__img-link:active { transform: translateY(0); box-shadow: 0 6px 0 -4px var(--ink), 0 10px 22px rgba(0,0,0,.10); }
-  @keyframes adv-hero-img-pulse {
-    0%,100% { box-shadow: 0 10px 0 -4px var(--ink), 0 18px 36px rgba(0,0,0,.10), 0 0 0 0 rgba(0,0,0,.10); }
-    50%     { box-shadow: 0 10px 0 -4px var(--ink), 0 18px 36px rgba(0,0,0,.10), 0 0 0 12px rgba(0,0,0,0); }
-  }
-  .adv-hero__img-badge { position:absolute; top:-12px; right:18px; background: var(--ink); color:#fff; font-size:.72rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; padding:7px 12px; border-radius:999px; box-shadow:0 4px 12px rgba(0,0,0,.18); }
-  .adv-hero__img-hint { display:flex; flex-direction:column; align-items:center; gap:6px; text-decoration:none; color: var(--ink); margin: 2px auto 18px; }
-  .adv-hero__img-hint-pill { display:inline-block; background:#f4f0eb; color:var(--ink); font-weight:700; font-size:.82rem; padding:7px 14px; border-radius:999px; }
-  .adv-hero__img-hint small { color: var(--muted); font-weight:500; font-size:.74rem; }
-  .adv-hero__img { width:100%; max-width:100%; max-height:340px; object-fit:contain; border-radius:14px; display:block; }
-  .adv-hero__img-placeholder { width:100%; max-width:420px; height:340px; background:#f4f0eb; border-radius:18px; margin: 6px auto 14px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:.85rem; font-style:italic; }
+  .adv-hero__inner { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+  .adv-hero__pub { display:flex; align-items:center; gap:12px; padding-bottom:14px; margin-bottom:22px; border-bottom: 1px solid #e8e3da; }
+  .adv-hero__pub-name { font-family: var(--font-heading); font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; color: var(--ink); }
+  .adv-hero__pub-cat { text-transform: uppercase; letter-spacing: .14em; font-size: .68rem; font-weight: 700; color: #b03a3a; padding: 3px 8px; border: 1px solid #b03a3a; border-radius: 4px; }
+  .adv-hero__title { font-family: var(--font-heading); font-size: clamp(1.75rem, 5.5vw, 2.6rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 14px; color: var(--ink); }
+  .adv-hero__sub { font-size: 1.1rem; line-height: 1.55; color: var(--ink-2); margin: 0 0 18px; font-weight: 500; }
+  .adv-hero__byline { display:flex; flex-wrap:wrap; gap:6px; font-size:.82rem; color: var(--muted); margin: 0 0 24px; padding-bottom: 18px; border-bottom: 1px solid #e8e3da; }
+  .adv-hero__byline strong { color: var(--ink); font-weight: 700; }
+  .adv-hero__fig { margin: 0 0 8px; }
+  .adv-hero__img { width: 100%; max-height: 460px; object-fit: cover; border-radius: 6px; display: block; }
+  .adv-hero__caption { color: var(--muted); font-size: .8rem; font-style: italic; margin: 10px 0 0; line-height: 1.45; }
   @media (max-width: 480px) {
-    .adv-hero__img-link { max-width:340px; padding:10px; }
-    .adv-hero__img, .adv-hero__img-placeholder { max-height:280px; }
-    .adv-hero__img-placeholder { height: 280px; max-width:320px; }
-  }
-  .adv-hero__caption { color: var(--muted); font-size:.82rem; font-style: italic; margin: 0; }
-  .adv-hero__scroll { display:inline-flex; flex-direction:column; align-items:center; gap:6px; margin-top:24px; color: var(--muted); text-decoration: none; font-size: .78rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; transition: color .15s ease, transform .25s ease; cursor: pointer; }
-  .adv-hero__scroll:hover { color: var(--ink); }
-  .adv-hero__scroll svg { animation: adv-hero-bounce 1.6s ease-in-out infinite; }
-  @keyframes adv-hero-bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
-  @media (max-width: 480px) {
-    .adv-hero__title { font-size: 2rem; }
-    .adv-hero__chips li { font-size:.72rem; padding:5px 10px; }
+    .adv-hero__title { font-size: 1.6rem; }
+    .adv-hero__sub { font-size: 1rem; }
+    .adv-hero__img { max-height: 360px; }
   }
 </style>
 
@@ -91,24 +59,24 @@
 {
   "name": "Advertorial hero",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "★ 4.8 · 1,200+ REVIEWS" },
-    { "type": "text", "id": "headline", "label": "Headline", "default": "Soft feet. In 30 minutes." },
-    { "type": "textarea", "id": "subhead", "label": "Subhead", "default": "Cracked heels? Dry skin? Our goat milk + niacinamide foot mask softens without harsh acids. Gentle, pregnancy-safe, dermatologist-tested." },
-    { "type": "header", "content": "Benefit chips" },
-    { "type": "text", "id": "chip_1", "label": "Chip 1", "default": "Pregnancy-safe" },
-    { "type": "text", "id": "chip_2", "label": "Chip 2", "default": "No harsh acids" },
-    { "type": "text", "id": "chip_3", "label": "Chip 3", "default": "30-min results" },
-    { "type": "header", "content": "Call to action" },
-    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Shop now — from $19.99" },
-    { "type": "text", "id": "cta_subtext", "label": "CTA sub-text", "default": "Free US shipping over $30 · 30-day money-back guarantee" },
-    { "type": "url", "id": "cta_url", "label": "CTA link" },
-    { "type": "header", "content": "Hero image" },
-    { "type": "image_picker", "id": "hero_image", "label": "Hero image (product or UGC)" },
-    { "type": "text", "id": "caption", "label": "Image caption" },
+    { "type": "header", "content": "Publication header" },
+    { "type": "text", "id": "publication", "label": "Publication name", "default": "Soft Skin Daily" },
+    { "type": "text", "id": "category", "label": "Category tag", "default": "Skincare" },
+    { "type": "header", "content": "Article" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "I tried 6 foot creams, 2 peels, and a $90 pedicure. Only one thing actually softened my heels." },
+    { "type": "textarea", "id": "subhead", "label": "Deck (subhead)", "default": "Three years of cracked, dry heels. A goat milk mask from Seoul fixed it in 30 minutes — without the harsh acids my dermatologist warned me about." },
+    { "type": "text", "id": "byline", "label": "Byline", "default": "Sarah K." },
+    { "type": "text", "id": "date", "label": "Publish date", "default": "April 2026" },
+    { "type": "text", "id": "read_time", "label": "Read time", "default": "4 min read" },
+    { "type": "header", "content": "Lead image" },
+    { "type": "image_picker", "id": "hero_image", "label": "Lead image (UGC-style works best)" },
+    { "type": "text", "id": "caption", "label": "Image caption", "default": "Real customer photo. One pair, one nap, soft feet." },
+    { "type": "header", "content": "Hidden / legacy" },
+    { "type": "url", "id": "cta_url", "label": "CTA link (used by inline links)" },
     { "type": "header", "content": "Layout" },
     { "type": "color", "id": "bg", "label": "Background" },
-    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 32 },
-    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 32 }
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 28 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 24 }
   ],
   "presets": [{ "name": "Advertorial hero" }]
 }
