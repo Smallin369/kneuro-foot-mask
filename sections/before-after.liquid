@@ -1,3 +1,7 @@
+{%- liquid
+  assign cta_url = section.settings.cta_url | default: '/products/goat-milk-foot-mask'
+  assign review_url = section.settings.review_url | default: '/products/goat-milk-foot-mask#reviews'
+-%}
 <section class="ba" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
   <div class="ba__inner">
     {% if section.settings.kicker != blank %}<span class="ba__kicker">{{ section.settings.kicker }}</span>{% endif %}
@@ -5,68 +9,92 @@
     {% if section.settings.subhead != blank %}<p class="ba__sub">{{ section.settings.subhead }}</p>{% endif %}
 
     <div class="ba__grid">
-      {% for i in (1..3) %}
-        {%- assign before_key = 'pair_' | append: i | append: '_before' -%}
-        {%- assign after_key = 'pair_' | append: i | append: '_after' -%}
-        {%- assign label_key = 'pair_' | append: i | append: '_label' -%}
-        {%- assign quote_key = 'pair_' | append: i | append: '_quote' -%}
-        {%- assign attr_key = 'pair_' | append: i | append: '_attr' -%}
-        {%- assign before = section.settings[before_key] -%}
-        {%- assign after = section.settings[after_key] -%}
-        {%- assign label = section.settings[label_key] -%}
-        {%- assign quote = section.settings[quote_key] -%}
-        {%- assign attr = section.settings[attr_key] -%}
-        {% if before and after %}
-          <div class="ba__pair">
-            <div class="ba__shots">
-              <div class="ba__shot">
-                <span class="ba__tag ba__tag--before">BEFORE</span>
-                <img src="{{ before | image_url: width: 700 }}" alt="Before" loading="lazy" width="500" height="500">
-              </div>
-              <div class="ba__shot">
-                <span class="ba__tag ba__tag--after">AFTER</span>
-                <img src="{{ after | image_url: width: 700 }}" alt="After" loading="lazy" width="500" height="500">
-              </div>
+      {%- for i in (1..3) -%}
+        {%- case i -%}
+          {%- when 1 -%}
+            {%- assign before = section.settings.pair_1_before -%}
+            {%- assign after = section.settings.pair_1_after -%}
+            {%- assign label = section.settings.pair_1_label -%}
+            {%- assign quote = section.settings.pair_1_quote -%}
+            {%- assign attr = section.settings.pair_1_attr -%}
+          {%- when 2 -%}
+            {%- assign before = section.settings.pair_2_before -%}
+            {%- assign after = section.settings.pair_2_after -%}
+            {%- assign label = section.settings.pair_2_label -%}
+            {%- assign quote = section.settings.pair_2_quote -%}
+            {%- assign attr = section.settings.pair_2_attr -%}
+          {%- when 3 -%}
+            {%- assign before = section.settings.pair_3_before -%}
+            {%- assign after = section.settings.pair_3_after -%}
+            {%- assign label = section.settings.pair_3_label -%}
+            {%- assign quote = section.settings.pair_3_quote -%}
+            {%- assign attr = section.settings.pair_3_attr -%}
+        {%- endcase -%}
+
+        <article class="ba__card">
+          <div class="ba__shots">
+            <div class="ba__shot">
+              <span class="ba__tag ba__tag--before">BEFORE</span>
+              {% if before %}
+                <img src="{{ before | image_url: width: 480 }}" alt="Before" loading="lazy" width="240" height="240">
+              {% else %}
+                <div class="ba__shot-empty">no image</div>
+              {% endif %}
             </div>
+            <div class="ba__shot">
+              <span class="ba__tag ba__tag--after">AFTER</span>
+              {% if after %}
+                <img src="{{ after | image_url: width: 480 }}" alt="After" loading="lazy" width="240" height="240">
+              {% else %}
+                <div class="ba__shot-empty">no image</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="ba__body">
             {% if label != blank %}<p class="ba__label">{{ label }}</p>{% endif %}
             {% if quote != blank %}
-              <blockquote class="ba__quote">
-                <p>"{{ quote }}"</p>
-                {% if attr != blank %}<cite>— {{ attr }}</cite>{% endif %}
-              </blockquote>
+              <blockquote class="ba__quote">"{{ quote | truncate: 140 }}"</blockquote>
             {% endif %}
+            {% if attr != blank %}<cite class="ba__attr">— {{ attr }}</cite>{% endif %}
+            <a class="ba__more" href="{{ review_url }}">Read full review →</a>
           </div>
-        {% endif %}
-      {% endfor %}
+        </article>
+      {%- endfor -%}
     </div>
 
     {% if section.settings.cta_label != blank %}
-      <a class="ba__cta" href="{{ section.settings.cta_url | default: '/products/furgone-gloves' }}">{{ section.settings.cta_label }}</a>
+      <a class="ba__cta" href="{{ cta_url }}">{{ section.settings.cta_label }}</a>
     {% endif %}
   </div>
 </section>
 
 <style>
-  .ba { background: var(--surface); }
+  .ba { background: var(--surface, #fff); }
   .ba__inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; text-align: center; }
   .ba__kicker { display:inline-block; text-transform:uppercase; letter-spacing:.18em; font-size:.72rem; font-weight:700; color:var(--accent-deep); margin-bottom:14px; }
   .ba__heading { font-family: var(--font-heading); font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 600; color: var(--ink); margin: 0 0 12px; line-height: 1.2; }
   .ba__heading em { font-style: italic; color: var(--accent-deep); }
   .ba__sub { color: var(--ink-2); margin: 0 auto 36px; max-width: 560px; }
-  .ba__grid { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 880px; margin: 0 auto; }
-  .ba__pair { background: #fff; border-radius: 16px; padding: 22px; box-shadow: 0 10px 28px -12px rgba(42,28,18,.18); }
-  .ba__shots { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .ba__shot { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/5; background:#eee; }
+  .ba__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 0 auto; text-align: left; }
+  .ba__card { background: #fff; border-radius: 14px; padding: 14px; box-shadow: 0 8px 22px -10px rgba(42,28,18,.18); display: flex; flex-direction: column; gap: 12px; }
+  .ba__shots { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .ba__shot { position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 1/1; background:#eee; }
   .ba__shot img { width: 100%; height: 100%; object-fit: cover; display:block; }
-  .ba__tag { position: absolute; top: 10px; left: 10px; font-size:.65rem; font-weight: 800; letter-spacing: .12em; padding: 4px 8px; border-radius: 4px; color: #fff; }
+  .ba__shot-empty { width:100%; height:100%; display:flex; align-items:center; justify-content:center; color: #aaa; font-size:.7rem; text-transform: uppercase; letter-spacing: .12em; }
+  .ba__tag { position: absolute; top: 6px; left: 6px; font-size:.55rem; font-weight: 800; letter-spacing: .12em; padding: 3px 6px; border-radius: 3px; color: #fff; z-index:1; }
   .ba__tag--before { background: rgba(42,28,18,.85); }
   .ba__tag--after { background: var(--accent); }
-  .ba__label { color: var(--ink-2); margin: 14px 0 0; font-size: .92rem; font-weight: 500; }
-  .ba__quote { text-align: left; border-left: 3px solid var(--accent); padding: 4px 0 4px 16px; margin: 14px 0 0; }
-  .ba__quote p { font-family: var(--font-heading); font-style: italic; font-size: 1rem; color: var(--ink); margin: 0 0 6px; line-height: 1.45; }
-  .ba__quote cite { font-style: normal; font-size: .82rem; color: var(--muted); }
+  .ba__body { display: flex; flex-direction: column; gap: 6px; }
+  .ba__label { color: var(--ink-2); margin: 0; font-size: .78rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+  .ba__quote { margin: 0; font-style: italic; color: var(--ink); font-size: .92rem; line-height: 1.45; }
+  .ba__attr { font-style: normal; font-size: .76rem; color: var(--muted); }
+  .ba__more { font-size: .8rem; font-weight: 700; color: var(--accent-deep); text-decoration: none; margin-top: 4px; }
+  .ba__more:hover { text-decoration: underline; }
   .ba__cta { display: inline-block; margin-top: 36px; background: var(--accent); color: #fff; padding: 14px 28px; border-radius: 999px; font-weight: 700; text-decoration: none; box-shadow: 0 8px 22px -8px rgba(232,131,58,.55); }
   .ba__cta:hover { background: var(--accent-deep); }
+  @media (max-width: 768px) {
+    .ba__grid { grid-template-columns: 1fr; gap: 16px; }
+  }
 </style>
 
 {% schema %}
@@ -74,35 +102,36 @@
   "name": "Before/after",
   "settings": [
     { "type": "header", "content": "Heading" },
-    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Real customers, real couches" },
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Real customers, real heels" },
     { "type": "text", "id": "heading_lead", "label": "Heading lead", "default": "Before & after," },
-    { "type": "text", "id": "heading_accent", "label": "Heading accent", "default": "in 90 seconds." },
-    { "type": "text", "id": "subhead", "label": "Subhead", "default": "Submitted by FurGone customers. Same couch, same dog, one swipe." },
+    { "type": "text", "id": "heading_accent", "label": "Heading accent", "default": "in 30 minutes." },
+    { "type": "text", "id": "subhead", "label": "Subhead", "default": "Submitted by Kneuro customers. Tap any review to see the full story." },
+    { "type": "url", "id": "review_url", "label": "Full reviews link" },
     { "type": "header", "content": "Pair 1" },
     { "type": "image_picker", "id": "pair_1_before", "label": "Before image" },
     { "type": "image_picker", "id": "pair_1_after", "label": "After image" },
-    { "type": "text", "id": "pair_1_label", "label": "Caption", "default": "Couch · Golden retriever · 3 swipes" },
+    { "type": "text", "id": "pair_1_label", "label": "Caption" },
     { "type": "textarea", "id": "pair_1_quote", "label": "Review quote" },
     { "type": "text", "id": "pair_1_attr", "label": "Review attribution" },
     { "type": "header", "content": "Pair 2" },
     { "type": "image_picker", "id": "pair_2_before", "label": "Before image" },
     { "type": "image_picker", "id": "pair_2_after", "label": "After image" },
-    { "type": "text", "id": "pair_2_label", "label": "Caption", "default": "Car seat · Lab mix · 5 swipes" },
+    { "type": "text", "id": "pair_2_label", "label": "Caption" },
     { "type": "textarea", "id": "pair_2_quote", "label": "Review quote" },
     { "type": "text", "id": "pair_2_attr", "label": "Review attribution" },
     { "type": "header", "content": "Pair 3" },
     { "type": "image_picker", "id": "pair_3_before", "label": "Before image" },
     { "type": "image_picker", "id": "pair_3_after", "label": "After image" },
-    { "type": "text", "id": "pair_3_label", "label": "Caption", "default": "Black leggings · Long-haired cat · 2 swipes" },
+    { "type": "text", "id": "pair_3_label", "label": "Caption" },
     { "type": "textarea", "id": "pair_3_quote", "label": "Review quote" },
     { "type": "text", "id": "pair_3_attr", "label": "Review attribution" },
     { "type": "header", "content": "CTA" },
-    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Get yours — from $29.99 →" },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Get yours — from $19.99 →" },
     { "type": "url", "id": "cta_url", "label": "Button link" },
     { "type": "header", "content": "Layout" },
     { "type": "color", "id": "bg", "label": "Background" },
-    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 80 },
-    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 80 }
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 64 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 64 }
   ],
   "presets": [{ "name": "Before/after" }]
 }
