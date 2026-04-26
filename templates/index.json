@@ -95,7 +95,7 @@
           "settings": {
             "image": "shopify://shop_images/A98cdf404c169432580ed0d0c53f6d3f68_jpg_960x960q75_jpg.avif",
             "image_asset": "",
-            "image_url": "",
+            "image_url": "shopify://products/null-1777186869995",
             "rating": 5,
             "review": "I've tried Baby Foot, the harsh acid ones, and they always burned and made my feet flake painfully for two weeks. This one is gentle — no peeling, no burning, just soft hydrated feet the next morning. The goat milk smell is light and clean, not perfumey. Will buy again.",
             "name": "Hannah M.",
@@ -106,7 +106,7 @@
           "type": "review",
           "settings": {
             "image_asset": "",
-            "image_url": "",
+            "image_url": "shopify://products/null-1777186869995",
             "rating": 5,
             "review": "I bought this because I'm pregnant and couldn't use the regular foot peels (salicylic acid is a no-go). My feet were so dry from the swelling. Used this and they actually felt soft for the first time in months. Genuine relief.",
             "name": "Priya R.",
@@ -116,8 +116,9 @@
         "rv3": {
           "type": "review",
           "settings": {
+            "image": "shopify://shop_images/A039432e9ccb048d583261b402c5f7e61C_jpg_960x960q75_jpg.avif",
             "image_asset": "",
-            "image_url": "",
+            "image_url": "shopify://products/null-1777186869995",
             "rating": 5,
             "review": "Bought the 3-pack for me, my mom, and my sister. All three of us texted each other the next day in caps lock. The cat paw shape is silly cute but the formula is real. Goat milk + niacinamide is a smart combo.",
             "name": "Daniel K.",
