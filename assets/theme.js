@@ -91,15 +91,13 @@
     openLightbox(src, target.tagName === 'VIDEO' ? 'video' : 'img');
   });
 
-  // Crossfade thumbnail swap
+  // Simple fade swap — fade out, replace, fade in
   const thumbs = document.querySelectorAll('.gallery-thumbs .th');
   if (!thumbs.length) return;
 
-  let busy = false;
   thumbs.forEach((t) => {
     t.addEventListener('click', (ev) => {
       ev.stopPropagation();
-      if (busy) return;
       const src = t.dataset.src;
       if (!src) return;
       const type = t.dataset.type;
@@ -107,40 +105,28 @@
       thumbs.forEach((x) => x.classList.remove('active'));
       t.classList.add('active');
 
-      const current = main.querySelector('img, video');
-      if (current && (current.currentSrc === src || current.src === src)) return;
+      const existing = Array.from(main.querySelectorAll('img, video'));
+      existing.forEach((el) => { el.style.transition = 'opacity .2s ease'; el.style.opacity = '0'; });
 
-      busy = true;
-      let next;
-      if (type === 'video') {
-        next = document.createElement('video');
-        next.src = src; next.autoplay = true; next.muted = true; next.loop = true; next.playsInline = true;
-      } else {
-        next = document.createElement('img');
-        next.src = src; next.alt = '';
-      }
-      next.classList.add('gs-layer', 'gs-out');
-      main.appendChild(next);
-
-      const reveal = () => {
+      setTimeout(() => {
+        existing.forEach((el) => el.remove());
+        let next;
+        if (type === 'video') {
+          next = document.createElement('video');
+          next.src = src; next.autoplay = true; next.muted = true; next.loop = true; next.playsInline = true;
+        } else {
+          next = document.createElement('img');
+          next.src = src; next.alt = '';
+        }
+        next.style.transition = 'opacity .25s ease';
+        next.style.opacity = '0';
+        main.appendChild(next);
+        // Force reflow then fade in on the next frame
+        next.getBoundingClientRect();
         requestAnimationFrame(() => {
-          next.classList.remove('gs-out');
-          if (current) {
-            current.classList.add('gs-layer', 'gs-out');
-          }
-          setTimeout(() => {
-            if (current && current.parentNode) current.parentNode.removeChild(current);
-            busy = false;
-          }, 380);
+          next.style.opacity = '1';
         });
-      };
-
-      if (next.tagName === 'IMG' && !next.complete) {
-        next.addEventListener('load', reveal, { once: true });
-        next.addEventListener('error', reveal, { once: true });
-      } else {
-        reveal();
-      }
+      }, 210);
     });
   });
 })();
@@ -180,3 +166,4 @@
     // But if we want a fetch-based add later, this is the hook.
   });
 })();
+// Mon 27 Apr 2026 02:46:36 +08
