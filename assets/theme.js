@@ -91,7 +91,7 @@
     openLightbox(src, target.tagName === 'VIDEO' ? 'video' : 'img');
   });
 
-  // Simple fade swap — fade out, replace, fade in
+  // Thumbnail swap (instant, reliable; CSS handles a subtle fade via .gs-fresh class)
   const thumbs = document.querySelectorAll('.gallery-thumbs .th');
   if (!thumbs.length) return;
 
@@ -105,26 +105,22 @@
       thumbs.forEach((x) => x.classList.remove('active'));
       t.classList.add('active');
 
-      const existing = Array.from(main.querySelectorAll('img, video'));
-      existing.forEach((el) => { el.style.transition = 'opacity .2s ease'; el.style.opacity = '0'; });
+      // Preserve badges
+      const badges = Array.from(main.querySelectorAll('.gallery-badge, .heart-badge'));
+      main.querySelectorAll('img, video').forEach((el) => el.remove());
 
-      setTimeout(() => {
-        existing.forEach((el) => el.remove());
-        let next;
-        if (type === 'video') {
-          next = document.createElement('video');
-          next.src = src; next.autoplay = true; next.muted = true; next.loop = true; next.playsInline = true;
-        } else {
-          next = document.createElement('img');
-          next.src = src; next.alt = '';
-        }
-        next.style.transition = 'opacity .25s ease';
-        next.style.opacity = '0';
-        main.appendChild(next);
-        next.getBoundingClientRect();
-        // Use setTimeout so the browser commits the initial 0 before transitioning to 1
-        setTimeout(() => { next.style.opacity = '1'; }, 30);
-      }, 210);
+      let next;
+      if (type === 'video') {
+        next = document.createElement('video');
+        next.src = src; next.autoplay = true; next.muted = true; next.loop = true; next.playsInline = true;
+      } else {
+        next = document.createElement('img');
+        next.src = src; next.alt = '';
+      }
+      next.classList.add('gs-fresh');
+      main.appendChild(next);
+      // Trigger fade-in via class removal after one frame
+      next.addEventListener('animationend', () => next.classList.remove('gs-fresh'), { once: true });
     });
   });
 })();

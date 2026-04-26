@@ -164,12 +164,8 @@ h1, h2, h3 {
   width: 100%; height: 100%; object-fit: cover;
 }
 .gallery-main { cursor: zoom-in; }
-.gallery-main .gs-layer {
-  position: absolute; inset: 0;
-  transition: opacity .35s ease;
-  will-change: opacity;
-}
-.gallery-main .gs-layer.gs-out { opacity: 0; }
+@keyframes gsFadeIn { from { opacity: 0; } to { opacity: 1; } }
+.gallery-main .gs-fresh { animation: gsFadeIn .3s ease forwards; }
 
 /* Lightbox */
 .gs-lightbox {
