@@ -7,6 +7,7 @@
         {% for variant in product.variants %}
           <button type="button" class="bundle{% if variant.id == cv.id %} selected{% endif %}{% unless variant.available %} unavailable{% endunless %}"
                   data-variant-id="{{ variant.id }}"
+                  data-variant-index="{{ forloop.index0 }}"
                   data-price="{{ variant.price | money }}"
                   data-price-raw="{{ variant.price }}"
                   {% if variant.featured_image %}data-image="{{ variant.featured_image | image_url: width: 1200 }}"{% endif %}

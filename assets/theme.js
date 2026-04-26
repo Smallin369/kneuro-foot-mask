@@ -151,20 +151,23 @@
       url.searchParams.set('variant', variantId);
       window.history.replaceState({}, '', url);
 
-      // Swap gallery main image to variant featured image
-      const variantImg = el.dataset.image;
+      // Swap gallery: prefer matching gallery thumbnail by variant index, fallback to variant featured_image
       const main = document.getElementById('galleryMain');
-      if (variantImg && main) {
+      const thumbs = document.querySelectorAll('.gallery-thumbs .th');
+      const idx = parseInt(el.dataset.variantIndex, 10);
+      const variantImg = el.dataset.image;
+      let targetThumb = (!isNaN(idx) && thumbs[idx]) ? thumbs[idx] : null;
+      if (!targetThumb && variantImg) {
+        targetThumb = Array.from(thumbs).find((t) => t.dataset.src === variantImg);
+      }
+      if (targetThumb) {
+        targetThumb.click();
+      } else if (variantImg && main) {
         main.querySelectorAll('img, video').forEach((n) => n.remove());
         const next = document.createElement('img');
-        next.src = variantImg;
-        next.alt = '';
+        next.src = variantImg; next.alt = '';
         next.classList.add('gs-fresh');
         main.appendChild(next);
-        // Sync thumbnail active state if a matching thumb exists
-        document.querySelectorAll('.gallery-thumbs .th').forEach((t) => {
-          t.classList.toggle('active', t.dataset.src === variantImg);
-        });
       }
     });
   });
