@@ -8,11 +8,11 @@
       {% for block in section.blocks %}
         <div class="rr__card" {{ block.shopify_attributes }}>
           {% if block.settings.image %}
-            <img class="rr__img" src="{{ block.settings.image | image_url: width: 600 }}" srcset="{{ block.settings.image | image_url: width: 400 }} 400w, {{ block.settings.image | image_url: width: 600 }} 600w" sizes="(max-width:768px) 100vw, 320px" alt="Customer photo" loading="lazy" width="500" height="500">
+            <img class="rr__img" src="{{ block.settings.image | image_url: width: 600 }}" srcset="{{ block.settings.image | image_url: width: 400 }} 400w, {{ block.settings.image | image_url: width: 600 }} 600w" sizes="(max-width:768px) 100vw, 320px" alt="Customer photo" loading="lazy" >
           {% elsif block.settings.image_asset != blank %}
-            <img class="rr__img" src="{{ block.settings.image_asset | asset_url }}" alt="Customer photo" loading="lazy" width="500" height="500">
+            <img class="rr__img" src="{{ block.settings.image_asset | asset_url }}" alt="Customer photo" loading="lazy" >
           {% elsif block.settings.image_url != blank %}
-            <img class="rr__img" src="{{ block.settings.image_url }}" alt="Customer photo" loading="lazy" width="500" height="500">
+            <img class="rr__img" src="{{ block.settings.image_url }}" alt="Customer photo" loading="lazy" >
           {% endif %}
           <div class="rr__body">
             <div class="rr__stars">
@@ -47,7 +47,9 @@
   @media(min-width: 720px) { .rr__grid { grid-template-columns: repeat(2, 1fr); } }
   @media(min-width: 1000px) { .rr__grid { grid-template-columns: repeat(3, 1fr); max-width: 980px; margin-left: auto; margin-right: auto; } }
   .rr__card { background: var(--cream-soft); border-radius: 14px; overflow: hidden; box-shadow: 0 6px 18px -10px rgba(42,28,18,.15); display: flex; flex-direction: column; }
-  .rr__img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; background: #eee; }
+  .rr__img { width: 100% !important; height: 280px !important; aspect-ratio: auto !important; object-fit: cover; object-position: center; display: block; background: #eee; flex-shrink: 0; }
+  @media(min-width: 720px) { .rr__img { height: 260px !important; } }
+  @media(min-width: 1000px) { .rr__img { height: 280px !important; } }
   .rr__body { padding: 16px; flex: 1; display: flex; flex-direction: column; }
   .rr__stars { color: var(--accent); letter-spacing: 2px; font-size: .95rem; margin-bottom: 8px; }
   .rr__text { font-size: .92rem; line-height: 1.55; color: var(--ink-2); margin: 0 0 12px; flex: 1; }
