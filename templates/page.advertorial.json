@@ -32,149 +32,6 @@
         "padding_bottom": 32
       }
     },
-    "reviews": {
-      "type": "real-reviews",
-      "blocks": {
-        "rv1": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/foot_review_1.avif",
-            "image_asset": "",
-            "image_url": "",
-            "rating": 5,
-            "review": "I've tried Baby Foot, the harsh acid ones, and they always burned and made my feet flake painfully for two weeks. This one is gentle — no peeling, no burning, just soft hydrated feet the next morning. The goat milk smell is light and clean, not perfumey. Will buy again.",
-            "name": "Hannah M.",
-            "meta": "Sensitive skin · Verified buyer"
-          }
-        },
-        "rv2": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/foot_review_2.avif",
-            "image_asset": "",
-            "image_url": "",
-            "rating": 5,
-            "review": "I bought this because I'm pregnant and couldn't use the regular foot peels (salicylic acid is a no-go). My feet were so dry from the swelling. Used this and they actually felt soft for the first time in months. Genuine relief.",
-            "name": "Priya R.",
-            "meta": "Pregnant · Verified buyer"
-          }
-        },
-        "rv3": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/foot_review_3.avif",
-            "image_asset": "",
-            "image_url": "",
-            "rating": 5,
-            "review": "Bought the 3-pack for me, my mom, and my sister. All three of us texted each other the next day in caps lock. The cat paw shape is silly cute but the formula is real. Goat milk + niacinamide is a smart combo.",
-            "name": "Daniel K.",
-            "meta": "Bought as a gift · Verified buyer"
-          }
-        }
-      },
-      "block_order": [
-        "rv1",
-        "rv2",
-        "rv3"
-      ],
-      "settings": {
-        "kicker": "Real customers, real reviews",
-        "heading_lead": "What clean-skincare fans",
-        "heading_accent": "actually say.",
-        "subhead": "Verified reviews from real customers — including the honest ones.",
-        "cta_label": "Get yours — from $19.99 →",
-        "cta_url": "/products/goat-milk-foot-mask",
-        "bg": "",
-        "padding_top": 64,
-        "padding_bottom": 64
-      }
-    },
-    "story": {
-      "type": "advertorial-story",
-      "blocks": {
-        "p1": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>By month three of cracked heels, I'd given up. I'd burned through two foot creams, a pumice stone, a $40 electric callus remover, and a $90 pedicure that lasted exactly four days. Nothing fixed the deep, painful dryness on my heels — the kind that catches on bedsheets and ruins black tights. My dermatologist warned me off the harsh-acid peels (Baby Foot territory) because of my sensitive skin. I was running out of options.</p>"
-          }
-        },
-        "p2": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Then a friend in Seoul sent me a video of a goat milk foot mask. Looked like a cute cat-paw sock filled with white liquid. She said it was the K-beauty answer to harsh peels — gentler, more hydrating, no peeling, no burning. I ordered one for $25 because I was already $200 deep in things that didn't work.</p>"
-          }
-        },
-        "quote": {
-          "type": "pullquote",
-          "settings": {
-            "quote": "30 minutes. No burning. No peeling. The next morning my feet were genuinely soft for the first time in three years.",
-            "attribution": "Sarah, three weeks in"
-          }
-        },
-        "p3": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Three weeks later I've used it before every important event — date nights, my sister's wedding, a beach trip — and bought the 3-pack so I never run out. The goat milk smell is gentle (none of that fake lavender perfume), the niacinamide visibly evens out the rough patches, and the cat paw shape is genuinely cute enough that I take photos before I put them on. It's the only foot product I've actually used more than once.</p>"
-          }
-        },
-        "checks": {
-          "type": "checkmarks",
-          "settings": {
-            "t1": "Goat milk + niacinamide — gentle, no harsh acids",
-            "t2": "Pregnancy-safe ingredients (no salicylic acid)",
-            "t3": "Visible results in one 30-minute session",
-            "t4": "Works on cracked heels, dry hands, rough elbows",
-            "t5": "Backed by a 30-day money-back guarantee"
-          }
-        },
-        "cta1": {
-          "type": "inline_cta",
-          "settings": {
-            "label": "Get the Goat Milk Mask — from $19.99 →",
-            "url": "/products/goat-milk-foot-mask",
-            "subtext": "Free returns · Ships within 24 hours from the US"
-          }
-        },
-        "img1": {
-          "type": "image",
-          "settings": {
-            "alt": "Dry, cracked heels before treatment",
-            "caption": "My heels in March. Catches on bedsheets, ruins black tights."
-          }
-        },
-        "img2": {
-          "type": "image",
-          "settings": {
-            "alt": "Goat milk foot mask in cat paw shape, ready to use",
-            "caption": "The mask my friend sent. White liquid, cat-paw sock — looked silly. Worked anyway."
-          }
-        },
-        "img3": {
-          "type": "image",
-          "settings": {
-            "alt": "Soft, hydrated feet after 30-minute application",
-            "caption": "30 minutes later. First time my heels felt soft in three years."
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "img1",
-        "p2",
-        "img2",
-        "quote",
-        "p3",
-        "img3",
-        "checks",
-        "cta1"
-      ],
-      "settings": {
-        "cta_url": "/products/goat-milk-foot-mask",
-        "bg": "",
-        "padding_top": 16,
-        "padding_bottom": 48
-      }
-    },
     "ba": {
       "type": "before-after",
       "settings": {
@@ -183,8 +40,14 @@
         "heading_accent": "in 30 minutes.",
         "subhead": "Submitted by Kneuro customers. One pair, one application, visibly softer feet.",
         "pair_1_label": "Cracked heels · 1 application",
+        "pair_1_quote": "I've tried Baby Foot, the harsh acid ones, and they always burned and made my feet flake painfully for two weeks. This one is gentle — no peeling, no burning, just soft hydrated feet the next morning.",
+        "pair_1_attr": "Hannah M. · Sensitive skin · Verified buyer",
         "pair_2_label": "Dry hands · 2 applications",
+        "pair_2_quote": "I bought this because I'm pregnant and couldn't use the regular foot peels (salicylic acid is a no-go). My feet were so dry from the swelling. Used this and they actually felt soft for the first time in months. Genuine relief.",
+        "pair_2_attr": "Priya R. · Pregnant · Verified buyer",
         "pair_3_label": "Rough elbows · 1 application",
+        "pair_3_quote": "Bought the 3-pack for me, my mom, and my sister. All three of us texted each other the next day in caps lock. The cat paw shape is silly cute but the formula is real.",
+        "pair_3_attr": "Daniel K. · Bought as a gift · Verified buyer",
         "cta_label": "Get yours — from $19.99 →",
         "cta_url": "/products/goat-milk-foot-mask",
         "bg": "",
@@ -433,12 +296,10 @@
     "scarcity",
     "press",
     "hero",
-    "reviews",
-    "ingredients",
     "ba",
-    "story",
     "comparison",
     "faq",
+    "ingredients",
     "final"
   ]
 }
