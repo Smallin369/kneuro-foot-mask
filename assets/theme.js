@@ -54,26 +54,34 @@
     const line = document.getElementById('atcLine');
     const summary = document.getElementById('atcSummary');
     const title = item.product_title || item.title || 'Item';
-    const variantTitle = item.variant_title && item.variant_title !== 'Default Title' ? ' — ' + item.variant_title : '';
-    if (line) line.textContent = (item.quantity || 1) + ' × ' + title + variantTitle;
-    if (summary) summary.innerHTML = '<div class="atc-modal__row"><span>Loading cart…</span></div>';
+    const variantTitle = item.variant_title && item.variant_title !== 'Default Title' ? item.variant_title : '';
+    const qty = item.quantity || 1;
+    const unitPrice = item.price || 0;
+    const linePrice = item.final_line_price || item.line_price || (unitPrice * qty);
+
+    if (line) {
+      line.innerHTML = '<strong>' + title + '</strong>' +
+        (variantTitle ? '<span class="atc-modal__variant">' + variantTitle + '</span>' : '');
+    }
+    if (summary) summary.innerHTML = '<div class="atc-modal__row"><span>Loading cart total…</span></div>';
     modal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
 
     try {
       const cart = await fetch('/cart.js', { headers: { 'Accept': 'application/json' } }).then(r => r.json());
+      const cur = cart.currency;
       const itemCount = cart.item_count || 0;
-      const subtotal = fmt(cart.items_subtotal_price || cart.original_total_price || cart.total_price, cart.currency);
+      const subtotal = fmt(cart.items_subtotal_price || cart.original_total_price || cart.total_price, cur);
       const totalDiscount = (cart.original_total_price || 0) - (cart.total_price || 0);
-      const grand = fmt(cart.total_price, cart.currency);
+      const grand = fmt(cart.total_price, cur);
       let html = '';
-      html += '<div class="atc-modal__row"><span>Item subtotal (' + (item.quantity || 1) + ')</span><strong>' + fmt(item.line_price || item.final_line_price || (item.price * item.quantity), cart.currency) + '</strong></div>';
+      html += '<div class="atc-modal__row"><span>' + fmt(unitPrice, cur) + ' × ' + qty + (variantTitle ? ' &nbsp;·&nbsp; ' + variantTitle : '') + '</span><strong>' + fmt(linePrice, cur) + '</strong></div>';
       html += '<div class="atc-modal__row"><span>Cart subtotal (' + itemCount + ' item' + (itemCount === 1 ? '' : 's') + ')</span><strong>' + subtotal + '</strong></div>';
       if (totalDiscount > 0) {
-        html += '<div class="atc-modal__row atc-modal__row--save"><span>You save</span><strong>−' + fmt(totalDiscount, cart.currency) + '</strong></div>';
+        html += '<div class="atc-modal__row atc-modal__row--save"><span>You save</span><strong>−' + fmt(totalDiscount, cur) + '</strong></div>';
       }
       html += '<div class="atc-modal__row atc-modal__row--total"><span>Estimated total</span><strong>' + grand + '</strong></div>';
-      html += '<div class="atc-modal__note">Shipping & taxes calculated at checkout.</div>';
+      html += '<div class="atc-modal__note">Shipping & taxes calculated at checkout · ' + cur + '</div>';
       if (summary) summary.innerHTML = html;
     } catch (err) {
       if (summary) summary.innerHTML = '<div class="atc-modal__note">Couldn\'t load cart total — proceed to checkout for full breakdown.</div>';
