@@ -1,0 +1,117 @@
+{
+  "sections": {
+    "header": {
+      "type": "advertorial-hero",
+      "settings": {
+        "publication": "Ingredient Story",
+        "category": "Inside the formula",
+        "headline": "Four ingredients. Zero compromise.",
+        "subhead": "Most foot peels rely on harsh acids that strip the skin until it sheds. Ours rebuilds it. Here's exactly what's in the bottle and what each one does.",
+        "byline": "Kneuro Lab",
+        "date": "Reviewed 2026",
+        "read_time": "3 min read",
+        "hero_image": "shopify://shop_images/5pack.png",
+        "caption": "The same four ingredients in every pouch.",
+        "cta_url": "/products/goat-milk-callus-mask",
+        "padding_top": 32,
+        "padding_bottom": 24
+      }
+    },
+    "ingredients_grid": {
+      "type": "why-grid",
+      "blocks": {
+        "k": { "type": "kicker", "settings": { "text": "What's in it" } },
+        "h": { "type": "heading", "settings": { "lead": "Four ingredients,", "accent": "all doing real work." } },
+        "i1": { "type": "card", "settings": {
+          "title": "Goat milk",
+          "body": "Naturally rich in lactic acid (gentle), protein, and vitamin A. Softens callused skin without the dramatic peel of glycolic or salicylic acid. Used in skincare for 4,000 years — the original keratolytic that won't burn.",
+          "emoji": "🥛"
+        }},
+        "i2": { "type": "card", "settings": {
+          "title": "Niacinamide",
+          "body": "Vitamin B3 at 5%. Strengthens the skin barrier, evens out rough texture, and supports collagen production. The reason rough patches look visibly smoother after one use, not just softer.",
+          "emoji": "🧬"
+        }},
+        "i3": { "type": "card", "settings": {
+          "title": "Glycerin",
+          "body": "A humectant that pulls moisture from the air into your skin. Hydration that stays after the mask comes off. Pregnancy-safe and non-comedogenic.",
+          "emoji": "💧"
+        }},
+        "i4": { "type": "card", "settings": {
+          "title": "Allantoin",
+          "body": "Derived from comfrey. Soothes irritation and accelerates skin renewal. The reason cracked heels feel calm instead of stinging after a session.",
+          "emoji": "🌿"
+        }}
+      },
+      "block_order": ["k", "h", "i1", "i2", "i3", "i4"],
+      "settings": { "padding_top": 56, "padding_bottom": 56 }
+    },
+    "compare": {
+      "type": "comparison-table",
+      "blocks": {
+        "k": { "type": "kicker", "settings": { "text": "vs harsh peels" } },
+        "h": { "type": "heading", "settings": { "lead": "What we", "accent": "left out." } },
+        "t": { "type": "table", "settings": {
+          "col_brand": "Kneuro",
+          "col_2": "Acid foot peels",
+          "col_3": "",
+          "col_4": "",
+          "row_1_label": "Salicylic acid",
+          "row_1_brand": "✗ none",
+          "row_1_c2": "contains",
+          "row_2_label": "Glycolic acid",
+          "row_2_brand": "✗ none",
+          "row_2_c2": "contains",
+          "row_3_label": "Essential oils",
+          "row_3_brand": "✗ none",
+          "row_3_c2": "varies",
+          "row_4_label": "Pregnancy-safe",
+          "row_4_brand": "✓ yes",
+          "row_4_c2": "no",
+          "row_5_label": "Diabetes-safe",
+          "row_5_brand": "✓ yes",
+          "row_5_c2": "consult doctor"
+        }}
+      },
+      "block_order": ["k", "h", "t"],
+      "settings": { "padding_top": 56, "padding_bottom": 56 }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "k": { "type": "kicker", "settings": { "text": "Ingredient questions" } },
+        "h": { "type": "heading", "settings": { "lead": "Honest answers,", "accent": "no marketing fluff." } },
+        "list": { "type": "faq_list", "settings": {
+          "q1_question": "Is goat milk vegan?",
+          "q1_answer": "No. Goat milk is sourced from goats. The rest of the formula (niacinamide, glycerin, allantoin) is plant-derived or synthetic. Cruelty-free — never tested on animals — but not vegan.",
+          "q2_question": "Where is the goat milk sourced?",
+          "q2_answer": "From a small herd in New Zealand. Filtered, pasteurized, and freeze-dried before formulation to preserve the lactic acid and protein content.",
+          "q3_question": "Why no salicylic acid?",
+          "q3_answer": "Salicylic acid causes the dramatic 7-day peeling that defines most foot peels. It's effective but harsh — unsafe in pregnancy, irritating to diabetic skin, and forces you to stay out of public sandals for a week. We get the softening effect from goat milk's natural lactic acid (much gentler) plus niacinamide for texture.",
+          "q4_question": "Is niacinamide safe for sensitive skin?",
+          "q4_answer": "Yes. Niacinamide is one of the most universally tolerated active ingredients in skincare. We use 5% — high enough to work, low enough not to flush.",
+          "q5_question": "Will it work on dry hands and elbows?",
+          "q5_answer": "Yes. The formulation is targeted at thick callused skin (heels), but it's safe and effective on hands, elbows, and any rough patches. Apply directly with clean hands and let it absorb for 20-30 minutes.",
+          "q6_question": "What is the shelf life?",
+          "q6_answer": "24 months from manufacture, sealed. Each pouch has a date stamp. Once opened, use within 30 days."
+        }}
+      },
+      "block_order": ["k", "h", "list"],
+      "settings": { "padding_top": 56, "padding_bottom": 56 }
+    },
+    "cta": {
+      "type": "final-cta",
+      "settings": {
+        "heading_lead": "Soft heels in",
+        "heading_accent": "30 minutes.",
+        "body": "Goat milk + niacinamide + glycerin + allantoin. Nothing else. Free US shipping over $69. 30-day money-back guarantee.",
+        "cta_label": "Shop the foot mask",
+        "cta_link": "/products/goat-milk-callus-mask",
+        "product_image": "shopify://shop_images/5pack.png",
+        "padding_top": 56,
+        "padding_bottom": 88
+      }
+    }
+  },
+  "order": ["header", "ingredients_grid", "compare", "faq", "cta"]
+}
