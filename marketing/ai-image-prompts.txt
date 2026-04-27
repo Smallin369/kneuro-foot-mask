@@ -19,13 +19,58 @@ reject the ads.
 Use case: replaces 5pack.png on homepage advertorial hero, /pages/about,
 /pages/ingredients, /pages/kneuro-vs-baby-foot.
 
-PROMPT:
+⚠ COMMON FAILURE: AI generators default to making the pouch tea-sachet
+sized (~2 inches). A real foot mask pouch is ENVELOPE-SIZED (~5-6
+inches) because it holds two pre-filled foot socks. If the pouch in
+your output looks like a sugar packet, regenerate with the v2 prompt
+below — it's the most common issue.
+
+────── PROMPT v1 (BASIC — try this first) ──────
 amateur smartphone photo, pale woman's hand holding a small white
 foil sachet labeled "kneuro" against a soft cream-tile bathroom
 backdrop, natural side window light, soft shadows, slight depth-of-
 field blur, no professional studio lighting, casual home setting,
 no face visible, slightly off-center composition, square crop, 1:1
 aspect ratio, candid, not retouched, photo taken at arm's length
+
+────── PROMPT v2 (REFINED — fixes pouch-too-small issue) ──────
+amateur smartphone snapshot, casual home iPhone photo, woman's hand
+holding a LARGE foil envelope packet, approximately 5 inches by 6
+inches, envelope-sized cosmetics pouch (NOT a small tea sachet — much
+larger, hand-sized cosmetics envelope holding two pre-filled foot
+socks), white foil with subtle "kneuro" text in lowercase, slightly
+crinkled edges, tear notch visible on top, natural side window light
+with one slightly harsh shadow, beige bathroom tile background, white
+folded towel partially visible, quick candid snapshot, slightly
+off-center composition, motion blur from phone movement, square crop,
+imperfect framing, NOT a styled product shot, NOT magazine quality,
+casual everyday phone photo
+
+KEY DIFFERENCES IN v2:
+▪ Capitalized "LARGE" (image models respond to emphasis)
+▪ Explicit dimensions ("5 inches by 6 inches")
+▪ Negative prompt: "NOT a small tea sachet"
+▪ Anatomical reference: "holding two pre-filled foot socks"
+▪ Realism cues: "slightly crinkled edges, tear notch visible"
+▪ Anti-polish negative: "NOT a styled product shot, NOT magazine quality"
+
+────── BEST APPROACH: image-to-image edit ──────
+If you have ANY real photo of your actual product (even a phone snap
+of a sample pouch on your desk), use ChatGPT-4o, Flux Kontext, or
+Midjourney's "Edit/Vary" / Inpaint feature. Upload the real product
+photo and prompt:
+
+  "Place this exact pouch into a scene: a woman's hand holds it in a
+   beige bathroom with morning window light, casual snapshot style,
+   square crop, candid not styled"
+
+This preserves the CORRECT product anatomy and only generates the
+scene around it. 10× better than pure text-to-image for branded
+products with specific packaging.
+
+────── EVEN BETTER: real iPhone photo ──────
+Take a real 90-second photo of one of your actual sample pouches in
+your kitchen or bathroom. Real always beats AI for trust signals.
 
 ALTERNATIVE FRAMINGS (try these too):
 - "...holding the pouch over a folded white towel, marble counter
