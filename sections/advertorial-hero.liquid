@@ -17,6 +17,32 @@
 
 <section class="adv-hero" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
   <div class="adv-hero__inner">
+
+    {%- if section.blocks.size == 0 -%}
+      {%- comment -%} Legacy fallback: render from section.settings when no blocks defined {%- endcomment -%}
+      {% if section.settings.publication != blank or section.settings.category != blank %}
+        <div class="adv-hero__pub">
+          {% if section.settings.publication != blank %}<span class="adv-hero__pub-name">{{ section.settings.publication }}</span>{% endif %}
+          {% if section.settings.category != blank %}<span class="adv-hero__pub-cat">{{ section.settings.category }}</span>{% endif %}
+        </div>
+      {% endif %}
+      {% if section.settings.headline != blank %}<h1 class="adv-hero__title">{{ section.settings.headline }}</h1>{% endif %}
+      {% if section.settings.subhead != blank %}<p class="adv-hero__sub">{{ section.settings.subhead }}</p>{% endif %}
+      {% if section.settings.byline != blank or section.settings.date != blank or section.settings.read_time != blank %}
+        <div class="adv-hero__byline">
+          {% if section.settings.byline != blank %}<span>By <strong>{{ section.settings.byline }}</strong></span>{% endif %}
+          {% if section.settings.date != blank %}<span>· {{ section.settings.date }}</span>{% endif %}
+          {% if section.settings.read_time != blank %}<span>· {{ section.settings.read_time }}</span>{% endif %}
+        </div>
+      {% endif %}
+      {% if section.settings.hero_image %}
+        <figure class="adv-hero__fig">
+          <img class="adv-hero__img" src="{{ section.settings.hero_image | image_url: width: 1200, format: 'webp' }}" srcset="{{ section.settings.hero_image | image_url: width: 600, format: 'webp' }} 600w, {{ section.settings.hero_image | image_url: width: 1200, format: 'webp' }} 1200w" sizes="(max-width:768px) 100vw, 720px" alt="{{ section.settings.headline | escape }}" width="900" height="900" fetchpriority="high">
+          {% if section.settings.caption != blank %}<figcaption class="adv-hero__caption">{{ section.settings.caption }}</figcaption>{% endif %}
+        </figure>
+      {% endif %}
+    {%- endif -%}
+
     {% for block in section.blocks %}
       {% case block.type %}
 
@@ -86,6 +112,18 @@
 {
   "name": "Advertorial hero",
   "settings": [
+    { "type": "paragraph", "content": "Tip: prefer adding blocks below for full modularity. Settings here are a legacy fallback used only when no blocks exist." },
+    { "type": "header", "content": "Legacy settings (fallback only)" },
+    { "type": "text", "id": "publication", "label": "Publication name" },
+    { "type": "text", "id": "category", "label": "Category tag" },
+    { "type": "text", "id": "headline", "label": "Headline" },
+    { "type": "textarea", "id": "subhead", "label": "Deck (subhead)" },
+    { "type": "text", "id": "byline", "label": "Byline" },
+    { "type": "text", "id": "date", "label": "Publish date" },
+    { "type": "text", "id": "read_time", "label": "Read time" },
+    { "type": "image_picker", "id": "hero_image", "label": "Lead image" },
+    { "type": "text", "id": "caption", "label": "Image caption" },
+    { "type": "url", "id": "cta_url", "label": "CTA link" },
     { "type": "header", "content": "Layout" },
     { "type": "color", "id": "bg", "label": "Background" },
     { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 28 },
