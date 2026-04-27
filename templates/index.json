@@ -174,7 +174,7 @@
         "cta1": {
           "type": "inline_cta",
           "settings": {
-            "label": "Try the 3-pack — free shipping over $69 →",
+            "label": "See all bundles — free shipping on the 5-pack →",
             "url": "/products/goat-milk-callus-mask",
             "subtext": "30-day money-back · ships within 24 hours from the US"
           }
@@ -453,12 +453,78 @@
         "padding_top": 64,
         "padding_bottom": 64
       }
+    },
+    "bundles": {
+      "type": "homepage-bundle-cards",
+      "blocks": {
+        "b1": {
+          "type": "bundle",
+          "settings": {
+            "pack_label": "1 Pack",
+            "price": "$19.99",
+            "per_pack": "$19.99 / pack",
+            "savings": "",
+            "shipping_pill": "",
+            "body": "Try one 30-minute session before committing.",
+            "cta_label": "Try one →",
+            "variant_id": "47758582055099",
+            "featured": false,
+            "badge": ""
+          }
+        },
+        "b2": {
+          "type": "bundle",
+          "settings": {
+            "pack_label": "3 Pack",
+            "price": "$44.99",
+            "per_pack": "$15.00 / pack",
+            "savings": "Save $15",
+            "shipping_pill": "",
+            "body": "Three weekly sessions — the sweet spot.",
+            "cta_label": "Get the 3-pack →",
+            "variant_id": "47758582087867",
+            "featured": true,
+            "badge": "Most popular"
+          }
+        },
+        "b3": {
+          "type": "bundle",
+          "settings": {
+            "pack_label": "5 Pack",
+            "price": "$69.99",
+            "per_pack": "$14.00 / pack",
+            "savings": "Save $30",
+            "shipping_pill": "✓ Free US shipping",
+            "body": "The household ritual. Lasts 5 months.",
+            "cta_label": "Get the 5-pack →",
+            "variant_id": "47758582120635",
+            "featured": false,
+            "badge": ""
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "kicker": "Choose your pack",
+        "heading": "Buy more,",
+        "heading_accent": "save more.",
+        "subhead": "Tap a bundle to go straight to checkout — your selection is pre-loaded. Free US shipping on the 5-pack. 30-day money-back on every order.",
+        "fineprint": "All bundles pregnancy-safe, diabetes-safe, dermatologist-approved. 30-day return on opened or unopened pouches.",
+        "product_handle": "goat-milk-callus-mask",
+        "padding_top": 56,
+        "padding_bottom": 72
+      }
     }
   },
   "order": [
     "scarcity",
     "hero",
     "story",
+    "bundles",
     "testimonials",
     "ingredients",
     "comparison",

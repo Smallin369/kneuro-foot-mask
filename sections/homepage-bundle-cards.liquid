@@ -1,0 +1,127 @@
+{%- liquid
+  assign product_handle = section.settings.product_handle | default: 'goat-milk-callus-mask'
+  assign product_url = '/products/' | append: product_handle
+-%}
+
+<section class="hbc" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
+  <div class="hbc__inner">
+    {% if section.settings.kicker != blank %}
+      <div class="hbc__kicker">{{ section.settings.kicker }}</div>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+      <h2 class="hbc__heading">{{ section.settings.heading }} <em>{{ section.settings.heading_accent }}</em></h2>
+    {% endif %}
+    {% if section.settings.subhead != blank %}
+      <p class="hbc__sub">{{ section.settings.subhead }}</p>
+    {% endif %}
+
+    <div class="hbc__grid">
+      {% for block in section.blocks %}
+        {%- assign deep_url = product_url | append: '?variant=' | append: block.settings.variant_id -%}
+        <a class="hbc__card{% if block.settings.featured %} hbc__card--featured{% endif %}" href="{{ deep_url }}" {{ block.shopify_attributes }}>
+          {% if block.settings.badge != blank %}
+            <span class="hbc__badge">{{ block.settings.badge }}</span>
+          {% endif %}
+          <div class="hbc__card-top">
+            <div class="hbc__pack-label">{{ block.settings.pack_label | default: '1 Pack' }}</div>
+            <div class="hbc__price">{{ block.settings.price | default: '$19.99' }}</div>
+            {% if block.settings.per_pack != blank %}
+              <div class="hbc__per-pack">{{ block.settings.per_pack }}</div>
+            {% endif %}
+          </div>
+          <div class="hbc__card-mid">
+            {% if block.settings.savings != blank %}
+              <div class="hbc__savings">{{ block.settings.savings }}</div>
+            {% endif %}
+            {% if block.settings.shipping_pill != blank %}
+              <div class="hbc__pill">{{ block.settings.shipping_pill }}</div>
+            {% endif %}
+            {% if block.settings.body != blank %}
+              <p class="hbc__body">{{ block.settings.body }}</p>
+            {% endif %}
+          </div>
+          <div class="hbc__cta">
+            {{ block.settings.cta_label | default: 'Choose this →' }}
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.fineprint != blank %}
+      <p class="hbc__fineprint">{{ section.settings.fineprint }}</p>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  .hbc { background: var(--cream-soft, #faf8f5); }
+  .hbc__inner { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+  .hbc__kicker { display: inline-block; padding: 5px 12px; border: 1px solid var(--line, #ececec); border-radius: 999px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink, #0a0a0a); font-family: var(--font-heading); font-weight: 700; margin: 0 0 14px; }
+  .hbc__heading { font-family: var(--font-heading); font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700; color: var(--ink, #0a0a0a); margin: 0 0 8px; line-height: 1.2; }
+  .hbc__heading em { font-style: italic; font-weight: 700; color: var(--accent, #0a0a0a); }
+  .hbc__sub { color: var(--ink-2, #2a2a2a); font-size: 16px; line-height: 1.5; margin: 0 0 28px; max-width: 600px; }
+  .hbc__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 0 0 18px; }
+  .hbc__card { position: relative; display: flex; flex-direction: column; gap: 14px; padding: 22px 20px; background: #fff; border: 2px solid var(--line, #ececec); border-radius: 18px; text-decoration: none; color: inherit; transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease; cursor: pointer; }
+  .hbc__card:hover { transform: translateY(-3px); border-color: var(--accent, #0a0a0a); box-shadow: 0 14px 30px -12px rgba(0,0,0,0.18); }
+  .hbc__card--featured { border-color: var(--accent, #0a0a0a); border-width: 2.5px; box-shadow: 0 14px 30px -12px rgba(232,131,58,0.35); }
+  .hbc__badge { position: absolute; top: -10px; left: 16px; background: var(--accent, #0a0a0a); color: #fff; padding: 4px 12px; border-radius: 999px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-family: var(--font-heading); }
+  .hbc__pack-label { font-family: var(--font-heading); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted, #888); font-weight: 700; }
+  .hbc__price { font-family: var(--font-heading); font-size: 30px; font-weight: 800; color: var(--ink, #0a0a0a); line-height: 1; margin: 4px 0 2px; }
+  .hbc__per-pack { font-size: 12px; color: var(--muted, #888); }
+  .hbc__card-mid { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .hbc__savings { display: inline-block; align-self: flex-start; padding: 4px 10px; background: var(--cream, #f7f4f0); border-radius: 6px; font-size: 12px; font-weight: 700; color: var(--ink, #0a0a0a); }
+  .hbc__pill { display: inline-block; align-self: flex-start; padding: 4px 10px; background: #d6efd9; color: #1f6c2f; border-radius: 6px; font-size: 12px; font-weight: 700; letter-spacing: .02em; }
+  .hbc__body { margin: 4px 0 0; font-size: 13px; line-height: 1.45; color: var(--ink-2, #2a2a2a); }
+  .hbc__cta { padding: 12px 16px; background: var(--accent, #0a0a0a); color: #fff; text-align: center; border-radius: 10px; font-weight: 600; font-size: 14px; letter-spacing: .01em; margin-top: auto; }
+  .hbc__card--featured .hbc__cta { background: var(--accent-deep, #2a2a2a); }
+  .hbc__fineprint { color: var(--muted, #888); font-size: 12px; line-height: 1.45; text-align: center; margin: 0; }
+
+  @media (max-width: 760px) {
+    .hbc__grid { grid-template-columns: 1fr; gap: 14px; }
+    .hbc__card { padding: 20px; }
+    .hbc__price { font-size: 26px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Homepage bundle cards",
+  "settings": [
+    { "type": "header", "content": "Header" },
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Choose your pack" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Buy more," },
+    { "type": "text", "id": "heading_accent", "label": "Italic accent", "default": "save more." },
+    { "type": "textarea", "id": "subhead", "label": "Subhead", "default": "Tap a bundle to checkout. Free US shipping on the 5-pack. 30-day money-back on every order." },
+    { "type": "text", "id": "fineprint", "label": "Fine print", "default": "Bundle pricing reflects per-pack discount. All variants pregnancy-safe and dermatologist-approved." },
+    { "type": "header", "content": "Product" },
+    { "type": "text", "id": "product_handle", "label": "Product handle", "default": "goat-milk-callus-mask" },
+    { "type": "header", "content": "Layout" },
+    { "type": "color", "id": "bg", "label": "Background" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 56 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 72 }
+  ],
+  "blocks": [
+    { "type": "bundle", "name": "Bundle card", "settings": [
+      { "type": "text", "id": "pack_label", "label": "Pack label (small caps)", "default": "1 Pack" },
+      { "type": "text", "id": "price", "label": "Price", "default": "$19.99" },
+      { "type": "text", "id": "per_pack", "label": "Per-pack price line", "default": "$19.99 / pack" },
+      { "type": "text", "id": "savings", "label": "Savings badge", "default": "" },
+      { "type": "text", "id": "shipping_pill", "label": "Shipping pill", "default": "" },
+      { "type": "textarea", "id": "body", "label": "Body line", "default": "Try one session." },
+      { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Choose this →" },
+      { "type": "text", "id": "variant_id", "label": "Variant ID", "info": "From Shopify Admin → Products → Variant URL" },
+      { "type": "checkbox", "id": "featured", "label": "Highlight as featured", "default": false },
+      { "type": "text", "id": "badge", "label": "Top badge (e.g. MOST POPULAR)", "default": "" }
+    ]}
+  ],
+  "max_blocks": 4,
+  "presets": [{
+    "name": "Homepage bundle cards",
+    "blocks": [
+      { "type": "bundle", "settings": { "pack_label": "1 Pack", "price": "$19.99", "per_pack": "$19.99 / pack", "savings": "", "shipping_pill": "", "body": "Try one session.", "cta_label": "Try one →" }},
+      { "type": "bundle", "settings": { "pack_label": "3 Pack", "price": "$44.99", "per_pack": "$15.00 / pack", "savings": "Save $15", "shipping_pill": "", "body": "Three weekly sessions, the sweet spot.", "cta_label": "Get the 3-pack →", "featured": true, "badge": "Most popular" }},
+      { "type": "bundle", "settings": { "pack_label": "5 Pack", "price": "$69.99", "per_pack": "$14.00 / pack", "savings": "Save $30", "shipping_pill": "✓ Free US shipping", "body": "The household ritual. Lasts 5 months.", "cta_label": "Get the 5-pack →" }}
+    ]
+  }]
+}
+{% endschema %}
