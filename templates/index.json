@@ -33,6 +33,9 @@
         "hero_image": "shopify://shop_images/5pack.png",
         "caption": "Made in Korea by Cindynal Lab · curated and shipped by Kneuro. Same product, transparent process.",
         "cta_url": "/products/goat-milk-callus-mask",
+        "trust_t1": "Pregnancy-safe",
+        "trust_t2": "Derm-tested",
+        "trust_t3": "30-day refund",
         "bg": "",
         "padding_top": 28,
         "padding_bottom": 24
@@ -44,13 +47,13 @@
         "p1": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Three years of cracked heels and thick callouses. I'd tried everything — drugstore foot creams, a $40 callus shaver, a $90 pedicure that lasted four days. <strong>Nothing softened the dryness.</strong> By March my heels were splitting open and catching on bedsheets.</p>"
+            "text": "<p>By March my heels were splitting. I'd been hiding them in socks at the gym, in closed-toe flats at the office, in sand at every beach trip. Drugstore foot creams felt like rubbing oil into concrete. A $40 callus shaver scraped raw skin without changing what was underneath. Even the salon pedicure — clinical, expensive, the supposed answer — peeled back into the same dryness within four days. <strong>Nothing reached the actual problem.</strong></p>"
           }
         },
         "p2": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Then a friend in Seoul sent me a video. A goat milk foot mask — K-beauty's gentler answer to harsh peels. No salicylic acid. No burning. No 5-day peel. I tried one 30-minute session. <strong>The next morning my heels felt soft for the first time in three years.</strong> I've used it weekly since — bought the 3-pack so I never run out.</p>"
+            "text": "<p>A friend in Seoul sent me a thirty-second video. A white sock-shaped pouch, milky liquid sealed inside, slipped over each foot for half an hour. K-beauty's quieter answer to the harsh peels — no burning, no salicylic acid, no five-day flake. I tried it that night, half-believing. The next morning I touched my heel before I got out of bed and felt <strong>skin instead of cracked plaster.</strong> Soft. For the first time in three years.</p>"
           }
         },
         "p_science": {
