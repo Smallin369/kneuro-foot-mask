@@ -1,228 +1,164 @@
 {%- liquid
-  assign cta_url = section.settings.cta_url | default: '/products/goat-milk-callus-mask'
-  assign review_url = section.settings.review_url
-  assign hero_before = section.settings.hero_before
-  assign hero_after = section.settings.hero_after
-  assign hero_caption = section.settings.hero_caption
+  assign layout = section.settings.layout | default: 'side-by-side'
+  assign max_width = section.settings.max_width | default: 1100
 -%}
-<section class="ba" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
-  <div class="ba__inner">
-    {% if section.settings.kicker != blank %}<span class="ba__kicker">{{ section.settings.kicker }}</span>{% endif %}
-    <h2 class="ba__heading">{{ section.settings.heading_lead }} <em>{{ section.settings.heading_accent }}</em></h2>
-    {% if section.settings.subhead != blank %}<p class="ba__sub">{{ section.settings.subhead }}</p>{% endif %}
 
-    {% if hero_before or hero_after %}
-      <div class="ba__hero">
-        <div class="ba__hero-shot ba__hero-shot--before">
-          <span class="ba__ribbon ba__ribbon--before">BEFORE</span>
-          {% if hero_before %}
-            <img src="{{ hero_before | image_url: width: 900, format: 'webp' }}" alt="Before" loading="lazy" width="600" height="600">
-          {% endif %}
-        </div>
-        <div class="ba__hero-shot ba__hero-shot--after">
-          <span class="ba__ribbon ba__ribbon--after">AFTER</span>
-          {% if hero_after %}
-            <img src="{{ hero_after | image_url: width: 900, format: 'webp' }}" alt="After" loading="lazy" width="600" height="600">
-          {% endif %}
-        </div>
-      </div>
-      {% if hero_caption != blank %}<p class="ba__hero-cap">{{ hero_caption }}</p>{% endif %}
-    {% endif %}
+<section class="ba" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg | default: 'transparent' }};">
+  <div class="ba__inner" style="max-width:{{ max_width }}px;">
+    {%- if section.settings.kicker != blank -%}
+      <div class="ba__kicker">{{ section.settings.kicker }}</div>
+    {%- endif -%}
+    {%- if section.settings.heading_lead != blank or section.settings.heading_accent != blank -%}
+      <h2 class="ba__heading">{{ section.settings.heading_lead }} <em>{{ section.settings.heading_accent }}</em></h2>
+    {%- endif -%}
+    {%- if section.settings.subhead != blank -%}
+      <p class="ba__sub">{{ section.settings.subhead }}</p>
+    {%- endif -%}
 
-    <div class="ba__cards">
-      {%- for i in (1..3) -%}
-        {%- case i -%}
-          {%- when 1 -%}
-            {%- assign quote = section.settings.t1_quote -%}
-            {%- assign attr = section.settings.t1_attr -%}
-            {%- assign meta = section.settings.t1_meta -%}
-          {%- when 2 -%}
-            {%- assign quote = section.settings.t2_quote -%}
-            {%- assign attr = section.settings.t2_attr -%}
-            {%- assign meta = section.settings.t2_meta -%}
-          {%- when 3 -%}
-            {%- assign quote = section.settings.t3_quote -%}
-            {%- assign attr = section.settings.t3_attr -%}
-            {%- assign meta = section.settings.t3_meta -%}
-        {%- endcase -%}
-
-        {% if quote != blank %}
-          <article class="ba__card">
-            <div class="ba__stars">★★★★★</div>
-            <blockquote class="ba__quote">"{{ quote }}"</blockquote>
-            <div class="ba__byline">
-              {% if attr != blank %}<strong>{{ attr }}</strong>{% endif %}
-              {% if meta != blank %}<span>{{ meta }}</span>{% endif %}
-            </div>
-            {% if review_url != blank %}
-              <a class="ba__more" href="{{ review_url }}">Read full review →</a>
+    {%- assign image_blocks = section.blocks | where: 'type', 'image_card' -%}
+    {%- if image_blocks.size > 0 -%}
+      <div class="ba__grid ba__grid--{{ layout }}">
+        {%- for block in image_blocks -%}
+          <figure class="ba__cell" {{ block.shopify_attributes }}>
+            {% if block.settings.image %}
+              <img src="{{ block.settings.image | image_url: width: 900, format: 'webp' }}" srcset="{{ block.settings.image | image_url: width: 600, format: 'webp' }} 600w, {{ block.settings.image | image_url: width: 900, format: 'webp' }} 900w, {{ block.settings.image | image_url: width: 1200, format: 'webp' }} 1200w" sizes="(max-width:768px) 100vw, 480px" alt="{{ block.settings.alt | default: block.settings.label | escape }}" loading="lazy" width="800" height="800">
+            {% else %}
+              <div class="ba__placeholder">Add image</div>
             {% endif %}
-          </article>
-        {% endif %}
-      {%- endfor -%}
-    </div>
-
-    {% if section.settings.compare_show %}
-      <div class="ba__compare">
-        {% if section.settings.compare_kicker != blank %}<span class="ba__kicker">{{ section.settings.compare_kicker }}</span>{% endif %}
-        <h3 class="ba__compare-h">{{ section.settings.compare_heading_lead }} <em>{{ section.settings.compare_heading_accent }}</em></h3>
-        <div class="ba__compare-wrap">
-          <table class="ba__table">
-            <thead>
-              <tr>
-                <th></th>
-                <th class="ba__th-brand">{{ section.settings.col_brand }}</th>
-                <th>{{ section.settings.col_2 }}</th>
-                <th>{{ section.settings.col_3 }}</th>
-                <th>{{ section.settings.col_4 }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {%- for r in (1..5) -%}
-                {%- assign label_key = 'row_' | append: r | append: '_label' -%}
-                {%- assign brand_key = 'row_' | append: r | append: '_brand' -%}
-                {%- assign c2_key = 'row_' | append: r | append: '_c2' -%}
-                {%- assign c3_key = 'row_' | append: r | append: '_c3' -%}
-                {%- assign c4_key = 'row_' | append: r | append: '_c4' -%}
-                {%- assign label = section.settings[label_key] -%}
-                {% if label != blank %}
-                  <tr>
-                    <td class="ba__rowlabel">{{ label }}</td>
-                    <td class="ba__cell ba__cell--brand">{% include 'ba-mark', v: section.settings[brand_key] %}</td>
-                    <td class="ba__cell">{% include 'ba-mark', v: section.settings[c2_key] %}</td>
-                    <td class="ba__cell">{% include 'ba-mark', v: section.settings[c3_key] %}</td>
-                    <td class="ba__cell">{% include 'ba-mark', v: section.settings[c4_key] %}</td>
-                  </tr>
-                {% endif %}
-              {%- endfor -%}
-            </tbody>
-          </table>
-        </div>
+            <figcaption>
+              {% if block.settings.label != blank %}
+                <span class="ba__tag" style="background:{{ block.settings.label_bg | default: '#f4e7e1' }};color:{{ block.settings.label_color | default: '#8c4a32' }};">{{ block.settings.label }}</span>
+              {% endif %}
+              {% if block.settings.caption != blank %}
+                <span class="ba__caption">{{ block.settings.caption }}</span>
+              {% endif %}
+            </figcaption>
+          </figure>
+        {%- endfor -%}
       </div>
-    {% endif %}
+    {%- endif -%}
 
-    {% if section.settings.cta_label != blank %}
-      <a class="ba__cta" href="{{ cta_url }}">{{ section.settings.cta_label }}</a>
-    {% endif %}
+    {%- assign review_blocks = section.blocks | where: 'type', 'review' -%}
+    {%- if review_blocks.size > 0 -%}
+      <div class="ba__reviews">
+        {%- for block in review_blocks -%}
+          {%- assign initial = block.settings.name | default: '?' | slice: 0, 1 -%}
+          <article class="ba__review" {{ block.shopify_attributes }}>
+            <div class="ba__stars">★★★★★</div>
+            <p class="ba__quote">{{ block.settings.quote }}</p>
+            <div class="ba__meta">
+              <span class="ba__avatar" aria-hidden="true">{{ initial }}</span>
+              <span class="ba__attr">
+                <span class="ba__name">{{ block.settings.name }}</span>
+                {% if block.settings.role != blank %}
+                  <span class="ba__role">{{ block.settings.role }}{% if block.settings.verified %} · <span class="ba__verified">✓ Verified buyer</span>{% endif %}</span>
+                {% endif %}
+              </span>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.cta_label != blank -%}
+      <div class="ba__cta-wrap">
+        <a class="ba__cta" href="{{ section.settings.cta_url | default: '/products/goat-milk-callus-mask' }}">{{ section.settings.cta_label }}</a>
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
 <style>
-  .ba { background: var(--surface, #fff); }
-  .ba__inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; text-align: center; }
-  .ba__kicker { display:inline-block; text-transform:uppercase; letter-spacing:.18em; font-size:.72rem; font-weight:700; color:var(--accent-deep); margin-bottom:14px; }
-  .ba__heading { font-family: var(--font-heading); font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 600; color: var(--ink); margin: 0 0 12px; line-height: 1.2; }
-  .ba__heading em { font-style: italic; color: var(--accent-deep); }
-  .ba__sub { color: var(--ink-2); margin: 0 auto 32px; max-width: 560px; }
-
-  .ba__hero { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 880px; margin: 0 auto 14px; border-radius: 18px; overflow: hidden; box-shadow: 0 18px 40px -16px rgba(42,28,18,.25); background: #fff; padding: 14px; }
-  .ba__hero-shot { position: relative; aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; background: #eee; }
-  .ba__hero-shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .ba__ribbon { position: absolute; top: 14px; padding: 6px 14px 6px 18px; font-size: .72rem; font-weight: 800; letter-spacing: .14em; color: #fff; z-index: 2; clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 50%, 100% 100%, 0 100%); }
-  .ba__ribbon--before { left: 0; background: rgba(42,28,18,.92); }
-  .ba__ribbon--after { left: 0; background: var(--accent, #e8833a); }
-  .ba__hero-cap { color: var(--muted); font-size: .85rem; font-style: italic; margin: 0 0 36px; }
-
-  .ba__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1000px; margin: 0 auto; text-align: left; }
-  .ba__card { background: #fff; border-radius: 14px; padding: 22px; box-shadow: 0 6px 18px -10px rgba(42,28,18,.16); display: flex; flex-direction: column; gap: 10px; border: 1px solid #f0e9dd; }
-  .ba__stars { color: var(--accent, #e8833a); font-size: .95rem; letter-spacing: .08em; }
-  .ba__quote { margin: 0; font-style: italic; color: var(--ink); font-size: .98rem; line-height: 1.5; flex: 1; }
-  .ba__byline { display: flex; flex-direction: column; gap: 2px; margin-top: 6px; }
-  .ba__byline strong { font-size: .88rem; color: var(--ink); font-weight: 700; }
-  .ba__byline span { font-size: .76rem; color: var(--muted); }
-  .ba__more { font-size: .8rem; font-weight: 700; color: var(--accent-deep); text-decoration: none; margin-top: 6px; }
-  .ba__more:hover { text-decoration: underline; }
-
-  .ba__compare { margin: 48px auto 0; max-width: 1000px; text-align: center; padding-top: 36px; border-top: 1px solid #f0e9dd; }
-  .ba__compare-h { font-family: var(--font-heading); font-size: clamp(1.4rem, 3.4vw, 1.9rem); font-weight: 600; color: var(--ink); margin: 8px 0 28px; line-height: 1.25; }
-  .ba__compare-h em { font-style: italic; color: var(--accent-deep); }
-  .ba__compare-wrap { overflow-x: auto; }
-  .ba__table { width: 100%; border-collapse: separate; border-spacing: 0; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 18px -10px rgba(42,28,18,.16); }
-  .ba__table th, .ba__table td { padding: 14px 12px; text-align: center; font-size: .9rem; border-bottom: 1px solid #f3ece0; }
-  .ba__table thead th { background: #fbf6ee; font-weight: 700; color: var(--ink); }
-  .ba__th-brand { background: var(--ink) !important; color: #fff !important; }
-  .ba__rowlabel { text-align: left; font-weight: 500; color: var(--ink-2); }
-  .ba__cell--brand { background: rgba(232,131,58,.08); }
-  .ba__yes { color: #2a9d3f; font-weight: 700; }
-  .ba__no { color: #c44; }
-  .ba__partial { font-style: italic; color: var(--muted); }
-  .ba__cta { display: inline-block; margin-top: 36px; background: var(--accent, #e8833a); color: #fff; padding: 14px 28px; border-radius: 999px; font-weight: 700; text-decoration: none; box-shadow: 0 8px 22px -8px rgba(232,131,58,.55); }
-  .ba__cta:hover { background: var(--accent-deep); }
-
-  @media (max-width: 768px) {
-    .ba__cards { grid-template-columns: 1fr; gap: 14px; }
-    .ba__hero { padding: 10px; gap: 8px; }
-  }
+  .ba { background: #fff; }
+  .ba__inner { margin: 0 auto; padding: 0 20px; text-align: center; }
+  .ba__kicker { display: inline-block; padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); font-family: var(--font-heading); font-weight: 700; margin: 0 0 12px; }
+  .ba__heading { font-family: var(--font-heading); font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; color: var(--ink); margin: 0 0 8px; line-height: 1.2; }
+  .ba__heading em { font-style: italic; font-weight: 700; color: var(--accent); }
+  .ba__sub { color: var(--ink-2); font-size: 16px; line-height: 1.5; margin: 0 auto 28px; max-width: 640px; }
+  .ba__grid { display: grid; gap: 16px; margin: 0 0 32px; }
+  .ba__grid--side-by-side { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .ba__grid--stacked { grid-template-columns: 1fr; max-width: 540px; margin-left: auto; margin-right: auto; }
+  .ba__cell { margin: 0; }
+  .ba__cell img { width: 100%; height: auto; border-radius: 14px; box-shadow: 0 12px 30px -12px rgba(42,28,18,.18); display: block; aspect-ratio: 1/1; object-fit: cover; }
+  .ba__placeholder { aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; background: var(--cream); color: var(--muted); border-radius: 14px; font-size: 14px; }
+  .ba__cell figcaption { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-top: 12px; }
+  .ba__tag { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-family: var(--font-heading); }
+  .ba__caption { font-size: 13px; color: var(--muted); font-style: italic; line-height: 1.45; max-width: 320px; }
+  .ba__reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 0 0 24px; text-align: left; }
+  .ba__review { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; }
+  .ba__stars { color: #f5b14a; font-size: 13px; letter-spacing: 2px; margin-bottom: 10px; }
+  .ba__quote { font-family: var(--font-body); font-size: 15px; line-height: 1.55; color: var(--ink-2); margin: 0 0 14px; }
+  .ba__meta { display: flex; align-items: center; gap: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+  .ba__avatar { flex: 0 0 36px; width: 36px; height: 36px; border-radius: 50%; background: var(--cream); color: var(--ink); display: grid; place-items: center; font-family: var(--font-heading); font-weight: 700; font-size: 14px; }
+  .ba__attr { display: flex; flex-direction: column; line-height: 1.3; }
+  .ba__name { font-weight: 700; font-size: 13px; color: var(--ink); }
+  .ba__role { font-size: 12px; color: var(--muted); }
+  .ba__verified { color: #1f6c2f; font-weight: 600; }
+  .ba__cta-wrap { margin-top: 24px; }
+  .ba__cta { display: inline-block; padding: 16px 32px; background: var(--accent); color: #fff; text-decoration: none; border-radius: 999px; font-weight: 700; font-size: 15px; }
+  @media (max-width: 600px) { .ba__grid--side-by-side { grid-template-columns: 1fr; gap: 20px; } }
 </style>
 
 {% schema %}
 {
-  "name": "Before/after",
+  "name": "Before & after",
   "settings": [
-    { "type": "header", "content": "Heading" },
+    { "type": "header", "content": "Header" },
     { "type": "text", "id": "kicker", "label": "Kicker", "default": "Real customers, real heels" },
     { "type": "text", "id": "heading_lead", "label": "Heading lead", "default": "Before & after," },
-    { "type": "text", "id": "heading_accent", "label": "Heading accent", "default": "in 30 minutes." },
-    { "type": "text", "id": "subhead", "label": "Subhead", "default": "One pair, one application, visibly softer feet." },
-    { "type": "url", "id": "review_url", "label": "Full reviews link (e.g. PDP #reviews)" },
-    { "type": "header", "content": "Hero before/after pair" },
-    { "type": "image_picker", "id": "hero_before", "label": "Before image" },
-    { "type": "image_picker", "id": "hero_after", "label": "After image" },
-    { "type": "text", "id": "hero_caption", "label": "Caption under pair" },
-    { "type": "header", "content": "Testimonial 1" },
-    { "type": "textarea", "id": "t1_quote", "label": "Quote" },
-    { "type": "text", "id": "t1_attr", "label": "Name" },
-    { "type": "text", "id": "t1_meta", "label": "Meta (e.g. Verified buyer)" },
-    { "type": "header", "content": "Testimonial 2" },
-    { "type": "textarea", "id": "t2_quote", "label": "Quote" },
-    { "type": "text", "id": "t2_attr", "label": "Name" },
-    { "type": "text", "id": "t2_meta", "label": "Meta" },
-    { "type": "header", "content": "Testimonial 3" },
-    { "type": "textarea", "id": "t3_quote", "label": "Quote" },
-    { "type": "text", "id": "t3_attr", "label": "Name" },
-    { "type": "text", "id": "t3_meta", "label": "Meta" },
-    { "type": "header", "content": "Honest comparison (table)" },
-    { "type": "checkbox", "id": "compare_show", "label": "Show comparison table", "default": true },
-    { "type": "text", "id": "compare_kicker", "label": "Kicker", "default": "The honest comparison" },
-    { "type": "text", "id": "compare_heading_lead", "label": "Heading lead", "default": "Kneuro vs." },
-    { "type": "text", "id": "compare_heading_accent", "label": "Heading accent", "default": "every other foot mask." },
-    { "type": "text", "id": "col_brand", "label": "Column 1 (brand)", "default": "Kneuro" },
-    { "type": "text", "id": "col_2", "label": "Column 2", "default": "Baby Foot" },
-    { "type": "text", "id": "col_3", "label": "Column 3", "default": "Generic peel" },
-    { "type": "text", "id": "col_4", "label": "Column 4", "default": "Foot cream" },
-    { "type": "text", "id": "row_1_label", "label": "Row 1 label", "default": "Pregnancy-safe" },
-    { "type": "text", "id": "row_1_brand", "label": "Row 1 brand value (yes/no/partial)", "default": "yes" },
-    { "type": "text", "id": "row_1_c2", "label": "Row 1 col 2", "default": "no" },
-    { "type": "text", "id": "row_1_c3", "label": "Row 1 col 3", "default": "no" },
-    { "type": "text", "id": "row_1_c4", "label": "Row 1 col 4", "default": "yes" },
-    { "type": "text", "id": "row_2_label", "label": "Row 2 label", "default": "No harsh acids" },
-    { "type": "text", "id": "row_2_brand", "label": "Row 2 brand", "default": "yes" },
-    { "type": "text", "id": "row_2_c2", "label": "Row 2 col 2", "default": "no" },
-    { "type": "text", "id": "row_2_c3", "label": "Row 2 col 3", "default": "no" },
-    { "type": "text", "id": "row_2_c4", "label": "Row 2 col 4", "default": "yes" },
-    { "type": "text", "id": "row_3_label", "label": "Row 3 label", "default": "Visible result in 30 min" },
-    { "type": "text", "id": "row_3_brand", "label": "Row 3 brand", "default": "yes" },
-    { "type": "text", "id": "row_3_c2", "label": "Row 3 col 2", "default": "no" },
-    { "type": "text", "id": "row_3_c3", "label": "Row 3 col 3", "default": "no" },
-    { "type": "text", "id": "row_3_c4", "label": "Row 3 col 4", "default": "no" },
-    { "type": "text", "id": "row_4_label", "label": "Row 4 label", "default": "No painful peeling" },
-    { "type": "text", "id": "row_4_brand", "label": "Row 4 brand", "default": "yes" },
-    { "type": "text", "id": "row_4_c2", "label": "Row 4 col 2", "default": "no" },
-    { "type": "text", "id": "row_4_c3", "label": "Row 4 col 3", "default": "no" },
-    { "type": "text", "id": "row_4_c4", "label": "Row 4 col 4", "default": "yes" },
-    { "type": "text", "id": "row_5_label", "label": "Row 5 label", "default": "Goat milk + niacinamide" },
-    { "type": "text", "id": "row_5_brand", "label": "Row 5 brand", "default": "yes" },
-    { "type": "text", "id": "row_5_c2", "label": "Row 5 col 2", "default": "no" },
-    { "type": "text", "id": "row_5_c3", "label": "Row 5 col 3", "default": "no" },
-    { "type": "text", "id": "row_5_c4", "label": "Row 5 col 4", "default": "partial" },
-    { "type": "header", "content": "CTA" },
-    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Get yours — from $19.99 →" },
-    { "type": "url", "id": "cta_url", "label": "Button link" },
+    { "type": "text", "id": "heading_accent", "label": "Italic accent", "default": "in 30 minutes." },
+    { "type": "textarea", "id": "subhead", "label": "Subhead" },
     { "type": "header", "content": "Layout" },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Image layout",
+      "options": [
+        { "value": "side-by-side", "label": "Side by side" },
+        { "value": "stacked", "label": "Stacked" }
+      ],
+      "default": "side-by-side"
+    },
+    { "type": "range", "id": "max_width", "label": "Max width", "min": 480, "max": 1200, "step": 20, "unit": "px", "default": 1100 },
     { "type": "color", "id": "bg", "label": "Background" },
-    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 64 },
-    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 64 }
+    { "type": "header", "content": "Bottom CTA (optional)" },
+    { "type": "text", "id": "cta_label", "label": "CTA label" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 56 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 56 }
   ],
-  "presets": [{ "name": "Before/after" }]
+  "blocks": [
+    {
+      "type": "image_card",
+      "name": "Image card (Before / After)",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "alt", "label": "Alt text", "default": "Image" },
+        { "type": "text", "id": "label", "label": "Label (BEFORE / AFTER / custom)", "default": "Before" },
+        { "type": "color", "id": "label_bg", "label": "Label background", "default": "#f4e7e1" },
+        { "type": "color", "id": "label_color", "label": "Label text color", "default": "#8c4a32" },
+        { "type": "text", "id": "caption", "label": "Caption" }
+      ]
+    },
+    {
+      "type": "review",
+      "name": "Customer review",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "Add the customer review text here." },
+        { "type": "text", "id": "name", "label": "Customer name", "default": "Jane D." },
+        { "type": "text", "id": "role", "label": "Role / context (e.g. Sensitive skin)" },
+        { "type": "checkbox", "id": "verified", "label": "Show 'Verified buyer' badge", "default": true }
+      ]
+    }
+  ],
+  "max_blocks": 16,
+  "presets": [{
+    "name": "Before & after",
+    "blocks": [
+      { "type": "image_card", "settings": { "label": "Before", "label_bg": "#f4e7e1", "label_color": "#8c4a32" }},
+      { "type": "image_card", "settings": { "label": "After", "label_bg": "#d6efd9", "label_color": "#1f6c2f" }}
+    ]
+  }]
 }
 {% endschema %}
