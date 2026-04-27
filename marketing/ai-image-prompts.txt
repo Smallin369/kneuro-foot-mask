@@ -1,226 +1,144 @@
 ═══════════════════════════════════════════════════════════════════
   KNEURO — AI IMAGE GENERATION PROMPTS
-  For ChatGPT-4o image, Flux Pro, Midjourney V7, Imagen 3
 ═══════════════════════════════════════════════════════════════════
 
-USE THESE PROMPTS TO REPLACE THE PRODUCT-MOCKUP HERO IMAGES
-WITH UGC-STYLE LIFESTYLE PHOTOGRAPHY. Generates 4-8 candidates
-per prompt. Pick the most "imperfect" looking one — the slightly-
-off-balance ones read as authentic; the pristine ones read as ads.
+Use ChatGPT-4o image, Flux Kontext, Midjourney V7, or Imagen 3.
+Always upload your real product photo as reference where possible.
+Generate 6-8 candidates per prompt — pick the slightly imperfect
+one (UGC look), discard the polished ones (look like ads).
 
-NEVER GENERATE IMAGES WITH FACES if you intend to caption them
-with a fake name or location. That's deceptive and Meta will
-reject the ads.
-
-───────────────────────────────────────────────────────────────────
-  1. PRIMARY HERO — HAND HOLDING POUCH (advertorial above-fold)
-───────────────────────────────────────────────────────────────────
-
-Use case: replaces 5pack.png on homepage advertorial hero, /pages/about,
-/pages/ingredients, /pages/kneuro-vs-baby-foot.
-
-⚠ COMMON FAILURE: AI generators default to making the pouch tea-sachet
-sized (~2 inches). A real foot mask pouch is ENVELOPE-SIZED (~5-6
-inches) because it holds two pre-filled foot socks. If the pouch in
-your output looks like a sugar packet, regenerate with the v2 prompt
-below — it's the most common issue.
-
-────── PROMPT v1 (BASIC — try this first) ──────
-amateur smartphone photo, pale woman's hand holding a small white
-foil sachet labeled "kneuro" against a soft cream-tile bathroom
-backdrop, natural side window light, soft shadows, slight depth-of-
-field blur, no professional studio lighting, casual home setting,
-no face visible, slightly off-center composition, square crop, 1:1
-aspect ratio, candid, not retouched, photo taken at arm's length
-
-────── PROMPT v2 (REFINED — fixes pouch-too-small issue) ──────
-amateur smartphone snapshot, casual home iPhone photo, woman's hand
-holding a LARGE foil envelope packet, approximately 5 inches by 6
-inches, envelope-sized cosmetics pouch (NOT a small tea sachet — much
-larger, hand-sized cosmetics envelope holding two pre-filled foot
-socks), white foil with subtle "kneuro" text in lowercase, slightly
-crinkled edges, tear notch visible on top, natural side window light
-with one slightly harsh shadow, beige bathroom tile background, white
-folded towel partially visible, quick candid snapshot, slightly
-off-center composition, motion blur from phone movement, square crop,
-imperfect framing, NOT a styled product shot, NOT magazine quality,
-casual everyday phone photo
-
-KEY DIFFERENCES IN v2:
-▪ Capitalized "LARGE" (image models respond to emphasis)
-▪ Explicit dimensions ("5 inches by 6 inches")
-▪ Negative prompt: "NOT a small tea sachet"
-▪ Anatomical reference: "holding two pre-filled foot socks"
-▪ Realism cues: "slightly crinkled edges, tear notch visible"
-▪ Anti-polish negative: "NOT a styled product shot, NOT magazine quality"
-
-────── BEST APPROACH: image-to-image edit ──────
-If you have ANY real photo of your actual product (even a phone snap
-of a sample pouch on your desk), use ChatGPT-4o, Flux Kontext, or
-Midjourney's "Edit/Vary" / Inpaint feature. Upload the real product
-photo and prompt:
-
-  "Place this exact pouch into a scene: a woman's hand holds it in a
-   beige bathroom with morning window light, casual snapshot style,
-   square crop, candid not styled"
-
-This preserves the CORRECT product anatomy and only generates the
-scene around it. 10× better than pure text-to-image for branded
-products with specific packaging.
-
-────── EVEN BETTER: real iPhone photo ──────
-Take a real 90-second photo of one of your actual sample pouches in
-your kitchen or bathroom. Real always beats AI for trust signals.
-
-ALTERNATIVE FRAMINGS (try these too):
-- "...holding the pouch over a folded white towel, marble counter
-  surface, morning natural light from a window, square crop"
-- "...hand resting on a wooden bathroom shelf with the pouch
-  alongside a small ceramic mug, beige + warm-cream palette,
-  slight grain, eye-level"
-- "...two hands cupped around the pouch, soft beige robe sleeve
-  visible at edge, neutral background, square crop"
+NEVER generate faces if you'll caption them with names — deceptive
+and Meta will reject the ads.
 
 ───────────────────────────────────────────────────────────────────
-  2. FOOT-IN-SCENE (advertorial Component 9 — visual proof)
+  HOW TO ATTACH A REFERENCE IMAGE
 ───────────────────────────────────────────────────────────────────
 
-Use case: in the before-after section, the "after" image. Honest
-caption: "Real customer photo" if you have one. If AI, label it
-"Concept render" or "Lifestyle image" — never imply it's a customer.
+ChatGPT-4o image: drag the real product photo into the chat, then
+  paste the prompt. Add: "Use the attached image as a reference for
+  the exact product packaging, dimensions, and label design. Place
+  it into the new scene below."
 
-PROMPT:
-real-looking woman's bare foot resting on a beige linen towel with
-a white foil pouch beside it, soft morning light through a sheer
-curtain, beige and warm-cream color palette, casual home aesthetic,
-slight film grain, smartphone-style photo not professional, no face
-visible, square crop, soft shadows, side angle
+Flux Kontext (FAL.ai / Replicate): upload reference, prompt with
+  "preserve the product packaging from the reference image, change
+  only the background and hand placement to match this scene:"
 
-ALTERNATIVE:
-two bare feet relaxed on a clean linen surface, soft natural lighting,
-white foil pouch placed casually nearby, neutral skin tone, no face,
-beige aesthetic, candid not styled, eye-level, slight blur
+Midjourney V7: upload reference, use --cref [URL] --cw 80
+  Then prompt the scene. --cw 80 keeps strong character consistency.
 
-───────────────────────────────────────────────────────────────────
-  3. PRODUCT-IN-SCENE (lifestyle, supplementary)
-───────────────────────────────────────────────────────────────────
-
-Use case: ingredient page, about page, ambient supporting imagery.
-
-PROMPT:
-flat-lay top-down photo of three small white foil pouches arranged
-casually on a soft cream linen background, alongside a small ceramic
-dish with a few drops of milk, dried herbs scattered nearby, soft
-natural light, beige and warm-white color palette, slight shadow,
-not styled too perfectly, candid amateur aesthetic, square crop
-
-ALTERNATIVE — single pouch macro:
-extreme close-up macro photo of a white foil pouch with "kneuro"
-text visible, soft shadows, neutral cream background, shallow depth
-of field, smartphone macro mode, slight imperfection in fold, ad-hoc
-not perfectly framed
+Imagen 3 (Google AI Studio): upload reference image as input, use
+  prompt below + add "match the product appearance from the input image"
 
 ───────────────────────────────────────────────────────────────────
-  4. APPLICATION SHOT (how-it-works section)
+  1. HERO — HAND HOLDING POUCH (with reference image attached)
 ───────────────────────────────────────────────────────────────────
 
-Use case: replace the s1/s2/s3_image fields on the PDP "how it works"
-section if you want to upgrade them.
-
-STEP 1 — opening the pouch:
-hands tearing open a small white foil pouch over a clean cream-
-colored bathroom counter, natural side light, no face, casual home
-setting, square crop, smartphone photo aesthetic, slight motion blur
-
-STEP 2 — sliding the sock on:
-hands sliding a soft white pre-filled sock over a bare foot, sitting
-on a beige bathroom mat, natural soft light, casual moment, no face,
-square crop, candid not styled
-
-STEP 3 — relaxing while wearing it:
-woman's legs extended on a beige couch, wearing two soft white
-pre-filled foot socks, holding a phone or coffee mug nearby
-(blurred), warm cream tones, no face visible, candid evening light,
-square crop
+Use the attached product photo as the exact pouch reference. Generate:
+amateur iPhone snapshot, woman's hand holding the EXACT pouch from
+the reference image, pouch is large and envelope-sized — roughly the
+width of two iPhones placed side-by-side, fills most of an open palm,
+held against a soft beige bathroom tile background, harsh morning
+window light from the left side, single light source not even
+lighting, slight motion blur from phone movement, slightly off-center
+composition, casual unstaged grip on the pouch with two fingers
+visible, white folded towel partially out of frame to the right, no
+face visible, square 1:1 crop, looks like a quick selfie not a
+product shot, NOT styled NOT magazine-quality NOT centered NOT
+professionally lit, real iPhone capture aesthetic, subtle skin texture
+visible on hand, casual everyday lighting
 
 ───────────────────────────────────────────────────────────────────
-  5. WHAT NOT TO GENERATE (do not use these)
+  2. HERO — POUCH ON BATHROOM COUNTER (with reference image)
+───────────────────────────────────────────────────────────────────
+
+Use the attached product photo as the exact pouch reference. Generate:
+overhead casual smartphone snapshot, the EXACT pouch from reference
+image lying on a beige marble bathroom counter, pouch fills roughly
+one-third of the frame so visible scale is large (approximately
+15 centimeters wide), white linen folded next to it, small ceramic
+mug at edge of frame with coffee visible, soft natural morning light
+from a window, slight glare on counter surface, single shadow from
+the pouch, casual not styled, slight tilt of camera, square 1:1 crop,
+amateur iPhone aesthetic, NOT a product photo NOT magazine quality
+
+───────────────────────────────────────────────────────────────────
+  3. APPLICATION — SLIDING SOCK ON FOOT (with reference image)
+───────────────────────────────────────────────────────────────────
+
+Use the attached pouch and sock reference photo. Generate:
+casual smartphone photo, two hands sliding the soft white pre-filled
+foot sock from the reference image onto a bare foot, sitting on a
+beige bathroom floor or low stool, natural side window light, no face
+visible, casual home setting, square 1:1 crop, slight motion blur,
+amateur iPhone aesthetic, single light source, soft shadows under the
+foot, subtle skin texture, NOT styled NOT professional
+
+───────────────────────────────────────────────────────────────────
+  4. APPLICATION — RELAXING IN SOCKS (with reference image)
+───────────────────────────────────────────────────────────────────
+
+Use the attached sock reference photo. Generate:
+overhead amateur smartphone photo, woman's two legs extended on a
+beige couch, both feet wearing the soft white pre-filled foot socks
+from the reference image, holding a phone or coffee mug nearby
+(slightly blurred), warm cream and beige tones, soft evening lamp
+lighting, no face visible, candid not staged, slight grain, square
+1:1 crop, casual home setting, NOT styled NOT magazine quality
+
+───────────────────────────────────────────────────────────────────
+  5. PRODUCT FLAT-LAY (no reference needed)
+───────────────────────────────────────────────────────────────────
+
+amateur smartphone top-down photo of three white foil envelope-sized
+pouches arranged casually on a soft cream linen background, each pouch
+roughly 15 centimeters wide and 20 centimeters tall, alongside a small
+ceramic dish with a few drops of milk, dried lavender scattered nearby,
+soft natural light from a window, beige and warm-white color palette,
+slight shadow under each pouch, candid not styled, square 1:1 crop
+
+───────────────────────────────────────────────────────────────────
+  6. SIZE-ANCHORING TRICKS (when AI keeps making pouch too small)
+───────────────────────────────────────────────────────────────────
+
+Append any of these to a prompt to force larger packaging:
+
+▪ "the pouch is approximately 15 centimeters wide and 20 centimeters
+   tall, roughly the size of two iPhones placed side by side"
+
+▪ "the pouch is large enough that holding it requires nearly an
+   entire open palm, fingers visibly stretched around its edges"
+
+▪ "the pouch is the same size as a typical face mask sheet packet
+   from K-beauty brands like Mediheal or Innisfree, NOT a small tea
+   sachet or sugar packet"
+
+▪ "the pouch fills approximately 25 percent of the total square frame"
+
+▪ "for scale reference, the pouch is taller than the hand holding it
+   from base of palm to fingertip"
+
+───────────────────────────────────────────────────────────────────
+  WHAT NOT TO GENERATE
 ───────────────────────────────────────────────────────────────────
 
 ❌ Faces with first names captioned ("Sarah, 32") — deceptive
-❌ "Before" feet with cracked/severe skin — Meta will auto-flag as
-   medical/before-after content and reject ads
-❌ Feet showing dramatic peeling — confuses your "no peel" positioning
-❌ Studio-lit perfectly composed product shots — already what you have
+❌ "Before" feet with cracked or severe skin — Meta auto-flag
+❌ Feet showing dramatic peeling — confuses your "no peel" position
+❌ Studio-lit perfectly composed product shots
 ❌ Multiple people in scene with faces — implied testimonials
+❌ Tea-sachet-sized pouch — your real product is envelope-sized
 
 ───────────────────────────────────────────────────────────────────
-  GENERATOR-SPECIFIC TIPS
+  SHIP CHECKLIST PER GENERATED IMAGE
 ───────────────────────────────────────────────────────────────────
 
-▪ ChatGPT-4o (GPT Plus, $20/mo)
-  Best for lifestyle "iPhone-style" outputs. Append:
-  "shot on iPhone, no professional retouching, slight motion blur,
-   imperfect framing, candid"
-  Run 4-6 generations, throw out the "studio" ones, keep the messy.
+☐ Pouch size visually matches "two iPhones wide"
+☐ Looks like a phone snapshot, not a studio ad
+☐ Lighting is natural and slightly imperfect
+☐ Composition is slightly off-center
+☐ No AI artifacts on hand fingers (count them)
+☐ Pouch text "kneuro" rendered cleanly without distortion
+☐ Color palette: cream, beige, warm-white
+☐ Resolution at least 1200x1200
 
-▪ Flux Pro (FAL.ai, ~$0.05/image)
-  Strongest realistic skin/hand rendering as of 2026. Use Flux 1.1
-  Pro Ultra. Set steps=30, guidance=3.5, aspect_ratio=1:1.
-
-▪ Midjourney V7 (~$10/mo)
-  Beautiful but over-stylized. ALWAYS append:
-  --style raw --stylize 50 --ar 1:1 --v 7
-  Without --style raw it'll look like a magazine ad.
-
-▪ Imagen 3 (free, Google AI Studio at ai.google.dev)
-  Surprisingly good for flat-lay product shots. Free tier is generous.
-
-───────────────────────────────────────────────────────────────────
-  SELECTION CHECKLIST (pick the right gen)
-───────────────────────────────────────────────────────────────────
-
-For each generation, score against these criteria:
-
-☐ Looks like a real phone photo, not a studio ad?
-☐ Lighting is natural and slightly imperfect?
-☐ Composition is slightly off-center, not perfectly framed?
-☐ No visible AI artifacts on the pouch text or hand fingers?
-   (Hands and faces are where AI fails most — count fingers!)
-☐ Color palette matches Kneuro brand (cream, beige, warm-white)?
-☐ Aspect ratio is 1:1 (square)?
-☐ Resolution at least 1200x1200 for sharp display on retina?
-
-If 5 or more boxes are checked, ship it.
-If fewer, regenerate.
-
-───────────────────────────────────────────────────────────────────
-  AFTER YOU GENERATE — UPLOAD WORKFLOW
-───────────────────────────────────────────────────────────────────
-
-1. Pick the winning image at 1024x1024 or higher.
-2. Open it in Preview/Photoshop and lightly downscale to 1200x1200
-   if needed (sharper than 4K for web — server compression handles
-   the rest).
-3. Save as JPEG quality 85 or PNG (Shopify CDN converts to WebP
-   automatically since we set format: 'webp' in the theme).
-4. Shopify Admin → Settings → Files → Upload (drag-drop).
-5. Right-click the uploaded file → Copy URL.
-6. Online Store → Customize → Home page → Advertorial Hero section
-   → Lead image → "Replace" → paste URL or browse to the file.
-7. Save. Hard-refresh (Cmd+Shift+R) the live page to confirm.
-8. Repeat for /pages/about, /pages/ingredients, /pages/kneuro-vs-baby-foot
-   if you want them all using new imagery.
-
-───────────────────────────────────────────────────────────────────
-  ETHICAL DISCLOSURE NOTE
-───────────────────────────────────────────────────────────────────
-
-Some jurisdictions are tightening rules on AI-generated content in
-advertising. Best practice as of 2026:
-
-▪ Lifestyle / product-in-scene imagery does NOT require disclosure.
-▪ Anything implying a real customer story DOES — or you risk FTC
-  attention in the US, ASA in the UK, etc.
-▪ Always source TESTIMONIAL photos from real customers. Pay them
-  $10-25 store credit + a thank-you. Don't fake it.
+If 6+ boxes check, ship it. Otherwise regenerate.
