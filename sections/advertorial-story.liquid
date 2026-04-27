@@ -1,29 +1,10 @@
 {%- liquid
   assign cta_url = section.settings.cta_url | default: '/products/goat-milk-callus-mask'
 
-  comment
-  Pre-pass: figure out where the FIRST verified-buyer review card sits.
-  Used to emit a small "What real customers say" heading before that cluster.
-  endcomment
-  assign first_review_index = -1
-  assign idx = 0
-  for blk in section.blocks
-    if blk.type == 'pullquote' and blk.settings.attribution contains 'Verified buyer' and first_review_index == -1
-      assign first_review_index = idx
-    endif
-    assign idx = idx | plus: 1
-  endfor
 -%}
 <section class="adv-story" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
   <div class="adv-story__inner">
     {% for block in section.blocks %}
-      {%- if forloop.index0 == first_review_index -%}
-        <div class="adv-story__reviews-head">
-          <span class="adv-story__reviews-eyebrow">What customers say</span>
-          <span class="adv-story__reviews-stars">★★★★★ <span class="adv-story__reviews-count">based on 1,200+ reviews</span></span>
-        </div>
-      {%- endif -%}
-
       {% case block.type %}
         {% when 'paragraph' %}
           <p class="adv-story__p" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
@@ -140,12 +121,6 @@
   .adv-story__quote p::after { content: "\201D"; }
   .adv-story__quote cite { display: block; color: var(--muted); font-style: normal; font-size: 13px; letter-spacing: .02em; }
 
-  /* Customer reviews header (renders once, before the first verified-buyer card) */
-  .adv-story__reviews-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin: 36px 0 14px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
-  .adv-story__reviews-eyebrow { font-family: var(--font-heading); font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
-  .adv-story__reviews-stars { color: #f5b14a; font-size: 14px; letter-spacing: 2px; }
-  .adv-story__reviews-count { color: var(--muted); font-size: 12px; letter-spacing: 0; margin-left: 4px; }
-
   /* Customer review card — looks like a Yelp/Amazon review, NOT a literary quote */
   .adv-story__review { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin: 0 0 12px; }
   .adv-story__review-stars { color: #f5b14a; font-size: 13px; letter-spacing: 2px; margin-bottom: 10px; }
@@ -182,7 +157,6 @@
     .adv-story__p { font-size: 16px; line-height: 1.62; margin: 0 0 16px; }
     .adv-story__quote p { font-size: 1.2rem; }
     .adv-story__ing-grid { grid-template-columns: 1fr; gap: 10px; }
-    .adv-story__reviews-head { flex-direction: column; align-items: flex-start; gap: 4px; }
   }
 </style>
 

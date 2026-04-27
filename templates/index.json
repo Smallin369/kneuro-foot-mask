@@ -147,6 +147,12 @@
             "attribution": "Daniel K. \u00b7 Bought as a gift \u00b7 Verified buyer"
           }
         },
+        "p_bridge": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>I'm not the only one. Customers writing in from different situations \u2014 pregnant, diabetic, sensitive skin, the people most foot peels leave behind. Same outcome.</p>"
+          }
+        },
         "ing": {
           "type": "ingredients",
           "settings": {
@@ -175,9 +181,13 @@
         }
       },
       "block_order": [
-        "p1",
-        "img1",
-        "p2","img2","p_science","quote","img3","p3","q_hannah","q_priya","q_daniel","ing","cta1"
+        "p1", "img1",
+        "p2", "img2",
+        "p_science",
+        "img3", "quote", "p3",
+        "p_bridge",
+        "q_hannah", "q_priya", "q_daniel",
+        "cta1"
       ],
       "settings": {
         "cta_url": "/products/goat-milk-callus-mask",
