@@ -7,7 +7,7 @@
     {% for block in section.blocks %}
       {% case block.type %}
         {% when 'paragraph' %}
-          <p class="adv-story__p" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+          <div class="adv-story__p" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
 
         {% when 'heading' %}
           <h2 class="adv-story__h" {{ block.shopify_attributes }}>{{ block.settings.text }}</h2>
@@ -128,9 +128,10 @@
   .adv-story__inner { max-width: 680px; margin: 0 auto; padding: 0 20px; }
 
   /* Body paragraphs — editorial rhythm */
-  .adv-story__p { font-family: var(--font-body); font-size: 18px; line-height: 1.7; color: var(--ink); margin: 0 0 22px; letter-spacing: -0.003em; }
-  .adv-story__p strong { color: var(--ink); font-weight: 700; }
-  .adv-story__inner > .adv-story__p:first-of-type::first-letter { font-family: var(--font-heading); font-size: 3.4em; font-weight: 800; float: left; line-height: 0.88; padding: 6px 10px 0 0; color: var(--ink); letter-spacing: -0.04em; }
+  .adv-story__p { font-family: var(--font-body); }
+  .adv-story__p > p { font-size: 18px; line-height: 1.7; color: var(--ink); margin: 0 0 22px; letter-spacing: -0.003em; }
+  .adv-story__p > p strong { color: var(--ink); font-weight: 700; }
+  .adv-story__inner > .adv-story__p:first-of-type > p:first-of-type::first-letter { font-family: var(--font-heading); font-size: 3.4em; font-weight: 800; float: left; line-height: 0.88; padding: 6px 10px 0 0; color: var(--ink); letter-spacing: -0.04em; }
 
   /* Section headings */
   .adv-story__h { font-family: var(--font-heading); font-size: clamp(1.45rem, 3.4vw, 1.85rem); font-weight: 800; color: var(--ink); margin: 40px 0 16px; line-height: 1.18; letter-spacing: -0.025em; text-wrap: balance; }
@@ -196,8 +197,8 @@
 
   @media (max-width: 600px) {
     .adv-story__inner { padding: 0 18px; }
-    .adv-story__p { font-size: 16.5px; line-height: 1.62; margin: 0 0 18px; letter-spacing: 0; }
-    .adv-story__inner > .adv-story__p:first-of-type::first-letter { font-size: 2.8em; padding: 4px 8px 0 0; }
+    .adv-story__p > p { font-size: 16.5px; line-height: 1.62; margin: 0 0 18px; letter-spacing: 0; }
+    .adv-story__inner > .adv-story__p:first-of-type > p:first-of-type::first-letter { font-size: 2.8em; padding: 4px 8px 0 0; }
     .adv-story__h { font-size: 1.45rem; margin: 28px 0 12px; }
     .adv-story__quote p { font-size: 1.15rem; }
     .adv-story__ing-grid { grid-template-columns: 1fr; gap: 10px; }
