@@ -183,9 +183,9 @@
       "block_order": [
         "p1",
         "p2",
+        "cta1",
         "img1",
-        "img3",
-        "cta1"
+        "img3"
       ],
       "settings": {
         "cta_url": "/products/goat-milk-callus-mask",
