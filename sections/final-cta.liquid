@@ -8,7 +8,7 @@
 
     {% if section.settings.product_image %}
       <a class="offer__img-link" href="{{ cta_link }}" aria-label="{{ section.settings.cta_label | escape }}">
-        <img class="offer__img" src="{{ section.settings.product_image | image_url: width: 800 }}" srcset="{{ section.settings.product_image | image_url: width: 400 }} 400w, {{ section.settings.product_image | image_url: width: 800 }} 800w" sizes="(max-width:768px) 100vw, 420px" alt="{{ section.settings.heading_accent | escape }}" width="800" height="800" loading="lazy">
+        <img class="offer__img" src="{{ section.settings.product_image | image_url: width: 800, format: 'webp' }}" srcset="{{ section.settings.product_image | image_url: width: 400, format: 'webp' }} 400w, {{ section.settings.product_image | image_url: width: 800, format: 'webp' }} 800w" sizes="(max-width:768px) 100vw, 420px" alt="{{ section.settings.heading_accent | escape }}" width="800" height="800" loading="lazy">
       </a>
     {% endif %}
 

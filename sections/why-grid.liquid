@@ -18,7 +18,7 @@
         {% unless grid_open %}<div class="why-grid">{% assign grid_open = true %}{% endunless %}
         <div class="why-card" {{ block.shopify_attributes }}>
           {% if block.settings.image %}
-            <div class="why-card-image"><img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="300" height="300"></div>
+            <div class="why-card-image"><img src="{{ block.settings.image | image_url: width: 600, format: 'webp' }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="300" height="300"></div>
           {% elsif block.settings.emoji != blank %}
             <div class="emoji">{{ block.settings.emoji }}</div>
           {% endif %}

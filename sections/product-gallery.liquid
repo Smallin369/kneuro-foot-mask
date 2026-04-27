@@ -17,25 +17,25 @@
           <span class="gallery-badge">{{ section.settings.badge_text }}</span>
         {% endif %}
         {% if has_override and g1 %}
-          <img src="{{ g1 | image_url: width: 1200 }}" alt="{{ product.title | escape }}" width="800" height="800">
+          <img src="{{ g1 | image_url: width: 1200, format: 'webp' }}" alt="{{ product.title | escape }}" width="800" height="800">
         {% elsif product.featured_image %}
-          <img src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.title | escape }}" width="800" height="800">
+          <img src="{{ product.featured_image | image_url: width: 1200, format: 'webp' }}" alt="{{ product.title | escape }}" width="800" height="800">
         {% else %}
           <div class="gallery-empty">Add images via admin or the section settings</div>
         {% endif %}
       </div>
       {% if has_override %}
         <div class="gallery-thumbs">
-          {% if g1 %}<button type="button" class="th active" data-type="img" data-src="{{ g1 | image_url: width: 1200 }}"><img src="{{ g1 | image_url: width: 240 }}" alt="" loading="lazy" width="120" height="120"></button>{% endif %}
-          {% if g2 %}<button type="button" class="th" data-type="img" data-src="{{ g2 | image_url: width: 1200 }}"><img src="{{ g2 | image_url: width: 240 }}" alt="" loading="lazy" width="120" height="120"></button>{% endif %}
-          {% if g3 %}<button type="button" class="th" data-type="img" data-src="{{ g3 | image_url: width: 1200 }}"><img src="{{ g3 | image_url: width: 240 }}" alt="" loading="lazy" width="120" height="120"></button>{% endif %}
-          {% if g4 %}<button type="button" class="th" data-type="img" data-src="{{ g4 | image_url: width: 1200 }}"><img src="{{ g4 | image_url: width: 240 }}" alt="" loading="lazy" width="120" height="120"></button>{% endif %}
+          {% if g1 %}<button type="button" class="th active" data-type="img" data-src="{{ g1 | image_url: width: 1200, format: 'webp' }}"><img src="{{ g1 | image_url: width: 240, format: 'webp' }}" alt="" loading="lazy" width="120" height="120"></button>{% endif %}
+          {% if g2 %}<button type="button" class="th" data-type="img" data-src="{{ g2 | image_url: width: 1200, format: 'webp' }}"><img src="{{ g2 | image_url: width: 240, format: 'webp' }}" alt="" loading="lazy" width="120" height="120"></button>{% endif %}
+          {% if g3 %}<button type="button" class="th" data-type="img" data-src="{{ g3 | image_url: width: 1200, format: 'webp' }}"><img src="{{ g3 | image_url: width: 240, format: 'webp' }}" alt="" loading="lazy" width="120" height="120"></button>{% endif %}
+          {% if g4 %}<button type="button" class="th" data-type="img" data-src="{{ g4 | image_url: width: 1200, format: 'webp' }}"><img src="{{ g4 | image_url: width: 240, format: 'webp' }}" alt="" loading="lazy" width="120" height="120"></button>{% endif %}
         </div>
       {% elsif product.media.size > 1 %}
         <div class="gallery-thumbs">
           {% for media in product.media limit: 6 %}
-            <button type="button" class="th{% if forloop.first %} active{% endif %}" data-type="img" data-src="{{ media | image_url: width: 1200 }}" aria-label="Image {{ forloop.index }}">
-              <img src="{{ media | image_url: width: 240 }}" alt="" loading="lazy" width="120" height="120">
+            <button type="button" class="th{% if forloop.first %} active{% endif %}" data-type="img" data-src="{{ media | image_url: width: 1200, format: 'webp' }}" aria-label="Image {{ forloop.index }}">
+              <img src="{{ media | image_url: width: 240, format: 'webp' }}" alt="" loading="lazy" width="120" height="120">
             </button>
           {% endfor %}
         </div>

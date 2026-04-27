@@ -7,7 +7,7 @@
         <div class="media">
           <span class="tag">{{ section.settings.tag | default: 'New' }}</span>
           {% if p.featured_image %}
-            <img src="{{ p.featured_image | image_url: width: 800 }}" alt="{{ p.title | escape }}" loading="lazy" width="600" height="600">
+            <img src="{{ p.featured_image | image_url: width: 800, format: 'webp' }}" alt="{{ p.title | escape }}" loading="lazy" width="600" height="600">
           {% endif %}
         </div>
         <div class="body">

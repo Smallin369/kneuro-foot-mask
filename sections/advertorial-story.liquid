@@ -12,7 +12,7 @@
         {% when 'image' %}
           <figure class="adv-story__fig" {{ block.shopify_attributes }}>
             {% if block.settings.image %}
-              <img src="{{ block.settings.image | image_url: width: 1200 }}" srcset="{{ block.settings.image | image_url: width: 600 }} 600w, {{ block.settings.image | image_url: width: 1200 }} 1200w" sizes="(max-width:768px) 100vw, 700px" alt="{{ block.settings.alt | escape }}" loading="lazy" width="900" height="675">
+              <img src="{{ block.settings.image | image_url: width: 1200, format: 'webp' }}" srcset="{{ block.settings.image | image_url: width: 600, format: 'webp' }} 600w, {{ block.settings.image | image_url: width: 1200, format: 'webp' }} 1200w" sizes="(max-width:768px) 100vw, 700px" alt="{{ block.settings.alt | escape }}" loading="lazy" width="900" height="675">
             {% endif %}
             {% if block.settings.caption != blank %}<figcaption>{{ block.settings.caption }}</figcaption>{% endif %}
           </figure>

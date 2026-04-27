@@ -27,7 +27,7 @@
               <div class="step">
                 {% if s_image %}
                   <div class="img">
-                    <img src="{{ s_image | image_url: width: 900 }}" alt="{{ s_title | escape }}" loading="lazy" width="600" height="450">
+                    <img src="{{ s_image | image_url: width: 900, format: 'webp' }}" alt="{{ s_title | escape }}" loading="lazy" width="600" height="450">
                   </div>
                 {% elsif fallback != blank %}
                   <div class="img">

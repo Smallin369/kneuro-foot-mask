@@ -10,7 +10,7 @@
                   data-variant-index="{{ forloop.index0 }}"
                   data-price="{{ variant.price | money }}"
                   data-price-raw="{{ variant.price }}"
-                  {% if variant.featured_image %}data-image="{{ variant.featured_image | image_url: width: 1200 }}"{% endif %}
+                  {% if variant.featured_image %}data-image="{{ variant.featured_image | image_url: width: 1200, format: 'webp' }}"{% endif %}
                   role="radio"
                   aria-checked="{% if variant.id == cv.id %}true{% else %}false{% endif %}"
                   {% unless variant.available %}disabled{% endunless %}>

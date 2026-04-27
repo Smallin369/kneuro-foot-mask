@@ -20,8 +20,8 @@
       --accent-deep: #2a2a2a;
       --sage: #0a0a0a;
       --rose: #f4f0eb;
-      --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Manrope', 'Manrope Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
     }
     body { background: #ffffff; }
   </style>
@@ -31,12 +31,14 @@
   <style>
     @font-face{font-family:'Manrope';font-style:normal;font-weight:400 800;font-display:swap;src:url('{{ "manrope-var-latin.woff2" | asset_url }}') format('woff2-variations'),url('{{ "manrope-var-latin.woff2" | asset_url }}') format('woff2');}
     @font-face{font-family:'Inter';font-style:normal;font-weight:400 700;font-display:swap;src:url('{{ "inter-var-latin.woff2" | asset_url }}') format('woff2-variations'),url('{{ "inter-var-latin.woff2" | asset_url }}') format('woff2');}
+    @font-face{font-family:'Manrope Fallback';src:local('Arial');size-adjust:100.5%;ascent-override:99%;descent-override:31%;line-gap-override:0%;}
+    @font-face{font-family:'Inter Fallback';src:local('Arial');size-adjust:107.4%;ascent-override:90%;descent-override:22.43%;line-gap-override:0%;}
   </style>
 
   {%- if template contains 'product' and product.featured_image -%}
     <link rel="preload" as="image"
-          href="{{ product.featured_image | image_url: width: 900 }}"
-          imagesrcset="{{ product.featured_image | image_url: width: 600 }} 600w, {{ product.featured_image | image_url: width: 900 }} 900w, {{ product.featured_image | image_url: width: 1200 }} 1200w"
+          href="{{ product.featured_image | image_url: width: 900, format: 'webp' }}"
+          imagesrcset="{{ product.featured_image | image_url: width: 600, format: 'webp' }} 600w, {{ product.featured_image | image_url: width: 900, format: 'webp' }} 900w, {{ product.featured_image | image_url: width: 1200, format: 'webp' }} 1200w"
           imagesizes="(max-width: 768px) 100vw, 600px"
           fetchpriority="high">
   {%- endif -%}
