@@ -1,0 +1,181 @@
+═══════════════════════════════════════════════════════════════════
+  KNEURO — AI IMAGE GENERATION PROMPTS
+  For ChatGPT-4o image, Flux Pro, Midjourney V7, Imagen 3
+═══════════════════════════════════════════════════════════════════
+
+USE THESE PROMPTS TO REPLACE THE PRODUCT-MOCKUP HERO IMAGES
+WITH UGC-STYLE LIFESTYLE PHOTOGRAPHY. Generates 4-8 candidates
+per prompt. Pick the most "imperfect" looking one — the slightly-
+off-balance ones read as authentic; the pristine ones read as ads.
+
+NEVER GENERATE IMAGES WITH FACES if you intend to caption them
+with a fake name or location. That's deceptive and Meta will
+reject the ads.
+
+───────────────────────────────────────────────────────────────────
+  1. PRIMARY HERO — HAND HOLDING POUCH (advertorial above-fold)
+───────────────────────────────────────────────────────────────────
+
+Use case: replaces 5pack.png on homepage advertorial hero, /pages/about,
+/pages/ingredients, /pages/kneuro-vs-baby-foot.
+
+PROMPT:
+amateur smartphone photo, pale woman's hand holding a small white
+foil sachet labeled "kneuro" against a soft cream-tile bathroom
+backdrop, natural side window light, soft shadows, slight depth-of-
+field blur, no professional studio lighting, casual home setting,
+no face visible, slightly off-center composition, square crop, 1:1
+aspect ratio, candid, not retouched, photo taken at arm's length
+
+ALTERNATIVE FRAMINGS (try these too):
+- "...holding the pouch over a folded white towel, marble counter
+  surface, morning natural light from a window, square crop"
+- "...hand resting on a wooden bathroom shelf with the pouch
+  alongside a small ceramic mug, beige + warm-cream palette,
+  slight grain, eye-level"
+- "...two hands cupped around the pouch, soft beige robe sleeve
+  visible at edge, neutral background, square crop"
+
+───────────────────────────────────────────────────────────────────
+  2. FOOT-IN-SCENE (advertorial Component 9 — visual proof)
+───────────────────────────────────────────────────────────────────
+
+Use case: in the before-after section, the "after" image. Honest
+caption: "Real customer photo" if you have one. If AI, label it
+"Concept render" or "Lifestyle image" — never imply it's a customer.
+
+PROMPT:
+real-looking woman's bare foot resting on a beige linen towel with
+a white foil pouch beside it, soft morning light through a sheer
+curtain, beige and warm-cream color palette, casual home aesthetic,
+slight film grain, smartphone-style photo not professional, no face
+visible, square crop, soft shadows, side angle
+
+ALTERNATIVE:
+two bare feet relaxed on a clean linen surface, soft natural lighting,
+white foil pouch placed casually nearby, neutral skin tone, no face,
+beige aesthetic, candid not styled, eye-level, slight blur
+
+───────────────────────────────────────────────────────────────────
+  3. PRODUCT-IN-SCENE (lifestyle, supplementary)
+───────────────────────────────────────────────────────────────────
+
+Use case: ingredient page, about page, ambient supporting imagery.
+
+PROMPT:
+flat-lay top-down photo of three small white foil pouches arranged
+casually on a soft cream linen background, alongside a small ceramic
+dish with a few drops of milk, dried herbs scattered nearby, soft
+natural light, beige and warm-white color palette, slight shadow,
+not styled too perfectly, candid amateur aesthetic, square crop
+
+ALTERNATIVE — single pouch macro:
+extreme close-up macro photo of a white foil pouch with "kneuro"
+text visible, soft shadows, neutral cream background, shallow depth
+of field, smartphone macro mode, slight imperfection in fold, ad-hoc
+not perfectly framed
+
+───────────────────────────────────────────────────────────────────
+  4. APPLICATION SHOT (how-it-works section)
+───────────────────────────────────────────────────────────────────
+
+Use case: replace the s1/s2/s3_image fields on the PDP "how it works"
+section if you want to upgrade them.
+
+STEP 1 — opening the pouch:
+hands tearing open a small white foil pouch over a clean cream-
+colored bathroom counter, natural side light, no face, casual home
+setting, square crop, smartphone photo aesthetic, slight motion blur
+
+STEP 2 — sliding the sock on:
+hands sliding a soft white pre-filled sock over a bare foot, sitting
+on a beige bathroom mat, natural soft light, casual moment, no face,
+square crop, candid not styled
+
+STEP 3 — relaxing while wearing it:
+woman's legs extended on a beige couch, wearing two soft white
+pre-filled foot socks, holding a phone or coffee mug nearby
+(blurred), warm cream tones, no face visible, candid evening light,
+square crop
+
+───────────────────────────────────────────────────────────────────
+  5. WHAT NOT TO GENERATE (do not use these)
+───────────────────────────────────────────────────────────────────
+
+❌ Faces with first names captioned ("Sarah, 32") — deceptive
+❌ "Before" feet with cracked/severe skin — Meta will auto-flag as
+   medical/before-after content and reject ads
+❌ Feet showing dramatic peeling — confuses your "no peel" positioning
+❌ Studio-lit perfectly composed product shots — already what you have
+❌ Multiple people in scene with faces — implied testimonials
+
+───────────────────────────────────────────────────────────────────
+  GENERATOR-SPECIFIC TIPS
+───────────────────────────────────────────────────────────────────
+
+▪ ChatGPT-4o (GPT Plus, $20/mo)
+  Best for lifestyle "iPhone-style" outputs. Append:
+  "shot on iPhone, no professional retouching, slight motion blur,
+   imperfect framing, candid"
+  Run 4-6 generations, throw out the "studio" ones, keep the messy.
+
+▪ Flux Pro (FAL.ai, ~$0.05/image)
+  Strongest realistic skin/hand rendering as of 2026. Use Flux 1.1
+  Pro Ultra. Set steps=30, guidance=3.5, aspect_ratio=1:1.
+
+▪ Midjourney V7 (~$10/mo)
+  Beautiful but over-stylized. ALWAYS append:
+  --style raw --stylize 50 --ar 1:1 --v 7
+  Without --style raw it'll look like a magazine ad.
+
+▪ Imagen 3 (free, Google AI Studio at ai.google.dev)
+  Surprisingly good for flat-lay product shots. Free tier is generous.
+
+───────────────────────────────────────────────────────────────────
+  SELECTION CHECKLIST (pick the right gen)
+───────────────────────────────────────────────────────────────────
+
+For each generation, score against these criteria:
+
+☐ Looks like a real phone photo, not a studio ad?
+☐ Lighting is natural and slightly imperfect?
+☐ Composition is slightly off-center, not perfectly framed?
+☐ No visible AI artifacts on the pouch text or hand fingers?
+   (Hands and faces are where AI fails most — count fingers!)
+☐ Color palette matches Kneuro brand (cream, beige, warm-white)?
+☐ Aspect ratio is 1:1 (square)?
+☐ Resolution at least 1200x1200 for sharp display on retina?
+
+If 5 or more boxes are checked, ship it.
+If fewer, regenerate.
+
+───────────────────────────────────────────────────────────────────
+  AFTER YOU GENERATE — UPLOAD WORKFLOW
+───────────────────────────────────────────────────────────────────
+
+1. Pick the winning image at 1024x1024 or higher.
+2. Open it in Preview/Photoshop and lightly downscale to 1200x1200
+   if needed (sharper than 4K for web — server compression handles
+   the rest).
+3. Save as JPEG quality 85 or PNG (Shopify CDN converts to WebP
+   automatically since we set format: 'webp' in the theme).
+4. Shopify Admin → Settings → Files → Upload (drag-drop).
+5. Right-click the uploaded file → Copy URL.
+6. Online Store → Customize → Home page → Advertorial Hero section
+   → Lead image → "Replace" → paste URL or browse to the file.
+7. Save. Hard-refresh (Cmd+Shift+R) the live page to confirm.
+8. Repeat for /pages/about, /pages/ingredients, /pages/kneuro-vs-baby-foot
+   if you want them all using new imagery.
+
+───────────────────────────────────────────────────────────────────
+  ETHICAL DISCLOSURE NOTE
+───────────────────────────────────────────────────────────────────
+
+Some jurisdictions are tightening rules on AI-generated content in
+advertising. Best practice as of 2026:
+
+▪ Lifestyle / product-in-scene imagery does NOT require disclosure.
+▪ Anything implying a real customer story DOES — or you risk FTC
+  attention in the US, ASA in the UK, etc.
+▪ Always source TESTIMONIAL photos from real customers. Pay them
+  $10-25 store credit + a thank-you. Don't fake it.
