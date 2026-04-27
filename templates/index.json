@@ -212,68 +212,6 @@
         "bg_color": ""
       }
     },
-    "comparison": {
-      "type": "comparison-table",
-      "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "The honest comparison"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "Kneuro vs.",
-            "accent": "every other foot mask."
-          }
-        },
-        "t": {
-          "type": "table",
-          "settings": {
-            "col_brand": "Kneuro",
-            "col_2": "Baby Foot",
-            "col_3": "Generic peel",
-            "col_4": "Foot cream",
-            "row_1_label": "Pregnancy-safe",
-            "row_1_brand": "yes",
-            "row_1_c2": "no",
-            "row_1_c3": "no",
-            "row_1_c4": "yes",
-            "row_2_label": "No harsh acids",
-            "row_2_brand": "yes",
-            "row_2_c2": "no",
-            "row_2_c3": "no",
-            "row_2_c4": "yes",
-            "row_3_label": "Visible result in 30 min",
-            "row_3_brand": "yes",
-            "row_3_c2": "no",
-            "row_3_c3": "no",
-            "row_3_c4": "no",
-            "row_4_label": "No painful peeling",
-            "row_4_brand": "yes",
-            "row_4_c2": "no",
-            "row_4_c3": "no",
-            "row_4_c4": "yes",
-            "row_5_label": "Goat milk + niacinamide",
-            "row_5_brand": "yes",
-            "row_5_c2": "no",
-            "row_5_c3": "no",
-            "row_5_c4": "partial"
-          }
-        }
-      },
-      "block_order": [
-        "k",
-        "h",
-        "t"
-      ],
-      "settings": {
-        "padding_top": 64,
-        "padding_bottom": 64,
-        "bg_color": ""
-      }
-    },
     "bundles": {
       "type": "homepage-bundle-cards",
       "blocks": {
@@ -342,6 +280,68 @@
         "padding_bottom": 80
       }
     },
+    "comparison": {
+      "type": "comparison-table",
+      "blocks": {
+        "k": {
+          "type": "kicker",
+          "settings": {
+            "text": "The honest comparison"
+          }
+        },
+        "h": {
+          "type": "heading",
+          "settings": {
+            "lead": "Kneuro vs.",
+            "accent": "every other foot mask."
+          }
+        },
+        "t": {
+          "type": "table",
+          "settings": {
+            "col_brand": "Kneuro",
+            "col_2": "Baby Foot",
+            "col_3": "Generic peel",
+            "col_4": "Foot cream",
+            "row_1_label": "Pregnancy-safe",
+            "row_1_brand": "yes",
+            "row_1_c2": "no",
+            "row_1_c3": "no",
+            "row_1_c4": "yes",
+            "row_2_label": "No harsh acids",
+            "row_2_brand": "yes",
+            "row_2_c2": "no",
+            "row_2_c3": "no",
+            "row_2_c4": "yes",
+            "row_3_label": "Visible result in 30 min",
+            "row_3_brand": "yes",
+            "row_3_c2": "no",
+            "row_3_c3": "no",
+            "row_3_c4": "no",
+            "row_4_label": "No painful peeling",
+            "row_4_brand": "yes",
+            "row_4_c2": "no",
+            "row_4_c3": "no",
+            "row_4_c4": "yes",
+            "row_5_label": "Goat milk + niacinamide",
+            "row_5_brand": "yes",
+            "row_5_c2": "no",
+            "row_5_c3": "no",
+            "row_5_c4": "partial"
+          }
+        }
+      },
+      "block_order": [
+        "k",
+        "h",
+        "t"
+      ],
+      "settings": {
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "bg_color": ""
+      }
+    },
     "final": {
       "type": "final-cta",
       "settings": {
@@ -357,8 +357,8 @@
     "story",
     "testimonials",
     "ingredients",
-    "comparison",
     "bundles",
+    "comparison",
     "final"
   ]
 }
