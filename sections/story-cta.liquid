@@ -1,0 +1,48 @@
+{%- liquid
+  assign align = section.settings.alignment | default: 'center'
+  assign max_width = section.settings.max_width | default: 680
+-%}
+
+<section class="sct sct--{{ align }}" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg | default: 'transparent' }};">
+  <div class="sct__inner" style="max-width:{{ max_width }}px;">
+    <a class="sct__btn" href="{{ section.settings.url | default: '/products/goat-milk-callus-mask' }}">{{ section.settings.label | default: 'Get yours' }}</a>
+    {% if section.settings.subtext != blank %}
+      <small class="sct__sub">{{ section.settings.subtext }}</small>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  .sct__inner { margin: 0 auto; padding: 0 20px; display: flex; flex-direction: column; gap: 10px; }
+  .sct--left .sct__inner { align-items: flex-start; }
+  .sct--center .sct__inner { align-items: center; text-align: center; }
+  .sct__btn { display: inline-block; padding: 18px 36px; background: var(--accent); color: #fff; text-decoration: none; border-radius: 999px; font-weight: 700; font-size: 16px; }
+  .sct__btn:hover { background: var(--accent-deep); transform: translateY(-2px); }
+  .sct__sub { color: var(--muted); font-size: 12px; }
+</style>
+
+{% schema %}
+{
+  "name": "Story CTA",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Button label", "default": "Get yours" },
+    { "type": "url", "id": "url", "label": "Button URL" },
+    { "type": "text", "id": "subtext", "label": "Subtext below button" },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "center"
+    },
+    { "type": "range", "id": "max_width", "label": "Max width", "min": 480, "max": 1200, "step": 20, "unit": "px", "default": 680 },
+    { "type": "color", "id": "bg", "label": "Background" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 20 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 20 }
+  ],
+  "presets": [{ "name": "Story CTA" }]
+}
+{% endschema %}
