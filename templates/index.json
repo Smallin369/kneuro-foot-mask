@@ -49,13 +49,13 @@
         "hero_before": "",
         "hero_after": "",
         "hero_caption": "Cracked heels \u00b7 1 application",
-        "t1_quote": "I've tried Baby Foot and the harsh acid ones \u2014 they always burned and made my feet flake painfully for two weeks. This one is gentle. No peeling, no burning. Just soft hydrated feet the next morning.",
+        "t1_quote": "I've tried Baby Foot and the harsh peels \u2014 they always burned and made my feet flake painfully for two weeks. This one is gentle. Soft, hydrated feet the next morning, no flaking.",
         "t1_attr": "Hannah M.",
         "t1_meta": "Sensitive skin \u00b7 Verified buyer",
-        "t2_quote": "I bought this because I'm pregnant and couldn't use the regular foot peels (salicylic acid is a no-go). My feet were so dry from the swelling. Genuine relief.",
+        "t2_quote": "I'm pregnant and couldn't use any of the regular foot peels \u2014 salicylic acid is a no-go. My feet were splitting from the swelling. Genuine relief by the next morning.",
         "t2_attr": "Priya R.",
         "t2_meta": "Pregnant \u00b7 Verified buyer",
-        "t3_quote": "Bought the 3-pack for me, my mom, and my sister. All three of us texted each other the next day in caps lock. The soft sock shape is silly cute but the formula is real.",
+        "t3_quote": "Bought the 3-pack for me, my mom, and my sister. All three of us texted in caps lock the next day. Officially the family group-chat skincare moment of the year.",
         "t3_attr": "Daniel K.",
         "t3_meta": "Bought as a gift \u00b7 Verified buyer",
         "cta_label": "Get yours \u2014 from $19.99 \u2192",
@@ -77,19 +77,19 @@
         "p2": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Then a friend in Seoul sent me a video. A goat milk foot mask \u2014 soft sock, white liquid, K-beauty's answer to harsh peels. <strong>Gentler, more hydrating, no peeling, no burning.</strong> I ordered one because I was already $200 deep in things that hadn't worked.</p>"
+            "text": "<p>Until a friend in Seoul sent me a video. A goat milk foot mask \u2014 soft sock, white liquid, K-beauty's answer to harsh peels. <strong>Gentler, more hydrating, no peeling, no burning.</strong> I ordered one because I was already $200 deep in things that hadn't worked.</p>"
           }
         },
         "p_science": {
           "type": "paragraph",
           "settings": {
-            "text": "<p><strong>Goat milk's lactic acid is 1/10th the strength of Baby Foot</strong> \u2014 soft enough for sensitive skin, strong enough to work in 30 minutes. No 5-day peeling phase.</p>"
+            "text": "<p><strong>Goat milk's lactic acid is 1/10th the strength of Baby Foot's acid blend</strong> \u2014 soft enough for pregnant women and diabetic feet, strong enough to work in 30 minutes. No 5-day peeling phase. No more socks at the beach.</p>"
           }
         },
         "p3": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Three weeks in, I've bought the 3-pack \u2014 used it before my sister's wedding, every date night since. <strong>My dermatologist approved the ingredient list</strong>: no salicylic acid, no fragrance, no essential oils. Pregnancy-safe. Diabetes-safe. Eczema-safe. Just goat milk doing what it's done for 4,000 years.</p>"
+            "text": "<p>Three weeks in, I've bought the 3-pack. Wedding, beach trip, every date night since. <strong>My dermatologist approved the ingredient list</strong>: no salicylic acid, no fragrance, no essential oils. Pregnancy-safe. Diabetes-safe. Eczema-safe. Just goat milk, doing what it's done since Cleopatra.</p>"
           }
         },
         "p4": {
@@ -129,21 +129,21 @@
         "q_hannah": {
           "type": "pullquote",
           "settings": {
-            "quote": "I've tried Baby Foot and the harsh acid ones \u2014 they always burned and made my feet flake painfully for two weeks. This one is gentle. No peeling, no burning. Just soft hydrated feet the next morning.",
+            "quote": "I've tried Baby Foot and the harsh peels \u2014 they always burned and made my feet flake painfully for two weeks. This one is gentle. Soft, hydrated feet the next morning, no flaking.",
             "attribution": "Hannah M. \u00b7 Sensitive skin \u00b7 Verified buyer"
           }
         },
         "q_priya": {
           "type": "pullquote",
           "settings": {
-            "quote": "I bought this because I'm pregnant and couldn't use the regular foot peels (salicylic acid is a no-go). My feet were so dry from the swelling. Genuine relief.",
+            "quote": "I'm pregnant and couldn't use any of the regular foot peels \u2014 salicylic acid is a no-go. My feet were splitting from the swelling. Genuine relief by the next morning.",
             "attribution": "Priya R. \u00b7 Pregnant \u00b7 Verified buyer"
           }
         },
         "q_daniel": {
           "type": "pullquote",
           "settings": {
-            "quote": "Bought the 3-pack for me, my mom, and my sister. All three of us texted each other the next day in caps lock. The soft sock shape is silly cute but the formula is real.",
+            "quote": "Bought the 3-pack for me, my mom, and my sister. All three of us texted in caps lock the next day. Officially the family group-chat skincare moment of the year.",
             "attribution": "Daniel K. \u00b7 Bought as a gift \u00b7 Verified buyer"
           }
         },
