@@ -71,13 +71,13 @@
         "p1": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Three years of cracked heels. <strong>My dermatologist warned me off Baby Foot</strong> \u2014 too harsh for my sensitive skin. So I kept my socks on at the beach.</p>"
+            "text": "<p>Three years of cracked heels and thick callouses. I'd tried everything \u2014 drugstore foot creams, a $40 callus shaver, a $90 pedicure that lasted four days. <strong>Nothing softened the dryness.</strong> By March my heels were splitting open and catching on bedsheets.</p>"
           }
         },
         "p2": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Until a friend in Seoul sent me a video. A goat milk foot mask \u2014 soft sock, white liquid, K-beauty's answer to harsh peels. <strong>Gentler, more hydrating, no peeling, no burning.</strong> I ordered one because I was already $200 deep in things that hadn't worked.</p>"
+            "text": "<p>Then a friend in Seoul sent me a video. A goat milk foot mask \u2014 K-beauty's gentler answer to harsh peels. No salicylic acid. No burning. No 5-day peel. I tried one 30-minute session. <strong>The next morning my heels felt soft for the first time in three years.</strong></p>"
           }
         },
         "p_science": {
@@ -102,7 +102,7 @@
           "type": "image",
           "settings": {
             "alt": "Dry, cracked heels before treatment",
-            "caption": "My heels in March. Catches on bedsheets, ruins black tights."
+            "caption": "March 2026. Three years of trying everything that didn't work."
           }
         },
         "img2": {
@@ -123,7 +123,7 @@
           "type": "image",
           "settings": {
             "alt": "Soft, hydrated feet after 30-minute application",
-            "caption": "30 minutes later. First time my heels felt soft in three years."
+            "caption": "Three weeks later. Weekly 30-minute sessions. No peeling, just soft."
           }
         },
         "q_hannah": {
@@ -181,12 +181,10 @@
         }
       },
       "block_order": [
-        "p1", "img1",
-        "p2", "img2",
-        "p_science",
-        "img3", "quote", "p3",
-        "p_bridge",
-        "q_hannah", "q_priya", "q_daniel",
+        "p1",
+        "img1",
+        "p2",
+        "img3",
         "cta1"
       ],
       "settings": {
