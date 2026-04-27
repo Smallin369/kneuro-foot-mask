@@ -26,12 +26,12 @@
     body { background: #ffffff; }
   </style>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  {%- assign google_fonts_url = 'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap' -%}
-  <link rel="preload" as="style" href="{{ google_fonts_url }}">
-  <link rel="stylesheet" href="{{ google_fonts_url }}" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="{{ google_fonts_url }}"></noscript>
+  <link rel="preload" as="font" type="font/woff2" href="{{ 'manrope-var-latin.woff2' | asset_url }}" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="{{ 'inter-var-latin.woff2' | asset_url }}" crossorigin>
+  <style>
+    @font-face{font-family:'Manrope';font-style:normal;font-weight:400 800;font-display:swap;src:url('{{ "manrope-var-latin.woff2" | asset_url }}') format('woff2-variations'),url('{{ "manrope-var-latin.woff2" | asset_url }}') format('woff2');}
+    @font-face{font-family:'Inter';font-style:normal;font-weight:400 700;font-display:swap;src:url('{{ "inter-var-latin.woff2" | asset_url }}') format('woff2-variations'),url('{{ "inter-var-latin.woff2" | asset_url }}') format('woff2');}
+  </style>
 
   {%- if template contains 'product' and product.featured_image -%}
     <link rel="preload" as="image"
