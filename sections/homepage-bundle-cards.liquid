@@ -10,7 +10,7 @@
         <img src="{{ section.settings.product_image | image_url: width: 700, format: 'webp' }}" srcset="{{ section.settings.product_image | image_url: width: 400, format: 'webp' }} 400w, {{ section.settings.product_image | image_url: width: 700, format: 'webp' }} 700w" sizes="(max-width:768px) 280px, 360px" alt="{{ section.settings.heading | default: 'Bundle' | escape }}" width="700" height="700" loading="lazy">
       </div>
     {% endif %}
-    {% if section.settings.kicker != blank %}
+    {% if section.settings.kicker != blank %}w
       <div class="hbc__kicker">{{ section.settings.kicker }}</div>
     {% endif %}
     {% if section.settings.heading != blank %}
