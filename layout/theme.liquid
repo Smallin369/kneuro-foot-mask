@@ -48,7 +48,7 @@
   {{ content_for_header }}
 </head>
 <body>
-  {%- unless template.suffix == 'quick-sell' or template.name == 'index' -%}
+  {%- unless template.suffix == 'quick-sell' -%}
     {% section 'site-header' %}
   {%- endunless -%}
   <main id="MainContent" role="main">
