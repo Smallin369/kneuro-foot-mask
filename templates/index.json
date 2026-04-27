@@ -182,8 +182,8 @@
       },
       "block_order": [
         "p1",
-        "img1",
         "p2",
+        "img1",
         "img3",
         "cta1"
       ],
