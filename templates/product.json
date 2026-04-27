@@ -169,23 +169,13 @@
         "bg_color": ""
       }
     },
-    "br1": {
-      "type": "section-bridge",
-      "settings": {
-        "label": "See how it works",
-        "target_anchor": "",
-        "bg": "",
-        "padding_top": 16,
-        "padding_bottom": 28
-      }
-    },
     "howto": {
       "type": "how-it-works",
       "blocks": {
         "k": {
           "type": "kicker",
           "settings": {
-            "text": "How it works"
+            "text": "HOW TO USE"
           }
         },
         "h": {
@@ -245,6 +235,8 @@
         "heading_lead": "Before & after,",
         "heading_accent": "in one application.",
         "subhead": "30 minutes. No burning, no peeling phase. Soft heels overnight.",
+        "layout": "side-by-side",
+        "max_width": 1100,
         "bg": "",
         "cta_label": "",
         "cta_url": "",
@@ -441,6 +433,7 @@
     "final": {
       "type": "final-cta",
       "settings": {
+        "bg": "",
         "padding_top": 0,
         "padding_bottom": 60
       }
@@ -449,7 +442,6 @@
   "order": [
     "main",
     "ingredients",
-    "br1",
     "howto",
     "br2",
     "baproof",
