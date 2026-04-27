@@ -510,13 +510,16 @@
       ],
       "settings": {
         "kicker": "Choose your pack",
-        "heading": "Buy more,",
-        "heading_accent": "save more.",
-        "subhead": "Tap a bundle to go straight to checkout — your selection is pre-loaded. Free US shipping on the 5-pack. 30-day money-back on every order.",
-        "fineprint": "All bundles pregnancy-safe, diabetes-safe, dermatologist-approved. 30-day return on opened or unopened pouches.",
+        "heading": "Stop living with",
+        "heading_accent": "cracked, dry feet.",
+        "subhead": "Goat milk. Niacinamide. 30 minutes. Soft feet that last. Tap a bundle below to skip the picker — your selection is preloaded at checkout.",
+        "fineprint": "All bundles pregnancy-safe, diabetes-safe, dermatologist-approved · 30-day money-back · ships within 24 hours from the US",
         "product_handle": "goat-milk-callus-mask",
-        "padding_top": 56,
-        "padding_bottom": 72
+        "product_image": "shopify://shop_images/5pack.png",
+        "center": true,
+        "padding_top": 64,
+        "padding_bottom": 80,
+        "bg": "#faf8f5"
       }
     }
   },
@@ -524,11 +527,10 @@
     "scarcity",
     "hero",
     "story",
-    "bundles",
     "testimonials",
     "ingredients",
     "comparison",
-    "final",
+    "bundles",
     "faq"
   ]
 }
