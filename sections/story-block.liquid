@@ -1,0 +1,147 @@
+{%- liquid
+  assign type = section.settings.block_type | default: 'paragraph'
+  assign align = section.settings.alignment | default: 'left'
+  assign max_width = section.settings.max_width | default: 680
+-%}
+
+<section class="sb sb--{{ type }} sb--align-{{ align }}" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
+  <div class="sb__inner" style="max-width:{{ max_width }}px;">
+
+    {% case type %}
+
+      {% when 'paragraph' %}
+        <div class="sb__paragraph">{{ section.settings.text }}</div>
+
+      {% when 'heading' %}
+        <h2 class="sb__heading">{{ section.settings.heading_lead }} <em>{{ section.settings.heading_accent }}</em></h2>
+        {% if section.settings.heading_sub != blank %}
+          <p class="sb__heading-sub">{{ section.settings.heading_sub }}</p>
+        {% endif %}
+
+      {% when 'image' %}
+        <figure class="sb__figure">
+          {% if section.settings.image %}
+            <img src="{{ section.settings.image | image_url: width: 1200, format: 'webp' }}" srcset="{{ section.settings.image | image_url: width: 600, format: 'webp' }} 600w, {{ section.settings.image | image_url: width: 1200, format: 'webp' }} 1200w" sizes="(max-width:768px) 100vw, {{ max_width }}px" alt="{{ section.settings.image_alt | escape }}" loading="lazy" width="900" height="600">
+          {% else %}
+            <div class="sb__placeholder">Add an image in section settings</div>
+          {% endif %}
+          {% if section.settings.image_caption != blank %}
+            <figcaption>{{ section.settings.image_caption }}</figcaption>
+          {% endif %}
+        </figure>
+
+      {% when 'pullquote' %}
+        <blockquote class="sb__quote">
+          <p>{{ section.settings.quote }}</p>
+          {% if section.settings.attribution != blank %}
+            <cite>{{ section.settings.attribution }}</cite>
+          {% endif %}
+        </blockquote>
+
+      {% when 'callout' %}
+        <div class="sb__callout">{{ section.settings.callout_text }}</div>
+
+      {% when 'cta' %}
+        <div class="sb__cta-wrap">
+          <a class="sb__cta" href="{{ section.settings.cta_url | default: '/products/goat-milk-callus-mask' }}">{{ section.settings.cta_label | default: 'Get yours' }}</a>
+          {% if section.settings.cta_subtext != blank %}
+            <small class="sb__cta-sub">{{ section.settings.cta_subtext }}</small>
+          {% endif %}
+        </div>
+
+      {% when 'divider' %}
+        <div class="sb__divider"></div>
+
+    {% endcase %}
+
+  </div>
+</section>
+
+<style>
+  .sb { background: #fff; }
+  .sb__inner { margin: 0 auto; padding: 0 20px; }
+  .sb--align-left .sb__inner { text-align: left; }
+  .sb--align-center .sb__inner { text-align: center; }
+  .sb__paragraph { font-family: var(--font-body); font-size: 17px; line-height: 1.65; color: var(--ink, #0a0a0a); }
+  .sb__paragraph p { margin: 0 0 16px; }
+  .sb__paragraph p:last-child { margin-bottom: 0; }
+  .sb__heading { font-family: var(--font-heading); font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; color: var(--ink, #0a0a0a); margin: 0 0 8px; line-height: 1.2; }
+  .sb__heading em { font-style: italic; font-weight: 700; color: var(--accent, #0a0a0a); }
+  .sb__heading-sub { font-family: var(--font-body); font-size: 16px; line-height: 1.5; color: var(--ink-2, #2a2a2a); margin: 0; }
+  .sb__figure { margin: 0; }
+  .sb__figure img { width: 100%; height: auto; border-radius: 14px; box-shadow: 0 12px 30px -12px rgba(42,28,18,.18); display: block; }
+  .sb__figure figcaption { color: var(--muted, #888); font-size: 13px; font-style: italic; text-align: center; margin-top: 10px; line-height: 1.45; }
+  .sb__placeholder { aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; background: var(--cream, #f7f4f0); color: var(--muted, #888); border-radius: 14px; font-size: 14px; }
+  .sb__quote { border-left: 3px solid var(--accent, #0a0a0a); padding: 4px 0 4px 22px; margin: 0; }
+  .sb__quote p { font-family: var(--font-heading); font-size: 1.4rem; font-style: italic; color: var(--ink, #0a0a0a); margin: 0 0 8px; line-height: 1.4; }
+  .sb__quote cite { display: block; color: var(--muted, #888); font-style: normal; font-size: 13px; letter-spacing: .02em; }
+  .sb__callout { background: var(--cream-soft, #faf8f5); border-left: 4px solid var(--accent, #0a0a0a); padding: 18px 22px; border-radius: 8px; font-family: var(--font-body); font-size: 17px; line-height: 1.55; color: var(--ink, #0a0a0a); }
+  .sb__cta-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .sb--align-left .sb__cta-wrap { align-items: flex-start; }
+  .sb__cta { display: inline-block; padding: 18px 36px; background: var(--accent, #0a0a0a); color: #fff; text-decoration: none; border-radius: 999px; font-weight: 700; font-size: 16px; }
+  .sb__cta-sub { color: var(--muted, #888); font-size: 12px; }
+  .sb__divider { border-top: 1px solid var(--line, #ececec); width: 100%; }
+  @media (max-width: 600px) {
+    .sb__paragraph { font-size: 16px; }
+    .sb__heading { font-size: 1.5rem; }
+    .sb__quote p { font-size: 1.2rem; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Story block",
+  "settings": [
+    {
+      "type": "select",
+      "id": "block_type",
+      "label": "Block type",
+      "options": [
+        { "value": "paragraph", "label": "Paragraph" },
+        { "value": "heading", "label": "Heading" },
+        { "value": "image", "label": "Image with caption" },
+        { "value": "pullquote", "label": "Pull quote" },
+        { "value": "callout", "label": "Callout box" },
+        { "value": "cta", "label": "CTA button" },
+        { "value": "divider", "label": "Divider line" }
+      ],
+      "default": "paragraph"
+    },
+    { "type": "header", "content": "Paragraph" },
+    { "type": "richtext", "id": "text", "label": "Paragraph text", "default": "<p>Add your story paragraph here.</p>" },
+    { "type": "header", "content": "Heading" },
+    { "type": "text", "id": "heading_lead", "label": "Heading lead", "default": "Soft feet," },
+    { "type": "text", "id": "heading_accent", "label": "Italic accent", "default": "in 30 minutes." },
+    { "type": "textarea", "id": "heading_sub", "label": "Subheading" },
+    { "type": "header", "content": "Image" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_alt", "label": "Alt text", "default": "Story image" },
+    { "type": "text", "id": "image_caption", "label": "Caption" },
+    { "type": "header", "content": "Pull quote" },
+    { "type": "textarea", "id": "quote", "label": "Quote", "default": "Add your quote here." },
+    { "type": "text", "id": "attribution", "label": "Attribution" },
+    { "type": "header", "content": "Callout" },
+    { "type": "richtext", "id": "callout_text", "label": "Callout text", "default": "<p>Add a key fact here.</p>" },
+    { "type": "header", "content": "CTA" },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Get yours" },
+    { "type": "url", "id": "cta_url", "label": "Button URL" },
+    { "type": "text", "id": "cta_subtext", "label": "Subtext below button" },
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "left"
+    },
+    { "type": "range", "id": "max_width", "label": "Max content width", "min": 480, "max": 1200, "step": 20, "unit": "px", "default": 680 },
+    { "type": "color", "id": "bg", "label": "Background color" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 14 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 14 }
+  ],
+  "presets": [{ "name": "Story block" }]
+}
+{% endschema %}
