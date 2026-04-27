@@ -150,76 +150,6 @@
         "padding_bottom": 64
       }
     },
-    "ingredients": {
-      "type": "why-grid",
-      "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "What's inside"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "Four ingredients,",
-            "accent": "zero compromise."
-          }
-        },
-        "s": {
-          "type": "subheading",
-          "settings": {
-            "text": "Pregnancy-safe. Diabetes-safe. No salicylic acid, no fragrance, no essential oils."
-          }
-        },
-        "c1": {
-          "type": "card",
-          "settings": {
-            "emoji": "🥛",
-            "title": "Goat Milk",
-            "body": "Gentle lactic acid — 1/10 the strength of Baby Foot. Hydrates without stripping."
-          }
-        },
-        "c2": {
-          "type": "card",
-          "settings": {
-            "emoji": "✨",
-            "title": "Niacinamide (B3)",
-            "body": "Strengthens the skin barrier and evens tone."
-          }
-        },
-        "c3": {
-          "type": "card",
-          "settings": {
-            "emoji": "💧",
-            "title": "Glycerin",
-            "body": "Humectant that pulls moisture deep into the dermis."
-          }
-        },
-        "c4": {
-          "type": "card",
-          "settings": {
-            "emoji": "🌿",
-            "title": "Allantoin",
-            "body": "Soothes irritation. Safe for sensitive, pregnant, and diabetic skin."
-          }
-        }
-      },
-      "block_order": [
-        "k",
-        "h",
-        "s",
-        "c1",
-        "c2",
-        "c3",
-        "c4"
-      ],
-      "settings": {
-        "padding_top": 56,
-        "padding_bottom": 56,
-        "bg_color": ""
-      }
-    },
     "final": {
       "type": "final-cta",
       "settings": {
@@ -256,7 +186,6 @@
     "hero",
     "story",
     "ba",
-    "ingredients",
     "final"
   ]
 }
