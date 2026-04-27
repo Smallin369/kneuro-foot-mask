@@ -77,7 +77,7 @@
         "p2": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Then a friend in Seoul sent me a video of a goat milk foot mask. Looked like a cute soft sock filled with white liquid. She said it was the K-beauty answer to harsh peels \u2014 gentler, more hydrating, no peeling, no burning. I ordered one for $25 because I was already $200 deep in things that didn't work.</p>"
+            "text": "<p>Then a friend in Seoul sent me a video. A goat milk foot mask \u2014 soft sock, white liquid, K-beauty's answer to harsh peels. <strong>Gentler, more hydrating, no peeling, no burning.</strong> I ordered one because I was already $200 deep in things that hadn't worked.</p>"
           }
         },
         "p_science": {
@@ -89,7 +89,7 @@
         "p3": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Three weeks later I've used it before every important event \u2014 date nights, my sister's wedding, a beach trip \u2014 and bought the 3-pack so I never run out. The goat milk smell is gentle (none of that fake lavender perfume), the niacinamide visibly evens out the rough patches, and the soft sock shape is genuinely cute enough that I take photos before I put them on. It's the only foot product I've actually used more than once.</p>"
+            "text": "<p>Three weeks in, I've bought the 3-pack \u2014 used it before my sister's wedding, every date night since. <strong>My dermatologist approved the ingredient list</strong>: no salicylic acid, no fragrance, no essential oils. Pregnancy-safe. Diabetes-safe. Eczema-safe. Just goat milk doing what it's done for 4,000 years.</p>"
           }
         },
         "p4": {
@@ -177,14 +177,7 @@
       "block_order": [
         "p1",
         "img1",
-        "p2",
-        "img2",
-        "p_science",
-        "quote",
-        "p3",
-        "img3",
-        "ing",
-        "cta1"
+        "p2","img2","p_science","quote","img3","p3","q_hannah","q_priya","q_daniel","ing","cta1"
       ],
       "settings": {
         "cta_url": "/products/goat-milk-callus-mask",
