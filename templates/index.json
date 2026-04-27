@@ -40,6 +40,7 @@
         "img1": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/freepik_use-the-attached-product-_2870624218.png",
             "alt": "Dry, cracked heels before treatment",
             "caption": "March 2026. Three years of trying everything that didn't work."
           }
@@ -87,6 +88,8 @@
         "heading_lead": "Before & after,",
         "heading_accent": "in 30 minutes.",
         "subhead": "Submitted by Kneuro customers. One pair, one application, visibly softer feet.",
+        "layout": "side-by-side",
+        "max_width": 1100,
         "bg": "",
         "cta_label": "Get yours — from $19.99 →",
         "cta_url": "/products/goat-milk-callus-mask",
