@@ -1,0 +1,42 @@
+{%- liquid
+  assign max_width = section.settings.max_width | default: 680
+-%}
+
+<section class="si" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg | default: 'transparent' }};">
+  <div class="si__inner" style="max-width:{{ max_width }}px;">
+    <figure class="si__fig">
+      {% if section.settings.image %}
+        <img src="{{ section.settings.image | image_url: width: 1200, format: 'webp' }}" srcset="{{ section.settings.image | image_url: width: 600, format: 'webp' }} 600w, {{ section.settings.image | image_url: width: 1200, format: 'webp' }} 1200w" sizes="(max-width:768px) 100vw, {{ max_width }}px" alt="{{ section.settings.image_alt | escape }}" loading="lazy" width="900" height="600">
+      {% else %}
+        <div class="si__placeholder">Add an image in section settings</div>
+      {% endif %}
+      {% if section.settings.caption != blank %}
+        <figcaption>{{ section.settings.caption }}</figcaption>
+      {% endif %}
+    </figure>
+  </div>
+</section>
+
+<style>
+  .si__inner { margin: 0 auto; padding: 0 20px; }
+  .si__fig { margin: 0; }
+  .si__fig img { width: 100%; height: auto; border-radius: 14px; box-shadow: 0 12px 30px -12px rgba(42,28,18,.18); display: block; }
+  .si__fig figcaption { color: var(--muted); font-size: 13px; font-style: italic; text-align: center; margin-top: 10px; line-height: 1.45; }
+  .si__placeholder { aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; background: var(--cream); color: var(--muted); border-radius: 14px; font-size: 14px; }
+</style>
+
+{% schema %}
+{
+  "name": "Story image",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_alt", "label": "Alt text", "default": "Story image" },
+    { "type": "text", "id": "caption", "label": "Caption" },
+    { "type": "range", "id": "max_width", "label": "Max width", "min": 480, "max": 1200, "step": 20, "unit": "px", "default": 680 },
+    { "type": "color", "id": "bg", "label": "Background" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 14 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 14 }
+  ],
+  "presets": [{ "name": "Story image" }]
+}
+{% endschema %}

@@ -1,0 +1,32 @@
+{%- liquid
+  assign max_width = section.settings.max_width | default: 680
+-%}
+
+<section class="sc" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg | default: 'transparent' }};">
+  <div class="sc__inner" style="max-width:{{ max_width }}px;">
+    <div class="sc__box">{{ section.settings.text }}</div>
+  </div>
+</section>
+
+<style>
+  .sc__inner { margin: 0 auto; padding: 0 20px; }
+  .sc__box { background: var(--cream-soft); border-left: 4px solid var(--accent); padding: 18px 22px; border-radius: 8px; font-family: var(--font-body); font-size: 17px; line-height: 1.55; color: var(--ink); }
+  .sc__box p { margin: 0 0 10px; }
+  .sc__box p:last-child { margin-bottom: 0; }
+  .sc__box strong { font-weight: 700; }
+  @media (max-width: 600px) { .sc__box { font-size: 16px; padding: 16px 18px; } }
+</style>
+
+{% schema %}
+{
+  "name": "Story callout",
+  "settings": [
+    { "type": "richtext", "id": "text", "label": "Callout text", "default": "<p>Add a key fact or science statement here.</p>" },
+    { "type": "range", "id": "max_width", "label": "Max width", "min": 480, "max": 1200, "step": 20, "unit": "px", "default": 680 },
+    { "type": "color", "id": "bg", "label": "Background" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 14 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 14 }
+  ],
+  "presets": [{ "name": "Story callout" }]
+}
+{% endschema %}

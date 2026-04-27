@@ -1,0 +1,37 @@
+{%- liquid
+  assign max_width = section.settings.max_width | default: 680
+-%}
+
+<section class="spq" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg | default: 'transparent' }};">
+  <div class="spq__inner" style="max-width:{{ max_width }}px;">
+    <blockquote class="spq__quote">
+      <p>{{ section.settings.quote }}</p>
+      {% if section.settings.attribution != blank %}
+        <cite>{{ section.settings.attribution }}</cite>
+      {% endif %}
+    </blockquote>
+  </div>
+</section>
+
+<style>
+  .spq__inner { margin: 0 auto; padding: 0 20px; }
+  .spq__quote { border-left: 3px solid var(--accent); padding: 4px 0 4px 22px; margin: 0; }
+  .spq__quote p { font-family: var(--font-heading); font-size: 1.4rem; font-style: italic; color: var(--ink); margin: 0 0 8px; line-height: 1.4; }
+  .spq__quote cite { display: block; color: var(--muted); font-style: normal; font-size: 13px; letter-spacing: .02em; }
+  @media (max-width: 600px) { .spq__quote p { font-size: 1.2rem; } }
+</style>
+
+{% schema %}
+{
+  "name": "Story pull quote",
+  "settings": [
+    { "type": "textarea", "id": "quote", "label": "Quote", "default": "Add your pull quote here." },
+    { "type": "text", "id": "attribution", "label": "Attribution" },
+    { "type": "range", "id": "max_width", "label": "Max width", "min": 480, "max": 1200, "step": 20, "unit": "px", "default": 680 },
+    { "type": "color", "id": "bg", "label": "Background" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 14 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 14 }
+  ],
+  "presets": [{ "name": "Story pull quote" }]
+}
+{% endschema %}
