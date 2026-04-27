@@ -1,0 +1,91 @@
+{%- liquid
+  assign cta_url = section.settings.cta_url | default: '/products/goat-milk-callus-mask'
+  assign cta_label = section.settings.cta_label | default: 'Try it →'
+  assign price_text = section.settings.price_text | default: 'from $19.99'
+  assign show_at = section.settings.show_at | default: 25
+-%}
+
+<div id="stickyMobileCta" class="smc" hidden role="region" aria-label="Quick add to cart">
+  <a class="smc__inner" href="{{ cta_url }}" data-smc-link>
+    {%- if section.settings.thumb -%}
+      <span class="smc__thumb"><img src="{{ section.settings.thumb | image_url: width: 96, format: 'webp' }}" alt="" width="48" height="48"></span>
+    {%- endif -%}
+    <span class="smc__text">
+      <span class="smc__name">{{ section.settings.product_name | default: 'Goat Milk Foot Mask' }}</span>
+      <span class="smc__price">{{ price_text }}</span>
+    </span>
+    <span class="smc__btn">{{ cta_label }}</span>
+  </a>
+  <button class="smc__close" type="button" aria-label="Dismiss" data-smc-close>×</button>
+</div>
+
+<style>
+  .smc { position: fixed; left: 0; right: 0; bottom: 0; z-index: 100; padding: 10px 12px max(10px, env(safe-area-inset-bottom)) 12px; background: rgba(255,255,255,0.96); backdrop-filter: blur(10px); border-top: 1px solid var(--line, #ececec); box-shadow: 0 -8px 24px rgba(0,0,0,0.06); transform: translateY(120%); transition: transform .3s cubic-bezier(.2,.9,.3,1); }
+  .smc[hidden] { display: none; }
+  .smc--visible { transform: translateY(0); }
+  .smc__inner { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; padding-right: 32px; }
+  .smc__thumb { flex: 0 0 48px; width: 48px; height: 48px; border-radius: 10px; overflow: hidden; background: var(--cream-soft, #faf8f5); }
+  .smc__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .smc__text { flex: 1; min-width: 0; line-height: 1.2; }
+  .smc__name { display: block; font-size: 13px; font-weight: 600; color: var(--ink, #0a0a0a); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: var(--font-heading); }
+  .smc__price { display: block; font-size: 12px; color: var(--muted, #888); margin-top: 1px; }
+  .smc__btn { flex: 0 0 auto; padding: 11px 16px; background: var(--accent, #0a0a0a); color: #fff; font-size: 14px; font-weight: 600; border-radius: 10px; white-space: nowrap; font-family: var(--font-body); }
+  .smc__close { position: absolute; top: 4px; right: 6px; background: transparent; border: 0; font-size: 22px; line-height: 1; color: var(--muted, #888); cursor: pointer; padding: 4px 8px; }
+  @media (min-width: 769px) { .smc { display: none !important; } }
+</style>
+
+<script>
+(function() {
+  var KEY = 'smc_dismissed_v1';
+  var THRESHOLD_PCT = {{ show_at | default: 25 }};
+
+  if (sessionStorage.getItem(KEY)) return;
+
+  // Don't render on PDP/cart/checkout (template-aware skip via Liquid below would also work)
+  if (/\/(cart|checkout|account)/.test(location.pathname) || /\/products\//.test(location.pathname)) return;
+
+  var el = document.getElementById('stickyMobileCta');
+  if (!el) return;
+
+  var revealed = false;
+  function check() {
+    var pct = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100 - (window.innerHeight / document.documentElement.scrollHeight * 100);
+    if (window.scrollY > document.documentElement.scrollHeight * (THRESHOLD_PCT / 100)) {
+      if (!revealed) {
+        el.hidden = false;
+        // Force reflow so transform transition runs
+        void el.offsetHeight;
+        el.classList.add('smc--visible');
+        revealed = true;
+      }
+    }
+  }
+  function dismiss() {
+    sessionStorage.setItem(KEY, '1');
+    el.classList.remove('smc--visible');
+    setTimeout(function() { el.hidden = true; }, 300);
+  }
+
+  window.addEventListener('scroll', check, { passive: true });
+  document.querySelector('[data-smc-close]')?.addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation(); dismiss(); });
+  // Initial check (in case landed mid-page)
+  check();
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Sticky mobile CTA",
+  "settings": [
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "product_name", "label": "Product name", "default": "Goat Milk Foot Mask" },
+    { "type": "text", "id": "price_text", "label": "Price line", "default": "from $19.99 · free shipping over $69" },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Try it →" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL", "default": "/products/goat-milk-callus-mask" },
+    { "type": "image_picker", "id": "thumb", "label": "Thumbnail (48x48)" },
+    { "type": "header", "content": "Behavior" },
+    { "type": "range", "id": "show_at", "label": "Reveal at scroll %", "min": 5, "max": 75, "step": 5, "unit": "%", "default": 25 }
+  ],
+  "presets": [{ "name": "Sticky mobile CTA" }]
+}
+{% endschema %}
