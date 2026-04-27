@@ -194,11 +194,20 @@
   .adv-story__ing-card strong { font-size: 14px; color: var(--ink); line-height: 1.2; }
   .adv-story__ing-body { font-size: 12px; color: var(--muted); line-height: 1.4; }
 
-  @media (max-width: 480px) {
+  @media (max-width: 600px) {
     .adv-story__inner { padding: 0 18px; }
-    .adv-story__p { font-size: 16px; line-height: 1.62; margin: 0 0 16px; }
-    .adv-story__quote p { font-size: 1.2rem; }
+    .adv-story__p { font-size: 16.5px; line-height: 1.62; margin: 0 0 18px; letter-spacing: 0; }
+    .adv-story__inner > .adv-story__p:first-of-type::first-letter { font-size: 2.8em; padding: 4px 8px 0 0; }
+    .adv-story__h { font-size: 1.45rem; margin: 28px 0 12px; }
+    .adv-story__quote p { font-size: 1.15rem; }
     .adv-story__ing-grid { grid-template-columns: 1fr; gap: 10px; }
+    .adv-story__ba { margin: 32px 0; }
+    .adv-story__ba-eyebrow { font-size: .68rem; letter-spacing: .2em; }
+    .adv-story__ba-heading { font-size: 1.45rem; margin-bottom: 16px; }
+    .adv-story__ba-grid { gap: 10px; }
+    .adv-story__ba-label { font-size: 10px; padding: 4px 9px; top: 10px; left: 10px; }
+    .adv-story__cta-wrap { margin: 32px 0 8px; }
+    .adv-story__cta { padding: 16px 28px; font-size: 15.5px; width: 100%; box-sizing: border-box; text-align: center; }
   }
 </style>
 

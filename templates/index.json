@@ -38,20 +38,6 @@
         "padding_bottom": 24
       }
     },
-    "ba": {
-      "type": "before-after",
-      "settings": {
-        "kicker": "Real customers, real heels",
-        "heading_lead": "Before & after,",
-        "heading_accent": "in 30 minutes.",
-        "subhead": "Submitted by Kneuro customers. One pair, one application, visibly softer feet.",
-        "bg": "",
-        "cta_label": "Get yours — from $19.99 →",
-        "cta_url": "/products/goat-milk-callus-mask",
-        "padding_top": 64,
-        "padding_bottom": 64
-      }
-    },
     "story": {
       "type": "advertorial-story",
       "blocks": {
@@ -116,6 +102,8 @@
         "ba1": {
           "type": "before_after",
           "settings": {
+            "eyebrow": "The proof",
+            "heading": "From cracked to soft in three weeks.",
             "before_label": "Before",
             "after_label": "After · 3 weeks",
             "caption": "Real customer photo. One pair, weekly application, no peeling."
@@ -169,19 +157,17 @@
         "cta1": {
           "type": "inline_cta",
           "settings": {
-            "label": "See all bundles — free shipping on the 5-pack →",
+            "label": "Get the Goat Milk Mask — from $19.99",
             "url": "/products/goat-milk-callus-mask",
-            "subtext": "30-day money-back · ships within 24 hours from the US"
+            "subtext": "30-day money-back · free US shipping over $30"
           }
         }
       },
       "block_order": [
         "p1",
         "p2",
-        "cta1",
-        "img1",
-        "img3",
-        "ba1"
+        "ba1",
+        "cta1"
       ],
       "settings": {
         "cta_url": "/products/goat-milk-callus-mask",
@@ -499,7 +485,6 @@
   "order": [
     "scarcity",
     "hero",
-    "ba",
     "story",
     "testimonials",
     "ingredients",
