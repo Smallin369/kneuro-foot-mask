@@ -85,8 +85,68 @@ from the reference image, holding a phone or coffee mug nearby
 lighting, no face visible, candid not staged, slight grain, square
 1:1 crop, casual home setting, NOT styled NOT magazine quality
 
+
 ───────────────────────────────────────────────────────────────────
-  5. PRODUCT FLAT-LAY (no reference needed)
+  5. BEFORE / AFTER PAIR (advertorial proof shots)
+───────────────────────────────────────────────────────────────────
+
+⚠ Meta auto-flags graphic skincare before/after as medical content.
+Keep both images MILD — "dry" not "wounded", "soft" not "miraculously
+perfect". Same angle, same lighting, same towel/surface in both shots
+so the comparison reads as believable.
+
+Generate as a PAIR. Run prompt 5a, then prompt 5b with as much
+matching framing as possible.
+
+────── PROMPT 5a — BEFORE ──────
+amateur smartphone macro photo of dry cracked heel skin, woman's bare
+foot resting on a beige linen towel, natural soft side window light
+from the left, slight shadow under the foot, no face visible, casual
+home bathroom setting, slight film grain, square 1:1 crop, eye-level
+side angle, NOT a medical or clinical photo, NOT graphic, just clearly
+visible dry texture and surface roughness, casual iPhone aesthetic,
+muted beige and warm-cream color palette
+
+────── PROMPT 5b — AFTER (match 5a's framing) ──────
+amateur smartphone macro photo of soft smooth heel skin, woman's bare
+foot resting on the SAME beige linen towel as in the previous photo,
+SAME natural soft side window light from the left, SAME side angle and
+camera position, no face visible, casual home bathroom setting, slight
+film grain, square 1:1 crop, healthy hydrated skin texture, NOT
+miraculously perfect, just visibly softer and more even than the
+previous shot, casual iPhone aesthetic, muted beige and warm-cream
+palette
+
+────── BEST APPROACH: image-to-image edit ──────
+If you have a real before photo (your own, your supplier's, or stock),
+upload it to ChatGPT-4o or Flux Kontext and prompt:
+
+  "Show this same foot 3 weeks later, healed: smooth, hydrated heel
+   skin replacing the dry cracked texture. Keep the exact same angle,
+   lighting, towel, and background. Square crop, casual smartphone
+   aesthetic."
+
+This guarantees the after-photo matches the before-photo's framing,
+which is what makes the comparison sell.
+
+────── REAL PHOTO ALTERNATIVE ──────
+Search Unsplash.com or Pexels.com for "cracked heels" + "soft feet".
+Free, royalty-free, no AI disclosure needed. Match angle/lighting
+between the two photos for credibility.
+
+────── CHECKLIST FOR THE PAIR ──────
+☐ Same angle and camera position in both shots
+☐ Same towel / surface visible in both
+☐ Same lighting direction (left, right, top)
+☐ Same skin tone and foot orientation
+☐ "Before" reads as dry but not graphic / wounded
+☐ "After" reads as soft and even but not unrealistically perfect
+☐ Both 1200x1200 minimum, square crop
+
+If 6+ boxes check, ship as the advertorial's before/after.
+
+───────────────────────────────────────────────────────────────────
+  6. PRODUCT FLAT-LAY (no reference needed)
 ───────────────────────────────────────────────────────────────────
 
 amateur smartphone top-down photo of three white foil envelope-sized
@@ -97,7 +157,7 @@ soft natural light from a window, beige and warm-white color palette,
 slight shadow under each pouch, candid not styled, square 1:1 crop
 
 ───────────────────────────────────────────────────────────────────
-  6. SIZE-ANCHORING TRICKS (when AI keeps making pouch too small)
+  7. SIZE-ANCHORING TRICKS (when AI keeps making pouch too small)
 ───────────────────────────────────────────────────────────────────
 
 Append any of these to a prompt to force larger packaging:
