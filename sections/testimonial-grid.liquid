@@ -1,0 +1,96 @@
+{%- liquid
+  assign max_width = section.settings.max_width | default: 1100
+-%}
+
+<section class="tg" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg | default: 'transparent' }};">
+  <div class="tg__inner" style="max-width:{{ max_width }}px;">
+    {% if section.settings.kicker != blank %}
+      <div class="tg__kicker">{{ section.settings.kicker }}</div>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+      <h2 class="tg__heading">{{ section.settings.heading }} <em>{{ section.settings.heading_accent }}</em></h2>
+    {% endif %}
+    {% if section.settings.subhead != blank %}
+      <p class="tg__sub">{{ section.settings.subhead }}</p>
+    {% endif %}
+
+    <div class="tg__grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'review' %}
+          {%- assign initial = block.settings.name | default: '?' | slice: 0, 1 -%}
+          <article class="tg__card" {{ block.shopify_attributes }}>
+            <div class="tg__stars">★★★★★</div>
+            <p class="tg__quote">{{ block.settings.quote }}</p>
+            <div class="tg__meta">
+              <span class="tg__avatar" aria-hidden="true">{{ initial }}</span>
+              <span class="tg__attr">
+                <span class="tg__name">{{ block.settings.name }}</span>
+                {% if block.settings.role != blank %}
+                  <span class="tg__role">{{ block.settings.role }}{% if block.settings.verified %} · <span class="tg__verified">✓ Verified buyer</span>{% endif %}</span>
+                {% endif %}
+              </span>
+            </div>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tg { background: #fff; }
+  .tg__inner { margin: 0 auto; padding: 0 20px; text-align: center; }
+  .tg__kicker { display: inline-block; padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); font-family: var(--font-heading); font-weight: 700; margin: 0 0 12px; }
+  .tg__heading { font-family: var(--font-heading); font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700; color: var(--ink); margin: 0 0 8px; line-height: 1.2; }
+  .tg__heading em { font-style: italic; font-weight: 700; color: var(--accent); }
+  .tg__sub { color: var(--ink-2); font-size: 16px; line-height: 1.5; margin: 0 auto 28px; max-width: 600px; }
+  .tg__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; text-align: left; }
+  .tg__card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; }
+  .tg__stars { color: #f5b14a; font-size: 13px; letter-spacing: 2px; margin-bottom: 10px; }
+  .tg__quote { font-family: var(--font-body); font-size: 15px; line-height: 1.55; color: var(--ink-2); margin: 0 0 14px; }
+  .tg__meta { display: flex; align-items: center; gap: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+  .tg__avatar { flex: 0 0 36px; width: 36px; height: 36px; border-radius: 50%; background: var(--cream); color: var(--ink); display: grid; place-items: center; font-family: var(--font-heading); font-weight: 700; font-size: 14px; }
+  .tg__attr { display: flex; flex-direction: column; line-height: 1.3; }
+  .tg__name { font-weight: 700; font-size: 13px; color: var(--ink); }
+  .tg__role { font-size: 12px; color: var(--muted); }
+  .tg__verified { color: #1f6c2f; font-weight: 600; }
+</style>
+
+{% schema %}
+{
+  "name": "Testimonial grid",
+  "settings": [
+    { "type": "header", "content": "Header" },
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "What customers say" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Real heels." },
+    { "type": "text", "id": "heading_accent", "label": "Italic accent", "default": "Real reviews." },
+    { "type": "textarea", "id": "subhead", "label": "Subhead" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Max width", "min": 480, "max": 1200, "step": 20, "unit": "px", "default": 1100 },
+    { "type": "color", "id": "bg", "label": "Background" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 56 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 56 }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Customer review",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "Add the customer review text here." },
+        { "type": "text", "id": "name", "label": "Customer name", "default": "Jane D." },
+        { "type": "text", "id": "role", "label": "Role / context (e.g. Sensitive skin)" },
+        { "type": "checkbox", "id": "verified", "label": "Show 'Verified buyer' badge", "default": true }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [{
+    "name": "Testimonial grid",
+    "blocks": [
+      { "type": "review", "settings": { "quote": "I tried Baby Foot and the harsh peels — they always burned. This one is gentle. Soft hydrated feet the next morning, no flaking.", "name": "Hannah M.", "role": "Sensitive skin", "verified": true }},
+      { "type": "review", "settings": { "quote": "I am pregnant and could not use the regular foot peels — salicylic acid is a no-go. My feet were splitting from the swelling. Genuine relief.", "name": "Priya R.", "role": "Pregnant", "verified": true }},
+      { "type": "review", "settings": { "quote": "Bought the 3-pack for me, my mom, and my sister. All three of us texted in caps lock the next day. Officially the family group-chat skincare moment of the year.", "name": "Daniel K.", "role": "Bought as a gift", "verified": true }}
+    ]
+  }]
+}
+{% endschema %}
