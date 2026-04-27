@@ -23,10 +23,6 @@
     "hero": {
       "type": "advertorial-hero",
       "settings": {
-        "headline": "Soft feet. In 30 minutes.",
-        "subhead": "Cracked heels? Dry skin? Our goat milk + niacinamide foot mask softens without harsh acids. Gentle, pregnancy-safe, dermatologist-tested.",
-        "caption": "Real customer photo. One pair, one nap, soft feet.",
-        "cta_url": "/products/goat-milk-callus-mask",
         "bg": "",
         "padding_top": 32,
         "padding_bottom": 32
@@ -39,9 +35,9 @@
         "heading_lead": "Before & after,",
         "heading_accent": "in 30 minutes.",
         "subhead": "Submitted by Kneuro customers. One pair, one application, visibly softer feet.",
+        "bg": "",
         "cta_label": "Get yours — from $19.99 →",
         "cta_url": "/products/goat-milk-callus-mask",
-        "bg": "",
         "padding_top": 64,
         "padding_bottom": 64
       }
@@ -272,12 +268,6 @@
     "final": {
       "type": "final-cta",
       "settings": {
-        "heading_lead": "Stop living with",
-        "heading_accent": "cracked, dry feet.",
-        "body": "Goat milk. Niacinamide. 30 minutes. Soft feet that last.",
-        "cta_label": "Get the Goat Milk Mask — from $19.99",
-        "cta_link": "",
-        "guarantee": "Backed by our 30-day money-back guarantee",
         "padding_top": 64,
         "padding_bottom": 80
       }
