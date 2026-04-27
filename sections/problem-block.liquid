@@ -2,9 +2,9 @@
   <div class="problem">
     <div class="problem-img">
       {% if section.settings.image %}
-        <img src="{{ section.settings.image | image_url: width: 1200 }}" alt="" loading="lazy" width="600" height="750">
+        <img src="{{ section.settings.image | image_url: width: 1200, format: 'webp' }}" alt="" loading="lazy" width="600" height="750">
       {% else %}
-        <img src="{{ section.settings.image | image_url: width: 900 }}" alt="" loading="lazy" width="600" height="750">
+        <img src="{{ section.settings.image | image_url: width: 900, format: 'webp' }}" alt="" loading="lazy" width="600" height="750">
       {% endif %}
     </div>
     <div>

@@ -1,0 +1,91 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "header": {
+      "type": "advertorial-hero",
+      "settings": {
+        "publication": "About Kneuro",
+        "category": "Our story",
+        "headline": "We started Kneuro because we couldn't find a foot mask that didn't burn.",
+        "subhead": "Most foot peels are built on harsh acid blends. They work — but they're banned during pregnancy, irritating to sensitive skin, and force you to hide your feet for a week. We wanted something gentler that still actually worked.",
+        "byline": "The Kneuro team",
+        "date": "Founded 2024",
+        "read_time": "2 min read",
+        "hero_image": "shopify://shop_images/5pack.png",
+        "caption": "Made for the people harsh peels left behind.",
+        "cta_url": "/products/goat-milk-callus-mask",
+        "padding_top": 32,
+        "padding_bottom": 24
+      }
+    },
+    "story": {
+      "type": "advertorial-story",
+      "blocks": {
+        "p1": { "type": "paragraph", "settings": {
+          "text": "<p>Our co-founder spent her second trimester with feet so dry they cracked overnight. Every foot peel on the shelf had salicylic acid on the warning label. Her dermatologist said no. Her OB said no. She tried lotion. It didn't work.</p>"
+        }},
+        "p2": { "type": "paragraph", "settings": {
+          "text": "<p>A friend in Seoul sent her a video of a goat milk foot mask — a soft sock filled with the kind of formula K-beauty had been quietly perfecting for years. Lactic acid from milk (the same compound foot peels use, but at a fraction of the intensity), niacinamide for skin barrier, glycerin for hydration. No salicylic, no glycolic, no fragrance.</p>"
+        }},
+        "h1": { "type": "heading", "settings": {
+          "text": "After 18 months of formulation, we shipped Kneuro."
+        }},
+        "p3": { "type": "paragraph", "settings": {
+          "text": "<p>Same idea, made stateside, with a 5% niacinamide concentration our team obsessed over for months. The result is a 30-minute mask gentle enough for pregnancy, sensitive skin, and diabetic feet — but powerful enough that you'll see the difference before you take it off.</p>"
+        }},
+        "p4": { "type": "paragraph", "settings": {
+          "text": "<p>We are a small team. We answer our own customer emails. We don't run influencer drops. We sell one product because we believe one product, formulated honestly, beats a catalog of okay-ish ones. If we ever launch a second SKU, it'll be because customers asked us for it for six months straight.</p>"
+        }}
+      },
+      "block_order": ["p1", "p2", "h1", "p3", "p4"],
+      "settings": { "padding_top": 56, "padding_bottom": 56 }
+    },
+    "promise": {
+      "type": "customer-promise",
+      "settings": { "padding_top": 56, "padding_bottom": 56 }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "k": { "type": "kicker", "settings": { "text": "About the brand" } },
+        "h": { "type": "heading", "settings": { "lead": "What people", "accent": "ask us most." } },
+        "list": { "type": "faq_list", "settings": {
+          "q1_question": "Where is Kneuro made?",
+          "q1_answer": "Formulated and packaged in the United States. Goat milk is sourced from a small herd in New Zealand. Filling and packaging are done in California.",
+          "q2_question": "Is Kneuro a real lab or just a brand?",
+          "q2_answer": "We work with a contract manufacturer that holds GMP and FDA-registered facility certifications. The formula was developed by our team in collaboration with a cosmetic chemist who specializes in barrier-safe actives.",
+          "q3_question": "Do you test on animals?",
+          "q3_answer": "Never. Cruelty-free is non-negotiable. The goat milk is sourced from a herd that supplies cheese makers — the milk is a renewable byproduct, not a primary purpose.",
+          "q4_question": "Why only one product?",
+          "q4_answer": "Focus. Most skincare brands launch 30 SKUs and improve none of them. We picked the hardest skincare problem (cracked heels in people who can't use foot peels) and built one product that solves it. We'll add a second only when customers ask us for it consistently.",
+          "q5_question": "How can I reach the team?",
+          "q5_answer": "Email hello@kneuro.store. We answer within one business day. There's no help-desk software in the loop — it's the founders or someone the founders trust."
+        }}
+      },
+      "block_order": ["k", "h", "list"],
+      "settings": { "padding_top": 56, "padding_bottom": 56 }
+    },
+    "cta": {
+      "type": "final-cta",
+      "settings": {
+        "heading_lead": "Ready to try the",
+        "heading_accent": "gentler way?",
+        "body": "Free US shipping over $69. 30-day money-back guarantee, no questions asked.",
+        "cta_label": "Shop Kneuro",
+        "cta_link": "/products/goat-milk-callus-mask",
+        "product_image": "shopify://shop_images/5pack.png",
+        "padding_top": 56,
+        "padding_bottom": 88
+      }
+    }
+  },
+  "order": ["header", "story", "promise", "faq", "cta"]
+}

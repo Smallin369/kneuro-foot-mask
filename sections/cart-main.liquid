@@ -26,7 +26,7 @@
           {% for item in cart.items %}
             <li class="cart-row" data-cart-row data-key="{{ item.key }}">
               <a class="cart-row__media" href="{{ item.url }}">
-                {% if item.image %}<img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title | escape }}" loading="lazy" width="100" height="100">{% endif %}
+                {% if item.image %}<img src="{{ item.image | image_url: width: 200, format: 'webp' }}" alt="{{ item.title | escape }}" loading="lazy" width="100" height="100">{% endif %}
               </a>
               <div class="cart-row__body">
                 <a class="cart-row__title" href="{{ item.url }}">{{ item.product.title }}</a>

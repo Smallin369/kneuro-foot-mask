@@ -27,14 +27,14 @@
             {% if q != blank %}
               <div class="quote-card">
                 {% if photo %}
-                  <div class="quote-photo"><img src="{{ photo | image_url: width: 800 }}" alt="{{ nm | escape }}" loading="lazy" width="500" height="500"></div>
+                  <div class="quote-photo"><img src="{{ photo | image_url: width: 800, format: 'webp' }}" alt="{{ nm | escape }}" loading="lazy" width="500" height="500"></div>
                 {% endif %}
                 <div class="quote-mark" aria-hidden="true">"</div>
                 <div class="stars" aria-hidden="true">★★★★★</div>
                 <p>{{ q }}</p>
                 <div class="who">
                   {% if avatar %}
-                    <span class="avatar avatar--img"><img src="{{ avatar | image_url: width: 120 }}" alt="" loading="lazy" width="48" height="48"></span>
+                    <span class="avatar avatar--img"><img src="{{ avatar | image_url: width: 120, format: 'webp' }}" alt="" loading="lazy" width="48" height="48"></span>
                   {% else %}
                     <span class="avatar a{{ i }}">{{ ini }}</span>
                   {% endif %}

@@ -32,6 +32,30 @@
   </div>
 </section>
 
+{%- comment -%} FAQPage JSON-LD for Google rich results + AI search citations {%- endcomment -%}
+{%- capture faq_jsonld -%}
+{%- assign has_any = false -%}
+{%- for block in section.blocks -%}
+  {%- if block.type == 'faq_list' -%}
+    {%- for i in (1..10) -%}
+      {%- assign k_q = 'q' | append: i | append: '_question' -%}
+      {%- assign k_a = 'q' | append: i | append: '_answer' -%}
+      {%- assign q = block.settings[k_q] -%}
+      {%- assign a = block.settings[k_a] -%}
+      {%- if q != blank and a != blank -%}
+        {%- if has_any -%},{%- endif -%}
+        {"@type":"Question","name":{{ q | json }},"acceptedAnswer":{"@type":"Answer","text":{{ a | strip_html | json }}}}
+        {%- assign has_any = true -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- endcapture -%}
+{%- assign faq_jsonld = faq_jsonld | strip -%}
+{%- if faq_jsonld != '' -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{ faq_jsonld }}]}</script>
+{%- endif -%}
+
 {% schema %}
 {
   "name": "FAQ",

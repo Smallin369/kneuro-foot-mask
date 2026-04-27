@@ -1,5 +1,5 @@
 {%- liquid
-  assign cta_url = section.settings.cta_url | default: '/products/goat-milk-foot-mask'
+  assign cta_url = section.settings.cta_url | default: '/products/goat-milk-callus-mask'
   assign review_url = section.settings.review_url
   assign hero_before = section.settings.hero_before
   assign hero_after = section.settings.hero_after
@@ -16,13 +16,13 @@
         <div class="ba__hero-shot ba__hero-shot--before">
           <span class="ba__ribbon ba__ribbon--before">BEFORE</span>
           {% if hero_before %}
-            <img src="{{ hero_before | image_url: width: 900 }}" alt="Before" loading="lazy" width="600" height="600">
+            <img src="{{ hero_before | image_url: width: 900, format: 'webp' }}" alt="Before" loading="lazy" width="600" height="600">
           {% endif %}
         </div>
         <div class="ba__hero-shot ba__hero-shot--after">
           <span class="ba__ribbon ba__ribbon--after">AFTER</span>
           {% if hero_after %}
-            <img src="{{ hero_after | image_url: width: 900 }}" alt="After" loading="lazy" width="600" height="600">
+            <img src="{{ hero_after | image_url: width: 900, format: 'webp' }}" alt="After" loading="lazy" width="600" height="600">
           {% endif %}
         </div>
       </div>

@@ -1,0 +1,123 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "header": {
+      "type": "advertorial-hero",
+      "settings": {
+        "publication": "The honest comparison",
+        "category": "Foot peels & masks",
+        "headline": "Kneuro vs. Baby Foot vs. Tony Moly vs. Patchology — which one is actually right for you?",
+        "subhead": "If you're cracked, dry, or just curious — here's the unfiltered breakdown of every major foot mask. Including where Kneuro is the wrong choice.",
+        "byline": "Kneuro Lab",
+        "date": "Updated 2026",
+        "read_time": "5 min read",
+        "hero_image": "shopify://shop_images/5pack.png",
+        "caption": "We tested all four. Here's the actual difference.",
+        "cta_url": "/products/goat-milk-callus-mask",
+        "padding_top": 32,
+        "padding_bottom": 24
+      }
+    },
+    "table": {
+      "type": "comparison-table",
+      "blocks": {
+        "k": { "type": "kicker", "settings": { "text": "Side by side" } },
+        "h": { "type": "heading", "settings": { "lead": "The four most-asked-about", "accent": "foot masks." } },
+        "t": { "type": "table", "settings": {
+          "col_brand": "Kneuro",
+          "col_2": "Baby Foot",
+          "col_3": "Tony Moly",
+          "col_4": "Patchology",
+          "row_1_label": "Active ingredient",
+          "row_1_brand": "Goat milk + niacinamide",
+          "row_1_c2": "Glycolic + salicylic + lactic",
+          "row_1_c3": "Lactic + glycolic + salicylic",
+          "row_1_c4": "Lactic + glycolic",
+          "row_2_label": "Pregnancy-safe",
+          "row_2_brand": "✓ yes",
+          "row_2_c2": "✗ no",
+          "row_2_c3": "✗ no",
+          "row_2_c4": "consult doctor",
+          "row_3_label": "Visible peeling",
+          "row_3_brand": "no — gradual",
+          "row_3_c2": "yes — heavy 5-7 days",
+          "row_3_c3": "yes — 5-7 days",
+          "row_3_c4": "minimal",
+          "row_4_label": "Time to soft skin",
+          "row_4_brand": "30 min",
+          "row_4_c2": "1-2 weeks",
+          "row_4_c3": "1-2 weeks",
+          "row_4_c4": "30 min",
+          "row_5_label": "Use on hands/elbows",
+          "row_5_brand": "✓ yes",
+          "row_5_c2": "feet only",
+          "row_5_c3": "feet only",
+          "row_5_c4": "varies"
+        }}
+      },
+      "block_order": ["k", "h", "t"],
+      "settings": { "padding_top": 56, "padding_bottom": 56 }
+    },
+    "story": {
+      "type": "advertorial-story",
+      "blocks": {
+        "p1": { "type": "paragraph", "settings": {
+          "text": "<p><strong>If you want dramatic peeling, buy Baby Foot or Tony Moly.</strong> They work. The acid blend is well-formulated, the science is real, and millions of feet have peeled since 1997. The catch: you'll be sandal-banned for 5-7 days while sheets of skin come off, and the formula is unsafe during pregnancy or with sensitive skin conditions.</p>"
+        }},
+        "p2": { "type": "paragraph", "settings": {
+          "text": "<p><strong>If you want quick softness with no downtime, Patchology and Kneuro are your two real options.</strong> Patchology uses a milder lactic + glycolic blend in a 30-minute sock — fast results, but still acid-based. Kneuro takes the goat milk route: lactic acid that occurs naturally in milk (the original keratolytic, used since ancient Egypt) plus 5% niacinamide for texture and barrier repair.</p>"
+        }},
+        "p3": { "type": "paragraph", "settings": {
+          "text": "<p><strong>When Kneuro is the wrong choice:</strong> if you have severe calluses 6+ months overdue and need them gone immediately, get a real foot peel. We're not for someone who wants to lose half their foot. We're for the person who wants soft, maintained heels they can show in heels, sandals, or bare feet at the beach next weekend — and who can't or won't deal with painful peeling.</p>"
+        }}
+      },
+      "block_order": ["p1", "p2", "p3"],
+      "settings": { "padding_top": 56, "padding_bottom": 56 }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "k": { "type": "kicker", "settings": { "text": "What people actually ask" } },
+        "h": { "type": "heading", "settings": { "lead": "Real comparison", "accent": "questions." } },
+        "list": { "type": "faq_list", "settings": {
+          "q1_question": "Is Kneuro a Baby Foot alternative?",
+          "q1_answer": "Yes — but they solve different problems. Baby Foot uses a strong acid blend that causes dramatic 5-7 day peeling. Kneuro uses goat milk + niacinamide for gradual softening with zero peeling and zero downtime. If you want the 'shed your old feet' result, get Baby Foot. If you want soft heels by tomorrow with no shedding, get Kneuro.",
+          "q2_question": "Why use Kneuro instead of Tony Moly?",
+          "q2_answer": "Tony Moly's foot peel uses the same general acid family as Baby Foot — strong, effective, but unsafe during pregnancy and harsh for diabetic or sensitive skin. Kneuro is built specifically for people who can't or won't tolerate that. Different tool for different job.",
+          "q3_question": "Is Kneuro better than Patchology?",
+          "q3_answer": "Both work in 30 minutes with no downtime. Patchology uses lactic + glycolic acid; Kneuro uses goat milk's naturally-occurring lactic acid plus niacinamide for barrier repair. Patchology is sometimes cheaper per single use; Kneuro is pregnancy-safe and works on hands and elbows too. Try Patchology if you want the cheapest 30-min option; Kneuro if you want the gentler, multi-purpose one.",
+          "q4_question": "Can I use Kneuro after a foot peel?",
+          "q4_answer": "Yes — and many customers do. Use a foot peel for the initial reset (every 6-12 months), then use Kneuro every 1-2 weeks to maintain the result without peeling again. Best of both worlds.",
+          "q5_question": "Which is best during pregnancy?",
+          "q5_answer": "Kneuro. It's the only option in this comparison without salicylic or glycolic acid. Always check with your OB-GYN before starting any new skincare during pregnancy.",
+          "q6_question": "Which is cheapest per use?",
+          "q6_answer": "Per single use, Baby Foot ($25 for one) and Tony Moly (~$10) are cheapest. Patchology runs about $9 a sock. Kneuro is $19 single, $54 for a 3-pack ($18 each), $89 for a 5-pack ($17.80 each). With our 5-pack you're at the same per-use cost as Tony Moly without the peel."
+        }}
+      },
+      "block_order": ["k", "h", "list"],
+      "settings": { "padding_top": 56, "padding_bottom": 56 }
+    },
+    "cta": {
+      "type": "final-cta",
+      "settings": {
+        "heading_lead": "If you want soft heels",
+        "heading_accent": "without the peel.",
+        "body": "Goat milk + niacinamide. 30 minutes. Pregnancy-safe. Works on hands and elbows. Free US shipping over $69, 30-day money-back guarantee.",
+        "cta_label": "Try Kneuro",
+        "cta_link": "/products/goat-milk-callus-mask",
+        "product_image": "shopify://shop_images/5pack.png",
+        "padding_top": 56,
+        "padding_bottom": 88
+      }
+    }
+  },
+  "order": ["header", "table", "story", "faq", "cta"]
+}

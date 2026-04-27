@@ -8,7 +8,7 @@
       {% for block in section.blocks %}
         <div class="rr__card" {{ block.shopify_attributes }}>
           {% if block.settings.image %}
-            <img class="rr__img" src="{{ block.settings.image | image_url: width: 600 }}" srcset="{{ block.settings.image | image_url: width: 400 }} 400w, {{ block.settings.image | image_url: width: 600 }} 600w" sizes="(max-width:768px) 100vw, 320px" alt="Customer photo" loading="lazy" >
+            <img class="rr__img" src="{{ block.settings.image | image_url: width: 600, format: 'webp' }}" srcset="{{ block.settings.image | image_url: width: 400, format: 'webp' }} 400w, {{ block.settings.image | image_url: width: 600, format: 'webp' }} 600w" sizes="(max-width:768px) 100vw, 320px" alt="Customer photo" loading="lazy" >
           {% elsif block.settings.image_asset != blank %}
             <img class="rr__img" src="{{ block.settings.image_asset | asset_url }}" alt="Customer photo" loading="lazy" >
           {% elsif block.settings.image_url != blank %}
