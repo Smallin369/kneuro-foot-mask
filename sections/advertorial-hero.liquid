@@ -1,6 +1,15 @@
 {%- liquid
   assign cta_url = section.settings.cta_url | default: '/products/goat-milk-callus-mask'
 -%}
+
+{%- if section.settings.hero_image -%}
+  <link rel="preload" as="image"
+        href="{{ section.settings.hero_image | image_url: width: 900, format: 'webp' }}"
+        imagesrcset="{{ section.settings.hero_image | image_url: width: 600, format: 'webp' }} 600w, {{ section.settings.hero_image | image_url: width: 900, format: 'webp' }} 900w, {{ section.settings.hero_image | image_url: width: 1200, format: 'webp' }} 1200w"
+        imagesizes="(max-width: 768px) 100vw, 720px"
+        fetchpriority="high">
+{%- endif -%}
+
 <section class="adv-hero" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
   <div class="adv-hero__inner">
 
