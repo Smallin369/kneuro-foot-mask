@@ -22,12 +22,15 @@
     },
     "hero": {
       "type": "advertorial-hero",
+      "blocks": {
+        "pub": { "type": "pub_meta", "settings": { "publication": "Soft Skin Daily", "category": "Skincare" } },
+        "h":   { "type": "headline", "settings": { "text": "Soft feet. In 30 minutes." } },
+        "sub": { "type": "subhead",  "settings": { "text": "Cracked heels? Dry skin? Our goat milk + niacinamide foot mask softens without harsh acids. Gentle, pregnancy-safe, dermatologist-tested." } },
+        "by":  { "type": "byline",   "settings": { "byline": "Sarah K.", "date": "April 2026", "read_time": "4 min read" } },
+        "img": { "type": "image",    "settings": { "alt": "", "caption": "Real customer photo. One pair, one nap, soft feet." } }
+      },
+      "block_order": ["pub", "h", "sub", "by", "img"],
       "settings": {
-        "headline": "Soft feet. In 30 minutes.",
-        "subhead": "Cracked heels? Dry skin? Our goat milk + niacinamide foot mask softens without harsh acids. Gentle, pregnancy-safe, dermatologist-tested.",
-        "caption": "Real customer photo. One pair, one nap, soft feet.",
-        "cta_url": "/products/goat-milk-callus-mask",
-        "bg": "",
         "padding_top": 32,
         "padding_bottom": 32
       }
@@ -271,13 +274,18 @@
     },
     "final": {
       "type": "final-cta",
+      "blocks": {
+        "head":  { "type": "heading", "settings": { "lead": "Stop living with", "accent": "cracked, dry feet." } },
+        "body":  { "type": "body", "settings": { "text": "Goat milk. Niacinamide. 30 minutes. Soft feet that last." } },
+        "rev1":  { "type": "review", "settings": { "quote": "I'd tried Baby Foot, two creams, and a pedicure that didn't last a week. One nap with this and my heels were actually soft. Three weeks later, still soft.", "name": "Sarah K.", "role": "Verified buyer · Brooklyn, NY", "stars": 5, "verified": true } },
+        "rev2":  { "type": "review", "settings": { "quote": "Pregnancy-safe was the dealbreaker. My OB cleared the ingredient list and I finally have feet I'm not embarrassed by.", "name": "Maya R.", "role": "Verified buyer · 32 weeks", "stars": 5, "verified": true } },
+        "cta":   { "type": "cta", "settings": { "label": "Get the Goat Milk Mask — from $19.99", "link": "" } },
+        "ship":  { "type": "shipping", "settings": { "text": "Free US shipping over $30 · Ships within 24 hours" } },
+        "gtee":  { "type": "guarantee", "settings": { "text": "Backed by our 30-day money-back guarantee" } },
+        "trust": { "type": "trust_row", "settings": { "t1_emoji": "🌿", "t1_title": "Pregnancy-safe", "t1_sub": "no salicylic acid", "t2_emoji": "🧪", "t2_title": "Derm-tested", "t2_sub": "for sensitive skin", "t3_emoji": "💰", "t3_title": "30-day refund", "t3_sub": "no questions asked", "t4_emoji": "🚚", "t4_title": "Free US shipping", "t4_sub": "on orders over $30" } }
+      },
+      "block_order": ["head", "body", "rev1", "rev2", "cta", "ship", "gtee", "trust"],
       "settings": {
-        "heading_lead": "Stop living with",
-        "heading_accent": "cracked, dry feet.",
-        "body": "Goat milk. Niacinamide. 30 minutes. Soft feet that last.",
-        "cta_label": "Get the Goat Milk Mask — from $19.99",
-        "cta_link": "",
-        "guarantee": "Backed by our 30-day money-back guarantee",
         "padding_top": 64,
         "padding_bottom": 80
       }

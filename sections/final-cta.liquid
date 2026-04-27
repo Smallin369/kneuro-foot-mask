@@ -1,77 +1,79 @@
 {%- liquid
-  assign cta_link = section.settings.cta_link | default: '/products/goat-milk-callus-mask'
+  assign default_cta = '/products/goat-milk-callus-mask'
 -%}
-<section class="offer" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;">
+<section class="offer" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg | default: '#fbf6ee' }};">
   <div class="offer__inner">
+    {% for block in section.blocks %}
+      {% case block.type %}
 
-    <h2 class="offer__head">{{ section.settings.heading_lead }} <em>{{ section.settings.heading_accent }}</em></h2>
+        {% when 'heading' %}
+          <h2 class="offer__head" {{ block.shopify_attributes }}>
+            {{ block.settings.lead }}
+            {% if block.settings.accent != blank %}<em>{{ block.settings.accent }}</em>{% endif %}
+          </h2>
 
-    {% if section.settings.product_image %}
-      <a class="offer__img-link" href="{{ cta_link }}" aria-label="{{ section.settings.cta_label | escape }}">
-        <img class="offer__img" src="{{ section.settings.product_image | image_url: width: 800, format: 'webp' }}" srcset="{{ section.settings.product_image | image_url: width: 400, format: 'webp' }} 400w, {{ section.settings.product_image | image_url: width: 800, format: 'webp' }} 800w" sizes="(max-width:768px) 100vw, 420px" alt="{{ section.settings.heading_accent | escape }}" width="800" height="800" loading="lazy">
-      </a>
-    {% endif %}
+        {% when 'product_image' %}
+          {% if block.settings.image %}
+            <a class="offer__img-link" href="{{ block.settings.link | default: default_cta }}" {{ block.shopify_attributes }}>
+              <img class="offer__img"
+                   src="{{ block.settings.image | image_url: width: 800, format: 'webp' }}"
+                   srcset="{{ block.settings.image | image_url: width: 400, format: 'webp' }} 400w, {{ block.settings.image | image_url: width: 800, format: 'webp' }} 800w"
+                   sizes="(max-width:768px) 100vw, 420px"
+                   alt="{{ block.settings.alt | escape }}"
+                   width="800" height="800" loading="lazy">
+            </a>
+          {% endif %}
 
-    {% if section.settings.price != blank %}
-      <div class="offer__price">
-        {% if section.settings.compare_at_price != blank %}<span class="offer__price-was">{{ section.settings.compare_at_price }}</span>{% endif %}
-        <span class="offer__price-now">{{ section.settings.price }}</span>
-        {% if section.settings.save_badge != blank %}<span class="offer__price-save">{{ section.settings.save_badge }}</span>{% endif %}
-      </div>
-    {% endif %}
+        {% when 'price' %}
+          <div class="offer__price" {{ block.shopify_attributes }}>
+            {% if block.settings.compare_at != blank %}<span class="offer__price-was">{{ block.settings.compare_at }}</span>{% endif %}
+            {% if block.settings.price != blank %}<span class="offer__price-now">{{ block.settings.price }}</span>{% endif %}
+            {% if block.settings.save_badge != blank %}<span class="offer__price-save">{{ block.settings.save_badge }}</span>{% endif %}
+          </div>
 
-    {% if section.settings.body != blank %}
-      <p class="offer__body">{{ section.settings.body }}</p>
-    {% endif %}
+        {% when 'body' %}
+          <p class="offer__body" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
 
-    <a href="{{ cta_link }}" class="offer__cta">{{ section.settings.cta_label }}</a>
+        {% when 'cta' %}
+          <a href="{{ block.settings.link | default: default_cta }}" class="offer__cta" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
 
-    {% if section.settings.shipping_line != blank %}
-      <p class="offer__shipping">{{ section.settings.shipping_line }}</p>
-    {% endif %}
+        {% when 'shipping' %}
+          <p class="offer__shipping" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
 
-    {% if section.settings.guarantee != blank %}
-      <p class="offer__guarantee">✓ {{ section.settings.guarantee }}</p>
-    {% endif %}
+        {% when 'guarantee' %}
+          <p class="offer__guarantee" {{ block.shopify_attributes }}>✓ {{ block.settings.text }}</p>
 
-    {% if section.settings.b1_title != blank or section.settings.b2_title != blank or section.settings.b3_title != blank or section.settings.b4_title != blank %}
-      <ul class="offer__badges">
-        {% if section.settings.b1_title != blank %}
-          <li>
-            <span class="offer__badges-ico">{{ section.settings.b1_emoji }}</span>
-            <strong>{{ section.settings.b1_title }}</strong>
-            <span class="offer__badges-sub">{{ section.settings.b1_sub }}</span>
-          </li>
-        {% endif %}
-        {% if section.settings.b2_title != blank %}
-          <li>
-            <span class="offer__badges-ico">{{ section.settings.b2_emoji }}</span>
-            <strong>{{ section.settings.b2_title }}</strong>
-            <span class="offer__badges-sub">{{ section.settings.b2_sub }}</span>
-          </li>
-        {% endif %}
-        {% if section.settings.b3_title != blank %}
-          <li>
-            <span class="offer__badges-ico">{{ section.settings.b3_emoji }}</span>
-            <strong>{{ section.settings.b3_title }}</strong>
-            <span class="offer__badges-sub">{{ section.settings.b3_sub }}</span>
-          </li>
-        {% endif %}
-        {% if section.settings.b4_title != blank %}
-          <li>
-            <span class="offer__badges-ico">{{ section.settings.b4_emoji }}</span>
-            <strong>{{ section.settings.b4_title }}</strong>
-            <span class="offer__badges-sub">{{ section.settings.b4_sub }}</span>
-          </li>
-        {% endif %}
-      </ul>
-    {% endif %}
+        {% when 'trust_row' %}
+          <ul class="offer__badges" {{ block.shopify_attributes }}>
+            {% if block.settings.t1_title != blank %}<li><span class="offer__badges-ico">{{ block.settings.t1_emoji }}</span><strong>{{ block.settings.t1_title }}</strong><span class="offer__badges-sub">{{ block.settings.t1_sub }}</span></li>{% endif %}
+            {% if block.settings.t2_title != blank %}<li><span class="offer__badges-ico">{{ block.settings.t2_emoji }}</span><strong>{{ block.settings.t2_title }}</strong><span class="offer__badges-sub">{{ block.settings.t2_sub }}</span></li>{% endif %}
+            {% if block.settings.t3_title != blank %}<li><span class="offer__badges-ico">{{ block.settings.t3_emoji }}</span><strong>{{ block.settings.t3_title }}</strong><span class="offer__badges-sub">{{ block.settings.t3_sub }}</span></li>{% endif %}
+            {% if block.settings.t4_title != blank %}<li><span class="offer__badges-ico">{{ block.settings.t4_emoji }}</span><strong>{{ block.settings.t4_title }}</strong><span class="offer__badges-sub">{{ block.settings.t4_sub }}</span></li>{% endif %}
+          </ul>
 
+        {% when 'review' %}
+          {%- assign first_initial = block.settings.name | slice: 0, 1 | upcase -%}
+          <article class="offer__review" {{ block.shopify_attributes }}>
+            <div class="offer__review-stars" aria-label="{{ block.settings.stars | default: 5 }} star review">{% assign s = block.settings.stars | default: 5 | times: 1 %}{% for i in (1..s) %}★{% endfor %}</div>
+            <p class="offer__review-quote">{{ block.settings.quote }}</p>
+            <div class="offer__review-meta">
+              <span class="offer__review-avatar" aria-hidden="true">{{ first_initial }}</span>
+              <span class="offer__review-attr">
+                <span class="offer__review-name">{{ block.settings.name }}</span>
+                {% if block.settings.role != blank %}<span class="offer__review-role">{{ block.settings.role }}{% if block.settings.verified %} · <span class="offer__review-verified">✓ Verified buyer</span>{% endif %}</span>{% elsif block.settings.verified %}<span class="offer__review-role"><span class="offer__review-verified">✓ Verified buyer</span></span>{% endif %}
+              </span>
+            </div>
+          </article>
+
+        {% when 'divider' %}
+          <hr class="offer__rule" {{ block.shopify_attributes }}>
+
+      {% endcase %}
+    {% endfor %}
   </div>
 </section>
 
 <style>
-  .offer { background: #fbf6ee; }
   .offer__inner { max-width: 560px; margin: 0 auto; padding: 0 20px; text-align: center; }
   .offer__head { font-family: var(--font-heading); font-size: clamp(1.6rem, 5.2vw, 2.2rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 18px; color: var(--ink); }
   .offer__head em { font-style: italic; color: var(--accent-deep, var(--ink)); }
@@ -83,7 +85,7 @@
   .offer__price-was { font-size: 1.05rem; color: var(--muted); text-decoration: line-through; }
   .offer__price-save { background: #b03a3a; color: #fff; font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
   .offer__body { font-size: 1rem; line-height: 1.55; color: var(--ink-2); margin: 0 auto 22px; max-width: 460px; }
-  .offer__cta { display: inline-block; background: var(--ink); color: #fff; text-decoration: none; padding: 18px 36px; border-radius: 999px; font-weight: 800; font-size: 1.05rem; letter-spacing: .01em; transition: transform .15s ease, background .15s ease; box-shadow: 0 8px 20px rgba(0,0,0,.18); }
+  .offer__cta { display: inline-block; background: var(--ink); color: #fff; text-decoration: none; padding: 18px 36px; border-radius: 999px; font-weight: 800; font-size: 1.05rem; letter-spacing: .01em; transition: transform .15s ease, background .15s ease; box-shadow: 0 8px 20px rgba(0,0,0,.18); margin: 6px 0; }
   .offer__cta:hover { background: var(--accent-deep, #000); transform: translateY(-1px); }
   .offer__shipping { color: var(--ink-2); margin: 14px 0 4px; font-size: .85rem; font-weight: 600; }
   .offer__guarantee { color: var(--muted); margin: 0 0 28px; font-size: .82rem; }
@@ -92,6 +94,19 @@
   .offer__badges-ico { font-size: 1.4rem; margin-bottom: 4px; }
   .offer__badges strong { font-size: .82rem; line-height: 1.2; color: var(--ink); }
   .offer__badges-sub { font-size: .68rem; line-height: 1.25; color: var(--muted); }
+  .offer__rule { border: 0; border-top: 1px solid #e8e3da; margin: 22px auto; max-width: 280px; }
+
+  /* Review card — same vocab as adv-story__review for consistency */
+  .offer__review { background: #fff; border: 1px solid var(--line, #e8e3da); border-radius: 14px; padding: 18px 20px; margin: 16px 0; text-align: left; }
+  .offer__review-stars { color: #f5b14a; font-size: 13px; letter-spacing: 2px; margin-bottom: 10px; }
+  .offer__review-quote { font-family: var(--font-body); font-size: 15px; line-height: 1.55; color: var(--ink-2); margin: 0 0 14px; font-style: normal; }
+  .offer__review-meta { display: flex; align-items: center; gap: 12px; padding-top: 12px; border-top: 1px solid var(--line, #e8e3da); }
+  .offer__review-avatar { flex: 0 0 36px; width: 36px; height: 36px; border-radius: 50%; background: var(--cream, #fbf6ee); color: var(--ink); display: grid; place-items: center; font-family: var(--font-heading); font-weight: 700; font-size: 14px; }
+  .offer__review-attr { display: flex; flex-direction: column; line-height: 1.3; }
+  .offer__review-name { font-weight: 700; font-size: 13px; color: var(--ink); }
+  .offer__review-role { font-size: 12px; color: var(--muted); }
+  .offer__review-verified { color: #1f6c2f; font-weight: 600; }
+
   @media (max-width: 560px) {
     .offer__badges { grid-template-columns: repeat(2, 1fr); padding: 18px 12px; gap: 16px; }
     .offer__price-now { font-size: 1.7rem; }
@@ -102,36 +117,75 @@
 {
   "name": "Offer reveal",
   "settings": [
-    { "type": "text", "id": "heading_lead", "label": "Heading", "default": "Stop living with" },
-    { "type": "text", "id": "heading_accent", "label": "Italic accent", "default": "cracked, dry feet." },
-    { "type": "image_picker", "id": "product_image", "label": "Product image" },
-    { "type": "header", "content": "Price" },
-    { "type": "text", "id": "price", "label": "Price", "default": "$19.99" },
-    { "type": "text", "id": "compare_at_price", "label": "Compare-at price", "default": "$29.99" },
-    { "type": "text", "id": "save_badge", "label": "Save badge", "default": "Save 33%" },
-    { "type": "header", "content": "Body & CTA" },
-    { "type": "textarea", "id": "body", "label": "Body", "default": "Goat milk. Niacinamide. 30 minutes. Soft feet that last." },
-    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Get the Goat Milk Mask" },
-    { "type": "url", "id": "cta_link", "label": "CTA link" },
-    { "type": "text", "id": "shipping_line", "label": "Shipping line", "default": "Free US shipping over $30 · Ships within 24 hours" },
-    { "type": "text", "id": "guarantee", "label": "Guarantee line", "default": "Backed by our 30-day money-back guarantee" },
-    { "type": "header", "content": "Trust badges (4 max)" },
-    { "type": "text", "id": "b1_emoji", "label": "Badge 1 icon", "default": "🌿" },
-    { "type": "text", "id": "b1_title", "label": "Badge 1 title", "default": "Pregnancy-safe" },
-    { "type": "text", "id": "b1_sub", "label": "Badge 1 subtitle", "default": "no salicylic acid" },
-    { "type": "text", "id": "b2_emoji", "label": "Badge 2 icon", "default": "🧪" },
-    { "type": "text", "id": "b2_title", "label": "Badge 2 title", "default": "Derm-tested" },
-    { "type": "text", "id": "b2_sub", "label": "Badge 2 subtitle", "default": "for sensitive skin" },
-    { "type": "text", "id": "b3_emoji", "label": "Badge 3 icon", "default": "💰" },
-    { "type": "text", "id": "b3_title", "label": "Badge 3 title", "default": "30-day refund" },
-    { "type": "text", "id": "b3_sub", "label": "Badge 3 subtitle", "default": "no questions asked" },
-    { "type": "text", "id": "b4_emoji", "label": "Badge 4 icon", "default": "🚚" },
-    { "type": "text", "id": "b4_title", "label": "Badge 4 title", "default": "Free US shipping" },
-    { "type": "text", "id": "b4_sub", "label": "Badge 4 subtitle", "default": "on 5-pack orders" },
     { "type": "header", "content": "Layout" },
+    { "type": "color", "id": "bg", "label": "Background" },
     { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 64 },
     { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 80 }
   ],
-  "presets": [{ "name": "Offer reveal" }]
+  "blocks": [
+    { "type": "heading", "name": "Heading", "settings": [
+      { "type": "text", "id": "lead", "label": "Lead text", "default": "Stop living with" },
+      { "type": "text", "id": "accent", "label": "Italic accent", "default": "cracked, dry feet." }
+    ]},
+    { "type": "product_image", "name": "Product image", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "text", "id": "alt", "label": "Alt text" },
+      { "type": "url", "id": "link", "label": "Link" }
+    ]},
+    { "type": "price", "name": "Price", "settings": [
+      { "type": "text", "id": "price", "label": "Price", "default": "$19.99" },
+      { "type": "text", "id": "compare_at", "label": "Compare-at", "default": "$29.99" },
+      { "type": "text", "id": "save_badge", "label": "Save badge", "default": "Save 33%" }
+    ]},
+    { "type": "body", "name": "Body text", "settings": [
+      { "type": "textarea", "id": "text", "label": "Text", "default": "Goat milk. Niacinamide. 30 minutes. Soft feet that last." }
+    ]},
+    { "type": "cta", "name": "CTA button", "settings": [
+      { "type": "text", "id": "label", "label": "Label", "default": "Get the Goat Milk Mask" },
+      { "type": "url", "id": "link", "label": "Link" }
+    ]},
+    { "type": "shipping", "name": "Shipping line", "settings": [
+      { "type": "text", "id": "text", "label": "Text", "default": "Free US shipping over $30 · Ships within 24 hours" }
+    ]},
+    { "type": "guarantee", "name": "Guarantee line", "settings": [
+      { "type": "text", "id": "text", "label": "Text", "default": "Backed by our 30-day money-back guarantee" }
+    ]},
+    { "type": "trust_row", "name": "Trust badges", "limit": 1, "settings": [
+      { "type": "text", "id": "t1_emoji", "label": "Badge 1 icon", "default": "🌿" },
+      { "type": "text", "id": "t1_title", "label": "Badge 1 title", "default": "Pregnancy-safe" },
+      { "type": "text", "id": "t1_sub", "label": "Badge 1 subtitle", "default": "no salicylic acid" },
+      { "type": "text", "id": "t2_emoji", "label": "Badge 2 icon", "default": "🧪" },
+      { "type": "text", "id": "t2_title", "label": "Badge 2 title", "default": "Derm-tested" },
+      { "type": "text", "id": "t2_sub", "label": "Badge 2 subtitle", "default": "for sensitive skin" },
+      { "type": "text", "id": "t3_emoji", "label": "Badge 3 icon", "default": "💰" },
+      { "type": "text", "id": "t3_title", "label": "Badge 3 title", "default": "30-day refund" },
+      { "type": "text", "id": "t3_sub", "label": "Badge 3 subtitle", "default": "no questions asked" },
+      { "type": "text", "id": "t4_emoji", "label": "Badge 4 icon", "default": "🚚" },
+      { "type": "text", "id": "t4_title", "label": "Badge 4 title", "default": "Free US shipping" },
+      { "type": "text", "id": "t4_sub", "label": "Badge 4 subtitle", "default": "on orders over $30" }
+    ]},
+    { "type": "review", "name": "Review card", "settings": [
+      { "type": "textarea", "id": "quote", "label": "Quote", "default": "Three weeks of cracked heels gone in one nap. I keep buying these for my mom." },
+      { "type": "text", "id": "name", "label": "Reviewer name", "default": "Jamie L." },
+      { "type": "text", "id": "role", "label": "Role / location", "default": "Austin, TX" },
+      { "type": "range", "id": "stars", "label": "Stars", "min": 1, "max": 5, "step": 1, "default": 5 },
+      { "type": "checkbox", "id": "verified", "label": "Show verified buyer badge", "default": true }
+    ]},
+    { "type": "divider", "name": "Divider", "settings": [] }
+  ],
+  "max_blocks": 30,
+  "presets": [{
+    "name": "Offer reveal",
+    "blocks": [
+      { "type": "heading" },
+      { "type": "product_image" },
+      { "type": "price" },
+      { "type": "body" },
+      { "type": "cta" },
+      { "type": "shipping" },
+      { "type": "guarantee" },
+      { "type": "trust_row" }
+    ]
+  }]
 }
 {% endschema %}
