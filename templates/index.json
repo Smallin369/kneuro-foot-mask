@@ -220,68 +220,6 @@
         "bg_color": ""
       }
     },
-    "comparison": {
-      "type": "comparison-table",
-      "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "The honest comparison"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "Kneuro vs.",
-            "accent": "every other foot mask."
-          }
-        },
-        "t": {
-          "type": "table",
-          "settings": {
-            "col_brand": "Kneuro",
-            "col_2": "Baby Foot",
-            "col_3": "Generic peel",
-            "col_4": "Foot cream",
-            "row_1_label": "Pregnancy-safe",
-            "row_1_brand": "yes",
-            "row_1_c2": "no",
-            "row_1_c3": "no",
-            "row_1_c4": "yes",
-            "row_2_label": "No harsh acids",
-            "row_2_brand": "yes",
-            "row_2_c2": "no",
-            "row_2_c3": "no",
-            "row_2_c4": "yes",
-            "row_3_label": "Visible result in 30 min",
-            "row_3_brand": "yes",
-            "row_3_c2": "no",
-            "row_3_c3": "no",
-            "row_3_c4": "no",
-            "row_4_label": "No painful peeling",
-            "row_4_brand": "yes",
-            "row_4_c2": "no",
-            "row_4_c3": "no",
-            "row_4_c4": "yes",
-            "row_5_label": "Goat milk + niacinamide",
-            "row_5_brand": "yes",
-            "row_5_c2": "no",
-            "row_5_c3": "no",
-            "row_5_c4": "partial"
-          }
-        }
-      },
-      "block_order": [
-        "k",
-        "h",
-        "t"
-      ],
-      "settings": {
-        "padding_top": 64,
-        "padding_bottom": 64,
-        "bg_color": ""
-      }
-    },
     "final": {
       "type": "final-cta",
       "settings": {
@@ -311,55 +249,6 @@
         "padding_top": 64,
         "padding_bottom": 80
       }
-    },
-    "faq": {
-      "type": "faq",
-      "blocks": {
-        "kicker": {
-          "type": "kicker",
-          "settings": {
-            "text": "Questions, answered"
-          }
-        },
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "lead": "The",
-            "accent": "honest answers."
-          }
-        },
-        "list": {
-          "type": "faq_list",
-          "settings": {
-            "q1_question": "Is this safe to use during pregnancy?",
-            "q1_answer": "Yes. Our formula uses goat milk, niacinamide, glycerin, and allantoin — all pregnancy-safe. Unlike most foot peels, we contain no salicylic acid, no glycolic acid, and no essential oils. If you have any concerns, check with your OB-GYN first.",
-            "q2_question": "How fast will I see results?",
-            "q2_answer": "Most customers see softer, more hydrated feet after one 30-minute session. For deeply cracked heels, we recommend 2–3 applications spaced a week apart for best results.",
-            "q3_question": "How is this different from Baby Foot?",
-            "q3_answer": "Baby Foot uses a strong acid blend (glycolic, lactic, salicylic) that causes dramatic peeling 3–7 days after application. We use a goat milk + niacinamide hydrating formula that softens skin gradually without the painful peel. Better for sensitive skin, pregnancy, diabetes, and anyone who can't be barefoot in public for a week.",
-            "q4_question": "Why does the pouch say Cindynal instead of Kneuro?",
-            "q4_answer": "30-day money-back guarantee, no questions asked. If you're not happy with your results, email us and we'll refund you in full — even if the box is opened.",
-            "q5_question": "What's your return policy?",
-            "q5_answer": "30-day money-back guarantee, no questions asked. If you're not happy with your results, email us and we'll refund you in full — even if the box is opened.",
-            "q6_question": "Can I use it on my hands and elbows too?",
-            "q6_answer": "Absolutely. The same formula works on dry hands, rough elbows, and even knees. Many customers buy the 3-pack specifically to use across multiple body areas.",
-            "q7_question": "",
-            "q7_answer": "",
-            "q8_question": "",
-            "q8_answer": ""
-          }
-        }
-      },
-      "block_order": [
-        "kicker",
-        "heading",
-        "list"
-      ],
-      "settings": {
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "bg_color": ""
-      }
     }
   },
   "order": [
@@ -368,8 +257,6 @@
     "story",
     "ba",
     "ingredients",
-    "comparison",
-    "final",
-    "faq"
+    "final"
   ]
 }
