@@ -1,0 +1,425 @@
+{%- liquid
+  assign cta_url = section.settings.cta_url | default: '/products/goat-milk-callus-mask'
+-%}
+
+<section class="ingdd" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
+  <div class="ingdd__inner">
+    {% if section.settings.eyebrow != blank %}
+      <span class="ingdd__eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
+    {% if section.settings.heading_lead != blank or section.settings.heading_accent != blank %}
+      <h2 class="ingdd__heading">
+        {{ section.settings.heading_lead }}
+        {% if section.settings.heading_accent != blank %}<em>{{ section.settings.heading_accent }}</em>{% endif %}
+      </h2>
+    {% endif %}
+    {% if section.settings.subhead != blank %}
+      <p class="ingdd__subhead">{{ section.settings.subhead }}</p>
+    {% endif %}
+
+    <div class="ingdd__list">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'ingredient' %}
+            {%- assign ingdd_mod = forloop.index0 | modulo: 2 -%}
+            <article class="ingdd__card{% if ingdd_mod == 1 %} ingdd__card--alt{% endif %}" {{ block.shopify_attributes }}>
+              <div class="ingdd__card-media">
+                {% if block.settings.image %}
+                  <img
+                    src="{{ block.settings.image | image_url: width: 800, format: 'webp' }}"
+                    srcset="{{ block.settings.image | image_url: width: 400, format: 'webp' }} 400w, {{ block.settings.image | image_url: width: 800, format: 'webp' }} 800w"
+                    sizes="(max-width:768px) 100vw, 380px"
+                    alt="{{ block.settings.image_alt | default: block.settings.title | escape }}"
+                    loading="lazy"
+                    width="800"
+                    height="800">
+                {% else %}
+                  <div class="ingdd__card-emoji" aria-hidden="true">{{ block.settings.emoji | default: '🥛' }}</div>
+                {% endif %}
+              </div>
+              <div class="ingdd__card-body">
+                {% if block.settings.title != blank %}
+                  <header class="ingdd__card-head">
+                    <h3 class="ingdd__card-title">
+                      <span class="ingdd__card-emoji-inline">{{ block.settings.emoji }}</span>
+                      {{ block.settings.title }}
+                    </h3>
+                    {% if block.settings.scientific != blank %}
+                      <span class="ingdd__card-sci"><em>{{ block.settings.scientific }}</em></span>
+                    {% endif %}
+                  </header>
+                {% endif %}
+
+                {% if block.settings.role != blank %}
+                  <div class="ingdd__card-row">
+                    <span class="ingdd__card-row-label">What it does</span>
+                    <span class="ingdd__card-row-text">{{ block.settings.role }}</span>
+                  </div>
+                {% endif %}
+                {% if block.settings.benefit != blank %}
+                  <div class="ingdd__card-row">
+                    <span class="ingdd__card-row-label">Why it matters</span>
+                    <span class="ingdd__card-row-text">{{ block.settings.benefit }}</span>
+                  </div>
+                {% endif %}
+                {% if block.settings.source_note != blank %}
+                  <div class="ingdd__card-row">
+                    <span class="ingdd__card-row-label">Sourced</span>
+                    <span class="ingdd__card-row-text">{{ block.settings.source_note }}</span>
+                  </div>
+                {% endif %}
+
+                {% if block.settings.proof_note != blank %}
+                  <p class="ingdd__card-proof">{{ block.settings.proof_note }}</p>
+                {% endif %}
+
+                {% if block.settings.tags != blank %}
+                  <div class="ingdd__card-tags">
+                    {% assign tag_list = block.settings.tags | split: ',' %}
+                    {% for tag in tag_list %}
+                      <span class="ingdd__card-tag">{{ tag | strip }}</span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+            </article>
+        {% endcase %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.cta_label != blank %}
+      <div class="ingdd__cta-wrap">
+        <a class="ingdd__cta" href="{{ cta_url }}">{{ section.settings.cta_label }}</a>
+        {% if section.settings.cta_subtext != blank %}
+          <small>{{ section.settings.cta_subtext }}</small>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  .ingdd { background: #fff; }
+  .ingdd__inner { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+  .ingdd__eyebrow {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: .22em;
+    font-size: .72rem;
+    font-weight: 800;
+    color: var(--accent-deep, var(--ink));
+    text-align: center;
+    margin: 0 0 12px;
+  }
+  .ingdd__heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.85rem, 4.6vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    text-align: center;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+  .ingdd__heading em {
+    font-style: italic;
+    color: var(--accent-deep, var(--accent));
+    font-weight: 800;
+  }
+  .ingdd__subhead {
+    font-family: var(--font-body);
+    font-size: 16.5px;
+    line-height: 1.6;
+    color: var(--ink-2, var(--muted));
+    text-align: center;
+    max-width: 580px;
+    margin: 0 auto 44px;
+  }
+
+  .ingdd__list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .ingdd__card {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 32px;
+    padding: 24px;
+    background: var(--cream-soft, #faf8f5);
+    border-radius: 18px;
+    align-items: center;
+    box-shadow: 0 16px 40px -22px rgba(42,28,18,.18);
+  }
+  .ingdd__card--alt {
+    grid-template-columns: 1fr 320px;
+    background: #fff;
+    border: 1px solid var(--line, #ececec);
+    box-shadow: none;
+  }
+  .ingdd__card--alt .ingdd__card-media { order: 2; }
+  .ingdd__card--alt .ingdd__card-body { order: 1; }
+
+  .ingdd__card-media {
+    border-radius: 14px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    background: var(--cream, #f3ece1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ingdd__card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .ingdd__card-emoji {
+    font-size: 5rem;
+    line-height: 1;
+  }
+
+  .ingdd__card-emoji-inline {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 1.4em;
+    vertical-align: -0.18em;
+  }
+
+  .ingdd__card-body { min-width: 0; }
+
+  .ingdd__card-head { margin-bottom: 18px; }
+  .ingdd__card-title {
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0 0 4px;
+    display: flex;
+    align-items: center;
+  }
+  .ingdd__card-sci {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--muted, #888);
+    letter-spacing: .002em;
+  }
+  .ingdd__card-sci em {
+    font-style: italic;
+  }
+
+  .ingdd__card-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 14px;
+    padding: 9px 0;
+    border-top: 1px solid var(--line, #ececec);
+    align-items: baseline;
+  }
+  .ingdd__card-row:first-of-type { border-top: 0; padding-top: 0; }
+  .ingdd__card-row-label {
+    font-family: var(--font-heading);
+    font-size: 11.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: var(--accent-deep, var(--ink));
+  }
+  .ingdd__card-row-text {
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink-2, #444);
+  }
+
+  .ingdd__card-proof {
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--ink-2, #444);
+    background: #fff;
+    border-left: 3px solid var(--accent, #0a0a0a);
+    padding: 10px 14px;
+    margin: 14px 0 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+  }
+  .ingdd__card--alt .ingdd__card-proof { background: var(--cream-soft, #faf8f5); }
+
+  .ingdd__card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+  }
+  .ingdd__card-tag {
+    display: inline-block;
+    padding: 4px 11px;
+    background: rgba(0,0,0,.04);
+    color: var(--ink-2, #444);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    border-radius: 999px;
+  }
+
+  .ingdd__cta-wrap {
+    text-align: center;
+    margin: 44px 0 0;
+  }
+  .ingdd__cta {
+    display: inline-block;
+    background: var(--accent, #0a0a0a);
+    color: #fff;
+    text-decoration: none;
+    padding: 17px 34px;
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: .005em;
+    box-shadow: 0 14px 34px -10px rgba(232,131,58,.45);
+    transition: transform .15s ease, background .15s ease;
+  }
+  .ingdd__cta:hover {
+    background: var(--accent-deep, var(--accent));
+    transform: translateY(-2px);
+  }
+  .ingdd__cta-wrap small {
+    display: block;
+    color: var(--muted, #888);
+    margin-top: 10px;
+    font-size: 12.5px;
+  }
+
+  @media (max-width: 760px) {
+    .ingdd__inner { padding: 0 18px; }
+    .ingdd__heading { font-size: 1.85rem; }
+    .ingdd__subhead { font-size: 15px; margin-bottom: 30px; }
+    .ingdd__card,
+    .ingdd__card--alt {
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding: 18px;
+    }
+    .ingdd__card--alt .ingdd__card-media { order: 1; }
+    .ingdd__card--alt .ingdd__card-body { order: 2; }
+    .ingdd__card-media {
+      aspect-ratio: 16 / 10;
+      max-height: 220px;
+    }
+    .ingdd__card-emoji { font-size: 4rem; }
+    .ingdd__card-title { font-size: 1.35rem; }
+    .ingdd__card-row { grid-template-columns: 1fr; gap: 4px; padding: 8px 0; }
+    .ingdd__card-row-label { font-size: 10.5px; }
+    .ingdd__card-row-text { font-size: 14px; }
+    .ingdd__cta { padding: 15px 26px; font-size: 15.5px; width: 100%; box-sizing: border-box; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Ingredient deep-dive",
+  "settings": [
+    { "type": "header", "content": "Section heading" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow / kicker", "default": "Inside the formula" },
+    { "type": "text", "id": "heading_lead", "label": "Heading lead", "default": "Four ingredients," },
+    { "type": "text", "id": "heading_accent", "label": "Heading italic accent", "default": "no compromise." },
+    { "type": "textarea", "id": "subhead", "label": "Subhead", "default": "What's inside the sock — and why each thing earned its spot. Pregnancy-safe. Diabetes-safe. No salicylic acid, no fragrance, no essential oils." },
+    { "type": "header", "content": "Bottom CTA" },
+    { "type": "text", "id": "cta_label", "label": "CTA button text", "default": "Get the Goat Milk Mask →" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "text", "id": "cta_subtext", "label": "CTA subtext", "default": "30-day money-back · free US shipping over $30" },
+    { "type": "header", "content": "Layout" },
+    { "type": "color", "id": "bg", "label": "Background" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 72 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 72 }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        { "type": "text", "id": "emoji", "label": "Emoji", "default": "🥛" },
+        { "type": "text", "id": "title", "label": "Common name", "default": "Goat Milk" },
+        { "type": "text", "id": "scientific", "label": "Scientific / INCI name", "default": "Capra hircus milk" },
+        { "type": "textarea", "id": "role", "label": "What it does (mechanism)", "default": "Naturally contains 1–3% lactic acid, an alpha-hydroxy acid that loosens the bonds holding dead skin cells together — gently, without the burn of synthetic glycolic or salicylic acid." },
+        { "type": "textarea", "id": "benefit", "label": "Why it matters (benefit)", "default": "Roughly 1/10th the strength of Baby Foot's acid blend. That means visible softening without the 5-day painful peeling phase, and a formula that's safe during pregnancy, breastfeeding, and for diabetic skin." },
+        { "type": "text", "id": "source_note", "label": "Sourced (origin / form)", "default": "Whole goat milk extract. Used in skincare since Cleopatra's milk baths." },
+        { "type": "textarea", "id": "proof_note", "label": "Proof / authority note (italic, callout-styled)", "default": "Lactic acid is the only AHA dermatologists routinely green-light during pregnancy." },
+        { "type": "text", "id": "tags", "label": "Tags (comma-separated)", "info": "Short pill-shaped tags. Examples: Pregnancy-safe, Diabetic-safe, Natural AHA", "default": "Natural AHA, Pregnancy-safe, Diabetic-safe" },
+        { "type": "image_picker", "id": "image", "label": "Hero image (optional)" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Ingredient deep-dive",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "🥛",
+            "title": "Goat Milk",
+            "scientific": "Capra hircus milk",
+            "role": "Naturally contains lactic acid, an alpha-hydroxy acid that loosens the bonds holding dead skin cells together — gently, without the burn of synthetic glycolic or salicylic acid.",
+            "benefit": "About 1/10th the strength of Baby Foot's acid blend. Softens visibly without the 5-day painful peeling phase. Pregnancy-safe, breastfeeding-safe, diabetic-skin-friendly.",
+            "source_note": "Whole goat milk extract. Used in skincare since Cleopatra's milk baths.",
+            "proof_note": "Lactic acid is the only AHA dermatologists routinely green-light during pregnancy.",
+            "tags": "Natural AHA, Pregnancy-safe, Diabetic-safe"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "✨",
+            "title": "Niacinamide (Vitamin B3)",
+            "scientific": "Nicotinamide",
+            "role": "Strengthens the skin's lipid barrier, the natural shield that holds moisture in. Also evens out tone and reduces the redness that comes with cracked, irritated heels.",
+            "benefit": "While the goat milk loosens dead skin, niacinamide repairs the new skin underneath. Skin doesn't just feel softer — it stays softer, because the barrier is rebuilding.",
+            "source_note": "Pharmaceutical-grade vitamin B3. The same form used in dermatology offices.",
+            "proof_note": "One of the most-studied ingredients in skincare. Used at 4–10% in clinical trials for barrier repair.",
+            "tags": "Barrier repair, Brightening, Pregnancy-safe"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "💧",
+            "title": "Glycerin",
+            "scientific": "Glycerol",
+            "role": "A humectant — it pulls water from the air and from deeper skin layers up into the dry, parched outer layer, where you can feel it.",
+            "benefit": "Goat milk loosens the rough surface. Niacinamide rebuilds. Glycerin floods what's left with deep moisture so the result lasts days, not hours.",
+            "source_note": "Plant-derived glycerin. Vegan, cruelty-free.",
+            "proof_note": "Glycerin is the most widely-used humectant in dermatology because it works in any humidity, on any skin type.",
+            "tags": "Deep hydration, Plant-derived, Vegan"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "🌿",
+            "title": "Allantoin",
+            "scientific": "5-ureidohydantoin",
+            "role": "A soothing agent that calms inflammation and accelerates the skin's natural cell turnover. Originally extracted from comfrey root; now plant-derived for purity.",
+            "benefit": "Cracked heels are micro-injuries. Allantoin is the part of the formula that says 'this skin's been through a lot — let's calm it down and help it heal.'",
+            "source_note": "Plant-derived. Pregnancy-safe, eczema-safe, diabetic-safe.",
+            "proof_note": "Allantoin is in baby products and post-procedure dermatology creams for a reason: it's gentle enough for the most reactive skin.",
+            "tags": "Soothing, Sensitive-skin, Eczema-safe"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
