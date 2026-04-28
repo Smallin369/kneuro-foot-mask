@@ -13,9 +13,9 @@
       "type": "scarcity-bar",
       "settings": {
         "icon": "",
-        "text": "LIMITED TIME — SAVE UP TO 30% ON THE 3-PACK · FREE SHIPPING OVER $30",
-        "show_timer": false,
-        "timer_end_iso": "",
+        "text": "LIMITED — 30% OFF 3-PACK ENDS IN",
+        "show_timer": true,
+        "timer_end_iso": "2026-05-01T23:59:59",
         "bg": "#1a1a1a",
         "fg": "#ffffff"
       }
@@ -148,73 +148,95 @@
       }
     },
     "ingredients": {
-      "type": "why-grid",
+      "type": "ingredient-deepdive",
       "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "What's inside"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "Four ingredients,",
-            "accent": "zero compromise."
-          }
-        },
-        "s": {
-          "type": "subheading",
-          "settings": {
-            "text": "Clean, pregnancy-safe, clinically backed. No essential oils, no harsh acids, no greenwashing."
-          }
-        },
-        "c1": {
-          "type": "card",
+        "i1": {
+          "type": "ingredient",
           "settings": {
             "emoji": "🥛",
             "title": "Goat Milk",
-            "body": "Lactic acid and natural fats deeply hydrate without irritation. 4,000 years of skincare history."
+            "scientific": "Capra hircus milk",
+            "role": "Naturally contains lactic acid, an alpha-hydroxy acid that loosens the bonds holding dead skin cells together — gently, without the burn of synthetic glycolic or salicylic acid.",
+            "benefit": "About 1/10th the strength of Baby Foot's acid blend. Softens visibly without the 5-day painful peeling phase. Pregnancy-safe, breastfeeding-safe, diabetic-skin-friendly.",
+            "source_note": "Whole goat milk extract. Used in skincare since Cleopatra's milk baths.",
+            "proof_note": "Lactic acid is the only AHA dermatologists routinely green-light during pregnancy.",
+            "tags": "Natural AHA, Pregnancy-safe, Diabetic-safe"
           }
         },
-        "c2": {
-          "type": "card",
+        "i2": {
+          "type": "ingredient",
           "settings": {
             "emoji": "✨",
-            "title": "Niacinamide",
-            "body": "Vitamin B3 evens skin tone, brightens, and strengthens the skin barrier."
+            "title": "Niacinamide (Vitamin B3)",
+            "scientific": "Nicotinamide",
+            "role": "Strengthens the skin's lipid barrier, the natural shield that holds moisture in. Also evens out tone and reduces the redness that comes with cracked, irritated heels.",
+            "benefit": "While the goat milk loosens dead skin, niacinamide repairs the new skin underneath. Skin doesn't just feel softer — it stays softer, because the barrier is rebuilding.",
+            "source_note": "Pharmaceutical-grade vitamin B3. The same form used in dermatology offices.",
+            "proof_note": "One of the most-studied ingredients in skincare. Used at 4–10% in clinical trials for barrier repair.",
+            "tags": "Barrier repair, Brightening, Pregnancy-safe"
           }
         },
-        "c3": {
-          "type": "card",
+        "i3": {
+          "type": "ingredient",
           "settings": {
             "emoji": "💧",
             "title": "Glycerin",
-            "body": "A humectant that pulls moisture into the deepest layers of skin."
+            "scientific": "Glycerol",
+            "role": "A humectant — it pulls water from the air and from deeper skin layers up into the dry, parched outer layer, where you can feel it.",
+            "benefit": "Goat milk loosens the rough surface. Niacinamide rebuilds. Glycerin floods what's left with deep moisture so the result lasts days, not hours.",
+            "source_note": "Plant-derived glycerin. Vegan, cruelty-free.",
+            "proof_note": "The most widely-used humectant in dermatology because it works in any humidity, on any skin type.",
+            "tags": "Deep hydration, Plant-derived, Vegan"
           }
         },
-        "c4": {
-          "type": "card",
+        "i4": {
+          "type": "ingredient",
           "settings": {
             "emoji": "🌿",
             "title": "Allantoin",
-            "body": "Soothes irritation and accelerates skin renewal — gentle on sensitive skin."
+            "scientific": "5-ureidohydantoin",
+            "role": "A soothing agent that calms inflammation and accelerates the skin's natural cell turnover. Originally extracted from comfrey root; now plant-derived for purity.",
+            "benefit": "Cracked heels are micro-injuries. Allantoin is the part of the formula that says 'this skin's been through a lot — let's calm it down and help it heal.'",
+            "source_note": "Plant-derived. Pregnancy-safe, eczema-safe, diabetic-safe.",
+            "proof_note": "Allantoin is in baby products and post-procedure dermatology creams for a reason: it's gentle enough for the most reactive skin.",
+            "tags": "Soothing, Sensitive-skin, Eczema-safe"
           }
         }
       },
-      "block_order": [
-        "k",
-        "h",
-        "s",
-        "c1",
-        "c2",
-        "c3",
-        "c4"
-      ],
+      "block_order": ["i1", "i2", "i3", "i4"],
       "settings": {
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "bg_color": ""
+        "eyebrow": "Inside the formula",
+        "heading_lead": "Four ingredients,",
+        "heading_accent": "no compromise.",
+        "subhead": "What's inside the sock — and why each thing earned its spot. Pregnancy-safe. Diabetes-safe. No salicylic acid, no fragrance, no essential oils.",
+        "cta_label": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "bg": ""
+      }
+    },
+    "timeline": {
+      "type": "day-by-day-timeline",
+      "blocks": {
+        "s1": { "type": "step", "settings": { "time_label": "Hour 0", "title": "Slip it on", "body": "Pull each soft sock-shaped pouch over your foot. Serum's already sealed inside — no mixing, no measuring. Sit down, scroll your phone, watch one episode." }},
+        "s2": { "type": "step", "settings": { "time_label": "30 min", "title": "Take it off, rinse", "body": "Peel the pouches off, rinse your feet warm. The serum has been working — goat milk lactic acid loosening dead skin, niacinamide soothing the barrier underneath.", "tag": "First softness" }},
+        "s3": { "type": "step", "settings": { "time_label": "Hour 1", "title": "Touch your heels", "body": "They feel different already. Not finished — but softer than before. Most customers notice the change here." }},
+        "s4": { "type": "step", "settings": { "time_label": "Day 1 morning", "title": "Wake up to softer skin", "body": "Get out of bed and feel your heel on the floor. Skin instead of cracked plaster. The mask kept working through the night while the niacinamide repaired the barrier." }},
+        "s5": { "type": "step", "settings": { "time_label": "Day 3", "title": "Dry patches reduced", "body": "Calluses haven't disappeared — this isn't a peel, it's a softener. But the rough patches are smoother, more pliable. No painful flaking, no scary skin shedding.", "tag": "No peeling phase" }},
+        "s6": { "type": "step", "settings": { "time_label": "Day 7", "title": "Heels you'd actually show", "body": "Smooth enough for sandals. Soft enough for bare-feet date nights. The kind of feet you stop thinking about — because there's nothing to hide anymore." }},
+        "s7": { "type": "step", "settings": { "time_label": "Week 2+", "title": "The maintenance ritual", "body": "One mask per week keeps feet permanently soft. The 3-pack lasts a month, the 5-pack lasts 5 weeks. No salon. No appointment. 30 minutes on a Sunday.", "tag": "Sustainable softness" }}
+      },
+      "block_order": ["s1", "s2", "s3", "s4", "s5", "s6", "s7"],
+      "settings": {
+        "eyebrow": "What to expect",
+        "heading_lead": "From the moment you",
+        "heading_accent": "slip it on.",
+        "subhead": "Real timeline, no exaggeration. What 30 minutes of goat milk and niacinamide actually does to your feet — hour by hour, day by day.",
+        "cta_label": "Get yours — from $19.99 →",
+        "cta_url": "/products/goat-milk-callus-mask",
+        "cta_subtext": "30-day money-back · free US shipping over $30",
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
     "press": {
@@ -271,16 +293,6 @@
         "padding_top": 64,
         "padding_bottom": 80
       }
-    },
-    "sticky_cta": {
-      "type": "sticky-mobile-cta",
-      "settings": {
-        "product_name": "Goat Milk Foot Mask",
-        "price_text": "from $14/pack · free shipping over $69",
-        "cta_label": "Get 3-pack →",
-        "cta_url": "/products/goat-milk-callus-mask?variant=47758582087867",
-        "show_at": 15
-      }
     }
   },
   "order": [
@@ -288,10 +300,10 @@
     "press",
     "hero",
     "ba",
+    "timeline",
     "comparison",
     "faq",
     "ingredients",
-    "final",
-    "sticky_cta"
+    "final"
   ]
 }
