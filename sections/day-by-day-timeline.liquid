@@ -1,0 +1,319 @@
+{%- liquid
+  assign cta_url = section.settings.cta_url | default: '/products/goat-milk-callus-mask'
+-%}
+
+<section class="dbd" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
+  <div class="dbd__inner">
+    {% if section.settings.eyebrow != blank %}
+      <span class="dbd__eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
+    {% if section.settings.heading_lead != blank or section.settings.heading_accent != blank %}
+      <h2 class="dbd__heading">
+        {{ section.settings.heading_lead }}
+        {% if section.settings.heading_accent != blank %}<em>{{ section.settings.heading_accent }}</em>{% endif %}
+      </h2>
+    {% endif %}
+    {% if section.settings.subhead != blank %}
+      <p class="dbd__subhead">{{ section.settings.subhead }}</p>
+    {% endif %}
+
+    <ol class="dbd__steps">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'step' %}
+            <li class="dbd__step" {{ block.shopify_attributes }}>
+              <div class="dbd__step-marker">
+                <span class="dbd__step-dot" aria-hidden="true"></span>
+                <span class="dbd__step-time">{{ block.settings.time_label }}</span>
+              </div>
+              <div class="dbd__step-body">
+                {% if block.settings.title != blank %}
+                  <h3 class="dbd__step-title">{{ block.settings.title }}</h3>
+                {% endif %}
+                {% if block.settings.body != blank %}
+                  <p class="dbd__step-text">{{ block.settings.body }}</p>
+                {% endif %}
+                {% if block.settings.image %}
+                  <figure class="dbd__step-fig">
+                    <img
+                      src="{{ block.settings.image | image_url: width: 800, format: 'webp' }}"
+                      srcset="{{ block.settings.image | image_url: width: 400, format: 'webp' }} 400w, {{ block.settings.image | image_url: width: 800, format: 'webp' }} 800w"
+                      sizes="(max-width:768px) 100vw, 480px"
+                      alt="{{ block.settings.image_alt | default: block.settings.title | escape }}"
+                      loading="lazy"
+                      width="800"
+                      height="600">
+                    {% if block.settings.image_caption != blank %}
+                      <figcaption>{{ block.settings.image_caption }}</figcaption>
+                    {% endif %}
+                  </figure>
+                {% endif %}
+                {% if block.settings.tag != blank %}
+                  <span class="dbd__step-tag">{{ block.settings.tag }}</span>
+                {% endif %}
+              </div>
+            </li>
+        {% endcase %}
+      {% endfor %}
+    </ol>
+
+    {% if section.settings.cta_label != blank %}
+      <div class="dbd__cta-wrap">
+        <a class="dbd__cta" href="{{ cta_url }}">{{ section.settings.cta_label }}</a>
+        {% if section.settings.cta_subtext != blank %}
+          <small>{{ section.settings.cta_subtext }}</small>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  .dbd { background: #fff; }
+  .dbd__inner { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+  .dbd__eyebrow {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: .22em;
+    font-size: .72rem;
+    font-weight: 800;
+    color: var(--accent-deep, var(--ink));
+    text-align: center;
+    margin: 0 0 12px;
+  }
+
+  .dbd__heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4.4vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    text-align: center;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+  .dbd__heading em {
+    font-style: italic;
+    color: var(--accent-deep, var(--accent));
+    font-weight: 800;
+  }
+
+  .dbd__subhead {
+    font-family: var(--font-body);
+    font-size: 16.5px;
+    line-height: 1.6;
+    color: var(--ink-2, var(--muted));
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto 36px;
+  }
+
+  /* Timeline list */
+  .dbd__steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+  }
+  .dbd__steps::before {
+    content: "";
+    position: absolute;
+    left: 88px;
+    top: 14px;
+    bottom: 14px;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--line, #ececec) 8%, var(--line, #ececec) 92%, transparent);
+  }
+
+  .dbd__step {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 24px;
+    padding: 22px 0;
+    position: relative;
+  }
+  .dbd__step + .dbd__step {
+    border-top: 1px solid var(--line, #ececec);
+  }
+
+  .dbd__step-marker {
+    position: relative;
+    padding-top: 6px;
+    text-align: right;
+  }
+  .dbd__step-dot {
+    position: absolute;
+    right: -14px;
+    top: 10px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent, #0a0a0a);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--accent, #0a0a0a);
+  }
+  .dbd__step-time {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    line-height: 1.2;
+    display: inline-block;
+  }
+
+  .dbd__step-body {
+    min-width: 0;
+    padding-left: 18px;
+  }
+  .dbd__step-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 0 0 8px;
+    text-wrap: balance;
+  }
+  .dbd__step-text {
+    font-family: var(--font-body);
+    font-size: 15.5px;
+    line-height: 1.62;
+    color: var(--ink-2, #444);
+    margin: 0;
+    letter-spacing: -0.002em;
+  }
+  .dbd__step-tag {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 12px;
+    background: var(--cream-soft, #faf8f5);
+    color: var(--accent-deep, var(--ink));
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    border-radius: 999px;
+  }
+  .dbd__step-fig {
+    margin: 14px 0 0;
+  }
+  .dbd__step-fig img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    box-shadow: 0 12px 28px -14px rgba(42,28,18,.18);
+  }
+  .dbd__step-fig figcaption {
+    color: var(--muted);
+    font-size: 12.5px;
+    font-style: italic;
+    margin-top: 8px;
+    line-height: 1.45;
+  }
+
+  /* CTA at bottom */
+  .dbd__cta-wrap {
+    text-align: center;
+    margin: 38px 0 0;
+  }
+  .dbd__cta {
+    display: inline-block;
+    background: var(--accent, #0a0a0a);
+    color: #fff;
+    text-decoration: none;
+    padding: 17px 34px;
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: .005em;
+    box-shadow: 0 14px 34px -10px rgba(232,131,58,.45);
+    transition: transform .15s ease, background .15s ease;
+  }
+  .dbd__cta:hover {
+    background: var(--accent-deep, var(--accent));
+    transform: translateY(-2px);
+  }
+  .dbd__cta-wrap small {
+    display: block;
+    color: var(--muted, #888);
+    margin-top: 10px;
+    font-size: 12.5px;
+  }
+
+  @media (max-width: 600px) {
+    .dbd__inner { padding: 0 18px; }
+    .dbd__steps::before { left: 64px; }
+    .dbd__step {
+      grid-template-columns: 76px 1fr;
+      gap: 16px;
+      padding: 18px 0;
+    }
+    .dbd__step-marker { padding-top: 4px; }
+    .dbd__step-dot { right: -10px; top: 8px; width: 12px; height: 12px; }
+    .dbd__step-time { font-size: 12.5px; letter-spacing: .06em; }
+    .dbd__step-body { padding-left: 14px; }
+    .dbd__step-title { font-size: 1.1rem; margin-bottom: 6px; }
+    .dbd__step-text { font-size: 14.5px; }
+    .dbd__heading { font-size: 1.7rem; }
+    .dbd__subhead { font-size: 15px; margin-bottom: 26px; }
+    .dbd__cta { padding: 15px 26px; font-size: 15.5px; width: 100%; box-sizing: border-box; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Day-by-day timeline",
+  "settings": [
+    { "type": "header", "content": "Section heading" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow / kicker", "default": "What to expect" },
+    { "type": "text", "id": "heading_lead", "label": "Heading lead", "default": "From the moment you" },
+    { "type": "text", "id": "heading_accent", "label": "Heading italic accent", "default": "slip it on." },
+    { "type": "textarea", "id": "subhead", "label": "Subhead", "default": "Real timeline, no exaggeration. What 30 minutes of goat milk and niacinamide actually does to your feet — hour by hour, day by day." },
+    { "type": "header", "content": "Bottom CTA" },
+    { "type": "text", "id": "cta_label", "label": "CTA button text", "default": "Start your 30-minute reset →" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "text", "id": "cta_subtext", "label": "CTA subtext", "default": "30-day money-back · free US shipping over $30" },
+    { "type": "header", "content": "Layout" },
+    { "type": "color", "id": "bg", "label": "Background" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 64 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 64 }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Timeline step",
+      "settings": [
+        { "type": "text", "id": "time_label", "label": "Time label", "info": "Short, e.g. 'Hour 0', '30 min', 'Day 1', 'Day 7'", "default": "Hour 0" },
+        { "type": "text", "id": "title", "label": "Step title", "default": "Slip it on" },
+        { "type": "textarea", "id": "body", "label": "Step description", "default": "Pull each soft sock-shaped pouch over your foot. The serum's already inside — no measuring, no mixing." },
+        { "type": "text", "id": "tag", "label": "Optional tag pill" },
+        { "type": "image_picker", "id": "image", "label": "Optional image" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" },
+        { "type": "text", "id": "image_caption", "label": "Image caption" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Day-by-day timeline",
+      "blocks": [
+        { "type": "step", "settings": { "time_label": "Hour 0", "title": "Slip it on", "body": "Pull each soft sock-shaped pouch over your foot. Serum's already sealed inside — no mixing, no measuring. Sit down, scroll your phone, watch one episode." }},
+        { "type": "step", "settings": { "time_label": "30 min", "title": "Take it off, rinse", "body": "Peel the pouches off, rinse your feet warm. The serum has been working — goat milk lactic acid loosening dead skin, niacinamide soothing the barrier underneath.", "tag": "First softness" }},
+        { "type": "step", "settings": { "time_label": "Hour 1", "title": "Touch your heels", "body": "They feel different already. Not finished — but softer than before. Most customers notice the change here." }},
+        { "type": "step", "settings": { "time_label": "Day 1 morning", "title": "Wake up to softer skin", "body": "Get out of bed and feel your heel on the floor. Skin instead of cracked plaster. The mask kept working through the night while the niacinamide repaired the barrier." }},
+        { "type": "step", "settings": { "time_label": "Day 3", "title": "Dry patches reduced", "body": "Calluses haven't disappeared — this isn't a peel, it's a softener. But the rough patches are smoother, more pliable. No painful flaking, no scary skin shedding.", "tag": "No peeling phase" }},
+        { "type": "step", "settings": { "time_label": "Day 7", "title": "Heels you'd actually show", "body": "Smooth enough for sandals. Soft enough for bare-feet date nights. The kind of feet you stop thinking about — because there's nothing to hide anymore." }},
+        { "type": "step", "settings": { "time_label": "Week 2+", "title": "The maintenance ritual", "body": "One mask per week keeps feet permanently soft. The 3-pack lasts a month, the 5-pack lasts 5 weeks. No salon. No appointment. 30 minutes on a Sunday.", "tag": "Sustainable softness" }}
+      ]
+    }
+  ]
+}
+{% endschema %}
