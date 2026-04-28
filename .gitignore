@@ -2,3 +2,13 @@
 __MACOSX/
 *.zip
 node_modules/
+
+# Playwright auditing cache
+.playwright-mcp/
+
+# Archived working files (kept locally, not in repo)
+marketing/_archive-old-frames/
+
+# Loose screenshots in repo root
+/lp-mobile-*.png
+/kneuro-*.png

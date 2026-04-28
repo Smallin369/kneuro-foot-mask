@@ -6,24 +6,32 @@
 
     <div class="rr__grid">
       {% for block in section.blocks %}
-        <div class="rr__card" {{ block.shopify_attributes }}>
-          {% if block.settings.image %}
-            <img class="rr__img" src="{{ block.settings.image | image_url: width: 600, format: 'webp' }}" srcset="{{ block.settings.image | image_url: width: 400, format: 'webp' }} 400w, {{ block.settings.image | image_url: width: 600, format: 'webp' }} 600w" sizes="(max-width:768px) 100vw, 320px" alt="Customer photo" loading="lazy" >
-          {% elsif block.settings.image_asset != blank %}
-            <img class="rr__img" src="{{ block.settings.image_asset | asset_url }}" alt="Customer photo" loading="lazy" >
-          {% elsif block.settings.image_url != blank %}
-            <img class="rr__img" src="{{ block.settings.image_url }}" alt="Customer photo" loading="lazy" >
+        {%- assign has_photo = false -%}
+        {% if block.settings.image or block.settings.image_asset != blank or block.settings.image_url != blank %}{%- assign has_photo = true -%}{% endif %}
+        {%- assign initial = block.settings.name | default: 'V' | slice: 0, 1 | upcase -%}
+        <div class="rr__card{% unless has_photo %} rr__card--noimg{% endunless %}" {{ block.shopify_attributes }}>
+          {% if has_photo %}
+            {% if block.settings.image %}
+              <img class="rr__img" src="{{ block.settings.image | image_url: width: 600, format: 'webp' }}" srcset="{{ block.settings.image | image_url: width: 400, format: 'webp' }} 400w, {{ block.settings.image | image_url: width: 600, format: 'webp' }} 600w" sizes="(max-width:768px) 100vw, 320px" alt="Customer photo" loading="lazy" >
+            {% elsif block.settings.image_asset != blank %}
+              <img class="rr__img" src="{{ block.settings.image_asset | asset_url }}" alt="Customer photo" loading="lazy" >
+            {% elsif block.settings.image_url != blank %}
+              <img class="rr__img" src="{{ block.settings.image_url }}" alt="Customer photo" loading="lazy" >
+            {% endif %}
           {% endif %}
           <div class="rr__body">
+            {% unless has_photo %}<span class="rr__quotemark" aria-hidden="true">&ldquo;</span>{% endunless %}
             <div class="rr__stars">
               {%- assign r = block.settings.rating | default: 5 -%}
               {%- for i in (1..5) -%}{% if i <= r %}★{% else %}☆{% endif %}{%- endfor -%}
             </div>
             <p class="rr__text">{{ block.settings.review }}</p>
             <div class="rr__by">
-              <strong>{{ block.settings.name | default: 'Verified buyer' }}</strong>
-              {% if block.settings.meta != blank %} · <span>{{ block.settings.meta }}</span>{% endif %}
-              <span class="rr__verified">✓ Verified</span>
+              <span class="rr__avatar" aria-hidden="true">{{ initial }}</span>
+              <span class="rr__by-meta">
+                <strong>{{ block.settings.name | default: 'Verified buyer' }}</strong>
+                {% if block.settings.meta != blank %}<span class="rr__role">{{ block.settings.meta }} · <span class="rr__verified">✓ Verified</span></span>{% else %}<span class="rr__role"><span class="rr__verified">✓ Verified buyer</span></span>{% endif %}
+              </span>
             </div>
           </div>
         </div>
@@ -46,16 +54,22 @@
   .rr__grid { display: grid; gap: 22px; grid-template-columns: 1fr; text-align: left; }
   @media(min-width: 720px) { .rr__grid { grid-template-columns: repeat(2, 1fr); } }
   @media(min-width: 1000px) { .rr__grid { grid-template-columns: repeat(3, 1fr); max-width: 980px; margin-left: auto; margin-right: auto; } }
-  .rr__card { background: var(--cream-soft); border-radius: 14px; overflow: hidden; box-shadow: 0 6px 18px -10px rgba(42,28,18,.15); display: flex; flex-direction: column; }
+  .rr__card { background: var(--cream-soft); border-radius: 16px; overflow: hidden; box-shadow: 0 6px 18px -10px rgba(42,28,18,.15); display: flex; flex-direction: column; }
+  .rr__card--noimg { background: #fff; border: 1px solid #ececec; padding: 22px 22px 18px; position: relative; }
   .rr__img { width: 100% !important; height: 280px !important; aspect-ratio: auto !important; object-fit: cover; object-position: center; display: block; background: #eee; flex-shrink: 0; }
   @media(min-width: 720px) { .rr__img { height: 260px !important; } }
   @media(min-width: 1000px) { .rr__img { height: 280px !important; } }
   .rr__body { padding: 16px; flex: 1; display: flex; flex-direction: column; }
-  .rr__stars { color: var(--accent); letter-spacing: 2px; font-size: .95rem; margin-bottom: 8px; }
-  .rr__text { font-size: .92rem; line-height: 1.55; color: var(--ink-2); margin: 0 0 12px; flex: 1; }
-  .rr__by { font-size: .82rem; color: var(--muted); margin-top: auto; }
-  .rr__by strong { color: var(--ink); font-weight: 600; }
-  .rr__verified { display: inline-block; margin-left: 6px; color: var(--sage); font-weight: 600; font-size: .78rem; }
+  .rr__card--noimg .rr__body { padding: 0; }
+  .rr__quotemark { position: absolute; top: 8px; right: 18px; font-family: var(--font-heading); font-size: 4.4rem; line-height: 1; color: var(--ink); opacity: .12; font-weight: 800; pointer-events: none; }
+  .rr__stars { color: #f5b14a; letter-spacing: 2px; font-size: .95rem; margin-bottom: 10px; }
+  .rr__text { font-size: .98rem; line-height: 1.6; color: var(--ink-2); margin: 0 0 16px; flex: 1; }
+  .rr__by { display: flex; align-items: center; gap: 12px; font-size: .82rem; color: var(--muted); margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); }
+  .rr__avatar { flex: 0 0 36px; width: 36px; height: 36px; border-radius: 50%; background: var(--cream); color: var(--ink); display: grid; place-items: center; font-family: var(--font-heading); font-weight: 800; font-size: 14px; }
+  .rr__by-meta { display: flex; flex-direction: column; line-height: 1.3; min-width: 0; }
+  .rr__by strong { color: var(--ink); font-weight: 700; font-size: 13px; }
+  .rr__role { font-size: 12px; color: var(--muted); }
+  .rr__verified { color: #1f6c2f; font-weight: 700; }
   .rr__cta { display: inline-block; margin-top: 36px; background: var(--accent); color: #fff; padding: 14px 28px; border-radius: 999px; font-weight: 700; text-decoration: none; box-shadow: 0 8px 22px -8px rgba(232,131,58,.55); }
   .rr__cta:hover { background: var(--accent-deep); }
 </style>

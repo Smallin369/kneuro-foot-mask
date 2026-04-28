@@ -1,0 +1,144 @@
+VOICEOVER — KNEURO FOOT MASK AD V1
+Funny / intrigue hook framework. Time-locked to your 19s a-roll v2.
+
+——————————————————————————
+
+CLEAN SCRIPT (read straight through)
+
+My pedicurist gave up on me. Look why. Same feet, different week. Foot mask, thirty minutes, both feet. Soft, smooth, no more cracks. My pedicurist booked me back in.
+
+——————————————————————————
+
+WHY THIS HOOK WORKS
+
+"My pedicurist gave up on me" stops scrolls because:
+
+1. It's a CONFESSION with a STORY built in (5 words, full character + stakes)
+2. Universal pain (every woman in your audience has been to a pedicure)
+3. Implies real consequence (a professional refused you)
+4. Funny but believable
+5. Sets up a curiosity gap: "How bad were they that the pro quit?"
+
+The closing line "My pedicurist booked me back in" BOOKENDS the joke — pedicurist quit at the start, took her back at the end. That's a full narrative arc in 14 seconds AND it doubles as social proof.
+
+——————————————————————————
+
+TIME-LOCKED TO YOUR A-ROLL (19s)
+
+| Time | A-roll visual | Voiceover line |
+|------|---------------|----------------|
+| 0:00–0:02 | UGC dry heel close-up (finger pressing) | "My pedicurist gave up on me." |
+| 0:02–0:04 | "BEFORE" cracked heel label | "Look why." |
+| 0:04–0:07 | "AFTER" smooth heel label | "Same feet, different week." |
+| 0:07–0:10 | Sachet tear | "Foot mask, thirty minutes." |
+| 0:10–0:12 | Empty pair flatlay | "Both feet." |
+| 0:12–0:14 | Standing POV wearing | "Soft, smooth, no more cracks." |
+| 0:14–0:16 | Standing POV continued | "My pedicurist booked me back in." |
+| 0:16–0:19 | SHOP NOW end card | [silent — visual closes] |
+
+Spoken length: ~14 seconds. 5 seconds of breathing room.
+
+——————————————————————————
+
+ANNOTATED DELIVERY (with expression cues)
+
+[ 0:00–0:02 — UGC heel ]
+[deadpan, slight resignation, like you're admitting something embarrassing]
+"My pedicurist gave up on me."
+
+[ 0:02–0:04 — BEFORE label ]
+[two words, dry, gesture-style — let the visual punch]
+"Look why."
+
+[ 0:04–0:07 — AFTER reveal ]
+[drop tone, quietly proud, slight smile in voice]
+"Same feet. Different week."
+
+[ 0:07–0:10 — sachet tear ]
+[matter-of-fact, like reading a recipe]
+"Foot mask. Thirty minutes."
+
+[ 0:10–0:12 — pair flatlay ]
+[breezy, dismissive of how easy]
+"Both feet."
+
+[ 0:12–0:14 — standing POV wearing ]
+[three quick beats, slight relief in "no more cracks"]
+"Soft. Smooth. *No more cracks.*"
+
+[ 0:14–0:16 — wearing continued ]
+[smug little grin in your voice — this is the punchline payoff]
+"My pedicurist booked me back in."
+
+[ 0:16–0:19 — SHOP NOW end card ]
+[silent — let the kneuro.store URL graphic close it]
+
+——————————————————————————
+
+ELEVENLABS-TAGGED VERSION (paste this if using ElevenLabs)
+
+[deadpan] My pedicurist gave up on me. [pause] Look why. [drop tone] Same feet... different week. Foot mask. Thirty minutes. Both feet. Soft. Smooth. *No more cracks.* [smug] My pedicurist booked me back in.
+
+ElevenLabs settings:
+- Voice: "Bella" (or "Rachel")
+- Stability: 35%
+- Similarity: 75%
+- Style: 35% (slight bump for dry-humor delivery)
+- Speed: 1.0x
+
+——————————————————————————
+
+WHY IT FITS YOUR FRAME PERFECTLY
+
+| Frame | What's on screen | What the voice does |
+|-------|------------------|---------------------|
+| Hook | UGC dry heel + finger | Voice sets the joke ("gave up on me") |
+| BEFORE | Big BEFORE label, cracked heel | Voice points at it ("Look why") — minimal, frame does the work |
+| AFTER | Big AFTER label, smooth heel | Voice delivers the surprise ("Same feet. Different week.") |
+| Sachet | Product reveal | Voice gives mechanic ("foot mask, thirty minutes") |
+| Pair | Empty masks | Voice gives setup ("both feet") |
+| Wearing | Standing POV | Voice delivers result ("soft, smooth, no more cracks") |
+| Wearing | Continued | Voice closes the joke ("pedicurist booked me back in") |
+| End card | SHOP NOW kneuro.store | Silent — visual CTA closes |
+
+The voice never repeats what the visuals say. They work together, not in parallel.
+
+——————————————————————————
+
+ALTERNATE FUNNY HOOKS (test these against the main one)
+
+ALT 1 — Husband joke (universal but excludes single women)
+"Don't tell my husband I'm posting this. Look. (BEFORE) Now look. (AFTER) Foot mask, thirty minutes — soft, smooth, no cracks. He noticed."
+
+ALT 2 — Self-deprecating absurdity
+"These were a war crime. Look. (BEFORE) Now look. (AFTER) Foot mask, thirty minutes. Soft, smooth, hydrated. I'm on my third box."
+
+ALT 3 — Setup-punchline structure
+"I almost canceled my pedicure out of embarrassment. Then I tried this. Foot mask, thirty minutes — soft, smooth, no cracks. Pedicurist asked what I changed."
+
+——————————————————————————
+
+WORDS TO EMPHASIZE
+- *gave up* (the joke setup)
+- *Look why* (gesture)
+- *different week* (the surprise)
+- *no more cracks* (the relief)
+- *booked me back in* (punchline payoff)
+
+WORDS TO TOSS OFF
+- "Foot mask"
+- "Thirty minutes"
+- "Both feet"
+
+——————————————————————————
+
+RECORDING / TTS
+
+If recording: bathroom + towel on floor, phone Voice Memos, 6 inches from mouth.
+Read it like you're telling a friend the actual story over coffee. Dry humor, no influencer voice.
+3 takes minimum.
+
+If ElevenLabs: paste tagged version, voice "Bella", Style 35%, default rest.
+If CapCut TTS: pick "Casual Female", speed 1.0x.
+
+Save: marketing/ad-clips/voiceover-v1.m4a

@@ -48,6 +48,14 @@
   {% endfor %}
 </section>
 
+<style>
+  .compare table td:first-child { color: var(--ink) !important; font-weight: 700; font-family: var(--font-heading); letter-spacing: -0.005em; }
+  .compare table .brand-col { background: var(--cream-soft); font-weight: 700; }
+  .compare table .check { color: #1f6c2f; font-weight: 800; font-size: 1.05rem; }
+  .compare table .x { color: #b03a3a; font-weight: 800; font-size: 1.05rem; }
+  .compare table .mid { color: var(--muted); font-style: italic; font-size: .85rem; }
+</style>
+
 {% schema %}
 {
   "name": "Comparison table",

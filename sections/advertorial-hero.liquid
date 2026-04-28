@@ -7,16 +7,50 @@
   endfor
 -%}
 
-{%- if first_image -%}
+{%- assign preload_image = first_image | default: section.settings.hero_image -%}
+{%- if preload_image -%}
   <link rel="preload" as="image"
-        href="{{ first_image | image_url: width: 900, format: 'webp' }}"
-        imagesrcset="{{ first_image | image_url: width: 600, format: 'webp' }} 600w, {{ first_image | image_url: width: 900, format: 'webp' }} 900w, {{ first_image | image_url: width: 1200, format: 'webp' }} 1200w"
-        imagesizes="(max-width: 768px) 100vw, 720px"
+        href="{{ preload_image | image_url: width: 720, format: 'webp' }}"
+        imagesrcset="{{ preload_image | image_url: width: 480, format: 'webp' }} 480w, {{ preload_image | image_url: width: 720, format: 'webp' }} 720w, {{ preload_image | image_url: width: 1080, format: 'webp' }} 1080w"
+        imagesizes="(max-width: 768px) 100vw, 680px"
         fetchpriority="high">
 {%- endif -%}
 
 <section class="adv-hero" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
   <div class="adv-hero__inner">
+
+    {%- if section.blocks.size == 0 -%}
+      {%- comment -%} Legacy fallback: render from section.settings when no blocks defined {%- endcomment -%}
+      {% if section.settings.publication != blank or section.settings.category != blank %}
+        <div class="adv-hero__pub">
+          {% if section.settings.publication != blank %}<span class="adv-hero__pub-name">{{ section.settings.publication }}</span>{% endif %}
+          {% if section.settings.category != blank %}<span class="adv-hero__pub-cat">{{ section.settings.category }}</span>{% endif %}
+        </div>
+      {% endif %}
+      {% if section.settings.headline != blank %}<h1 class="adv-hero__title">{{ section.settings.headline }}</h1>{% endif %}
+      {% if section.settings.subhead != blank %}<p class="adv-hero__sub">{{ section.settings.subhead }}</p>{% endif %}
+      {% if section.settings.byline != blank or section.settings.date != blank or section.settings.read_time != blank %}
+        <div class="adv-hero__byline">
+          {% if section.settings.byline != blank %}<span>By <strong>{{ section.settings.byline }}</strong></span>{% endif %}
+          {% if section.settings.date != blank %}<span>· {{ section.settings.date }}</span>{% endif %}
+          {% if section.settings.read_time != blank %}<span>· {{ section.settings.read_time }}</span>{% endif %}
+        </div>
+      {% endif %}
+      {% if section.settings.trust_t1 != blank or section.settings.trust_t2 != blank or section.settings.trust_t3 != blank %}
+        <ul class="adv-hero__trust">
+          {% if section.settings.trust_t1 != blank %}<li>{{ section.settings.trust_t1 }}</li>{% endif %}
+          {% if section.settings.trust_t2 != blank %}<li>{{ section.settings.trust_t2 }}</li>{% endif %}
+          {% if section.settings.trust_t3 != blank %}<li>{{ section.settings.trust_t3 }}</li>{% endif %}
+        </ul>
+      {% endif %}
+      {% if section.settings.hero_image %}
+        <figure class="adv-hero__fig">
+          <img class="adv-hero__img" src="{{ section.settings.hero_image | image_url: width: 720, format: 'webp' }}" srcset="{{ section.settings.hero_image | image_url: width: 480, format: 'webp' }} 480w, {{ section.settings.hero_image | image_url: width: 720, format: 'webp' }} 720w, {{ section.settings.hero_image | image_url: width: 1080, format: 'webp' }} 1080w" sizes="(max-width:768px) 100vw, 680px" alt="{{ section.settings.headline | escape }}" width="900" height="900" fetchpriority="high" decoding="async">
+          {% if section.settings.caption != blank %}<figcaption class="adv-hero__caption">{{ section.settings.caption }}</figcaption>{% endif %}
+        </figure>
+      {% endif %}
+    {%- endif -%}
+
     {% for block in section.blocks %}
       {% case block.type %}
 
@@ -43,11 +77,12 @@
           <figure class="adv-hero__fig" {{ block.shopify_attributes }}>
             {% if block.settings.image %}
               <img class="adv-hero__img"
-                   src="{{ block.settings.image | image_url: width: 1200, format: 'webp' }}"
-                   srcset="{{ block.settings.image | image_url: width: 600, format: 'webp' }} 600w, {{ block.settings.image | image_url: width: 1200, format: 'webp' }} 1200w"
-                   sizes="(max-width:768px) 100vw, 720px"
+                   src="{{ block.settings.image | image_url: width: 720, format: 'webp' }}"
+                   srcset="{{ block.settings.image | image_url: width: 480, format: 'webp' }} 480w, {{ block.settings.image | image_url: width: 720, format: 'webp' }} 720w, {{ block.settings.image | image_url: width: 1080, format: 'webp' }} 1080w"
+                   sizes="(max-width:768px) 100vw, 680px"
                    alt="{{ block.settings.alt | escape }}"
                    width="900" height="900"
+                   decoding="async"
                    {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
             {% endif %}
             {% if block.settings.caption != blank %}<figcaption class="adv-hero__caption">{{ block.settings.caption }}</figcaption>{% endif %}
@@ -64,21 +99,24 @@
 <style>
   .adv-hero { background: #ffffff; }
   .adv-hero__inner { max-width: 680px; margin: 0 auto; padding: 0 20px; }
-  .adv-hero__pub { display:flex; align-items:center; gap:12px; padding-bottom:14px; margin-bottom:22px; border-bottom: 1px solid #e8e3da; }
-  .adv-hero__pub-name { font-family: var(--font-heading); font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; color: var(--ink); }
-  .adv-hero__pub-cat { text-transform: uppercase; letter-spacing: .14em; font-size: .68rem; font-weight: 700; color: #b03a3a; padding: 3px 8px; border: 1px solid #b03a3a; border-radius: 4px; }
-  .adv-hero__title { font-family: var(--font-heading); font-size: clamp(1.75rem, 5.5vw, 2.6rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 14px; color: var(--ink); }
-  .adv-hero__sub { font-size: 1.1rem; line-height: 1.55; color: var(--ink-2); margin: 0 0 18px; font-weight: 500; }
-  .adv-hero__byline { display:flex; flex-wrap:wrap; gap:6px; font-size:.82rem; color: var(--muted); margin: 0 0 24px; padding-bottom: 18px; border-bottom: 1px solid #e8e3da; }
-  .adv-hero__byline strong { color: var(--ink); font-weight: 700; }
+  .adv-hero__pub { display:flex; align-items:center; gap:14px; padding-bottom:16px; margin-bottom:28px; border-bottom: 1px solid #e8e3da; }
+  .adv-hero__pub-name { font-family: var(--font-heading); font-weight: 800; font-size: 1.1rem; letter-spacing: -0.015em; color: var(--ink); }
+  .adv-hero__pub-cat { text-transform: uppercase; letter-spacing: .16em; font-size: .65rem; font-weight: 800; color: #b03a3a; padding: 4px 10px; border: 1px solid #b03a3a; border-radius: 3px; }
+  .adv-hero__title { font-family: var(--font-heading); font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.035em; margin: 0 0 18px; color: var(--ink); text-wrap: pretty; }
+  .adv-hero__sub { font-family: var(--font-body); font-size: 1.18rem; line-height: 1.5; color: var(--ink-2); margin: 0 0 24px; font-weight: 400; letter-spacing: -0.005em; text-wrap: pretty; }
+  .adv-hero__byline { display:flex; flex-wrap:wrap; gap:8px; font-size:.8rem; color: var(--muted); margin: 0 0 28px; padding-bottom: 20px; border-bottom: 1px solid #e8e3da; letter-spacing: .01em; }
+  .adv-hero__byline strong { color: var(--ink); font-weight: 700; letter-spacing: 0; }
   .adv-hero__fig { margin: 0 0 8px; }
-  .adv-hero__img { width: 100%; max-height: 460px; object-fit: cover; border-radius: 6px; display: block; }
-  .adv-hero__caption { color: var(--muted); font-size: .8rem; font-style: italic; margin: 10px 0 0; line-height: 1.45; }
-  .adv-hero__rule { border: 0; border-top: 1px solid #e8e3da; margin: 22px 0; }
+  .adv-hero__img { width: 100%; max-height: 480px; object-fit: cover; border-radius: 4px; display: block; }
+  .adv-hero__caption { color: var(--muted); font-size: .82rem; font-style: italic; margin: 12px 0 0; line-height: 1.5; letter-spacing: .005em; }
+  .adv-hero__rule { border: 0; border-top: 1px solid #e8e3da; margin: 28px 0; }
+  .adv-hero__trust { list-style: none; padding: 0; margin: -8px 0 22px; display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+  .adv-hero__trust li { position: relative; color: var(--ink-2); font-family: var(--font-body); font-size: .78rem; font-weight: 600; letter-spacing: .01em; padding-left: 16px; }
+  .adv-hero__trust li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: var(--accent-deep, var(--ink)); font-weight: 800; }
   @media (max-width: 480px) {
-    .adv-hero__title { font-size: 1.6rem; }
-    .adv-hero__sub { font-size: 1rem; }
-    .adv-hero__img { max-height: 360px; }
+    .adv-hero__title { font-size: 1.85rem; line-height: 1.12; letter-spacing: -0.03em; }
+    .adv-hero__sub { font-size: 1.05rem; }
+    .adv-hero__img { max-height: 380px; }
   }
 </style>
 
@@ -86,6 +124,22 @@
 {
   "name": "Advertorial hero",
   "settings": [
+    { "type": "paragraph", "content": "Tip: prefer adding blocks below for full modularity. Settings here are a legacy fallback used only when no blocks exist." },
+    { "type": "header", "content": "Legacy settings (fallback only)" },
+    { "type": "text", "id": "publication", "label": "Publication name" },
+    { "type": "text", "id": "category", "label": "Category tag" },
+    { "type": "text", "id": "headline", "label": "Headline" },
+    { "type": "textarea", "id": "subhead", "label": "Deck (subhead)" },
+    { "type": "text", "id": "byline", "label": "Byline" },
+    { "type": "text", "id": "date", "label": "Publish date" },
+    { "type": "text", "id": "read_time", "label": "Read time" },
+    { "type": "image_picker", "id": "hero_image", "label": "Lead image" },
+    { "type": "text", "id": "caption", "label": "Image caption" },
+    { "type": "url", "id": "cta_url", "label": "CTA link" },
+    { "type": "header", "content": "Trust micro-strip" },
+    { "type": "text", "id": "trust_t1", "label": "Trust token 1", "default": "Pregnancy-safe" },
+    { "type": "text", "id": "trust_t2", "label": "Trust token 2", "default": "Derm-tested" },
+    { "type": "text", "id": "trust_t3", "label": "Trust token 3", "default": "30-day refund" },
     { "type": "header", "content": "Layout" },
     { "type": "color", "id": "bg", "label": "Background" },
     { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 28 },
