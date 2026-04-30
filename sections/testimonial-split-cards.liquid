@@ -1,0 +1,155 @@
+{%- liquid
+  assign max_w = section.settings.max_width | default: 1080
+-%}
+
+<section class="tsc" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; background:{{ section.settings.bg | default: 'transparent' }};">
+  <div class="tsc__inner" style="max-width:{{ max_w }}px;">
+    {% if section.settings.eyebrow != blank %}
+      <span class="tsc__eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+      <h2 class="tsc__heading">{{ section.settings.heading }}{% if section.settings.heading_accent != blank %} <em>{{ section.settings.heading_accent }}</em>{% endif %}</h2>
+    {% endif %}
+    {% if section.settings.subhead != blank %}
+      <p class="tsc__sub">{{ section.settings.subhead }}</p>
+    {% endif %}
+
+    <div class="tsc__grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'testimonial' %}
+          {%- assign cta_label = block.settings.cta_label | default: 'View more →' -%}
+          {%- assign cta_url = block.settings.cta_url | default: '/products/goat-milk-callus-mask' -%}
+          {%- assign before_label = block.settings.before_label | default: 'Before' -%}
+          {%- assign after_label = block.settings.after_label | default: 'After' -%}
+          <article class="tsc__card" {{ block.shopify_attributes }}>
+            <div class="tsc__split">
+              <div class="tsc__half tsc__half--before">
+                {% if block.settings.before_image %}
+                  <img src="{{ block.settings.before_image | image_url: width: 700, format: 'webp' }}"
+                       srcset="{{ block.settings.before_image | image_url: width: 500, format: 'webp' }} 500w, {{ block.settings.before_image | image_url: width: 700, format: 'webp' }} 700w, {{ block.settings.before_image | image_url: width: 900, format: 'webp' }} 900w"
+                       sizes="(max-width:760px) 50vw, 260px"
+                       alt="{{ block.settings.name | default: 'Customer' | escape }} — before"
+                       loading="lazy" decoding="async" width="700" height="900">
+                {% else %}
+                  <div class="tsc__placeholder">Before</div>
+                {% endif %}
+                <span class="tsc__pill tsc__pill--before">{{ before_label }}</span>
+              </div>
+              <div class="tsc__divider" aria-hidden="true"></div>
+              <div class="tsc__half tsc__half--after">
+                {% if block.settings.after_image %}
+                  <img src="{{ block.settings.after_image | image_url: width: 700, format: 'webp' }}"
+                       srcset="{{ block.settings.after_image | image_url: width: 500, format: 'webp' }} 500w, {{ block.settings.after_image | image_url: width: 700, format: 'webp' }} 700w, {{ block.settings.after_image | image_url: width: 900, format: 'webp' }} 900w"
+                       sizes="(max-width:760px) 50vw, 260px"
+                       alt="{{ block.settings.name | default: 'Customer' | escape }} — after"
+                       loading="lazy" decoding="async" width="700" height="900">
+                {% else %}
+                  <div class="tsc__placeholder">After</div>
+                {% endif %}
+                <span class="tsc__pill tsc__pill--after">{{ after_label }}</span>
+              </div>
+            </div>
+
+            <div class="tsc__body">
+              <header class="tsc__meta">
+                {% if block.settings.name != blank %}
+                  <span class="tsc__avatar" aria-hidden="true">{{ block.settings.name | slice: 0, 1 | upcase }}</span>
+                {% endif %}
+                <span class="tsc__attr">
+                  {% if block.settings.name != blank %}<strong class="tsc__name">{{ block.settings.name }}</strong>{% endif %}
+                  {% if block.settings.tag != blank %}<span class="tsc__tag">{{ block.settings.tag }}</span>{% endif %}
+                </span>
+              </header>
+              {% if block.settings.caption != blank %}
+                <p class="tsc__caption">"{{ block.settings.caption }}"</p>
+              {% endif %}
+              {% if cta_label != blank %}
+                <a class="tsc__cta" href="{{ cta_url }}">{{ cta_label }}</a>
+              {% endif %}
+            </div>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tsc { background: #ffffff; }
+  .tsc__inner { margin: 0 auto; padding: 0 20px; text-align: center; }
+  .tsc__eyebrow { display: inline-block; font-family: var(--font-heading); font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted, #71665C); padding: 4px 12px; border: 1px solid var(--line, #e8dfd3); border-radius: 999px; margin: 0 0 12px; }
+  .tsc__heading { font-family: var(--font-heading); font-size: clamp(1.55rem, 3.8vw, 2.05rem); font-weight: 700; color: var(--ink, #1a1a1a); margin: 0 0 8px; line-height: 1.16; letter-spacing: -0.028em; text-wrap: balance; }
+  .tsc__heading em { font-style: italic; font-weight: 700; color: var(--accent-deep, var(--ink)); }
+  .tsc__sub { font-family: var(--font-body); font-size: .98rem; line-height: 1.5; color: var(--ink-2, #2a2a2a); margin: 0 auto 28px; max-width: 580px; }
+  .tsc__grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  @media (min-width: 760px) { .tsc__grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+  .tsc__card { background: #ffffff; border: 1px solid var(--line, #e8dfd3); border-radius: 18px; overflow: hidden; box-shadow: 0 1px 2px rgba(42,28,18,.04), 0 14px 40px -22px rgba(42,28,18,.18); display: flex; flex-direction: column; transition: transform .18s ease, box-shadow .18s ease; text-align: left; }
+  .tsc__card:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(42,28,18,.06), 0 18px 44px -16px rgba(42,28,18,.22); }
+  .tsc__split { position: relative; display: grid; grid-template-columns: 1fr 1fr; aspect-ratio: 16/10; background: var(--cream-soft, #faf8f5); }
+  .tsc__half { position: relative; overflow: hidden; }
+  .tsc__half img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tsc__placeholder { display: grid; place-items: center; height: 100%; color: var(--muted, #71665C); font-size: 13px; font-style: italic; letter-spacing: .04em; }
+  .tsc__divider { position: absolute; top: 8%; bottom: 8%; left: 50%; width: 2px; background: rgba(255,255,255,.85); transform: translateX(-50%); border-radius: 2px; box-shadow: 0 0 0 1px rgba(42,28,18,.06); }
+  .tsc__pill { position: absolute; top: 12px; font-family: var(--font-heading); font-weight: 700; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; padding: 5px 11px; border-radius: 999px; backdrop-filter: blur(4px); }
+  .tsc__pill--before { left: 12px; background: rgba(255,255,255,.92); color: var(--ink, #1a1a1a); }
+  .tsc__pill--after { right: 12px; background: var(--accent-deep, #8c4a32); color: #ffffff; }
+  .tsc__body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 12px; }
+  .tsc__meta { display: flex; align-items: center; gap: 12px; }
+  .tsc__avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--cream, #f4ede2); color: var(--ink, #1a1a1a); display: grid; place-items: center; font-family: var(--font-heading); font-weight: 700; font-size: 14px; flex: 0 0 34px; }
+  .tsc__attr { display: flex; flex-direction: column; line-height: 1.25; }
+  .tsc__name { font-family: var(--font-heading); font-size: 14px; font-weight: 700; color: var(--ink, #1a1a1a); letter-spacing: -0.005em; }
+  .tsc__tag { font-family: var(--font-body); font-size: 12px; color: var(--muted, #71665C); letter-spacing: .01em; }
+  .tsc__caption { font-family: var(--font-body); font-size: 14.5px; line-height: 1.55; color: var(--ink-2, #2a2a2a); margin: 0; font-style: italic; }
+  .tsc__cta { font-family: var(--font-heading); font-size: 13px; font-weight: 700; color: var(--accent-deep, #8c4a32); text-decoration: none; letter-spacing: .02em; align-self: flex-start; padding: 4px 0; border-bottom: 1.5px solid var(--accent-deep, #8c4a32); transition: color .15s ease, border-color .15s ease; }
+  .tsc__cta:hover { color: var(--ink, #1a1a1a); border-color: var(--ink, #1a1a1a); }
+  @media (max-width: 480px) {
+    .tsc__split { aspect-ratio: 4/3; }
+    .tsc__pill { font-size: 9.5px; padding: 4px 9px; top: 9px; }
+    .tsc__pill--before { left: 9px; }
+    .tsc__pill--after { right: 9px; }
+    .tsc__body { padding: 16px 16px 18px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Testimonial split cards",
+  "settings": [
+    { "type": "header", "content": "Section heading" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "More real customers" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Real heels." },
+    { "type": "text", "id": "heading_accent", "label": "Italic accent", "default": "Real photos." },
+    { "type": "textarea", "id": "subhead", "label": "Subhead" },
+    { "type": "header", "content": "Layout" },
+    { "type": "color", "id": "bg", "label": "Background" },
+    { "type": "range", "id": "max_width", "label": "Max width", "min": 720, "max": 1280, "step": 20, "unit": "px", "default": 1080 },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 64 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 64 }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial card",
+      "settings": [
+        { "type": "image_picker", "id": "before_image", "label": "Before image" },
+        { "type": "text", "id": "before_label", "label": "Before label", "default": "Before" },
+        { "type": "image_picker", "id": "after_image", "label": "After image" },
+        { "type": "text", "id": "after_label", "label": "After label", "default": "After" },
+        { "type": "text", "id": "name", "label": "Customer name" },
+        { "type": "text", "id": "tag", "label": "Tag (e.g. 'Pregnant · 38 weeks')" },
+        { "type": "textarea", "id": "caption", "label": "Caption / quote" },
+        { "type": "text", "id": "cta_label", "label": "CTA label", "default": "View more →" },
+        { "type": "url", "id": "cta_url", "label": "CTA link" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [{
+    "name": "Testimonial split cards",
+    "blocks": [
+      { "type": "testimonial" },
+      { "type": "testimonial" }
+    ]
+  }]
+}
+{% endschema %}

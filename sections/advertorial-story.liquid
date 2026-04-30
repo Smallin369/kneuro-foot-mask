@@ -133,8 +133,9 @@
   .adv-story__p > p strong { color: var(--ink); font-weight: 700; }
   .adv-story__inner > .adv-story__p:first-of-type > p:first-of-type::first-letter { font-family: var(--font-heading); font-size: 3.4em; font-weight: 800; float: left; line-height: 0.88; padding: 6px 10px 0 0; color: var(--ink); letter-spacing: -0.04em; }
 
-  /* Section headings */
-  .adv-story__h { font-family: var(--font-heading); font-size: clamp(1.45rem, 3.4vw, 1.85rem); font-weight: 800; color: var(--ink); margin: 40px 0 16px; line-height: 1.18; letter-spacing: -0.025em; text-wrap: balance; }
+  /* Section headings — story beats. Bigger gap above, lighter weight, accent rule for editorial rhythm. */
+  .adv-story__h { font-family: var(--font-heading); font-size: clamp(1.55rem, 3.8vw, 2.05rem); font-weight: 700; color: var(--ink); margin: 56px 0 20px; line-height: 1.16; letter-spacing: -0.028em; text-wrap: balance; max-width: 22ch; }
+  .adv-story__h::before { content: ""; display: block; width: 36px; height: 2px; background: var(--accent-deep, var(--ink)); margin: 0 0 18px; opacity: .45; }
 
   /* Before / After image pair — amplified, breaks out beyond the 680 column */
   .adv-story__ba { margin: 44px auto; max-width: 960px; width: calc(100% + 140px); margin-left: -70px; margin-right: -70px; padding: 0 20px; box-sizing: border-box; }
@@ -198,7 +199,8 @@
     .adv-story__inner { padding: 0 18px; }
     .adv-story__p > p { font-size: 16.5px; line-height: 1.62; margin: 0 0 18px; letter-spacing: 0; }
     .adv-story__inner > .adv-story__p:first-of-type > p:first-of-type::first-letter { font-size: 2.8em; padding: 4px 8px 0 0; }
-    .adv-story__h { font-size: 1.45rem; margin: 28px 0 12px; }
+    .adv-story__h { font-size: 1.55rem; margin: 40px 0 14px; line-height: 1.18; }
+    .adv-story__h::before { width: 28px; margin-bottom: 14px; }
     .adv-story__quote p { font-size: 1.15rem; }
     .adv-story__ing-grid { grid-template-columns: 1fr; gap: 10px; }
     .adv-story__ba { margin: 32px 0; }
