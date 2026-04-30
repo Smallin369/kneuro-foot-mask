@@ -7,8 +7,14 @@
   endfor
 -%}
 
+{%- assign hero_asset_url = null -%}
+{%- if section.settings.hero_asset != blank -%}
+  {%- assign hero_asset_url = section.settings.hero_asset | asset_url -%}
+{%- endif -%}
 {%- assign preload_image = first_image | default: section.settings.hero_image -%}
-{%- if preload_image -%}
+{%- if hero_asset_url -%}
+  <link rel="preload" as="image" href="{{ hero_asset_url }}" fetchpriority="high">
+{%- elsif preload_image -%}
   <link rel="preload" as="image"
         href="{{ preload_image | image_url: width: 720, format: 'webp' }}"
         imagesrcset="{{ preload_image | image_url: width: 480, format: 'webp' }} 480w, {{ preload_image | image_url: width: 720, format: 'webp' }} 720w, {{ preload_image | image_url: width: 1080, format: 'webp' }} 1080w"
@@ -43,7 +49,12 @@
           {% if section.settings.trust_t3 != blank %}<li>{{ section.settings.trust_t3 }}</li>{% endif %}
         </ul>
       {% endif %}
-      {% if section.settings.hero_image %}
+      {% if hero_asset_url %}
+        <figure class="adv-hero__fig">
+          <img class="adv-hero__img" src="{{ hero_asset_url }}" alt="{{ section.settings.headline | escape }}" width="1080" height="1080" fetchpriority="high" decoding="async">
+          {% if section.settings.caption != blank %}<figcaption class="adv-hero__caption">{{ section.settings.caption }}</figcaption>{% endif %}
+        </figure>
+      {% elsif section.settings.hero_image %}
         <figure class="adv-hero__fig">
           <img class="adv-hero__img" src="{{ section.settings.hero_image | image_url: width: 720, format: 'webp' }}" srcset="{{ section.settings.hero_image | image_url: width: 480, format: 'webp' }} 480w, {{ section.settings.hero_image | image_url: width: 720, format: 'webp' }} 720w, {{ section.settings.hero_image | image_url: width: 1080, format: 'webp' }} 1080w" sizes="(max-width:768px) 100vw, 680px" alt="{{ section.settings.headline | escape }}" width="900" height="900" fetchpriority="high" decoding="async">
           {% if section.settings.caption != blank %}<figcaption class="adv-hero__caption">{{ section.settings.caption }}</figcaption>{% endif %}
@@ -133,7 +144,8 @@
     { "type": "text", "id": "byline", "label": "Byline" },
     { "type": "text", "id": "date", "label": "Publish date" },
     { "type": "text", "id": "read_time", "label": "Read time" },
-    { "type": "image_picker", "id": "hero_image", "label": "Lead image" },
+    { "type": "image_picker", "id": "hero_image", "label": "Lead image (Shopify Files)" },
+    { "type": "text", "id": "hero_asset", "label": "Theme asset filename (overrides Lead image, e.g. hero-pov.jpg)" },
     { "type": "text", "id": "caption", "label": "Image caption" },
     { "type": "url", "id": "cta_url", "label": "CTA link" },
     { "type": "header", "content": "Trust micro-strip" },
@@ -154,7 +166,7 @@
       { "type": "text", "id": "text", "label": "Headline", "default": "I tried 6 foot creams, 2 peels, and a $90 pedicure. Only one thing actually softened my heels." }
     ]},
     { "type": "subhead", "name": "Deck (subhead)", "settings": [
-      { "type": "textarea", "id": "text", "label": "Deck", "default": "Three years of cracked, dry heels. A goat milk mask from Seoul fixed it in 30 minutes — without the harsh acids my dermatologist warned me about." }
+      { "type": "textarea", "id": "text", "label": "Deck", "default": "Three years of cracked, dry heels. A goat milk + niacinamide mask fixed it in 30 minutes — without the harsh acids my dermatologist warned me about." }
     ]},
     { "type": "byline", "name": "Byline", "limit": 1, "settings": [
       { "type": "text", "id": "byline", "label": "Author", "default": "Sarah K." },

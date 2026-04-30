@@ -12,10 +12,17 @@
     "scarcity": {
       "type": "scarcity-bar",
       "settings": {
+        "mode": "marquee",
         "icon": "",
         "text": "",
         "show_timer": false,
         "timer_end_iso": "",
+        "marquee_msg_1": "Free delivery on 5-pack orders",
+        "marquee_msg_2": "30-day money-back guarantee",
+        "marquee_msg_3": "Pregnancy-safe · diabetes-safe",
+        "marquee_msg_4": "Goat milk + niacinamide formula",
+        "marquee_separator": "·",
+        "speed": 36,
         "bg": "#0a0a0a",
         "fg": "#ffffff"
       }
@@ -53,7 +60,7 @@
         "p2": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>A friend in Seoul sent me a thirty-second video. A white sock-shaped pouch, milky liquid sealed inside, slipped over each foot for half an hour. K-beauty's quieter answer to the harsh peels — no burning, no salicylic acid, no five-day flake. I tried it that night, half-believing. The next morning I touched my heel before I got out of bed and felt <strong>skin instead of cracked plaster.</strong> Soft. For the first time in three years.</p>"
+            "text": "<p>A friend sent me a thirty-second video. A white sock-shaped pouch, milky liquid sealed inside, slipped over each foot for half an hour. A gentler alternative to the harsh peels — no burning, no salicylic acid, no five-day flake. I tried it that night, half-believing. The next morning I touched my heel before I got out of bed and felt <strong>skin instead of cracked plaster.</strong> Soft. For the first time in three years.</p>"
           }
         },
         "ba1": {
@@ -300,21 +307,16 @@
           }
         }
       },
-      "block_order": [
-        "i1",
-        "i2",
-        "i3",
-        "i4"
-      ],
+      "block_order": ["i1", "i2", "i3", "i4"],
       "settings": {
         "eyebrow": "Inside the formula",
         "heading_lead": "Four ingredients,",
         "heading_accent": "no compromise.",
         "subhead": "What's inside the sock — and why each thing earned its spot. Pregnancy-safe. Diabetes-safe. No salicylic acid, no fragrance, no essential oils.",
         "cta_label": "",
-        "bg": "",
         "padding_top": 64,
-        "padding_bottom": 64
+        "padding_bottom": 64,
+        "bg": ""
       }
     },
     "comparison": {
@@ -440,7 +442,7 @@
         "heading": "Stop living with",
         "heading_accent": "cracked, dry feet.",
         "subhead": "Goat milk. Niacinamide. 30 minutes. Soft feet that last. Tap a bundle below to skip the picker — your selection is preloaded at checkout.",
-        "fineprint": "All bundles pregnancy-safe, diabetes-safe, dermatologist-approved · 30-day money-back · processed in 1–3 days · standard delivery 8–14 days from our K-beauty manufacturer",
+        "fineprint": "All bundles pregnancy-safe, diabetes-safe, dermatologist-approved · 30-day money-back · processed in 1–3 days · standard delivery 8–14 days",
         "product_handle": "goat-milk-callus-mask",
         "bg": "#faf8f5",
         "padding_top": 64,
