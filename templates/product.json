@@ -15,14 +15,14 @@
         "eyebrow": {
           "type": "eyebrow",
           "settings": {
-            "text": "Kneuro Skincare"
+            "text": "Kneuro Goat Milk Foot Mask"
           }
         },
         "title": {
           "type": "title",
           "settings": {
-            "lead": "Soft feet, gently.",
-            "accent": "In 30 minutes."
+            "lead": "Cracked, Dry Feet —",
+            "accent": "Softened in 30 Minutes."
           }
         },
         "rating": {
@@ -31,17 +31,17 @@
           "settings": {
             "star_value": "",
             "review_count": "",
-            "text": "Pregnancy-safe · No salicylic acid · 30-day refund",
+            "text": "No peeling · No harsh acids · 30-day refund",
             "show_stars": false
           }
         },
         "bullets": {
           "type": "bullets",
           "settings": {
-            "b1": "Goat milk + niacinamide — gentle, no harsh acids",
-            "b2": "Pregnancy-safe (no salicylic acid, no essential oils)",
+            "b1": "No peeling. No harsh acids. Just softer skin.",
+            "b2": "Pregnancy-safe · diabetic-safe · sensitive-skin-safe",
             "b3": "Visible softness in one 30-minute session",
-            "b4": "Works on cracked heels, dry hands, rough elbows"
+            "b4": "Goat milk + niacinamide gentle formula"
           }
         },
         "price": {
@@ -175,10 +175,10 @@
         "i4"
       ],
       "settings": {
-        "eyebrow": "Inside the formula",
-        "heading_lead": "Four ingredients,",
-        "heading_accent": "no compromise.",
-        "subhead": "What's inside the sock — and why each thing earned its spot. Pregnancy-safe. Diabetes-safe. No salicylic acid, no fragrance, no essential oils.",
+        "eyebrow": "4 gentle ingredients. Nothing harsh. Nothing unnecessary.",
+        "heading_lead": "Goat milk + niacinamide.",
+        "heading_accent": "No fillers.",
+        "subhead": "Goat Milk softens · Niacinamide repairs · Glycerin hydrates · Allantoin soothes.",
         "cta_label": "",
         "cta_url": "",
         "cta_subtext": "30-day money-back · free US shipping over $30",
@@ -310,18 +310,18 @@
         "l": {
           "type": "faq_list",
           "settings": {
-            "q1_question": "How long does shipping take?",
-            "q1_answer": "Orders are processed within 1–3 business days. Standard delivery is 8–14 days because we ship directly from our overseas contract manufacturer to keep prices fair. We'll send tracking the moment it dispatches — and you can reply to any order email if you need an ETA.",
-            "q2_question": "What's your return policy?",
-            "q2_answer": "30-day money-back guarantee, no questions asked. If you're not happy with your results, email us and we'll refund you in full — even if the box is opened.",
-            "q3_question": "Is this safe to use during pregnancy?",
-            "q3_answer": "Yes. Our formula uses goat milk, niacinamide, glycerin, and allantoin — all pregnancy-safe. Unlike most foot peels, we contain no salicylic acid, no glycolic acid, and no essential oils. If you have any concerns, check with your OB-GYN first.",
-            "q4_question": "Can I use this if I'm diabetic?",
-            "q4_answer": "Yes — the formula is gentle and free of harsh acids that diabetics are typically warned to avoid. As always, consult your doctor if you have severe peripheral neuropathy or open wounds.",
-            "q5_question": "How is this different from harsh foot peels?",
-            "q5_answer": "harsh foot peels uses a strong acid blend (glycolic, lactic, salicylic) that causes dramatic peeling 3–7 days after application. We use a goat milk + niacinamide hydrating formula that softens skin gradually without the painful peel. Better for sensitive skin, pregnancy, diabetes, and anyone who can't be barefoot in public for a week.",
-            "q6_question": "",
-            "q6_answer": "",
+            "q1_question": "Does it peel?",
+            "q1_answer": "No. Goat milk lactic acid softens skin gradually without the 5-day peeling phase that harsh foot peels cause. Wear sandals the next day.",
+            "q2_question": "Does it hurt or burn?",
+            "q2_answer": "No burning. Gentle by design — works for pregnancy, diabetic feet, sensitive skin.",
+            "q3_question": "How fast does it work?",
+            "q3_answer": "Most customers feel softer skin after the first 30-minute session. Plan on 2–3 weekly sessions for deeply cracked heels.",
+            "q4_question": "Is it safe for sensitive skin, pregnancy, or diabetes?",
+            "q4_answer": "Yes. Goat milk + niacinamide + glycerin + allantoin. Zero salicylic acid, zero glycolic acid, zero fragrance.",
+            "q5_question": "How long does shipping take?",
+            "q5_answer": "Ships 1–3 business days. Standard delivery 8–14 days. Order ahead of events.",
+            "q6_question": "What's your return policy?",
+            "q6_answer": "30-day money-back guarantee, no questions asked. Refund in full even if the box is opened.",
             "q7_question": "",
             "q7_answer": "",
             "q8_question": "",
@@ -487,7 +487,7 @@
           "type": "table",
           "settings": {
             "col_brand": "Kneuro",
-            "col_2": "harsh foot peels",
+            "col_2": "Harsh peels",
             "col_3": "Foot cream",
             "col_4": "",
             "row_1_label": "Pregnancy-safe",
