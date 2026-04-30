@@ -30,7 +30,7 @@
         "byline": "Sarah K.",
         "date": "April 26, 2026",
         "read_time": "",
-        "hero_image": "shopify://shop_images/5pack.png",
+        "hero_image": "shopify://shop_images/couple_wearing_product.png",
         "caption": "30 minutes. Both feet. Soft, hydrated heels — no peeling.",
         "cta_url": "/products/goat-milk-callus-mask",
         "trust_t1": "Pregnancy-safe",
@@ -56,105 +56,16 @@
             "text": "<p>A friend in Seoul sent me a thirty-second video. A white sock-shaped pouch, milky liquid sealed inside, slipped over each foot for half an hour. K-beauty's quieter answer to the harsh peels — no burning, no salicylic acid, no five-day flake. I tried it that night, half-believing. The next morning I touched my heel before I got out of bed and felt <strong>skin instead of cracked plaster.</strong> Soft. For the first time in three years.</p>"
           }
         },
-        "p_science": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p><strong>Goat milk's lactic acid is 1/10th the strength of Baby Foot's acid blend</strong> — soft enough for pregnant women and diabetic feet, strong enough to work in 30 minutes. No 5-day peeling phase. No more socks at the beach.</p>"
-          }
-        },
-        "p3": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Three weeks in, I've bought the 3-pack. Wedding, beach trip, every date night since. <strong>My dermatologist approved the ingredient list</strong>: no salicylic acid, no fragrance, no essential oils. Pregnancy-safe. Diabetes-safe. Eczema-safe. Just goat milk, doing what it's done since Cleopatra.</p>"
-          }
-        },
-        "p4": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Three weeks in, I've bought the 3-pack. Used it before my sister's wedding, a beach trip, every date night. My dermatologist approved the ingredient list — no salicylic acid, no fragrance, no essential oils. <strong>Pregnancy-safe. Diabetes-safe. Eczema-safe.</strong> Just goat milk doing what it's done for 4,000 years.</p>"
-          }
-        },
-        "img1": {
-          "type": "image",
-          "settings": {
-            "alt": "Dry, cracked heels before treatment",
-            "caption": "March 2026. Three years of trying everything that didn't work."
-          }
-        },
-        "img2": {
-          "type": "image",
-          "settings": {
-            "alt": "Goat milk foot mask in soft sock shape, ready to use",
-            "caption": "The mask my friend sent. White liquid, soft sock — looked silly. Worked anyway."
-          }
-        },
-        "quote": {
-          "type": "pullquote",
-          "settings": {
-            "quote": "30 minutes. No burning. No peeling. The next morning my feet were genuinely soft for the first time in three years.",
-            "attribution": "Sarah, three weeks in"
-          }
-        },
-        "img3": {
-          "type": "image",
-          "settings": {
-            "alt": "Soft, hydrated feet after 30-minute application",
-            "caption": "Three weeks later. Weekly 30-minute sessions. No peeling, just soft."
-          }
-        },
         "ba1": {
           "type": "before_after",
           "settings": {
             "eyebrow": "The proof",
             "heading": "From cracked to soft in three weeks.",
+            "before_image": "shopify://shop_images/freepik_amateur-smartphone-macro-_2870963720_1.png",
             "before_label": "Before",
+            "after_image": "shopify://shop_images/freepik_same-shot-of-image-but-wa_2870994617.png",
             "after_label": "After · 3 weeks",
             "caption": "Real customer photo. One pair, weekly application, no peeling."
-          }
-        },
-        "q_hannah": {
-          "type": "pullquote",
-          "settings": {
-            "quote": "I've tried Baby Foot and the harsh peels — they always burned and made my feet flake painfully for two weeks. This one is gentle. Soft, hydrated feet the next morning, no flaking.",
-            "attribution": "Hannah M. · Sensitive skin · Early customer"
-          }
-        },
-        "q_priya": {
-          "type": "pullquote",
-          "settings": {
-            "quote": "I'm pregnant and couldn't use any of the regular foot peels — salicylic acid is a no-go. My feet were splitting from the swelling. Genuine relief by the next morning.",
-            "attribution": "Priya R. · Pregnant · Early customer"
-          }
-        },
-        "q_daniel": {
-          "type": "pullquote",
-          "settings": {
-            "quote": "Bought the 3-pack for me, my mom, and my sister. All three of us texted in caps lock the next day. Officially the family group-chat skincare moment of the year.",
-            "attribution": "Daniel K. · Bought as a gift · Early customer"
-          }
-        },
-        "p_bridge": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>I'm not the only one. Customers writing in from different situations — pregnant, diabetic, sensitive skin, the people most foot peels leave behind. Same outcome.</p>"
-          }
-        },
-        "ing": {
-          "type": "ingredients",
-          "settings": {
-            "heading": "Four ingredients, zero compromise",
-            "i1_emoji": "🥛",
-            "i1_title": "Goat Milk",
-            "i1_body": "Gentle lactic acid hydrates without stripping the skin barrier.",
-            "i2_emoji": "✨",
-            "i2_title": "Niacinamide",
-            "i2_body": "Vitamin B3 strengthens the barrier and evens skin tone.",
-            "i3_emoji": "💧",
-            "i3_title": "Glycerin",
-            "i3_body": "Pulls deep moisture into the dermis — soft for days, not hours.",
-            "i4_emoji": "🌿",
-            "i4_title": "Allantoin",
-            "i4_body": "Soothes irritation. Safe for sensitive, pregnant, and diabetic skin."
           }
         },
         "cta1": {
@@ -179,52 +90,158 @@
         "padding_bottom": 48
       }
     },
-    "faq": {
-      "type": "faq",
+    "timeline": {
+      "type": "day-by-day-timeline",
       "blocks": {
-        "kicker": {
-          "type": "kicker",
+        "s1": {
+          "type": "step",
           "settings": {
-            "text": "Questions, answered"
+            "time_label": "Hour 0",
+            "title": "Slip it on",
+            "body": "Pull each soft sock-shaped pouch over your foot. Serum's already sealed inside — no mixing, no measuring. Sit down, scroll your phone, watch one episode.",
+            "tag": "",
+            "image_alt": "",
+            "image_caption": ""
           }
         },
-        "heading": {
-          "type": "heading",
+        "s2": {
+          "type": "step",
           "settings": {
-            "lead": "The",
-            "accent": "honest answers."
+            "time_label": "30 min",
+            "title": "Take it off, rinse",
+            "body": "Peel the pouches off, rinse your feet warm. The serum has been working — goat milk lactic acid loosening dead skin, niacinamide soothing the barrier underneath.",
+            "tag": "First softness",
+            "image_alt": "",
+            "image_caption": ""
           }
         },
-        "list": {
-          "type": "faq_list",
+        "s3": {
+          "type": "step",
           "settings": {
-            "q1_question": "Does this actually work on cracked heels?",
-            "q1_answer": "Yes — and we back it with a 30-day money-back guarantee. Most customers see noticeably softer, hydrated feet after one 30-minute session. For deeply cracked heels, plan on 2–3 weekly applications. If it doesn't work for you, we refund you in full.",
-            "q2_question": "What if it doesn't work for me?",
-            "q2_answer": "30-day money-back guarantee, no questions asked. Email us, we refund you in full — even if the box is opened. We'd rather lose the sale than have you stuck with something that didn't deliver.",
-            "q3_question": "How is this different from Baby Foot?",
-            "q3_answer": "Baby Foot uses a strong acid blend (glycolic, lactic, salicylic) that causes dramatic skin peeling 3–7 days after — painful, embarrassing, and you can't wear sandals for a week. We use a goat milk + niacinamide hydrating formula that softens skin gradually with no peeling. Safer for sensitive skin, pregnancy, diabetes, and anyone who can't disappear for 7 days.",
-            "q4_question": "Is it safe for sensitive skin, pregnancy, or diabetes?",
-            "q4_answer": "Yes to all three. Our formula uses only goat milk, niacinamide, glycerin, and allantoin. Zero salicylic acid, zero glycolic acid, zero fragrance, zero essential oils. Customers with eczema, pregnant feet, and diabetic skin who couldn't use other foot peels use this safely. (Check with your doctor if you have specific concerns.)",
-            "q5_question": "How long do results last?",
-            "q5_answer": "One application keeps feet noticeably softer for 1–2 weeks for most people. Customers using the 3-pack as a weekly ritual maintain smooth heels indefinitely. Daily walkers, gym-goers, and people on their feet all day usually need a session every 7–10 days to maintain results.",
-            "q6_question": "Can I use it on my hands and elbows too?",
-            "q6_answer": "Absolutely. The same formula works on dry hands, rough elbows, and even knees. Many customers buy the 3-pack specifically to use across multiple body areas.",
-            "q7_question": "",
-            "q7_answer": "",
-            "q8_question": "",
-            "q8_answer": ""
+            "time_label": "Hour 1",
+            "title": "Touch your heels",
+            "body": "They feel different already. Not finished — but softer than before. Most customers notice the change here.",
+            "tag": "",
+            "image_alt": "",
+            "image_caption": ""
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "time_label": "Day 1 morning",
+            "title": "Wake up to softer skin",
+            "body": "Get out of bed and feel your heel on the floor. Skin instead of cracked plaster. The mask kept working through the night while the niacinamide repaired the barrier.",
+            "tag": "",
+            "image_alt": "",
+            "image_caption": ""
+          }
+        },
+        "s5": {
+          "type": "step",
+          "settings": {
+            "time_label": "Day 3",
+            "title": "Dry patches reduced",
+            "body": "Calluses haven't disappeared — this isn't a peel, it's a softener. But the rough patches are smoother, more pliable. No painful flaking, no scary skin shedding.",
+            "tag": "No peeling phase",
+            "image_alt": "",
+            "image_caption": ""
+          }
+        },
+        "s6": {
+          "type": "step",
+          "settings": {
+            "time_label": "Day 7",
+            "title": "Heels you'd actually show",
+            "body": "Smooth enough for sandals. Soft enough for bare-feet date nights. The kind of feet you stop thinking about — because there's nothing to hide anymore.",
+            "tag": "",
+            "image_alt": "",
+            "image_caption": ""
+          }
+        },
+        "s7": {
+          "type": "step",
+          "settings": {
+            "time_label": "Week 2+",
+            "title": "The maintenance ritual",
+            "body": "One mask per week keeps feet permanently soft. The 3-pack lasts a month, the 5-pack lasts 5 weeks. No salon. No appointment. 30 minutes on a Sunday.",
+            "tag": "Sustainable softness",
+            "image_alt": "",
+            "image_caption": ""
           }
         }
       },
       "block_order": [
-        "kicker",
-        "heading",
-        "list"
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7"
       ],
       "settings": {
-        "padding_top": 80,
-        "padding_bottom": 80,
+        "eyebrow": "What to expect",
+        "heading_lead": "From the moment you",
+        "heading_accent": "slip it on.",
+        "subhead": "Real timeline, no exaggeration. What 30 minutes of goat milk and niacinamide actually does to your feet — hour by hour, day by day.",
+        "cta_label": "Start your 30-minute reset →",
+        "cta_url": "/products/goat-milk-callus-mask",
+        "cta_subtext": "30-day money-back · free US shipping over $30",
+        "bg": "",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "testimonials": {
+      "type": "testimonial-quotes",
+      "blocks": {
+        "k": {
+          "type": "kicker",
+          "settings": {
+            "text": "What customers say"
+          }
+        },
+        "h": {
+          "type": "heading",
+          "settings": {
+            "lead": "Real heels.",
+            "accent": "Real reviews."
+          }
+        },
+        "s": {
+          "type": "subheading",
+          "settings": {
+            "text": "Early customers across pregnancy, sensitive skin, and gift purchases."
+          }
+        },
+        "q": {
+          "type": "quotes_row",
+          "settings": {
+            "q1_quote": "I've tried Baby Foot and the harsh peels — they always burned and made my feet flake painfully for two weeks. This one is gentle. Soft, hydrated feet the next morning, no flaking.",
+            "q1_name": "Hannah M.",
+            "q1_initials": "HM",
+            "q1_location": "Sensitive skin · Early customer",
+            "q2_quote": "I'm pregnant and couldn't use any of the regular foot peels — salicylic acid is a no-go. My feet were splitting from the swelling. Genuine relief by the next morning.",
+            "q2_name": "Priya R.",
+            "q2_initials": "PR",
+            "q2_location": "Pregnant · Early customer",
+            "q3_quote": "Bought the 3-pack for me, my mom, and my sister. All three of us texted in caps lock the next day. Officially the family group-chat skincare moment of the year.",
+            "q3_name": "Daniel K.",
+            "q3_initials": "DK",
+            "q3_location": "Bought as a gift · Early customer"
+          }
+        }
+      },
+      "block_order": [
+        "k",
+        "h",
+        "s",
+        "q"
+      ],
+      "settings": {
+        "padding_top": 64,
+        "padding_bottom": 64,
         "bg_color": ""
       }
     },
@@ -294,7 +311,8 @@
       ],
       "settings": {
         "padding_top": 56,
-        "padding_bottom": 56
+        "padding_bottom": 56,
+        "bg_color": ""
       }
     },
     "comparison": {
@@ -355,142 +373,8 @@
       ],
       "settings": {
         "padding_top": 64,
-        "padding_bottom": 64
-      }
-    },
-    "timeline": {
-      "type": "day-by-day-timeline",
-      "blocks": {
-        "s1": {
-          "type": "step",
-          "settings": {
-            "time_label": "Hour 0",
-            "title": "Slip it on",
-            "body": "Pull each soft sock-shaped pouch over your foot. Serum's already sealed inside — no mixing, no measuring. Sit down, scroll your phone, watch one episode."
-          }
-        },
-        "s2": {
-          "type": "step",
-          "settings": {
-            "time_label": "30 min",
-            "title": "Take it off, rinse",
-            "body": "Peel the pouches off, rinse your feet warm. The serum has been working — goat milk lactic acid loosening dead skin, niacinamide soothing the barrier underneath.",
-            "tag": "First softness"
-          }
-        },
-        "s3": {
-          "type": "step",
-          "settings": {
-            "time_label": "Hour 1",
-            "title": "Touch your heels",
-            "body": "They feel different already. Not finished — but softer than before. Most customers notice the change here."
-          }
-        },
-        "s4": {
-          "type": "step",
-          "settings": {
-            "time_label": "Day 1 morning",
-            "title": "Wake up to softer skin",
-            "body": "Get out of bed and feel your heel on the floor. Skin instead of cracked plaster. The mask kept working through the night while the niacinamide repaired the barrier."
-          }
-        },
-        "s5": {
-          "type": "step",
-          "settings": {
-            "time_label": "Day 3",
-            "title": "Dry patches reduced",
-            "body": "Calluses haven't disappeared — this isn't a peel, it's a softener. But the rough patches are smoother, more pliable. No painful flaking, no scary skin shedding.",
-            "tag": "No peeling phase"
-          }
-        },
-        "s6": {
-          "type": "step",
-          "settings": {
-            "time_label": "Day 7",
-            "title": "Heels you'd actually show",
-            "body": "Smooth enough for sandals. Soft enough for bare-feet date nights. The kind of feet you stop thinking about — because there's nothing to hide anymore."
-          }
-        },
-        "s7": {
-          "type": "step",
-          "settings": {
-            "time_label": "Week 2+",
-            "title": "The maintenance ritual",
-            "body": "One mask per week keeps feet permanently soft. The 3-pack lasts a month, the 5-pack lasts 5 weeks. No salon. No appointment. 30 minutes on a Sunday.",
-            "tag": "Sustainable softness"
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3",
-        "s4",
-        "s5",
-        "s6",
-        "s7"
-      ],
-      "settings": {
-        "eyebrow": "What to expect",
-        "heading_lead": "From the moment you",
-        "heading_accent": "slip it on.",
-        "subhead": "Real timeline, no exaggeration. What 30 minutes of goat milk and niacinamide actually does to your feet — hour by hour, day by day.",
-        "cta_label": "Start your 30-minute reset →",
-        "cta_url": "/products/goat-milk-callus-mask",
-        "cta_subtext": "30-day money-back · free US shipping over $30",
-        "padding_top": 64,
-        "padding_bottom": 64
-      }
-    },
-    "testimonials": {
-      "type": "testimonial-quotes",
-      "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "What customers say"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "Real heels.",
-            "accent": "Real reviews."
-          }
-        },
-        "s": {
-          "type": "subheading",
-          "settings": {
-            "text": "Early customers across pregnancy, sensitive skin, and gift purchases."
-          }
-        },
-        "q": {
-          "type": "quotes_row",
-          "settings": {
-            "q1_quote": "I've tried Baby Foot and the harsh peels — they always burned and made my feet flake painfully for two weeks. This one is gentle. Soft, hydrated feet the next morning, no flaking.",
-            "q1_name": "Hannah M.",
-            "q1_initials": "HM",
-            "q1_location": "Sensitive skin · Early customer",
-            "q2_quote": "I'm pregnant and couldn't use any of the regular foot peels — salicylic acid is a no-go. My feet were splitting from the swelling. Genuine relief by the next morning.",
-            "q2_name": "Priya R.",
-            "q2_initials": "PR",
-            "q2_location": "Pregnant · Early customer",
-            "q3_quote": "Bought the 3-pack for me, my mom, and my sister. All three of us texted in caps lock the next day. Officially the family group-chat skincare moment of the year.",
-            "q3_name": "Daniel K.",
-            "q3_initials": "DK",
-            "q3_location": "Bought as a gift · Early customer"
-          }
-        }
-      },
-      "block_order": [
-        "k",
-        "h",
-        "s",
-        "q"
-      ],
-      "settings": {
-        "padding_top": 64,
-        "padding_bottom": 64
+        "padding_bottom": 64,
+        "bg_color": ""
       }
     },
     "bundles": {
@@ -559,6 +443,55 @@
         "bg": "#faf8f5",
         "padding_top": 64,
         "padding_bottom": 80
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "kicker": {
+          "type": "kicker",
+          "settings": {
+            "text": "Questions, answered"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "lead": "The",
+            "accent": "honest answers."
+          }
+        },
+        "list": {
+          "type": "faq_list",
+          "settings": {
+            "q1_question": "Does this actually work on cracked heels?",
+            "q1_answer": "Yes — and we back it with a 30-day money-back guarantee. Most customers see noticeably softer, hydrated feet after one 30-minute session. For deeply cracked heels, plan on 2–3 weekly applications. If it doesn't work for you, we refund you in full.",
+            "q2_question": "What if it doesn't work for me?",
+            "q2_answer": "30-day money-back guarantee, no questions asked. Email us, we refund you in full — even if the box is opened. We'd rather lose the sale than have you stuck with something that didn't deliver.",
+            "q3_question": "How is this different from Baby Foot?",
+            "q3_answer": "Baby Foot uses a strong acid blend (glycolic, lactic, salicylic) that causes dramatic skin peeling 3–7 days after — painful, embarrassing, and you can't wear sandals for a week. We use a goat milk + niacinamide hydrating formula that softens skin gradually with no peeling. Safer for sensitive skin, pregnancy, diabetes, and anyone who can't disappear for 7 days.",
+            "q4_question": "Is it safe for sensitive skin, pregnancy, or diabetes?",
+            "q4_answer": "Yes to all three. Our formula uses only goat milk, niacinamide, glycerin, and allantoin. Zero salicylic acid, zero glycolic acid, zero fragrance, zero essential oils. Customers with eczema, pregnant feet, and diabetic skin who couldn't use other foot peels use this safely. (Check with your doctor if you have specific concerns.)",
+            "q5_question": "How long do results last?",
+            "q5_answer": "One application keeps feet noticeably softer for 1–2 weeks for most people. Customers using the 3-pack as a weekly ritual maintain smooth heels indefinitely. Daily walkers, gym-goers, and people on their feet all day usually need a session every 7–10 days to maintain results.",
+            "q6_question": "Can I use it on my hands and elbows too?",
+            "q6_answer": "Absolutely. The same formula works on dry hands, rough elbows, and even knees. Many customers buy the 3-pack specifically to use across multiple body areas.",
+            "q7_question": "",
+            "q7_answer": "",
+            "q8_question": "",
+            "q8_answer": ""
+          }
+        }
+      },
+      "block_order": [
+        "kicker",
+        "heading",
+        "list"
+      ],
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "bg_color": ""
       }
     }
   },
