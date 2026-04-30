@@ -120,12 +120,6 @@
           "settings": {
             "text": "Lactic acid from milk — gentle enough for pregnancy."
           }
-        },
-        "hk4": {
-          "type": "heading",
-          "settings": {
-            "text": "Real customers. Real heels. Real photos."
-          }
         }
       },
       "block_order": [
@@ -138,8 +132,7 @@
         "hk3",
         "p_proof",
         "ba2",
-        "ba3",
-        "hk4"
+        "ba3"
       ],
       "settings": {
         "cta_url": "/products/goat-milk-callus-mask",
