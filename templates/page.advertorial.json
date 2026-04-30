@@ -13,10 +13,10 @@
       "type": "scarcity-bar",
       "settings": {
         "icon": "",
-        "text": "LIMITED — 30% OFF 3-PACK ENDS IN",
-        "show_timer": true,
-        "timer_end_iso": "2026-05-01T23:59:59",
-        "bg": "#1a1a1a",
+        "text": "",
+        "show_timer": false,
+        "timer_end_iso": "",
+        "bg": "#0a0a0a",
         "fg": "#ffffff"
       }
     },
@@ -36,8 +36,8 @@
         "heading_accent": "in 30 minutes.",
         "subhead": "Submitted by Kneuro customers. One pair, one application, visibly softer feet.",
         "bg": "",
-        "cta_label": "Get yours — from $19.99 →",
-        "cta_url": "/products/goat-milk-callus-mask",
+        "cta_label": "",
+        "cta_url": "",
         "padding_top": 64,
         "padding_bottom": 64
       }
@@ -203,38 +203,103 @@
           }
         }
       },
-      "block_order": ["i1", "i2", "i3", "i4"],
+      "block_order": [
+        "i1",
+        "i2",
+        "i3",
+        "i4"
+      ],
       "settings": {
         "eyebrow": "Inside the formula",
         "heading_lead": "Four ingredients,",
         "heading_accent": "no compromise.",
         "subhead": "What's inside the sock — and why each thing earned its spot. Pregnancy-safe. Diabetes-safe. No salicylic acid, no fragrance, no essential oils.",
         "cta_label": "",
+        "bg": "",
         "padding_top": 72,
-        "padding_bottom": 72,
-        "bg": ""
+        "padding_bottom": 72
       }
     },
     "timeline": {
       "type": "day-by-day-timeline",
       "blocks": {
-        "s1": { "type": "step", "settings": { "time_label": "Hour 0", "title": "Slip it on", "body": "Pull each soft sock-shaped pouch over your foot. Serum's already sealed inside — no mixing, no measuring. Sit down, scroll your phone, watch one episode." }},
-        "s2": { "type": "step", "settings": { "time_label": "30 min", "title": "Take it off, rinse", "body": "Peel the pouches off, rinse your feet warm. The serum has been working — goat milk lactic acid loosening dead skin, niacinamide soothing the barrier underneath.", "tag": "First softness" }},
-        "s3": { "type": "step", "settings": { "time_label": "Hour 1", "title": "Touch your heels", "body": "They feel different already. Not finished — but softer than before. Most customers notice the change here." }},
-        "s4": { "type": "step", "settings": { "time_label": "Day 1 morning", "title": "Wake up to softer skin", "body": "Get out of bed and feel your heel on the floor. Skin instead of cracked plaster. The mask kept working through the night while the niacinamide repaired the barrier." }},
-        "s5": { "type": "step", "settings": { "time_label": "Day 3", "title": "Dry patches reduced", "body": "Calluses haven't disappeared — this isn't a peel, it's a softener. But the rough patches are smoother, more pliable. No painful flaking, no scary skin shedding.", "tag": "No peeling phase" }},
-        "s6": { "type": "step", "settings": { "time_label": "Day 7", "title": "Heels you'd actually show", "body": "Smooth enough for sandals. Soft enough for bare-feet date nights. The kind of feet you stop thinking about — because there's nothing to hide anymore." }},
-        "s7": { "type": "step", "settings": { "time_label": "Week 2+", "title": "The maintenance ritual", "body": "One mask per week keeps feet permanently soft. The 3-pack lasts a month, the 5-pack lasts 5 weeks. No salon. No appointment. 30 minutes on a Sunday.", "tag": "Sustainable softness" }}
+        "s1": {
+          "type": "step",
+          "settings": {
+            "time_label": "Hour 0",
+            "title": "Slip it on",
+            "body": "Pull each soft sock-shaped pouch over your foot. Serum's already sealed inside — no mixing, no measuring. Sit down, scroll your phone, watch one episode."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "time_label": "30 min",
+            "title": "Take it off, rinse",
+            "body": "Peel the pouches off, rinse your feet warm. The serum has been working — goat milk lactic acid loosening dead skin, niacinamide soothing the barrier underneath.",
+            "tag": "First softness"
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "time_label": "Hour 1",
+            "title": "Touch your heels",
+            "body": "They feel different already. Not finished — but softer than before. Most customers notice the change here."
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "time_label": "Day 1 morning",
+            "title": "Wake up to softer skin",
+            "body": "Get out of bed and feel your heel on the floor. Skin instead of cracked plaster. The mask kept working through the night while the niacinamide repaired the barrier."
+          }
+        },
+        "s5": {
+          "type": "step",
+          "settings": {
+            "time_label": "Day 3",
+            "title": "Dry patches reduced",
+            "body": "Calluses haven't disappeared — this isn't a peel, it's a softener. But the rough patches are smoother, more pliable. No painful flaking, no scary skin shedding.",
+            "tag": "No peeling phase"
+          }
+        },
+        "s6": {
+          "type": "step",
+          "settings": {
+            "time_label": "Day 7",
+            "title": "Heels you'd actually show",
+            "body": "Smooth enough for sandals. Soft enough for bare-feet date nights. The kind of feet you stop thinking about — because there's nothing to hide anymore."
+          }
+        },
+        "s7": {
+          "type": "step",
+          "settings": {
+            "time_label": "Week 2+",
+            "title": "The maintenance ritual",
+            "body": "One mask per week keeps feet permanently soft. The 3-pack lasts a month, the 5-pack lasts 5 weeks. No salon. No appointment. 30 minutes on a Sunday.",
+            "tag": "Sustainable softness"
+          }
+        }
       },
-      "block_order": ["s1", "s2", "s3", "s4", "s5", "s6", "s7"],
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7"
+      ],
       "settings": {
         "eyebrow": "What to expect",
         "heading_lead": "From the moment you",
         "heading_accent": "slip it on.",
         "subhead": "Real timeline, no exaggeration. What 30 minutes of goat milk and niacinamide actually does to your feet — hour by hour, day by day.",
-        "cta_label": "Get yours — from $19.99 →",
-        "cta_url": "/products/goat-milk-callus-mask",
-        "cta_subtext": "30-day money-back · free US shipping over $30",
+        "cta_label": "",
+        "cta_url": "",
+        "cta_subtext": "",
         "padding_top": 72,
         "padding_bottom": 72
       }

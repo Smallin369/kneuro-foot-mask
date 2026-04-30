@@ -13,10 +13,10 @@
       "type": "scarcity-bar",
       "settings": {
         "icon": "",
-        "text": "LIMITED — 30% OFF 3-PACK ENDS IN",
-        "show_timer": true,
-        "timer_end_iso": "2026-05-01T23:59:59",
-        "bg": "#1a1a1a",
+        "text": "",
+        "show_timer": false,
+        "timer_end_iso": "",
+        "bg": "#0a0a0a",
         "fg": "#ffffff"
       }
     },
@@ -80,8 +80,7 @@
       "block_order": [
         "p1",
         "p2",
-        "ba1",
-        "cta1"
+        "ba1"
       ],
       "settings": {
         "cta_url": "/products/goat-milk-callus-mask",
@@ -185,9 +184,9 @@
         "heading_lead": "From the moment you",
         "heading_accent": "slip it on.",
         "subhead": "Real timeline, no exaggeration. What 30 minutes of goat milk and niacinamide actually does to your feet — hour by hour, day by day.",
-        "cta_label": "Start your 30-minute reset →",
-        "cta_url": "/products/goat-milk-callus-mask",
-        "cta_subtext": "30-day money-back · free US shipping over $30",
+        "cta_label": "",
+        "cta_url": "",
+        "cta_subtext": "",
         "bg": "",
         "padding_top": 64,
         "padding_bottom": 64
@@ -246,73 +245,76 @@
       }
     },
     "ingredients": {
-      "type": "why-grid",
+      "type": "ingredient-deepdive",
       "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "What's inside"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "Four ingredients,",
-            "accent": "zero compromise."
-          }
-        },
-        "s": {
-          "type": "subheading",
-          "settings": {
-            "text": "Pregnancy-safe. Diabetes-safe. No salicylic acid, no fragrance, no essential oils."
-          }
-        },
-        "c1": {
-          "type": "card",
+        "i1": {
+          "type": "ingredient",
           "settings": {
             "emoji": "🥛",
             "title": "Goat Milk",
-            "body": "Gentle lactic acid — 1/10 the strength of Baby Foot. Hydrates without stripping."
+            "scientific": "Capra hircus milk",
+            "role": "Naturally contains lactic acid, an alpha-hydroxy acid that loosens the bonds holding dead skin cells together — gently, without the burn of synthetic glycolic or salicylic acid.",
+            "benefit": "About 1/10th the strength of Baby Foot's acid blend. Softens visibly without the 5-day painful peeling phase. Pregnancy-safe, breastfeeding-safe, diabetic-skin-friendly.",
+            "source_note": "Whole goat milk extract. Used in skincare since Cleopatra's milk baths.",
+            "proof_note": "Lactic acid is the only AHA dermatologists routinely green-light during pregnancy.",
+            "tags": "Natural AHA, Pregnancy-safe, Diabetic-safe"
           }
         },
-        "c2": {
-          "type": "card",
+        "i2": {
+          "type": "ingredient",
           "settings": {
             "emoji": "✨",
-            "title": "Niacinamide (B3)",
-            "body": "Strengthens the skin barrier and evens tone."
+            "title": "Niacinamide (Vitamin B3)",
+            "scientific": "Nicotinamide",
+            "role": "Strengthens the skin's lipid barrier, the natural shield that holds moisture in. Also evens out tone and reduces the redness that comes with cracked, irritated heels.",
+            "benefit": "While the goat milk loosens dead skin, niacinamide repairs the new skin underneath. Skin doesn't just feel softer — it stays softer, because the barrier is rebuilding.",
+            "source_note": "Pharmaceutical-grade vitamin B3. The same form used in dermatology offices.",
+            "proof_note": "One of the most-studied ingredients in skincare. Used at 4–10% in clinical trials for barrier repair.",
+            "tags": "Barrier repair, Brightening, Pregnancy-safe"
           }
         },
-        "c3": {
-          "type": "card",
+        "i3": {
+          "type": "ingredient",
           "settings": {
             "emoji": "💧",
             "title": "Glycerin",
-            "body": "Humectant that pulls moisture deep into the dermis."
+            "scientific": "Glycerol",
+            "role": "A humectant — it pulls water from the air and from deeper skin layers up into the dry, parched outer layer, where you can feel it.",
+            "benefit": "Goat milk loosens the rough surface. Niacinamide rebuilds. Glycerin floods what's left with deep moisture so the result lasts days, not hours.",
+            "source_note": "Plant-derived glycerin. Vegan, cruelty-free.",
+            "proof_note": "The most widely-used humectant in dermatology because it works in any humidity, on any skin type.",
+            "tags": "Deep hydration, Plant-derived, Vegan"
           }
         },
-        "c4": {
-          "type": "card",
+        "i4": {
+          "type": "ingredient",
           "settings": {
             "emoji": "🌿",
             "title": "Allantoin",
-            "body": "Soothes irritation. Safe for sensitive, pregnant, and diabetic skin."
+            "scientific": "5-ureidohydantoin",
+            "role": "A soothing agent that calms inflammation and accelerates the skin's natural cell turnover. Originally extracted from comfrey root; now plant-derived for purity.",
+            "benefit": "Cracked heels are micro-injuries. Allantoin is the part of the formula that says 'this skin's been through a lot — let's calm it down and help it heal.'",
+            "source_note": "Plant-derived. Pregnancy-safe, eczema-safe, diabetic-safe.",
+            "proof_note": "Allantoin is in baby products and post-procedure dermatology creams for a reason: it's gentle enough for the most reactive skin.",
+            "tags": "Soothing, Sensitive-skin, Eczema-safe"
           }
         }
       },
       "block_order": [
-        "k",
-        "h",
-        "s",
-        "c1",
-        "c2",
-        "c3",
-        "c4"
+        "i1",
+        "i2",
+        "i3",
+        "i4"
       ],
       "settings": {
-        "padding_top": 56,
-        "padding_bottom": 56,
-        "bg_color": ""
+        "eyebrow": "Inside the formula",
+        "heading_lead": "Four ingredients,",
+        "heading_accent": "no compromise.",
+        "subhead": "What's inside the sock — and why each thing earned its spot. Pregnancy-safe. Diabetes-safe. No salicylic acid, no fragrance, no essential oils.",
+        "cta_label": "",
+        "bg": "",
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "comparison": {

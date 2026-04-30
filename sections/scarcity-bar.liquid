@@ -1,50 +1,112 @@
 {%- liquid
   assign bg = section.settings.bg | default: '#2a1c12'
   assign fg = section.settings.fg | default: '#fbf3e3'
+  assign mode = section.settings.mode | default: 'static'
 -%}
-<div class="scarcity-bar" style="background:{{ bg }}; color:{{ fg }};">
-  <div class="scarcity-bar__inner">
-    <span class="scarcity-bar__icon">{{ section.settings.icon }}</span>
-    <span class="scarcity-bar__text">{{ section.settings.text }}</span>
-    {% if section.settings.show_timer %}
-      <span class="scarcity-bar__timer" data-countdown data-end="{{ section.settings.timer_end_iso }}">--:--:--</span>
-    {% endif %}
+
+{% if mode == 'marquee' %}
+  {%- assign sep = section.settings.marquee_separator | default: '·' -%}
+  {%- assign m1 = section.settings.marquee_msg_1 -%}
+  {%- assign m2 = section.settings.marquee_msg_2 -%}
+  {%- assign m3 = section.settings.marquee_msg_3 -%}
+  {%- assign m4 = section.settings.marquee_msg_4 -%}
+  <div class="marquee-bar" style="background:{{ bg }}; color:{{ fg }};">
+    <div class="marquee-bar__track" aria-hidden="true">
+      {%- for i in (1..2) -%}
+        <div class="marquee-bar__group">
+          {% if m1 != blank %}<span class="marquee-bar__msg">{{ m1 }}</span><span class="marquee-bar__sep">{{ sep }}</span>{% endif %}
+          {% if m2 != blank %}<span class="marquee-bar__msg">{{ m2 }}</span><span class="marquee-bar__sep">{{ sep }}</span>{% endif %}
+          {% if m3 != blank %}<span class="marquee-bar__msg">{{ m3 }}</span><span class="marquee-bar__sep">{{ sep }}</span>{% endif %}
+          {% if m4 != blank %}<span class="marquee-bar__msg">{{ m4 }}</span><span class="marquee-bar__sep">{{ sep }}</span>{% endif %}
+        </div>
+      {%- endfor -%}
+    </div>
+    <span class="marquee-bar__sr">
+      {{ m1 }}{% if m2 != blank %}. {{ m2 }}{% endif %}{% if m3 != blank %}. {{ m3 }}{% endif %}{% if m4 != blank %}. {{ m4 }}{% endif %}
+    </span>
   </div>
-</div>
 
-<style>
-  .scarcity-bar { padding: 10px 16px; text-align:center; font-size:.9rem; font-weight:500; letter-spacing:.2px; }
-  .scarcity-bar__inner { display:flex; gap:.6rem; align-items:center; justify-content:center; flex-wrap:wrap; max-width:900px; margin:0 auto; }
-  .scarcity-bar__icon { font-size:1.05em; }
-  .scarcity-bar__timer { font-variant-numeric: tabular-nums; font-weight:700; padding:2px 8px; border-radius:4px; background: rgba(255,255,255,.12); }
-</style>
-
-{% if section.settings.show_timer %}
-<script>
-  (function(){
-    var el = document.querySelector('[data-countdown]');
-    if (!el) return;
-    var end = new Date(el.dataset.end || Date.now() + 86400000).getTime();
-    function tick(){
-      var diff = Math.max(0, end - Date.now());
-      var h = Math.floor(diff/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
-      el.textContent = String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+  <style>
+    .marquee-bar { overflow: hidden; padding: 10px 0; font-size: .85rem; font-weight: 600; letter-spacing: .8px; text-transform: uppercase; position: relative; }
+    .marquee-bar__track { display: flex; width: max-content; animation: marquee-scroll {{ section.settings.speed | default: 36 }}s linear infinite; will-change: transform; }
+    .marquee-bar__group { display: flex; align-items: center; flex-shrink: 0; padding-right: 0; }
+    .marquee-bar__msg { padding: 0 1.6rem; white-space: nowrap; }
+    .marquee-bar__sep { opacity: .55; font-weight: 400; }
+    .marquee-bar__sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    .marquee-bar:hover .marquee-bar__track { animation-play-state: paused; }
+    @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-bar__track { animation: none; }
+      .marquee-bar__track { transform: none; }
     }
-    tick(); setInterval(tick, 1000);
-  })();
-</script>
+    @media (max-width: 640px) {
+      .marquee-bar { font-size: .75rem; letter-spacing: .6px; }
+      .marquee-bar__msg { padding: 0 1.1rem; }
+    }
+  </style>
+
+{% else %}
+
+  <div class="scarcity-bar" style="background:{{ bg }}; color:{{ fg }};">
+    <div class="scarcity-bar__inner">
+      <span class="scarcity-bar__icon">{{ section.settings.icon }}</span>
+      <span class="scarcity-bar__text">{{ section.settings.text }}</span>
+      {% if section.settings.show_timer %}
+        <span class="scarcity-bar__timer" data-countdown data-end="{{ section.settings.timer_end_iso }}">--:--:--</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <style>
+    .scarcity-bar { padding: 10px 16px; text-align:center; font-size:.9rem; font-weight:500; letter-spacing:.2px; }
+    .scarcity-bar__inner { display:flex; gap:.6rem; align-items:center; justify-content:center; flex-wrap:wrap; max-width:900px; margin:0 auto; }
+    .scarcity-bar__icon { font-size:1.05em; }
+    .scarcity-bar__timer { font-variant-numeric: tabular-nums; font-weight:700; padding:2px 8px; border-radius:4px; background: rgba(255,255,255,.12); }
+  </style>
+
+  {% if section.settings.show_timer %}
+  <script>
+    (function(){
+      var el = document.querySelector('[data-countdown]');
+      if (!el) return;
+      var end = new Date(el.dataset.end || Date.now() + 86400000).getTime();
+      function tick(){
+        var diff = Math.max(0, end - Date.now());
+        var h = Math.floor(diff/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
+        el.textContent = String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+      }
+      tick(); setInterval(tick, 1000);
+    })();
+  </script>
+  {% endif %}
+
 {% endif %}
 
 {% schema %}
 {
   "name": "Scarcity bar",
   "settings": [
+    { "type": "select", "id": "mode", "label": "Mode", "default": "static",
+      "options": [
+        { "value": "static", "label": "Static (single message)" },
+        { "value": "marquee", "label": "Scrolling marquee" }
+      ]
+    },
+    { "type": "header", "content": "Static mode" },
     { "type": "text", "id": "icon", "label": "Icon", "default": "⚡" },
-    { "type": "text", "id": "text", "label": "Message", "default": "Spring shed sale — 47 mitts left at this price" },
+    { "type": "text", "id": "text", "label": "Message", "default": "Free US shipping over $30" },
     { "type": "checkbox", "id": "show_timer", "label": "Show countdown timer", "default": false },
-    { "type": "text", "id": "timer_end_iso", "label": "Timer ends (ISO date, e.g. 2026-04-30T23:59:59)" },
-    { "type": "color", "id": "bg", "label": "Background", "default": "#2a1c12" },
-    { "type": "color", "id": "fg", "label": "Text color", "default": "#fbf3e3" }
+    { "type": "text", "id": "timer_end_iso", "label": "Timer ends (ISO date)" },
+    { "type": "header", "content": "Marquee mode" },
+    { "type": "text", "id": "marquee_msg_1", "label": "Message 1", "default": "Free delivery on 5-pack orders" },
+    { "type": "text", "id": "marquee_msg_2", "label": "Message 2", "default": "30-day money-back guarantee" },
+    { "type": "text", "id": "marquee_msg_3", "label": "Message 3", "default": "K-beauty formula · pregnancy-safe" },
+    { "type": "text", "id": "marquee_msg_4", "label": "Message 4", "default": "Goat milk + niacinamide" },
+    { "type": "text", "id": "marquee_separator", "label": "Separator", "default": "·" },
+    { "type": "range", "id": "speed", "label": "Scroll duration (seconds)", "min": 15, "max": 90, "step": 1, "default": 36 },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#0a0a0a" },
+    { "type": "color", "id": "fg", "label": "Text color", "default": "#ffffff" }
   ],
   "presets": [{ "name": "Scarcity bar" }]
 }

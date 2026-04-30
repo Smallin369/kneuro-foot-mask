@@ -34,13 +34,13 @@
         "h1": {
           "type": "heading",
           "settings": {
-            "text": "After 18 months of formulation, we shipped Kneuro."
+            "text": "We partnered with a Korean beauty manufacturer to bring it stateside."
           }
         },
         "p3": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Same idea, made stateside, with a 5% niacinamide concentration our team obsessed over for months. The result is a 30-minute mask gentle enough for pregnancy, sensitive skin, and diabetic feet — but powerful enough that you'll see the difference before you take it off.</p>"
+            "text": "<p>The result is a 30-minute foot mask gentle enough for pregnancy, sensitive skin, and diabetic feet — but effective enough that you'll feel the difference before you take it off. Goat milk lactic acid does the gentle exfoliating work; niacinamide repairs the skin barrier underneath.</p>"
           }
         },
         "p4": {
@@ -89,9 +89,9 @@
           "type": "faq_list",
           "settings": {
             "q1_question": "Where is Kneuro made?",
-            "q1_answer": "Formulated and packaged in the United States. Goat milk is sourced from a small herd in New Zealand. Filling and packaging are done in California.",
+            "q1_answer": "We partner with an established Korean beauty manufacturer who specializes in goat milk and niacinamide skincare. They've been quietly making formulas like this for the K-beauty market for years — we worked with them to bring it to global customers under the Kneuro name.",
             "q2_question": "Is Kneuro a real lab or just a brand?",
-            "q2_answer": "We work with a contract manufacturer that holds GMP and FDA-registered facility certifications. The formula was developed by our team in collaboration with a cosmetic chemist who specializes in barrier-safe actives.",
+            "q2_answer": "Kneuro is the brand and curation; the lab work happens with our Korean manufacturing partner. They handle the formulation and quality control. We focus on bringing the product to customers who can't easily find K-beauty foot masks otherwise.",
             "q3_question": "Do you test on animals?",
             "q3_answer": "Never. Cruelty-free is non-negotiable. The goat milk is sourced from a herd that supplies cheese makers — the milk is a renewable byproduct, not a primary purpose.",
             "q4_question": "Why only one product?",
