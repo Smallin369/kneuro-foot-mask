@@ -30,7 +30,7 @@
         "trust_t3": "Pregnancy & diabetic-safe",
         "trust_t4": "1,400+ customers · 30-day refund",
         "cta_price": "From $19.99 · Save $30 on the 5-pack",
-        "bg": "#fbf6ee",
+        "bg": "#ffffff",
         "padding_top": 28,
         "padding_bottom": 56
       }
@@ -448,7 +448,7 @@
         "heading": "Real heels.",
         "heading_accent": "Real photos.",
         "subhead": "",
-        "bg": "#faf2e8",
+        "bg": "#ffffff",
         "max_width": 1080,
         "padding_top": 64,
         "padding_bottom": 72
