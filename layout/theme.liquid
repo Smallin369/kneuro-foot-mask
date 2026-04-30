@@ -19,21 +19,24 @@
 
   <style>
     :root {
-      --cream: #f7f4f0;
-      --cream-soft: #faf8f5;
+      --cream: #f7efe6;
+      --cream-soft: #fbf6ee;
       --surface: #ffffff;
-      --ink: #0a0a0a;
-      --ink-2: #2a2a2a;
-      --muted: #6a6a6a;
-      --line: #ececec;
-      --accent: #0a0a0a;
-      --accent-deep: #2a2a2a;
-      --sage: #0a0a0a;
-      --rose: #f4f0eb;
+      --ink: #1a1216;
+      --ink-2: #3a2a31;
+      --muted: #7a6770;
+      --line: #ece4dc;
+      /* Plum brand color system */
+      --accent: #5C3A4A;
+      --accent-deep: #3D2535;
+      --accent-soft: #E8D6DC;
+      --accent-glaze: rgba(92, 58, 74, 0.18);
+      --sage: #5C3A4A;
+      --rose: #E8D6DC;
       --font-heading: 'Manrope', 'Manrope Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-body: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
     }
-    body { background: #ffffff; }
+    body { background: var(--cream-soft); }
   </style>
 
   <link rel="preload" as="font" type="font/woff2" href="{{ 'manrope-var-latin.woff2' | asset_url }}" crossorigin>

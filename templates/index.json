@@ -316,7 +316,8 @@
         "trust"
       ],
       "settings": {
-        "bg": "#f0dcb8",
+        "mode": "dark",
+        "bg": "#3D2535",
         "padding_top": 80,
         "padding_bottom": 96
       }
@@ -447,7 +448,7 @@
         "heading": "Real heels.",
         "heading_accent": "Real photos.",
         "subhead": "",
-        "bg": "#fbf6ee",
+        "bg": "#faf2e8",
         "max_width": 1080,
         "padding_top": 64,
         "padding_bottom": 72
