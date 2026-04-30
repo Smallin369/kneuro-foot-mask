@@ -51,7 +51,7 @@
           "type": "table",
           "settings": {
             "col_brand": "Kneuro",
-            "col_2": "Baby Foot",
+            "col_2": "harsh foot peels",
             "col_3": "Generic peel",
             "col_4": "Foot cream",
             "row_1_label": "Pregnancy-safe",
@@ -116,8 +116,8 @@
             "q1_answer": "Yes. Our formula uses goat milk, niacinamide, glycerin, and allantoin — all pregnancy-safe. Unlike most foot peels, we contain no salicylic acid, no glycolic acid, and no essential oils. If you have any concerns, check with your OB-GYN first.",
             "q2_question": "How fast will I see results?",
             "q2_answer": "Most customers see softer, more hydrated feet after one 30-minute session. For deeply cracked heels, we recommend 2–3 applications spaced a week apart for best results.",
-            "q3_question": "How is this different from Baby Foot?",
-            "q3_answer": "Baby Foot uses a strong acid blend (glycolic, lactic, salicylic) that causes dramatic peeling 3–7 days after application. We use a goat milk + niacinamide hydrating formula that softens skin gradually without the painful peel. Better for sensitive skin, pregnancy, diabetes, and anyone who can't be barefoot in public for a week.",
+            "q3_question": "How is this different from harsh foot peels?",
+            "q3_answer": "harsh foot peels uses a strong acid blend (glycolic, lactic, salicylic) that causes dramatic peeling 3–7 days after application. We use a goat milk + niacinamide hydrating formula that softens skin gradually without the painful peel. Better for sensitive skin, pregnancy, diabetes, and anyone who can't be barefoot in public for a week.",
             "q4_question": "What's your return policy?",
             "q4_answer": "30-day money-back guarantee, no questions asked. If you're not happy with your results, email us and we'll refund you in full — even if the box is opened.",
             "q5_question": "Can I use it on my hands and elbows too?",
@@ -147,7 +147,7 @@
             "title": "Goat Milk",
             "scientific": "Capra hircus milk",
             "role": "Naturally contains lactic acid, an alpha-hydroxy acid that loosens the bonds holding dead skin cells together — gently, without the burn of synthetic glycolic or salicylic acid.",
-            "benefit": "About 1/10th the strength of Baby Foot's acid blend. Softens visibly without the 5-day painful peeling phase. Pregnancy-safe, breastfeeding-safe, diabetic-skin-friendly.",
+            "benefit": "About 1/10th the strength of harsh foot peels's acid blend. Softens visibly without the 5-day painful peeling phase. Pregnancy-safe, breastfeeding-safe, diabetic-skin-friendly.",
             "source_note": "Whole goat milk extract. Used in skincare since Cleopatra's milk baths.",
             "proof_note": "Lactic acid is the only AHA dermatologists routinely green-light during pregnancy.",
             "tags": "Natural AHA, Pregnancy-safe, Diabetic-safe"
@@ -238,7 +238,7 @@
         "q": {
           "type": "quotes_row",
           "settings": {
-            "q1_quote": "I've tried Baby Foot and the harsh peels — they always burned and made my feet flake painfully for two weeks. This one is gentle. Soft, hydrated feet the next morning, no flaking.",
+            "q1_quote": "I've tried harsh foot peels and the harsh peels — they always burned and made my feet flake painfully for two weeks. This one is gentle. Soft, hydrated feet the next morning, no flaking.",
             "q1_name": "Hannah M.",
             "q1_initials": "HM",
             "q1_location": "Sensitive skin · Early customer",
@@ -423,7 +423,7 @@
             "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png",
             "before_label": "Before",
             "after_label": "After · 1 session",
-            "caption": "Tried Baby Foot before; this didn't burn or peel."
+            "caption": "Tried harsh foot peels before; this didn't burn or peel."
           }
         }
       },

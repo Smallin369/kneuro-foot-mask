@@ -76,7 +76,7 @@
             "heading": "Hannah's rough heels — without the burn.",
             "before_label": "Before",
             "after_label": "After · 1 session",
-            "caption": "Hannah M. — sensitive skin. Tried Baby Foot before; this one didn't burn or peel.",
+            "caption": "Hannah M. — sensitive skin. Tried harsh foot peels before; this one didn't burn or peel.",
             "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
             "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png"
           }
@@ -98,17 +98,44 @@
           "settings": {
             "text": "<p>I asked customers for their photos. Pregnant feet, diabetic feet, sensitive skin, gym-goers — the people most foot peels leave behind. Every one of them sent the same kind of result.</p>"
           }
+        },
+        "hk1": {
+          "type": "heading",
+          "settings": {
+            "text": "Six foot products. Three years. Nothing worked."
+          }
+        },
+        "hk2": {
+          "type": "heading",
+          "settings": {
+            "text": "Soft heels by morning. No peeling, no burning."
+          }
+        },
+        "hk3": {
+          "type": "heading",
+          "settings": {
+            "text": "Lactic acid from milk — gentle enough for pregnancy."
+          }
+        },
+        "hk4": {
+          "type": "heading",
+          "settings": {
+            "text": "Real customers. Real heels. Real photos."
+          }
         }
       },
       "block_order": [
         "p1",
+        "hk1",
         "p2",
-        "p_science",
+        "hk2",
         "ba1",
-        "p_proof",
+        "p_science",
+        "hk3",
         "p_bridge",
         "ba2",
-        "ba3"
+        "ba3",
+        "hk4"
       ],
       "settings": {
         "cta_url": "/products/goat-milk-callus-mask",
@@ -204,8 +231,8 @@
         "list": {
           "type": "faq_list",
           "settings": {
-            "q1_question": "Will this make my feet peel like Baby Foot did?",
-            "q1_answer": "No. That's the whole point. Baby Foot uses a strong acid blend (glycolic + lactic + salicylic) that causes 5-day peeling. Kneuro uses goat milk lactic acid at about 1/10 the strength — softens skin gradually with no peeling phase. Wear sandals the next day if you want.",
+            "q1_question": "Will this make my feet peel like other foot peels did?",
+            "q1_answer": "No. That's the whole point. Most foot peels use a strong acid blend (glycolic + lactic + salicylic) that causes a 5-day peeling phase. Kneuro uses goat milk lactic acid at about 1/10 the strength — softens skin gradually with no peeling phase. Wear sandals the next day if you want.",
             "q2_question": "Is it safe for sensitive skin, pregnancy, or diabetes?",
             "q2_answer": "Yes to all three. Our formula is goat milk + niacinamide + glycerin + allantoin. Zero salicylic acid, zero glycolic acid, zero fragrance, zero essential oils. Customers with eczema, pregnant feet, and diabetic skin who couldn't use other foot peels use this safely.",
             "q3_question": "What if it doesn't work?",
