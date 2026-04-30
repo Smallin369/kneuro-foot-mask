@@ -420,10 +420,10 @@
   "order": [
     "main",
     "bundles",
-    "howto",
-    "ingredients",
     "quotes",
     "faq",
+    "howto",
+    "ingredients",
     "final"
   ]
 }
