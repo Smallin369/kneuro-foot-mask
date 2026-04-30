@@ -1,0 +1,66 @@
+{%- liquid
+  assign eyebrow = section.settings.eyebrow | default: 'What I bought'
+  assign title = section.settings.title | default: 'Kneuro Goat Milk Foot Mask'
+  assign price = section.settings.price | default: 'From $19.99'
+  assign body = section.settings.body | default: 'A 30-minute goat milk + niacinamide mask — gentle enough for pregnancy, sensitive skin, and diabetic feet.'
+  assign cta_label = section.settings.cta_label | default: 'See the formula →'
+  assign cta_url = section.settings.cta_url | default: '#shopify-section-template--page-advertorial-ingredients'
+  assign img = section.settings.image
+-%}
+<section class="prc" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; background: {{ section.settings.bg }};">
+  <div class="prc__wrap">
+    <div class="prc__card">
+      {%- if img -%}
+        <div class="prc__media">
+          <img src="{{ img | image_url: width: 800, format: 'webp' }}" alt="{{ title | escape }}" loading="lazy" width="320" height="320">
+        </div>
+      {%- endif -%}
+      <div class="prc__body">
+        <span class="prc__eyebrow">{{ eyebrow }}</span>
+        <h3 class="prc__title">{{ title }}</h3>
+        <p class="prc__price">{{ price }}</p>
+        <p class="prc__copy">{{ body }}</p>
+        {%- if cta_label != blank -%}
+          <a class="prc__cta" href="{{ cta_url }}">{{ cta_label }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .prc { width: 100%; }
+  .prc__wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+  .prc__card { display: grid; grid-template-columns: 200px 1fr; gap: 28px; align-items: center; padding: 28px; border-radius: 18px; background: var(--cream-soft, #faf8f5); border: 1px solid var(--line, #ececec); }
+  .prc__media img { width: 100%; height: auto; display: block; border-radius: 12px; }
+  .prc__eyebrow { display: inline-block; font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted, #6a6a6a); margin-bottom: 8px; font-family: var(--font-body); }
+  .prc__title { font-family: var(--font-heading); font-size: 22px; font-weight: 700; line-height: 1.2; margin: 0 0 6px; color: var(--ink); }
+  .prc__price { font-family: var(--font-body); font-size: 15px; font-weight: 600; color: var(--ink); margin: 0 0 12px; }
+  .prc__copy { font-family: var(--font-body); font-size: 14.5px; line-height: 1.55; color: var(--ink-2); margin: 0 0 16px; }
+  .prc__cta { display: inline-flex; align-items: center; padding: 10px 18px; background: var(--accent, #0a0a0a); color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; border-radius: 999px; font-family: var(--font-body); }
+  .prc__cta:hover { background: var(--accent-deep, #2a2a2a); }
+  @media (max-width: 640px) {
+    .prc__card { grid-template-columns: 1fr; padding: 22px; }
+    .prc__media { max-width: 200px; margin: 0 auto; }
+    .prc__title { font-size: 19px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Product reveal card",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "What I bought" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Kneuro Goat Milk Foot Mask" },
+    { "type": "text", "id": "price", "label": "Price line", "default": "From $19.99" },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "A 30-minute goat milk + niacinamide mask — gentle enough for pregnancy, sensitive skin, and diabetic feet." },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "See the formula →" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "image_picker", "id": "image", "label": "Product image" },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#ffffff" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "default": 32 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "default": 32 }
+  ],
+  "presets": [{ "name": "Product reveal card" }]
+}
+{% endschema %}

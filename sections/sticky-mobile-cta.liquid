@@ -1,12 +1,21 @@
 {%- liquid
+  assign is_pdp = false
+  if template contains 'product'
+    assign is_pdp = true
+  endif
   assign cta_url = section.settings.cta_url | default: '/products/goat-milk-callus-mask'
+  assign pdp_label = section.settings.pdp_label | default: 'Add to cart →'
   assign cta_label = section.settings.cta_label | default: 'Try it →'
   assign price_text = section.settings.price_text | default: 'from $19.99'
   assign show_at = section.settings.show_at | default: 25
+  if is_pdp
+    assign cta_label = pdp_label
+    assign cta_url = '#MainContent'
+  endif
 -%}
 
-<div id="stickyMobileCta" class="smc" hidden role="region" aria-label="Quick add to cart">
-  <a class="smc__inner" href="{{ cta_url }}" data-smc-link>
+<div id="stickyMobileCta" class="smc" hidden role="region" aria-label="Quick add to cart" data-pdp="{{ is_pdp }}">
+  <a class="smc__inner" href="{{ cta_url }}" data-smc-link{% if is_pdp %} data-smc-pdp{% endif %}>
     {%- if section.settings.thumb -%}
       <span class="smc__thumb"><img src="{{ section.settings.thumb | image_url: width: 96, format: 'webp' }}" alt="" width="48" height="48"></span>
     {%- endif -%}
@@ -41,11 +50,22 @@
 
   if (sessionStorage.getItem(KEY)) return;
 
-  // Don't render on PDP/cart/checkout (template-aware skip via Liquid below would also work)
-  if (/\/(cart|checkout|account)/.test(location.pathname) || /\/products\//.test(location.pathname)) return;
+  if (/\/(cart|checkout|account)/.test(location.pathname)) return;
 
   var el = document.getElementById('stickyMobileCta');
   if (!el) return;
+  var isPdp = el.dataset.pdp === 'true';
+
+  // On PDP: clicking the sticky scrolls to the product form instead of a hard nav
+  var pdpLink = el.querySelector('[data-smc-pdp]');
+  if (pdpLink) {
+    pdpLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.getElementById('MainContent') || document.querySelector('product-form, form[action*="/cart/add"]');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      else window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   var revealed = false;
   function check() {
@@ -79,9 +99,10 @@
   "settings": [
     { "type": "header", "content": "Content" },
     { "type": "text", "id": "product_name", "label": "Product name", "default": "Goat Milk Foot Mask" },
-    { "type": "text", "id": "price_text", "label": "Price line", "default": "from $19.99 · free US shipping over $30" },
-    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Get 3-pack →" },
-    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "text", "id": "price_text", "label": "Price line", "default": "from $19.99 · free shipping above 5-pack" },
+    { "type": "text", "id": "cta_label", "label": "Button label (off PDP)", "default": "Get the mask →" },
+    { "type": "text", "id": "pdp_label", "label": "Button label (on PDP)", "default": "Add to cart →" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL (off PDP)" },
     { "type": "image_picker", "id": "thumb", "label": "Thumbnail (48x48)" },
     { "type": "header", "content": "Behavior" },
     { "type": "range", "id": "show_at", "label": "Reveal at scroll %", "min": 5, "max": 75, "step": 5, "unit": "%", "default": 15 }

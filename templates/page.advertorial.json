@@ -49,6 +49,21 @@
         "padding_bottom": 64
       }
     },
+    "reveal": {
+      "type": "product-reveal-card",
+      "settings": {
+        "eyebrow": "What I bought",
+        "title": "Kneuro Goat Milk Foot Mask",
+        "price": "From $19.99 · 30-day money-back",
+        "body": "A 30-minute foot mask with goat milk lactic acid + niacinamide — gentle enough for pregnancy and diabetic feet, but soft heels by morning.",
+        "cta_label": "See how it works →",
+        "cta_url": "/products/goat-milk-callus-mask",
+        "image": "shopify://shop_images/5pack.png",
+        "bg": "#ffffff",
+        "padding_top": 24,
+        "padding_bottom": 32
+      }
+    },
     "comparison": {
       "type": "comparison-table",
       "blocks": {
@@ -246,6 +261,97 @@
         "padding_bottom": 72
       }
     },
+    "quotes": {
+      "type": "testimonial-quotes",
+      "blocks": {
+        "k": { "type": "kicker", "settings": { "text": "Other customers, same outcome" } },
+        "h": { "type": "heading", "settings": { "lead": "I'm not", "accent": "the only one." } },
+        "s": { "type": "subheading", "settings": { "text": "Real customers writing in from pregnancy, sensitive skin, and gift purchases." } },
+        "q": {
+          "type": "quotes_row",
+          "settings": {
+            "q1_quote": "I've tried Baby Foot and the harsh peels — they always burned and made my feet flake painfully for two weeks. This one is gentle. Soft, hydrated feet the next morning, no flaking.",
+            "q1_name": "Hannah M.",
+            "q1_initials": "HM",
+            "q1_location": "Sensitive skin · Early customer",
+            "q2_quote": "I'm pregnant and couldn't use any of the regular foot peels — salicylic acid is a no-go. My feet were splitting from the swelling. Genuine relief by the next morning.",
+            "q2_name": "Priya R.",
+            "q2_initials": "PR",
+            "q2_location": "Pregnant · Early customer",
+            "q3_quote": "Bought the 3-pack for me, my mom, and my sister. All three of us texted in caps lock the next day. Officially the family group-chat skincare moment of the year.",
+            "q3_name": "Daniel K.",
+            "q3_initials": "DK",
+            "q3_location": "Bought as a gift · Early customer"
+          }
+        }
+      },
+      "block_order": ["k", "h", "s", "q"],
+      "settings": { "padding_top": 56, "padding_bottom": 56 }
+    },
+    "bundles": {
+      "type": "homepage-bundle-cards",
+      "blocks": {
+        "b1": {
+          "type": "bundle",
+          "settings": {
+            "pack_label": "1 Pack",
+            "price": "$19.99",
+            "per_pack": "$19.99 / pack",
+            "savings": "",
+            "shipping_pill": "",
+            "body": "Try one 30-minute session before committing.",
+            "cta_label": "Try one →",
+            "variant_id": "47758582055099",
+            "featured": false,
+            "badge": ""
+          }
+        },
+        "b2": {
+          "type": "bundle",
+          "settings": {
+            "pack_label": "3 Pack",
+            "price": "$44.99",
+            "per_pack": "$15.00 / pack",
+            "savings": "Save $15",
+            "shipping_pill": "",
+            "body": "Three weekly sessions — the sweet spot for cracked heels.",
+            "cta_label": "Get the 3-pack →",
+            "variant_id": "47758582087867",
+            "featured": true,
+            "badge": "Most popular"
+          }
+        },
+        "b3": {
+          "type": "bundle",
+          "settings": {
+            "pack_label": "5 Pack",
+            "price": "$69.99",
+            "per_pack": "$14.00 / pack",
+            "savings": "Save $30",
+            "shipping_pill": "✓ Free shipping",
+            "body": "The household ritual. Lasts 5 weeks.",
+            "cta_label": "Get the 5-pack →",
+            "variant_id": "47758582120635",
+            "featured": false,
+            "badge": ""
+          }
+        }
+      },
+      "block_order": ["b1", "b2", "b3"],
+      "settings": {
+        "kicker": "Pick your pack",
+        "heading": "Ships in 1–3 days,",
+        "heading_accent": "soft heels in 30 minutes.",
+        "subhead": "Standard delivery 8–14 days from our overseas manufacturer — order ahead of weddings, beach trips, and sandal season. 30-day money-back guarantee, no questions asked.",
+        "fineprint": "All bundles pregnancy-safe, diabetes-safe, dermatologist-approved · 30-day money-back · processed in 1–3 days · standard delivery 8–14 days",
+        "product_handle": "goat-milk-callus-mask",
+        "product_image": "shopify://shop_images/5pack.png",
+        "center": true,
+        "padding_top": 64,
+        "padding_bottom": 56,
+        "bg": "#faf8f5"
+      }
+    },
     "press": {
       "type": "trust-strip",
       "blocks": {
@@ -307,10 +413,13 @@
     "press",
     "hero",
     "ba",
+    "reveal",
     "timeline",
+    "quotes",
     "comparison",
     "faq",
     "ingredients",
+    "bundles",
     "final"
   ]
 }
