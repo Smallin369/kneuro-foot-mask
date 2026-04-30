@@ -27,7 +27,9 @@
         "trust_t3": "30-day refund",
         "bg": "",
         "padding_top": 28,
-        "padding_bottom": 24
+        "padding_bottom": 24,
+        "cta_label": "Shop now — from $19.99 →",
+        "cta_subtext": "Soft heels in 30 minutes · 30-day money-back · 1,400+ happy customers"
       }
     },
     "story": {
@@ -125,17 +127,10 @@
         }
       },
       "block_order": [
-        "p1",
-        "hk1",
-        "p2",
-        "hk2",
+        "hk4",
         "ba1",
-        "p_science",
-        "hk3",
-        "p_bridge",
         "ba2",
-        "ba3",
-        "hk4"
+        "ba3"
       ],
       "settings": {
         "cta_url": "/products/goat-milk-callus-mask",
@@ -204,7 +199,7 @@
         "kicker": "Choose your pack",
         "heading": "Stop living with",
         "heading_accent": "cracked, dry feet.",
-        "subhead": "If your heels aren't softer in 30 minutes, full refund — no questions asked. Joining 1,400+ customers softening their heels.",
+        "subhead": "Pick your pack. 30 minutes from now, soft heels. If not, full refund — no questions.",
         "fineprint": "All bundles pregnancy-safe, diabetes-safe, dermatologist-approved · 30-day money-back · processed in 1–3 days · standard delivery 8–14 days",
         "product_handle": "goat-milk-callus-mask",
         "bg": "#faf8f5",
@@ -235,10 +230,10 @@
             "q1_answer": "No. That's the whole point. Most foot peels use a strong acid blend (glycolic + lactic + salicylic) that causes a 5-day peeling phase. Kneuro uses goat milk lactic acid at about 1/10 the strength — softens skin gradually with no peeling phase. Wear sandals the next day if you want.",
             "q2_question": "Is it safe for sensitive skin, pregnancy, or diabetes?",
             "q2_answer": "Yes to all three. Our formula is goat milk + niacinamide + glycerin + allantoin. Zero salicylic acid, zero glycolic acid, zero fragrance, zero essential oils. Customers with eczema, pregnant feet, and diabetic skin who couldn't use other foot peels use this safely.",
-            "q3_question": "What if it doesn't work?",
-            "q3_answer": "30-day money-back guarantee, no questions asked. Email us, we refund you in full — even if the box is opened. We'd rather lose the sale than have you stuck with something that didn't deliver.",
-            "q4_question": "How long does shipping take?",
-            "q4_answer": "Orders are processed within 1-3 business days. Standard delivery is 8-14 days because we ship directly from our overseas contract manufacturer to keep prices fair. Order ahead of weddings, beach trips, and sandal season.",
+            "q3_question": "How long does shipping take?",
+            "q3_answer": "Orders processed within 1-3 business days. Standard delivery 8-14 days because we ship from our overseas manufacturer to keep prices fair. Order ahead of weddings, beach trips, sandal season.",
+            "q4_question": "",
+            "q4_answer": "",
             "q5_question": "",
             "q5_answer": "",
             "q6_question": "",
@@ -267,20 +262,20 @@
         "h": {
           "type": "heading",
           "settings": {
-            "lead": "Stop hiding",
-            "accent": "your feet."
+            "lead": "Soft heels",
+            "accent": "in 30 minutes."
           }
         },
         "body": {
           "type": "body",
           "settings": {
-            "text": "Soft heels by tomorrow morning. No peeling. No salicylic acid. Trusted by 1,400+ customers."
+            "text": "No peeling. No salicylic acid. Pregnancy-safe. 1,400+ customers."
           }
         },
         "cta": {
           "type": "cta",
           "settings": {
-            "label": "Get yours — from $19.99 →",
+            "label": "Shop now — from $19.99 →",
             "link": "/products/goat-milk-callus-mask"
           }
         },

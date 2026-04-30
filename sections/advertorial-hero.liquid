@@ -49,6 +49,12 @@
           {% if section.settings.trust_t3 != blank %}<li>{{ section.settings.trust_t3 }}</li>{% endif %}
         </ul>
       {% endif %}
+      {% if section.settings.cta_url != blank or section.settings.cta_label != blank %}
+        <div class="adv-hero__cta-wrap">
+          <a class="adv-hero__cta" href="{{ section.settings.cta_url | default: '#' }}">{{ section.settings.cta_label | default: 'Shop now →' }}</a>
+          {% if section.settings.cta_subtext != blank %}<p class="adv-hero__cta-sub">{{ section.settings.cta_subtext }}</p>{% endif %}
+        </div>
+      {% endif %}
       {% if hero_asset_url %}
         <figure class="adv-hero__fig">
           <img class="adv-hero__img" src="{{ hero_asset_url }}" alt="{{ section.settings.headline | escape }}" width="1080" height="1080" fetchpriority="high" decoding="async">
@@ -124,10 +130,15 @@
   .adv-hero__trust { list-style: none; padding: 0; margin: -8px 0 22px; display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
   .adv-hero__trust li { position: relative; color: var(--ink-2); font-family: var(--font-body); font-size: .78rem; font-weight: 600; letter-spacing: .01em; padding-left: 16px; }
   .adv-hero__trust li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: var(--accent-deep, var(--ink)); font-weight: 800; }
+  .adv-hero__cta-wrap { margin: 0 0 28px; }
+  .adv-hero__cta { display: inline-block; padding: 16px 32px; background: var(--accent, #0a0a0a); color: #ffffff; text-decoration: none; font-family: var(--font-body); font-size: 1rem; font-weight: 700; letter-spacing: .01em; border-radius: 999px; transition: background .15s ease, transform .15s ease; }
+  .adv-hero__cta:hover { background: var(--accent-deep, #2a2a2a); transform: translateY(-1px); }
+  .adv-hero__cta-sub { font-family: var(--font-body); font-size: .78rem; color: var(--muted, #6a6a6a); margin: 10px 0 0; letter-spacing: .01em; }
   @media (max-width: 480px) {
     .adv-hero__title { font-size: 1.85rem; line-height: 1.12; letter-spacing: -0.03em; }
     .adv-hero__sub { font-size: 1.05rem; }
     .adv-hero__img { max-height: 380px; }
+    .adv-hero__cta { width: 100%; padding: 18px 24px; text-align: center; }
   }
 </style>
 
@@ -147,7 +158,9 @@
     { "type": "image_picker", "id": "hero_image", "label": "Lead image (Shopify Files)" },
     { "type": "text", "id": "hero_asset", "label": "Theme asset filename (overrides Lead image, e.g. hero-pov.jpg)" },
     { "type": "text", "id": "caption", "label": "Image caption" },
+    { "type": "text", "id": "cta_label", "label": "CTA button label", "default": "Shop now — from $19.99 →" },
     { "type": "url", "id": "cta_url", "label": "CTA link" },
+    { "type": "text", "id": "cta_subtext", "label": "CTA subtext (small line below button)", "default": "30-day money-back · Soft heels in 30 minutes" },
     { "type": "header", "content": "Trust micro-strip" },
     { "type": "text", "id": "trust_t1", "label": "Trust token 1", "default": "Pregnancy-safe" },
     { "type": "text", "id": "trust_t2", "label": "Trust token 2", "default": "Derm-tested" },
