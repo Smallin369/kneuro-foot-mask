@@ -297,6 +297,61 @@
         "padding_bottom": 56
       }
     },
+    "quotes": {
+      "type": "testimonial-quotes",
+      "blocks": {
+        "k": {
+          "type": "kicker",
+          "settings": {
+            "text": "Different feet, same outcome"
+          }
+        },
+        "h": {
+          "type": "heading",
+          "settings": {
+            "lead": "Diabetic. Sensitive.",
+            "accent": "On their feet all day."
+          }
+        },
+        "s": {
+          "type": "subheading",
+          "settings": {
+            "text": "Customers most foot peels leave behind."
+          }
+        },
+        "q": {
+          "type": "quotes_row",
+          "settings": {
+            "q1_quote": "I'm diabetic and most foot peels are off-limits. This was gentle enough that my podiatrist gave the green light. Soft heels, no warnings.",
+            "q1_name": "Maya T.",
+            "q1_initials": "MT",
+            "q1_location": "Diabetic skin · Early customer",
+            "q1_photo": "shopify://shop_images/A98cdf404c169432580ed0d0c53f6d3f68_jpg_960x960q75_jpg.avif",
+            "q2_quote": "I'm on my feet at the gym every day. The 5-pack is now part of my Sunday recovery ritual. My feet have stopped looking like I run marathons.",
+            "q2_name": "Jess L.",
+            "q2_initials": "JL",
+            "q2_location": "Gym goer · Early customer",
+            "q2_photo": "shopify://shop_images/A039432e9ccb048d583261b402c5f7e61C_jpg_960x960q75_jpg.avif",
+            "q3_quote": "My eczema flares with anything aggressive. This was the first foot product in years that didn't trigger a reaction. Gentle but it actually worked.",
+            "q3_name": "Carla P.",
+            "q3_initials": "CP",
+            "q3_location": "Eczema-prone · Early customer",
+            "q3_photo": "shopify://shop_images/Af79bea4abcbd492d9f0e151bd335c8cb0_jpg_960x960q75_jpg.avif"
+          }
+        }
+      },
+      "block_order": [
+        "k",
+        "h",
+        "s",
+        "q"
+      ],
+      "settings": {
+        "padding_top": 88,
+        "padding_bottom": 88,
+        "bg_color": ""
+      }
+    },
     "bundles": {
       "type": "homepage-bundle-cards",
       "blocks": {
@@ -427,61 +482,6 @@
         "bg_color": ""
       }
     },
-    "quotes": {
-      "type": "testimonial-quotes",
-      "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "Different feet, same outcome"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "Diabetic. Sensitive.",
-            "accent": "On their feet all day."
-          }
-        },
-        "s": {
-          "type": "subheading",
-          "settings": {
-            "text": "Customers most foot peels leave behind."
-          }
-        },
-        "q": {
-          "type": "quotes_row",
-          "settings": {
-            "q1_quote": "I'm diabetic and most foot peels are off-limits. This was gentle enough that my podiatrist gave the green light. Soft heels, no warnings.",
-            "q1_name": "Maya T.",
-            "q1_initials": "MT",
-            "q1_location": "Diabetic skin · Early customer",
-            "q1_photo": "shopify://shop_images/A98cdf404c169432580ed0d0c53f6d3f68_jpg_960x960q75_jpg.avif",
-            "q2_quote": "I'm on my feet at the gym every day. The 5-pack is now part of my Sunday recovery ritual. My feet have stopped looking like I run marathons.",
-            "q2_name": "Jess L.",
-            "q2_initials": "JL",
-            "q2_location": "Gym goer · Early customer",
-            "q2_photo": "shopify://shop_images/A039432e9ccb048d583261b402c5f7e61C_jpg_960x960q75_jpg.avif",
-            "q3_quote": "My eczema flares with anything aggressive. This was the first foot product in years that didn't trigger a reaction. Gentle but it actually worked.",
-            "q3_name": "Carla P.",
-            "q3_initials": "CP",
-            "q3_location": "Eczema-prone · Early customer",
-            "q3_photo": "shopify://shop_images/Af79bea4abcbd492d9f0e151bd335c8cb0_jpg_960x960q75_jpg.avif"
-          }
-        }
-      },
-      "block_order": [
-        "k",
-        "h",
-        "s",
-        "q"
-      ],
-      "settings": {
-        "padding_top": 88,
-        "padding_bottom": 88,
-        "bg_color": ""
-      }
-    },
     "faq": {
       "type": "faq",
       "blocks": {
@@ -546,10 +546,10 @@
     "howto",
     "ingredients",
     "ba-grid",
-    "quotes",
-    "bundles",
     "mini-compare",
+    "quotes",
     "faq",
+    "bundles",
     "final"
   ]
 }
