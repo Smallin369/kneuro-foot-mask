@@ -64,12 +64,34 @@
             "url": "/products/goat-milk-callus-mask",
             "subtext": "30-day money-back · free US shipping over $30"
           }
+        },
+        "ba2": {
+          "type": "before_after",
+          "settings": {
+            "eyebrow": "Pregnancy customer",
+            "heading": "Priya's swollen, splitting heels.",
+            "before_label": "Before",
+            "after_label": "After · 2 sessions",
+            "caption": "Priya R. — third trimester. Couldn't use peels with salicylic acid. Genuine relief by morning."
+          }
+        },
+        "ba3": {
+          "type": "before_after",
+          "settings": {
+            "eyebrow": "Sensitive-skin customer",
+            "heading": "Hannah's rough heels — without the burn.",
+            "before_label": "Before",
+            "after_label": "After · 1 session",
+            "caption": "Hannah M. — sensitive skin. Tried Baby Foot before; this one didn't burn or peel."
+          }
         }
       },
       "block_order": [
         "p1",
         "p2",
-        "ba1"
+        "ba1",
+        "ba2",
+        "ba3"
       ],
       "settings": {
         "cta_url": "/products/goat-milk-callus-mask",

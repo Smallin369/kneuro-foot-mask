@@ -58,6 +58,7 @@
   {{ content_for_header }}
 </head>
 <body>
+  {% section 'reading-progress' %}
   {%- unless template.suffix == 'quick-sell' -%}
     {% section 'site-header' %}
   {%- endunless -%}
@@ -65,6 +66,7 @@
     {{ content_for_layout }}
   </main>
   {% section 'site-footer' %}
+  {% section 'cart-drawer' %}
   {% section 'exit-popup' %}
   {%- unless template contains 'cart' or template contains 'customers' -%}
     {% section 'sticky-mobile-cta' %}

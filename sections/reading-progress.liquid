@@ -1,0 +1,47 @@
+{%- liquid
+  assign editorial = false
+  if template.name == 'index'
+    assign editorial = true
+  endif
+  if template.name == 'page' and template.suffix == 'advertorial'
+    assign editorial = true
+  endif
+-%}
+{% if editorial %}
+  <div id="readingProgress" class="rp" aria-hidden="true">
+    <div class="rp__bar"></div>
+  </div>
+
+  <style>
+    .rp { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: rgba(0,0,0,0.06); z-index: 200; pointer-events: none; }
+    .rp__bar { height: 100%; width: 0%; background: var(--accent, #0a0a0a); transition: width .15s linear; }
+  </style>
+
+  <script>
+  (function() {
+    var bar = document.querySelector('#readingProgress .rp__bar');
+    if (!bar) return;
+    var ticking = false;
+    function update() {
+      var doc = document.documentElement;
+      var scrollTop = window.scrollY || doc.scrollTop;
+      var height = doc.scrollHeight - window.innerHeight;
+      var pct = height > 0 ? Math.min(100, (scrollTop / height) * 100) : 0;
+      bar.style.width = pct.toFixed(1) + '%';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function() {
+      if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    update();
+  })();
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Reading progress bar",
+  "settings": [],
+  "presets": [{ "name": "Reading progress bar" }]
+}
+{% endschema %}
