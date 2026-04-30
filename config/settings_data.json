@@ -23,36 +23,29 @@
       },
       "site-footer": {
         "type": "site-footer",
-        "blocks": {
-          "site-footer-0": {
-            "type": "menu",
-            "settings": {
-              "heading": "Shop",
-              "menu": ""
-            }
-          },
-          "site-footer-1": {
-            "type": "menu",
-            "settings": {
-              "heading": "Shop",
-              "menu": ""
-            }
-          },
-          "site-footer-2": {
-            "type": "menu",
-            "settings": {
-              "heading": "Shop",
-              "menu": ""
-            }
-          }
-        },
-        "block_order": [
-          "site-footer-0",
-          "site-footer-1",
-          "site-footer-2"
-        ],
         "settings": {
           "tagline": "Tools for a calmer home."
+        }
+      },
+      "exit-popup": {
+        "type": "exit-popup",
+        "settings": {
+          "eyebrow": "Wait — before you go",
+          "headline": "Get your first pack at <em>10% off</em>",
+          "sub": "Drop your email and we'll send the code. No spam, just one welcome note and the discount.",
+          "discount_code": "WELCOME10",
+          "discount_text": "10% off",
+          "mobile_delay_seconds": 25
+        }
+      },
+      "sticky-mobile-cta": {
+        "type": "sticky-mobile-cta",
+        "settings": {
+          "product_name": "Goat Milk Foot Mask",
+          "price_text": "from $19.99 · free US shipping over $30",
+          "cta_label": "Get 3-pack →",
+          "cta_url": "",
+          "show_at": 15
         }
       }
     },
