@@ -213,90 +213,6 @@
         "bg": ""
       }
     },
-    "timeline": {
-      "type": "day-by-day-timeline",
-      "blocks": {
-        "s1": {
-          "type": "step",
-          "settings": {
-            "time_label": "Hour 0",
-            "title": "Slip it on",
-            "body": "Pull each soft sock-shaped pouch over your foot. Serum's already sealed inside — no mixing, no measuring. Sit down, scroll your phone, watch one episode."
-          }
-        },
-        "s2": {
-          "type": "step",
-          "settings": {
-            "time_label": "30 min",
-            "title": "Take it off, rinse",
-            "body": "Peel the pouches off, rinse your feet warm. The serum has been working — goat milk lactic acid loosening dead skin, niacinamide soothing the barrier underneath.",
-            "tag": "First softness"
-          }
-        },
-        "s3": {
-          "type": "step",
-          "settings": {
-            "time_label": "Hour 1",
-            "title": "Touch your heels",
-            "body": "They feel different already. Not finished — but softer than before. Most customers notice the change here."
-          }
-        },
-        "s4": {
-          "type": "step",
-          "settings": {
-            "time_label": "Day 1 morning",
-            "title": "Wake up to softer skin",
-            "body": "Get out of bed and feel your heel on the floor. Skin instead of cracked plaster. The mask kept working through the night while the niacinamide repaired the barrier."
-          }
-        },
-        "s5": {
-          "type": "step",
-          "settings": {
-            "time_label": "Day 3",
-            "title": "Dry patches reduced",
-            "body": "Calluses haven't disappeared — this isn't a peel, it's a softener. But the rough patches are smoother, more pliable. No painful flaking, no scary skin shedding.",
-            "tag": "No peeling phase"
-          }
-        },
-        "s6": {
-          "type": "step",
-          "settings": {
-            "time_label": "Day 7",
-            "title": "Heels you'd actually show",
-            "body": "Smooth enough for sandals. Soft enough for bare-feet date nights. The kind of feet you stop thinking about — because there's nothing to hide anymore."
-          }
-        },
-        "s7": {
-          "type": "step",
-          "settings": {
-            "time_label": "Week 2+",
-            "title": "The maintenance ritual",
-            "body": "One mask per week keeps feet permanently soft. The 3-pack lasts a month, the 5-pack lasts 5 weeks. No salon. No appointment. 30 minutes on a Sunday.",
-            "tag": "Sustainable softness"
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3",
-        "s4",
-        "s5",
-        "s6",
-        "s7"
-      ],
-      "settings": {
-        "eyebrow": "What to expect",
-        "heading_lead": "From the moment you",
-        "heading_accent": "slip it on.",
-        "subhead": "Real timeline, no exaggeration. What 30 minutes of goat milk and niacinamide actually does to your feet — hour by hour, day by day.",
-        "cta_label": "",
-        "cta_url": "",
-        "cta_subtext": "",
-        "padding_top": 72,
-        "padding_bottom": 72
-      }
-    },
     "quotes": {
       "type": "testimonial-quotes",
       "blocks": {
@@ -406,7 +322,7 @@
         "kicker": "Pick your pack",
         "heading": "Ships in 1–3 days,",
         "heading_accent": "soft heels in 30 minutes.",
-        "subhead": "Standard delivery 8–14 days from our overseas manufacturer — order ahead of weddings, beach trips, and sandal season. 30-day money-back guarantee, no questions asked.",
+        "subhead": "Trusted by 1,400+ early customers — pick the pack that fits your routine. Free shipping on 5-pack.",
         "fineprint": "All bundles pregnancy-safe, diabetes-safe, dermatologist-approved · 30-day money-back · processed in 1–3 days · standard delivery 8–14 days",
         "product_handle": "goat-milk-callus-mask",
         "product_image": "shopify://shop_images/5pack.png",
@@ -470,14 +386,81 @@
         "padding_top": 64,
         "padding_bottom": 80
       }
+    },
+    "ba-grid": {
+      "type": "advertorial-story",
+      "blocks": {
+        "g1": {
+          "type": "before_after",
+          "settings": {
+            "eyebrow": "Sarah K. — 3 weeks of weekly use",
+            "heading": "From cracked to soft.",
+            "before_image": "shopify://shop_images/freepik_amateur-smartphone-macro-_2870963720_1.png",
+            "after_image": "shopify://shop_images/freepik_same-shot-of-image-but-wa_2870994617.png",
+            "before_label": "Before",
+            "after_label": "After · 3 weeks",
+            "caption": "One pair, weekly application, no peeling."
+          }
+        },
+        "g2": {
+          "type": "before_after",
+          "settings": {
+            "eyebrow": "Priya R. — pregnant, 2 sessions",
+            "heading": "Soft heels by morning.",
+            "before_image": "shopify://shop_images/f0e7c886-b2fd-42ff-bd9b-b4706550d415.png",
+            "after_image": "shopify://shop_images/357c8eb6-2b36-4701-8688-519b48dda6fe.png",
+            "before_label": "Before",
+            "after_label": "After · 2 sessions",
+            "caption": "Couldn't use peels with salicylic acid. Genuine relief, no flaking."
+          }
+        },
+        "g3": {
+          "type": "before_after",
+          "settings": {
+            "eyebrow": "Hannah M. — sensitive skin",
+            "heading": "Smooth, no burn.",
+            "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
+            "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png",
+            "before_label": "Before",
+            "after_label": "After · 1 session",
+            "caption": "Tried Baby Foot before; this didn't burn or peel."
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3"
+      ],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "bg": ""
+      }
+    },
+    "reveal": {
+      "type": "product-reveal-card",
+      "settings": {
+        "eyebrow": "What I bought",
+        "title": "Kneuro Goat Milk Foot Mask",
+        "price": "From $19.99 · 30-day money-back",
+        "body": "A 30-minute foot mask with goat milk lactic acid + niacinamide — gentle enough for pregnancy and diabetic feet, but soft heels by morning.",
+        "cta_label": "View the foot mask now →",
+        "cta_url": "/products/goat-milk-callus-mask",
+        "image": "shopify://shop_images/couple_wearing_product.png",
+        "bg": "#ffffff",
+        "padding_top": 24,
+        "padding_bottom": 32
+      }
     }
   },
   "order": [
     "press",
     "hero",
     "ba",
+    "ba-grid",
     "bundles",
-    "timeline",
+    "reveal",
     "quotes",
     "comparison",
     "faq",

@@ -86,12 +86,26 @@
           "settings": {
             "text": "<p>I'm not the only one. Customers writing in from different situations — pregnant, sensitive skin, the people most foot peels leave behind. Same outcome.</p>"
           }
+        },
+        "p_science": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Goat milk has been used in skincare since Cleopatra. The reason it works: it naturally contains lactic acid — the same alpha-hydroxy that aggressive foot peels use, but at <strong>roughly 1/10 the strength</strong>. Strong enough to loosen dead skin in 30 minutes. Gentle enough that dermatologists routinely green-light it during pregnancy. No five-day peeling phase, no painful flake.</p>"
+          }
+        },
+        "p_proof": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>I asked customers for their photos. Pregnant feet, diabetic feet, sensitive skin, gym-goers — the people most foot peels leave behind. Every one of them sent the same kind of result.</p>"
+          }
         }
       },
       "block_order": [
         "p1",
         "p2",
+        "p_science",
         "ba1",
+        "p_proof",
         "p_bridge",
         "ba2",
         "ba3"
@@ -164,11 +178,11 @@
             "emoji": "🥛",
             "image": "shopify://shop_images/ingredients2.png",
             "title": "Goat Milk",
-            "scientific": "Capra hircus milk",
+            "scientific": "",
             "role": "Naturally contains lactic acid, an alpha-hydroxy acid that loosens the bonds holding dead skin cells together — gently, without the burn of synthetic glycolic or salicylic acid.",
-            "benefit": "About 1/10th the strength of Baby Foot's acid blend. Softens visibly without the 5-day painful peeling phase. Pregnancy-safe, breastfeeding-safe, diabetic-skin-friendly.",
-            "source_note": "Whole goat milk extract. Used in skincare since Cleopatra's milk baths.",
-            "proof_note": "Lactic acid is the only AHA dermatologists routinely green-light during pregnancy.",
+            "benefit": "",
+            "source_note": "",
+            "proof_note": "",
             "tags": "Natural AHA, Pregnancy-safe, Diabetic-safe"
           }
         },
@@ -178,11 +192,11 @@
             "emoji": "✨",
             "image": "shopify://shop_images/ingredients5.png",
             "title": "Niacinamide (Vitamin B3)",
-            "scientific": "Nicotinamide",
+            "scientific": "",
             "role": "Strengthens the skin's lipid barrier, the natural shield that holds moisture in. Also evens out tone and reduces the redness that comes with cracked, irritated heels.",
-            "benefit": "While the goat milk loosens dead skin, niacinamide repairs the new skin underneath. Skin doesn't just feel softer — it stays softer, because the barrier is rebuilding.",
-            "source_note": "Pharmaceutical-grade vitamin B3. The same form used in dermatology offices.",
-            "proof_note": "One of the most-studied ingredients in skincare. Used at 4–10% in clinical trials for barrier repair.",
+            "benefit": "",
+            "source_note": "",
+            "proof_note": "",
             "tags": "Barrier repair, Brightening, Pregnancy-safe"
           }
         },
@@ -192,11 +206,11 @@
             "emoji": "💧",
             "image": "shopify://shop_images/ingredients1.png",
             "title": "Glycerin",
-            "scientific": "Glycerol",
+            "scientific": "",
             "role": "A humectant — it pulls water from the air and from deeper skin layers up into the dry, parched outer layer, where you can feel it.",
-            "benefit": "Goat milk loosens the rough surface. Niacinamide rebuilds. Glycerin floods what's left with deep moisture so the result lasts days, not hours.",
-            "source_note": "Plant-derived glycerin. Vegan, cruelty-free.",
-            "proof_note": "The most widely-used humectant in dermatology because it works in any humidity, on any skin type.",
+            "benefit": "",
+            "source_note": "",
+            "proof_note": "",
             "tags": "Deep hydration, Plant-derived, Vegan"
           }
         },
@@ -206,11 +220,11 @@
             "emoji": "🌿",
             "image": "shopify://shop_images/ingredients6.png",
             "title": "Allantoin",
-            "scientific": "5-ureidohydantoin",
+            "scientific": "",
             "role": "A soothing agent that calms inflammation and accelerates the skin's natural cell turnover. Originally extracted from comfrey root; now plant-derived for purity.",
-            "benefit": "Cracked heels are micro-injuries. Allantoin is the part of the formula that says 'this skin's been through a lot — let's calm it down and help it heal.'",
-            "source_note": "Plant-derived. Pregnancy-safe, eczema-safe, diabetic-safe.",
-            "proof_note": "Allantoin is in baby products and post-procedure dermatology creams for a reason: it's gentle enough for the most reactive skin.",
+            "benefit": "",
+            "source_note": "",
+            "proof_note": "",
             "tags": "Soothing, Sensitive-skin, Eczema-safe"
           }
         }
@@ -354,7 +368,7 @@
         "kicker": "Choose your pack",
         "heading": "Stop living with",
         "heading_accent": "cracked, dry feet.",
-        "subhead": "Goat milk. Niacinamide. 30 minutes. Soft feet that last. Tap a bundle below to skip the picker — your selection is preloaded at checkout.",
+        "subhead": "Joining 1,400+ customers softening their heels — pick the pack that fits your routine. Tap a bundle to skip the picker and head straight to checkout.",
         "fineprint": "All bundles pregnancy-safe, diabetes-safe, dermatologist-approved · 30-day money-back · processed in 1–3 days · standard delivery 8–14 days",
         "product_handle": "goat-milk-callus-mask",
         "bg": "#faf8f5",
@@ -474,11 +488,27 @@
         "padding_bottom": 96,
         "bg": ""
       }
+    },
+    "reveal": {
+      "type": "product-reveal-card",
+      "settings": {
+        "eyebrow": "What I bought",
+        "title": "Kneuro Goat Milk Foot Mask",
+        "price": "From $19.99 · 30-day money-back",
+        "body": "A 30-minute foot mask with goat milk lactic acid + niacinamide — gentle enough for pregnancy and diabetic feet, but soft heels by morning.",
+        "cta_label": "View the foot mask now →",
+        "cta_url": "/products/goat-milk-callus-mask",
+        "image": "shopify://shop_images/couple_wearing_product.png",
+        "bg": "#ffffff",
+        "padding_top": 24,
+        "padding_bottom": 32
+      }
     }
   },
   "order": [
     "hero",
     "story",
+    "reveal",
     "bundles",
     "testimonials",
     "comparison",

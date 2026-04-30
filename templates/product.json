@@ -242,39 +242,39 @@
         "k": {
           "type": "kicker",
           "settings": {
-            "text": "What clean-skincare fans say"
+            "text": "Different feet, same outcome"
           }
         },
         "h": {
           "type": "heading",
           "settings": {
-            "lead": "What customers",
-            "accent": "are saying."
+            "lead": "Diabetic. Sensitive.",
+            "accent": "On their feet all day."
           }
         },
         "s": {
           "type": "subheading",
           "settings": {
-            "text": "From our earliest customers — your story next."
+            "text": "Customers most foot peels leave behind."
           }
         },
         "q": {
           "type": "quotes_row",
           "settings": {
-            "q1_quote": "My heels were so cracked I'd given up on sandals. One application and I was barefoot at brunch.",
-            "q1_name": "Sarah M.",
-            "q1_initials": "SM",
-            "q1_location": "Austin, TX",
+            "q1_quote": "I'm diabetic and most foot peels are off-limits. This was gentle enough that my podiatrist gave the green light. Soft heels, no warnings.",
+            "q1_name": "Maya T.",
+            "q1_initials": "MT",
+            "q1_location": "Diabetic skin · Early customer",
             "q1_photo": "shopify://shop_images/A98cdf404c169432580ed0d0c53f6d3f68_jpg_960x960q75_jpg.avif",
-            "q2_quote": "Pregnant and couldn't use Baby Foot. This was the gentle answer I needed for my dry, swollen feet.",
-            "q2_name": "Priya R.",
-            "q2_initials": "PR",
-            "q2_location": "Toronto, CA",
+            "q2_quote": "I'm on my feet at the gym every day. The 5-pack is now part of my Sunday recovery ritual. My feet have stopped looking like I run marathons.",
+            "q2_name": "Jess L.",
+            "q2_initials": "JL",
+            "q2_location": "Gym goer · Early customer",
             "q2_photo": "shopify://shop_images/A039432e9ccb048d583261b402c5f7e61C_jpg_960x960q75_jpg.avif",
-            "q3_quote": "Bought it for the spa-at-home aesthetic. Stayed for the actual results. Reordered the 3-pack.",
-            "q3_name": "Lisa T.",
-            "q3_initials": "LT",
-            "q3_location": "London, UK",
+            "q3_quote": "My eczema flares with anything aggressive. This was the first foot product in years that didn't trigger a reaction. Gentle but it actually worked.",
+            "q3_name": "Carla P.",
+            "q3_initials": "CP",
+            "q3_location": "Eczema-prone · Early customer",
             "q3_photo": "shopify://shop_images/Af79bea4abcbd492d9f0e151bd335c8cb0_jpg_960x960q75_jpg.avif"
           }
         }
@@ -320,12 +320,12 @@
             "q4_answer": "Yes — the formula is gentle and free of harsh acids that diabetics are typically warned to avoid. As always, consult your doctor if you have severe peripheral neuropathy or open wounds.",
             "q5_question": "How is this different from Baby Foot?",
             "q5_answer": "Baby Foot uses a strong acid blend (glycolic, lactic, salicylic) that causes dramatic peeling 3–7 days after application. We use a goat milk + niacinamide hydrating formula that softens skin gradually without the painful peel. Better for sensitive skin, pregnancy, diabetes, and anyone who can't be barefoot in public for a week.",
-            "q6_question": "How fast will I see results?",
-            "q6_answer": "Most customers see softer, more hydrated feet after one 30-minute session. For deeply cracked heels, we recommend 2–3 applications spaced a week apart for best results.",
-            "q7_question": "Can I use it on my hands and elbows too?",
-            "q7_answer": "Absolutely. The same formula works on dry hands, rough elbows, and even knees. Many customers buy the 3-pack specifically to use across multiple body areas.",
-            "q8_question": "How often should I use it?",
-            "q8_answer": "Once every 2–4 weeks for maintenance, or weekly during dry seasons (winter, sandal season, heavy beach trips). It's safe to use as often as needed."
+            "q6_question": "",
+            "q6_answer": "",
+            "q7_question": "",
+            "q7_answer": "",
+            "q8_question": "",
+            "q8_answer": ""
           }
         }
       },
@@ -406,7 +406,7 @@
         "kicker": "Save more with bundles",
         "heading": "Stock up,",
         "heading_accent": "save up to $30.",
-        "subhead": "Most customers grab the 3-pack — three weekly sessions covers most cracked-heel cases.",
+        "subhead": "Trusted by 1,400+ early customers. Most grab the 3-pack — three weekly sessions covers most cracked-heel cases.",
         "fineprint": "Free US shipping on 5-pack · 30-day money-back · processed in 1–3 days · standard delivery 8–14 days",
         "product_handle": "goat-milk-callus-mask",
         "product_image": "shopify://shop_images/5pack.png",
@@ -415,11 +415,126 @@
         "padding_bottom": 56,
         "bg": "#faf8f5"
       }
+    },
+    "ba-grid": {
+      "type": "advertorial-story",
+      "blocks": {
+        "g1": {
+          "type": "before_after",
+          "settings": {
+            "eyebrow": "Sarah K. — 3 weeks of weekly use",
+            "heading": "From cracked to soft.",
+            "before_image": "shopify://shop_images/freepik_amateur-smartphone-macro-_2870963720_1.png",
+            "after_image": "shopify://shop_images/freepik_same-shot-of-image-but-wa_2870994617.png",
+            "before_label": "Before",
+            "after_label": "After · 3 weeks",
+            "caption": "One pair, weekly application, no peeling."
+          }
+        },
+        "g2": {
+          "type": "before_after",
+          "settings": {
+            "eyebrow": "Priya R. — pregnant, 2 sessions",
+            "heading": "Soft heels by morning.",
+            "before_image": "shopify://shop_images/f0e7c886-b2fd-42ff-bd9b-b4706550d415.png",
+            "after_image": "shopify://shop_images/357c8eb6-2b36-4701-8688-519b48dda6fe.png",
+            "before_label": "Before",
+            "after_label": "After · 2 sessions",
+            "caption": "Couldn't use peels with salicylic acid. Genuine relief, no flaking."
+          }
+        },
+        "g3": {
+          "type": "before_after",
+          "settings": {
+            "eyebrow": "Hannah M. — sensitive skin",
+            "heading": "Smooth, no burn.",
+            "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
+            "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png",
+            "before_label": "Before",
+            "after_label": "After · 1 session",
+            "caption": "Tried Baby Foot before; this didn't burn or peel."
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3"
+      ],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "bg": ""
+      }
+    },
+    "mini-compare": {
+      "type": "comparison-table",
+      "blocks": {
+        "k": {
+          "type": "kicker",
+          "settings": {
+            "text": "The honest comparison"
+          }
+        },
+        "h": {
+          "type": "heading",
+          "settings": {
+            "lead": "Kneuro vs.",
+            "accent": "foot peels."
+          }
+        },
+        "t": {
+          "type": "table",
+          "settings": {
+            "col_brand": "Kneuro",
+            "col_2": "Baby Foot",
+            "col_3": "Foot cream",
+            "col_4": "",
+            "row_1_label": "Pregnancy-safe",
+            "row_1_brand": "yes",
+            "row_1_c2": "no",
+            "row_1_c3": "yes",
+            "row_1_c4": "",
+            "row_2_label": "Visible result in 30 min",
+            "row_2_brand": "yes",
+            "row_2_c2": "no",
+            "row_2_c3": "no",
+            "row_2_c4": "",
+            "row_3_label": "No painful peeling",
+            "row_3_brand": "yes",
+            "row_3_c2": "no",
+            "row_3_c3": "yes",
+            "row_3_c4": "",
+            "row_4_label": "",
+            "row_4_brand": "",
+            "row_4_c2": "",
+            "row_4_c3": "",
+            "row_4_c4": "",
+            "row_5_label": "",
+            "row_5_brand": "",
+            "row_5_c2": "",
+            "row_5_c3": "",
+            "row_5_c4": ""
+          }
+        }
+      },
+      "block_order": [
+        "k",
+        "h",
+        "t"
+      ],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "bg_color": ""
+      }
     }
   },
   "order": [
     "main",
     "bundles",
+    "ba-grid",
+    "mini-compare",
     "quotes",
     "faq",
     "howto",
