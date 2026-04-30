@@ -176,6 +176,7 @@
           "type": "ingredient",
           "settings": {
             "emoji": "🥛",
+            "image": "shopify://shop_images/ingredients2.png",
             "title": "Goat Milk",
             "scientific": "Capra hircus milk",
             "role": "Naturally contains lactic acid, an alpha-hydroxy acid that loosens the bonds holding dead skin cells together — gently, without the burn of synthetic glycolic or salicylic acid.",
@@ -189,6 +190,7 @@
           "type": "ingredient",
           "settings": {
             "emoji": "✨",
+            "image": "shopify://shop_images/ingredients5.png",
             "title": "Niacinamide (Vitamin B3)",
             "scientific": "Nicotinamide",
             "role": "Strengthens the skin's lipid barrier, the natural shield that holds moisture in. Also evens out tone and reduces the redness that comes with cracked, irritated heels.",
@@ -202,6 +204,7 @@
           "type": "ingredient",
           "settings": {
             "emoji": "💧",
+            "image": "shopify://shop_images/ingredients1.png",
             "title": "Glycerin",
             "scientific": "Glycerol",
             "role": "A humectant — it pulls water from the air and from deeper skin layers up into the dry, parched outer layer, where you can feel it.",
@@ -215,6 +218,7 @@
           "type": "ingredient",
           "settings": {
             "emoji": "🌿",
+            "image": "shopify://shop_images/ingredients6.png",
             "title": "Allantoin",
             "scientific": "5-ureidohydantoin",
             "role": "A soothing agent that calms inflammation and accelerates the skin's natural cell turnover. Originally extracted from comfrey root; now plant-derived for purity.",
