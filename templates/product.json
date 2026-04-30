@@ -97,11 +97,60 @@
         "padding_top": 40,
         "padding_bottom": 72,
         "bg_color": "",
-        "badge_text": "New",
         "gallery_image_1": "shopify://shop_images/couple_wearing_product.png",
         "gallery_image_2": "shopify://shop_images/freepik_amateur-smartphone-macro-_2870963720_1.png",
         "gallery_image_3": "shopify://shop_images/freepik_same-shot-of-image-but-wa_2870994617.png",
-        "gallery_image_4": "shopify://shop_images/ChatGPT_Image_Apr_27_2026_at_04_14_59_AM.png"
+        "gallery_image_4": "shopify://shop_images/ChatGPT_Image_Apr_27_2026_at_04_14_59_AM.png",
+        "badge_text": "New"
+      }
+    },
+    "howto": {
+      "type": "how-it-works",
+      "blocks": {
+        "k": {
+          "type": "kicker",
+          "settings": {
+            "text": "HOW TO USE"
+          }
+        },
+        "h": {
+          "type": "heading",
+          "settings": {
+            "lead": "3 simple steps,",
+            "accent": "30 minutes."
+          }
+        },
+        "s": {
+          "type": "subheading",
+          "settings": {
+            "text": "No mixing, no peeling phase, no harsh acids. Just slip them on and let the goat milk + niacinamide do the work."
+          }
+        },
+        "steps": {
+          "type": "steps_row",
+          "settings": {
+            "s1_image": "shopify://shop_images/0a89a36a-2e23-4704-8c92-876fa29e9a23.png",
+            "s1_title": "Slip them on",
+            "s1_body": "Open the foil pouch, slide the pre-filled soft socks over clean feet, peel and stick the seal.",
+            "s2_image": "shopify://shop_images/b742d40f-3255-4eef-aa25-67d7a9799513.png",
+            "s2_title": "Wait 30 minutes",
+            "s2_body": "Read, watch TV, scroll your phone. The goat milk + niacinamide serum soaks in while you do nothing.",
+            "s3_image": "shopify://shop_images/ChatGPT_Image_Apr_27_2026_at_03_59_25_AM.png",
+            "s3_title": "Peel & rinse",
+            "s3_body": "Pull off the socks, rinse, pat dry. Skin feels softer and hydrated immediately."
+          }
+        }
+      },
+      "block_order": [
+        "k",
+        "h",
+        "s",
+        "steps"
+      ],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "bg_color": "#fbf6ee"
       }
     },
     "ingredients": {
@@ -187,53 +236,195 @@
         "padding_bottom": 56
       }
     },
-    "howto": {
-      "type": "how-it-works",
+    "ba-grid": {
+      "type": "ba-carousel",
+      "blocks": {
+        "g1": {
+          "type": "pair",
+          "settings": {
+            "before_image": "shopify://shop_images/freepik_amateur-smartphone-macro-_2870963720_1.png",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/freepik_same-shot-of-image-but-wa_2870994617.png",
+            "after_label": "After · 3 weeks",
+            "eyebrow": "Sarah K. — 3 weeks of weekly use",
+            "heading": "From cracked to soft.",
+            "name": "Sarah",
+            "caption": "One pair, weekly application, no peeling."
+          }
+        },
+        "g2": {
+          "type": "pair",
+          "settings": {
+            "before_image": "shopify://shop_images/f0e7c886-b2fd-42ff-bd9b-b4706550d415.png",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/357c8eb6-2b36-4701-8688-519b48dda6fe.png",
+            "after_label": "After · 2 sessions",
+            "eyebrow": "Priya R. — pregnant, 2 sessions",
+            "heading": "Soft heels by morning.",
+            "name": "Priya",
+            "caption": "Couldn't use peels with salicylic acid. Genuine relief, no flaking."
+          }
+        },
+        "g3": {
+          "type": "pair",
+          "settings": {
+            "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png",
+            "after_label": "After · 1 session",
+            "eyebrow": "Hannah M. — sensitive skin",
+            "heading": "Smooth, no burn.",
+            "name": "Hannah",
+            "caption": "Tried harsh foot peels before; this didn't burn or peel."
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3"
+      ],
+      "settings": {
+        "eyebrow": "The proof",
+        "heading": "Real customers.",
+        "heading_accent": "Real heels.",
+        "subhead": "",
+        "autoplay": true,
+        "interval": 6,
+        "bg": "",
+        "max_width": 1140,
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "bundles": {
+      "type": "homepage-bundle-cards",
+      "blocks": {
+        "b1": {
+          "type": "bundle",
+          "settings": {
+            "pack_label": "1 Pack",
+            "price": "$19.99",
+            "per_pack": "$19.99 / pack",
+            "savings": "",
+            "shipping_pill": "",
+            "body": "Try one 30-minute session before committing.",
+            "cta_label": "Try one →",
+            "variant_id": "47758582055099",
+            "featured": false,
+            "badge": ""
+          }
+        },
+        "b2": {
+          "type": "bundle",
+          "settings": {
+            "pack_label": "3 Pack",
+            "price": "$44.99",
+            "per_pack": "$15.00 / pack",
+            "savings": "Save $15",
+            "shipping_pill": "",
+            "body": "Three weekly sessions — the sweet spot.",
+            "cta_label": "Get the 3-pack →",
+            "variant_id": "47758582087867",
+            "featured": true,
+            "badge": "Most popular"
+          }
+        },
+        "b3": {
+          "type": "bundle",
+          "settings": {
+            "pack_label": "5 Pack",
+            "price": "$69.99",
+            "per_pack": "$14.00 / pack",
+            "savings": "Save $30",
+            "shipping_pill": "✓ Free shipping",
+            "body": "The household ritual. Lasts 5 weeks.",
+            "cta_label": "Get the 5-pack →",
+            "variant_id": "47758582120635",
+            "featured": false,
+            "badge": ""
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "product_image": "shopify://shop_images/5pack.png",
+        "center": true,
+        "kicker": "Save more with bundles",
+        "heading": "Stock up,",
+        "heading_accent": "save up to $30.",
+        "subhead": "Trusted by 1,400+ early customers. Most grab the 3-pack — three weekly sessions covers most cracked-heel cases.",
+        "fineprint": "Free US shipping on 5-pack · 30-day money-back · processed in 1–3 days · standard delivery 8–14 days",
+        "product_handle": "goat-milk-callus-mask",
+        "bg": "#faf8f5",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "mini-compare": {
+      "type": "comparison-table",
       "blocks": {
         "k": {
           "type": "kicker",
           "settings": {
-            "text": "HOW TO USE"
+            "text": "The honest comparison"
           }
         },
         "h": {
           "type": "heading",
           "settings": {
-            "lead": "3 simple steps,",
-            "accent": "30 minutes."
+            "lead": "Kneuro vs.",
+            "accent": "foot peels."
           }
         },
-        "s": {
-          "type": "subheading",
+        "t": {
+          "type": "table",
           "settings": {
-            "text": "No mixing, no peeling phase, no harsh acids. Just slip them on and let the goat milk + niacinamide do the work."
-          }
-        },
-        "steps": {
-          "type": "steps_row",
-          "settings": {
-            "s1_image": "shopify://shop_images/0a89a36a-2e23-4704-8c92-876fa29e9a23.png",
-            "s1_title": "Slip them on",
-            "s1_body": "Open the foil pouch, slide the pre-filled soft socks over clean feet, peel and stick the seal.",
-            "s2_image": "shopify://shop_images/b742d40f-3255-4eef-aa25-67d7a9799513.png",
-            "s2_title": "Wait 30 minutes",
-            "s2_body": "Read, watch TV, scroll your phone. The goat milk + niacinamide serum soaks in while you do nothing.",
-            "s3_image": "shopify://shop_images/ChatGPT_Image_Apr_27_2026_at_03_59_25_AM.png",
-            "s3_title": "Peel & rinse",
-            "s3_body": "Pull off the socks, rinse, pat dry. Skin feels softer and hydrated immediately."
+            "col_brand": "Kneuro",
+            "col_2": "Harsh peels",
+            "col_3": "Foot cream",
+            "col_4": "",
+            "row_1_label": "Pregnancy-safe",
+            "row_1_brand": "yes",
+            "row_1_c2": "no",
+            "row_1_c3": "yes",
+            "row_1_c4": "",
+            "row_2_label": "Visible result in 30 min",
+            "row_2_brand": "yes",
+            "row_2_c2": "no",
+            "row_2_c3": "no",
+            "row_2_c4": "",
+            "row_3_label": "No painful peeling",
+            "row_3_brand": "yes",
+            "row_3_c2": "no",
+            "row_3_c3": "yes",
+            "row_3_c4": "",
+            "row_4_label": "",
+            "row_4_brand": "",
+            "row_4_c2": "",
+            "row_4_c3": "",
+            "row_4_c4": "",
+            "row_5_label": "",
+            "row_5_brand": "",
+            "row_5_c2": "",
+            "row_5_c3": "",
+            "row_5_c4": ""
           }
         }
       },
       "block_order": [
         "k",
         "h",
-        "s",
-        "steps"
+        "t"
       ],
       "settings": {
         "padding_top": 56,
         "padding_bottom": 56,
-        "bg_color": "#fbf6ee"
+        "bg_color": ""
       }
     },
     "quotes": {
@@ -343,200 +534,10 @@
     "final": {
       "type": "final-cta",
       "settings": {
+        "mode": "light",
         "bg": "",
         "padding_top": 0,
         "padding_bottom": 60
-      }
-    },
-    "bundles": {
-      "type": "homepage-bundle-cards",
-      "blocks": {
-        "b1": {
-          "type": "bundle",
-          "settings": {
-            "pack_label": "1 Pack",
-            "price": "$19.99",
-            "per_pack": "$19.99 / pack",
-            "savings": "",
-            "shipping_pill": "",
-            "body": "Try one 30-minute session before committing.",
-            "cta_label": "Try one →",
-            "variant_id": "47758582055099",
-            "featured": false,
-            "badge": ""
-          }
-        },
-        "b2": {
-          "type": "bundle",
-          "settings": {
-            "pack_label": "3 Pack",
-            "price": "$44.99",
-            "per_pack": "$15.00 / pack",
-            "savings": "Save $15",
-            "shipping_pill": "",
-            "body": "Three weekly sessions — the sweet spot.",
-            "cta_label": "Get the 3-pack →",
-            "variant_id": "47758582087867",
-            "featured": true,
-            "badge": "Most popular"
-          }
-        },
-        "b3": {
-          "type": "bundle",
-          "settings": {
-            "pack_label": "5 Pack",
-            "price": "$69.99",
-            "per_pack": "$14.00 / pack",
-            "savings": "Save $30",
-            "shipping_pill": "✓ Free shipping",
-            "body": "The household ritual. Lasts 5 weeks.",
-            "cta_label": "Get the 5-pack →",
-            "variant_id": "47758582120635",
-            "featured": false,
-            "badge": ""
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3"
-      ],
-      "settings": {
-        "kicker": "Save more with bundles",
-        "heading": "Stock up,",
-        "heading_accent": "save up to $30.",
-        "subhead": "Trusted by 1,400+ early customers. Most grab the 3-pack — three weekly sessions covers most cracked-heel cases.",
-        "fineprint": "Free US shipping on 5-pack · 30-day money-back · processed in 1–3 days · standard delivery 8–14 days",
-        "product_handle": "goat-milk-callus-mask",
-        "product_image": "shopify://shop_images/5pack.png",
-        "center": true,
-        "padding_top": 56,
-        "padding_bottom": 56,
-        "bg": "#faf8f5"
-      }
-    },
-    "ba-grid": {
-      "type": "ba-carousel",
-      "blocks": {
-        "g1": {
-          "type": "pair",
-          "settings": {
-            "before_image": "shopify://shop_images/freepik_amateur-smartphone-macro-_2870963720_1.png",
-            "before_label": "Before",
-            "after_image": "shopify://shop_images/freepik_same-shot-of-image-but-wa_2870994617.png",
-            "after_label": "After · 3 weeks",
-            "eyebrow": "Sarah K. — 3 weeks of weekly use",
-            "heading": "From cracked to soft.",
-            "name": "Sarah",
-            "caption": "One pair, weekly application, no peeling."
-          }
-        },
-        "g2": {
-          "type": "pair",
-          "settings": {
-            "before_image": "shopify://shop_images/f0e7c886-b2fd-42ff-bd9b-b4706550d415.png",
-            "before_label": "Before",
-            "after_image": "shopify://shop_images/357c8eb6-2b36-4701-8688-519b48dda6fe.png",
-            "after_label": "After · 2 sessions",
-            "eyebrow": "Priya R. — pregnant, 2 sessions",
-            "heading": "Soft heels by morning.",
-            "name": "Priya",
-            "caption": "Couldn't use peels with salicylic acid. Genuine relief, no flaking."
-          }
-        },
-        "g3": {
-          "type": "pair",
-          "settings": {
-            "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
-            "before_label": "Before",
-            "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png",
-            "after_label": "After · 1 session",
-            "eyebrow": "Hannah M. — sensitive skin",
-            "heading": "Smooth, no burn.",
-            "name": "Hannah",
-            "caption": "Tried harsh foot peels before; this didn't burn or peel."
-          }
-        }
-      },
-      "block_order": [
-        "g1",
-        "g2",
-        "g3"
-      ],
-      "settings": {
-        "eyebrow": "The proof",
-        "heading": "Real customers.",
-        "heading_accent": "Real heels.",
-        "subhead": "",
-        "autoplay": true,
-        "interval": 6,
-        "bg": "",
-        "max_width": 1140,
-        "padding_top": 56,
-        "padding_bottom": 56
-      }
-    },
-    "mini-compare": {
-      "type": "comparison-table",
-      "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "The honest comparison"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "Kneuro vs.",
-            "accent": "foot peels."
-          }
-        },
-        "t": {
-          "type": "table",
-          "settings": {
-            "col_brand": "Kneuro",
-            "col_2": "Harsh peels",
-            "col_3": "Foot cream",
-            "col_4": "",
-            "row_1_label": "Pregnancy-safe",
-            "row_1_brand": "yes",
-            "row_1_c2": "no",
-            "row_1_c3": "yes",
-            "row_1_c4": "",
-            "row_2_label": "Visible result in 30 min",
-            "row_2_brand": "yes",
-            "row_2_c2": "no",
-            "row_2_c3": "no",
-            "row_2_c4": "",
-            "row_3_label": "No painful peeling",
-            "row_3_brand": "yes",
-            "row_3_c2": "no",
-            "row_3_c3": "yes",
-            "row_3_c4": "",
-            "row_4_label": "",
-            "row_4_brand": "",
-            "row_4_c2": "",
-            "row_4_c3": "",
-            "row_4_c4": "",
-            "row_5_label": "",
-            "row_5_brand": "",
-            "row_5_c2": "",
-            "row_5_c3": "",
-            "row_5_c4": ""
-          }
-        }
-      },
-      "block_order": [
-        "k",
-        "h",
-        "t"
-      ],
-      "settings": {
-        "padding_top": 56,
-        "padding_bottom": 56,
-        "bg_color": ""
       }
     }
   },
@@ -544,10 +545,10 @@
     "main",
     "howto",
     "ingredients",
-    "bundles",
     "ba-grid",
-    "mini-compare",
     "quotes",
+    "bundles",
+    "mini-compare",
     "faq",
     "final"
   ]
