@@ -40,13 +40,13 @@
         "p1": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>By March my heels were splitting. I'd been hiding them in socks at the gym, in closed-toe flats at the office, in sand at every beach trip. Drugstore foot creams felt like rubbing oil into concrete. A $40 callus shaver scraped raw skin without changing what was underneath. Even the salon pedicure — clinical, expensive, the supposed answer — peeled back into the same dryness within four days. <strong>Nothing reached the actual problem.</strong></p>"
+            "text": "<p>By March, my heels were splitting. I'd been hiding them in socks at the gym, in closed-toe flats at the office, in sand at every beach trip. <strong>Lotion didn't reach it. Pedicures didn't last. Nothing worked.</strong></p>"
           }
         },
         "p2": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>A friend sent me a thirty-second video. A white sock-shaped pouch, milky liquid sealed inside, slipped over each foot for half an hour. A gentler alternative to the harsh peels — no burning, no salicylic acid, no five-day flake. I tried it that night, half-believing. The next morning I touched my heel before I got out of bed and felt <strong>skin instead of cracked plaster.</strong> Soft. For the first time in three years.</p>"
+            "text": "<p>Then a friend sent me a thirty-second video. A soft sock-shaped pouch, milky liquid sealed inside, slipped over each foot for half an hour. I tried it that night, half-believing. <strong>The next morning, my heels were soft for the first time in three years.</strong></p>"
           }
         },
         "ba1": {
@@ -94,13 +94,13 @@
         "p_science": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Goat milk has been used in skincare since Cleopatra. The reason it works: it naturally contains lactic acid — the same alpha-hydroxy that aggressive foot peels use, but at <strong>roughly 1/10 the strength</strong>. Strong enough to loosen dead skin in 30 minutes. Gentle enough that dermatologists routinely green-light it during pregnancy. No five-day peeling phase, no painful flake.</p>"
+            "text": "<p><strong>Goat milk has lactic acid in it</strong> — the same compound harsh foot peels use, but at about 1/10 the strength. Strong enough to loosen dead skin in 30 minutes. Gentle enough that dermatologists routinely green-light it during pregnancy. No 5-day peel. No painful flake.</p>"
           }
         },
         "p_proof": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>I asked customers for their photos. Pregnant feet, diabetic feet, sensitive skin, gym-goers — the people most foot peels leave behind. Every one of them sent the same kind of result.</p>"
+            "text": "<p>I'm not the only one. Customers writing in from pregnancy, sensitive skin, diabetic feet — <strong>the people most foot peels leave behind</strong>. Same outcome.</p>"
           }
         },
         "hk1": {
@@ -129,10 +129,17 @@
         }
       },
       "block_order": [
-        "hk4",
+        "p1",
+        "hk1",
+        "p2",
+        "hk2",
         "ba1",
+        "p_science",
+        "hk3",
+        "p_proof",
         "ba2",
-        "ba3"
+        "ba3",
+        "hk4"
       ],
       "settings": {
         "cta_url": "/products/goat-milk-callus-mask",
