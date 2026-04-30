@@ -20,6 +20,7 @@
         "date": "",
         "read_time": "",
         "hero_image": "shopify://shop_images/couple_wearing_product.png",
+        "video_asset": "",
         "caption": "Real customer photo. 30-min treatment.",
         "cta_label": "Get Soft Feet Today →",
         "cta_url": "/products/goat-milk-callus-mask",
@@ -29,10 +30,9 @@
         "trust_t3": "Pregnancy & diabetic-safe",
         "trust_t4": "1,400+ customers · 30-day refund",
         "cta_price": "From $19.99 · Save $30 on the 5-pack",
-        "bg": "#ffffff",
+        "bg": "#fbf6ee",
         "padding_top": 28,
-        "padding_bottom": 56,
-        "video_asset": "kneuro-hero.mp4"
+        "padding_bottom": 56
       }
     },
     "story": {
@@ -316,7 +316,7 @@
         "trust"
       ],
       "settings": {
-        "bg": "#ffffff",
+        "bg": "#f0dcb8",
         "padding_top": 80,
         "padding_bottom": 96
       }
@@ -339,7 +339,7 @@
         "title_4": "30-day money-back",
         "body_4": "If your heels aren't softer, full refund. No questions.",
         "icon_4": "refresh",
-        "bg": "#faf8f5",
+        "bg": "#ffffff",
         "padding_top": 72,
         "padding_bottom": 72
       }
@@ -447,7 +447,7 @@
         "heading": "Real heels.",
         "heading_accent": "Real photos.",
         "subhead": "",
-        "bg": "#ffffff",
+        "bg": "#fbf6ee",
         "max_width": 1080,
         "padding_top": 64,
         "padding_bottom": 72
