@@ -20,6 +20,7 @@
         "date": "April 26, 2026",
         "read_time": "",
         "hero_image": "shopify://shop_images/couple_wearing_product.png",
+        "hero_asset": "",
         "caption": "30 minutes. Both feet. Soft, hydrated heels — no peeling.",
         "cta_url": "/products/goat-milk-callus-mask",
         "trust_t1": "Pregnancy-safe",
@@ -57,20 +58,14 @@
             "caption": "Real customer photo. One pair, weekly application, no peeling."
           }
         },
-        "cta1": {
-          "type": "inline_cta",
-          "settings": {
-            "label": "Get the Goat Milk Mask — from $19.99",
-            "url": "/products/goat-milk-callus-mask",
-            "subtext": "30-day money-back · free US shipping over $30"
-          }
-        },
         "ba2": {
           "type": "before_after",
           "settings": {
             "eyebrow": "Pregnancy customer",
             "heading": "Priya's swollen, splitting heels.",
+            "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
             "before_label": "Before",
+            "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png",
             "after_label": "After · 2 sessions",
             "caption": "Priya R. — third trimester. Couldn't use peels with salicylic acid. Genuine relief by morning."
           }
@@ -80,7 +75,9 @@
           "settings": {
             "eyebrow": "Sensitive-skin customer",
             "heading": "Hannah's rough heels — without the burn.",
+            "before_image": "shopify://shop_images/f0e7c886-b2fd-42ff-bd9b-b4706550d415.png",
             "before_label": "Before",
+            "after_image": "shopify://shop_images/357c8eb6-2b36-4701-8688-519b48dda6fe.png",
             "after_label": "After · 1 session",
             "caption": "Hannah M. — sensitive skin. Tried Baby Foot before; this one didn't burn or peel."
           }
@@ -113,6 +110,74 @@
         "bg": "#ffffff",
         "padding_top": 24,
         "padding_bottom": 32
+      }
+    },
+    "bundles": {
+      "type": "homepage-bundle-cards",
+      "blocks": {
+        "b1": {
+          "type": "bundle",
+          "settings": {
+            "pack_label": "1 Pack",
+            "price": "$19.99",
+            "per_pack": "$19.99 / pack",
+            "savings": "",
+            "shipping_pill": "",
+            "body": "Try one 30-minute session before committing.",
+            "cta_label": "Try one →",
+            "variant_id": "47758582055099",
+            "featured": false,
+            "badge": ""
+          }
+        },
+        "b2": {
+          "type": "bundle",
+          "settings": {
+            "pack_label": "3 Pack",
+            "price": "$44.99",
+            "per_pack": "$15.00 / pack",
+            "savings": "Save $15",
+            "shipping_pill": "",
+            "body": "Three weekly sessions — the sweet spot.",
+            "cta_label": "Get the 3-pack →",
+            "variant_id": "47758582087867",
+            "featured": true,
+            "badge": "Most popular"
+          }
+        },
+        "b3": {
+          "type": "bundle",
+          "settings": {
+            "pack_label": "5 Pack",
+            "price": "$69.99",
+            "per_pack": "$14.00 / pack",
+            "savings": "Save $30",
+            "shipping_pill": "✓ Free US shipping",
+            "body": "The household ritual. Lasts 5 months.",
+            "cta_label": "Get the 5-pack →",
+            "variant_id": "47758582120635",
+            "featured": false,
+            "badge": ""
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "product_image": "shopify://shop_images/5pack.png",
+        "center": true,
+        "kicker": "Choose your pack",
+        "heading": "Stop living with",
+        "heading_accent": "cracked, dry feet.",
+        "subhead": "Goat milk. Niacinamide. 30 minutes. Soft feet that last. Tap a bundle below to skip the picker — your selection is preloaded at checkout.",
+        "fineprint": "All bundles pregnancy-safe, diabetes-safe, dermatologist-approved · 30-day money-back · processed in 1–3 days · standard delivery 8–14 days",
+        "product_handle": "goat-milk-callus-mask",
+        "bg": "#faf8f5",
+        "padding_top": 64,
+        "padding_bottom": 80
       }
     },
     "timeline": {
@@ -277,56 +342,60 @@
           "type": "ingredient",
           "settings": {
             "emoji": "🥛",
-            "image": "shopify://shop_images/ingredients2.png",
             "title": "Goat Milk",
             "scientific": "Capra hircus milk",
             "role": "Naturally contains lactic acid, an alpha-hydroxy acid that loosens the bonds holding dead skin cells together — gently, without the burn of synthetic glycolic or salicylic acid.",
             "benefit": "About 1/10th the strength of Baby Foot's acid blend. Softens visibly without the 5-day painful peeling phase. Pregnancy-safe, breastfeeding-safe, diabetic-skin-friendly.",
             "source_note": "Whole goat milk extract. Used in skincare since Cleopatra's milk baths.",
             "proof_note": "Lactic acid is the only AHA dermatologists routinely green-light during pregnancy.",
-            "tags": "Natural AHA, Pregnancy-safe, Diabetic-safe"
+            "tags": "Natural AHA, Pregnancy-safe, Diabetic-safe",
+            "image": "shopify://shop_images/ingredients2.png",
+            "image_alt": ""
           }
         },
         "i2": {
           "type": "ingredient",
           "settings": {
             "emoji": "✨",
-            "image": "shopify://shop_images/ingredients5.png",
             "title": "Niacinamide (Vitamin B3)",
             "scientific": "Nicotinamide",
             "role": "Strengthens the skin's lipid barrier, the natural shield that holds moisture in. Also evens out tone and reduces the redness that comes with cracked, irritated heels.",
             "benefit": "While the goat milk loosens dead skin, niacinamide repairs the new skin underneath. Skin doesn't just feel softer — it stays softer, because the barrier is rebuilding.",
             "source_note": "Pharmaceutical-grade vitamin B3. The same form used in dermatology offices.",
             "proof_note": "One of the most-studied ingredients in skincare. Used at 4–10% in clinical trials for barrier repair.",
-            "tags": "Barrier repair, Brightening, Pregnancy-safe"
+            "tags": "Barrier repair, Brightening, Pregnancy-safe",
+            "image": "shopify://shop_images/ingredients5.png",
+            "image_alt": ""
           }
         },
         "i3": {
           "type": "ingredient",
           "settings": {
             "emoji": "💧",
-            "image": "shopify://shop_images/ingredients1.png",
             "title": "Glycerin",
             "scientific": "Glycerol",
             "role": "A humectant — it pulls water from the air and from deeper skin layers up into the dry, parched outer layer, where you can feel it.",
             "benefit": "Goat milk loosens the rough surface. Niacinamide rebuilds. Glycerin floods what's left with deep moisture so the result lasts days, not hours.",
             "source_note": "Plant-derived glycerin. Vegan, cruelty-free.",
             "proof_note": "The most widely-used humectant in dermatology because it works in any humidity, on any skin type.",
-            "tags": "Deep hydration, Plant-derived, Vegan"
+            "tags": "Deep hydration, Plant-derived, Vegan",
+            "image": "shopify://shop_images/ingredients1.png",
+            "image_alt": ""
           }
         },
         "i4": {
           "type": "ingredient",
           "settings": {
             "emoji": "🌿",
-            "image": "shopify://shop_images/ingredients6.png",
             "title": "Allantoin",
             "scientific": "5-ureidohydantoin",
             "role": "A soothing agent that calms inflammation and accelerates the skin's natural cell turnover. Originally extracted from comfrey root; now plant-derived for purity.",
             "benefit": "Cracked heels are micro-injuries. Allantoin is the part of the formula that says 'this skin's been through a lot — let's calm it down and help it heal.'",
             "source_note": "Plant-derived. Pregnancy-safe, eczema-safe, diabetic-safe.",
             "proof_note": "Allantoin is in baby products and post-procedure dermatology creams for a reason: it's gentle enough for the most reactive skin.",
-            "tags": "Soothing, Sensitive-skin, Eczema-safe"
+            "tags": "Soothing, Sensitive-skin, Eczema-safe",
+            "image": "shopify://shop_images/ingredients6.png",
+            "image_alt": ""
           }
         }
       },
@@ -342,9 +411,11 @@
         "heading_accent": "no compromise.",
         "subhead": "What's inside the sock — and why each thing earned its spot. Pregnancy-safe. Diabetes-safe. No salicylic acid, no fragrance, no essential oils.",
         "cta_label": "",
+        "cta_url": "",
+        "cta_subtext": "30-day money-back · free US shipping over $30",
+        "bg": "",
         "padding_top": 64,
-        "padding_bottom": 64,
-        "bg": ""
+        "padding_bottom": 64
       }
     },
     "comparison": {
@@ -407,74 +478,6 @@
         "padding_top": 64,
         "padding_bottom": 64,
         "bg_color": ""
-      }
-    },
-    "bundles": {
-      "type": "homepage-bundle-cards",
-      "blocks": {
-        "b1": {
-          "type": "bundle",
-          "settings": {
-            "pack_label": "1 Pack",
-            "price": "$19.99",
-            "per_pack": "$19.99 / pack",
-            "savings": "",
-            "shipping_pill": "",
-            "body": "Try one 30-minute session before committing.",
-            "cta_label": "Try one →",
-            "variant_id": "47758582055099",
-            "featured": false,
-            "badge": ""
-          }
-        },
-        "b2": {
-          "type": "bundle",
-          "settings": {
-            "pack_label": "3 Pack",
-            "price": "$44.99",
-            "per_pack": "$15.00 / pack",
-            "savings": "Save $15",
-            "shipping_pill": "",
-            "body": "Three weekly sessions — the sweet spot.",
-            "cta_label": "Get the 3-pack →",
-            "variant_id": "47758582087867",
-            "featured": true,
-            "badge": "Most popular"
-          }
-        },
-        "b3": {
-          "type": "bundle",
-          "settings": {
-            "pack_label": "5 Pack",
-            "price": "$69.99",
-            "per_pack": "$14.00 / pack",
-            "savings": "Save $30",
-            "shipping_pill": "✓ Free US shipping",
-            "body": "The household ritual. Lasts 5 months.",
-            "cta_label": "Get the 5-pack →",
-            "variant_id": "47758582120635",
-            "featured": false,
-            "badge": ""
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3"
-      ],
-      "settings": {
-        "product_image": "shopify://shop_images/5pack.png",
-        "center": true,
-        "kicker": "Choose your pack",
-        "heading": "Stop living with",
-        "heading_accent": "cracked, dry feet.",
-        "subhead": "Goat milk. Niacinamide. 30 minutes. Soft feet that last. Tap a bundle below to skip the picker — your selection is preloaded at checkout.",
-        "fineprint": "All bundles pregnancy-safe, diabetes-safe, dermatologist-approved · 30-day money-back · processed in 1–3 days · standard delivery 8–14 days",
-        "product_handle": "goat-milk-callus-mask",
-        "bg": "#faf8f5",
-        "padding_top": 64,
-        "padding_bottom": 80
       }
     },
     "faq": {
