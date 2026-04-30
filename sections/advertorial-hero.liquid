@@ -42,15 +42,19 @@
           {% if section.settings.read_time != blank %}<span>· {{ section.settings.read_time }}</span>{% endif %}
         </div>
       {% endif %}
-      {% if section.settings.trust_t1 != blank or section.settings.trust_t2 != blank or section.settings.trust_t3 != blank %}
+      {% if section.settings.trust_t1 != blank or section.settings.trust_t2 != blank or section.settings.trust_t3 != blank or section.settings.trust_t4 != blank %}
         <ul class="adv-hero__trust">
           {% if section.settings.trust_t1 != blank %}<li>{{ section.settings.trust_t1 }}</li>{% endif %}
           {% if section.settings.trust_t2 != blank %}<li>{{ section.settings.trust_t2 }}</li>{% endif %}
           {% if section.settings.trust_t3 != blank %}<li>{{ section.settings.trust_t3 }}</li>{% endif %}
+          {% if section.settings.trust_t4 != blank %}<li>{{ section.settings.trust_t4 }}</li>{% endif %}
         </ul>
       {% endif %}
       {% if section.settings.cta_url != blank or section.settings.cta_label != blank %}
         <div class="adv-hero__cta-wrap">
+          {% if section.settings.cta_price != blank %}
+            <p class="adv-hero__cta-price">{{ section.settings.cta_price }}</p>
+          {% endif %}
           <a class="adv-hero__cta" href="{{ section.settings.cta_url | default: '#' }}">{{ section.settings.cta_label | default: 'Shop now →' }}</a>
           {% if section.settings.cta_subtext != blank %}<p class="adv-hero__cta-sub">{{ section.settings.cta_subtext }}</p>{% endif %}
         </div>
@@ -131,6 +135,7 @@
   .adv-hero__trust li { position: relative; color: var(--ink-2); font-family: var(--font-body); font-size: .78rem; font-weight: 600; letter-spacing: .01em; padding-left: 16px; }
   .adv-hero__trust li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: var(--accent-deep, var(--ink)); font-weight: 800; }
   .adv-hero__cta-wrap { margin: 0 0 28px; }
+  .adv-hero__cta-price { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--ink); margin: 0 0 12px; letter-spacing: -0.01em; }
   .adv-hero__cta { display: inline-block; padding: 16px 32px; background: var(--accent, #0a0a0a); color: #ffffff; text-decoration: none; font-family: var(--font-body); font-size: 1rem; font-weight: 700; letter-spacing: .01em; border-radius: 999px; transition: background .15s ease, transform .15s ease; }
   .adv-hero__cta:hover { background: var(--accent-deep, #2a2a2a); transform: translateY(-1px); }
   .adv-hero__cta-sub { font-family: var(--font-body); font-size: .78rem; color: var(--muted, #6a6a6a); margin: 10px 0 0; letter-spacing: .01em; }
@@ -165,6 +170,8 @@
     { "type": "text", "id": "trust_t1", "label": "Trust token 1", "default": "Pregnancy-safe" },
     { "type": "text", "id": "trust_t2", "label": "Trust token 2", "default": "Derm-tested" },
     { "type": "text", "id": "trust_t3", "label": "Trust token 3", "default": "30-day refund" },
+    { "type": "text", "id": "trust_t4", "label": "Trust token 4 (optional)" },
+    { "type": "text", "id": "cta_price", "label": "Price line above CTA button" },
     { "type": "header", "content": "Layout" },
     { "type": "color", "id": "bg", "label": "Background" },
     { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 28 },

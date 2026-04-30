@@ -15,21 +15,21 @@
         "publication": "Soft Skin Daily",
         "category": "Skincare",
         "headline": "Cracked heels you can't show? It's not you — most foot peels make it worse.",
-        "subhead": "Goat milk + niacinamide. Soft heels in 30 minutes. No peeling phase, no burning, no salicylic acid. Pregnancy-safe. Diabetes-safe.",
+        "subhead": "Goat milk + niacinamide. Soft heels in 30 minutes.",
         "byline": "Sarah K.",
         "date": "April 26, 2026",
         "read_time": "",
         "hero_image": "shopify://shop_images/couple_wearing_product.png",
         "caption": "Real customer photo. 30-minute treatment. No 5-day flake.",
+        "cta_label": "Shop now →",
         "cta_url": "/products/goat-milk-callus-mask",
-        "trust_t1": "No peeling phase",
-        "trust_t2": "Pregnancy-safe",
-        "trust_t3": "30-day refund",
+        "cta_subtext": "🚚 Free shipping above the 5-pack · Ships in 1–3 days",
+        "trust_t1": "30-minute treatment, no 5-day peel",
+        "trust_t2": "Pregnancy-safe · diabetes-safe · sensitive-skin-safe",
+        "trust_t3": "0g salicylic acid · 0g fragrance · 0g essential oils",
         "bg": "",
         "padding_top": 28,
-        "padding_bottom": 24,
-        "cta_label": "Shop now — from $19.99 →",
-        "cta_subtext": "Soft heels in 30 minutes · 30-day money-back · 1,400+ happy customers"
+        "padding_bottom": 24
       }
     },
     "story": {
@@ -64,11 +64,11 @@
           "settings": {
             "eyebrow": "Pregnancy customer",
             "heading": "Priya's swollen, splitting heels.",
-            "before_label": "Before",
-            "after_label": "After · 2 sessions",
-            "caption": "Priya R. — third trimester. Couldn't use peels with salicylic acid. Genuine relief by morning.",
             "before_image": "shopify://shop_images/f0e7c886-b2fd-42ff-bd9b-b4706550d415.png",
-            "after_image": "shopify://shop_images/357c8eb6-2b36-4701-8688-519b48dda6fe.png"
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/357c8eb6-2b36-4701-8688-519b48dda6fe.png",
+            "after_label": "After · 2 sessions",
+            "caption": "Priya R. — third trimester. Couldn't use peels with salicylic acid. Genuine relief by morning."
           }
         },
         "ba3": {
@@ -76,11 +76,11 @@
           "settings": {
             "eyebrow": "Sensitive-skin customer",
             "heading": "Hannah's rough heels — without the burn.",
-            "before_label": "Before",
-            "after_label": "After · 1 session",
-            "caption": "Hannah M. — sensitive skin. Tried harsh foot peels before; this one didn't burn or peel.",
             "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
-            "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png"
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png",
+            "after_label": "After · 1 session",
+            "caption": "Hannah M. — sensitive skin. Tried harsh foot peels before; this one didn't burn or peel."
           }
         },
         "p_bridge": {
@@ -315,9 +315,9 @@
         "trust"
       ],
       "settings": {
+        "bg": "",
         "padding_top": 72,
-        "padding_bottom": 96,
-        "bg": ""
+        "padding_bottom": 96
       }
     }
   },
