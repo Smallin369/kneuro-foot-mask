@@ -14,9 +14,6 @@
   {%- endif -%}
   <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
   <link rel="dns-prefetch" href="https://connect.facebook.net">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&display=swap">
 
   {{ 'theme.css' | asset_url | stylesheet_tag }}
 
@@ -36,13 +33,10 @@
       --accent-glaze: rgba(92, 58, 74, 0.18);
       --sage: #5C3A4A;
       --rose: #E8D6DC;
-      --font-heading: 'Fraunces', 'Fraunces Fallback', Georgia, 'Times New Roman', serif;
+      --font-heading: 'Manrope', 'Manrope Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-body: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
     }
-    body { background: var(--cream-soft); font-optical-sizing: auto; }
-    h1, h2, h3, h4 { font-optical-sizing: auto; font-variation-settings: "opsz" 96; }
-    /* Fraunces fallback metrics — minimizes layout shift on load */
-    @font-face { font-family: 'Fraunces Fallback'; src: local('Georgia'); size-adjust: 105%; ascent-override: 92%; descent-override: 24%; line-gap-override: 0%; }
+    body { background: var(--cream-soft); }
   </style>
 
   <link rel="preload" as="font" type="font/woff2" href="{{ 'manrope-var-latin.woff2' | asset_url }}" crossorigin>
