@@ -11,8 +11,22 @@
 {%- if section.settings.hero_asset != blank -%}
   {%- assign hero_asset_url = section.settings.hero_asset | asset_url -%}
 {%- endif -%}
+{%- assign hero_video_url = null -%}
+{%- if section.settings.video_asset != blank -%}
+  {%- assign hero_video_url = section.settings.video_asset | asset_url -%}
+{%- endif -%}
+{%- assign hero_video_poster_url = null -%}
+{%- if section.settings.video_poster -%}
+  {%- assign hero_video_poster_url = section.settings.video_poster | image_url: width: 1080, format: 'webp' -%}
+{%- elsif section.settings.hero_image -%}
+  {%- assign hero_video_poster_url = section.settings.hero_image | image_url: width: 1080, format: 'webp' -%}
+{%- elsif hero_asset_url -%}
+  {%- assign hero_video_poster_url = hero_asset_url -%}
+{%- endif -%}
 {%- assign preload_image = first_image | default: section.settings.hero_image -%}
-{%- if hero_asset_url -%}
+{%- if hero_video_url -%}
+  {%- comment -%} Video hero: skip image preload — autoplay video drives LCP {%- endcomment -%}
+{%- elsif hero_asset_url -%}
   <link rel="preload" as="image" href="{{ hero_asset_url }}" fetchpriority="high">
 {%- elsif preload_image -%}
   <link rel="preload" as="image"
@@ -28,7 +42,17 @@
     {%- if section.blocks.size == 0 -%}
       {%- comment -%} Legacy fallback: image-first layout for impulse-buy presale pages {%- endcomment -%}
 
-      {% if hero_asset_url %}
+      {% if hero_video_url %}
+        <figure class="adv-hero__fig adv-hero__fig--top adv-hero__fig--video">
+          <video class="adv-hero__video"
+                 autoplay muted loop playsinline preload="auto"
+                 {% if hero_video_poster_url %}poster="{{ hero_video_poster_url }}"{% endif %}
+                 aria-label="{{ section.settings.headline | escape }}">
+            <source src="{{ hero_video_url }}" type="video/mp4">
+            {% if hero_video_poster_url %}<img src="{{ hero_video_poster_url }}" alt="{{ section.settings.headline | escape }}" width="1080" height="1080">{% endif %}
+          </video>
+        </figure>
+      {% elsif hero_asset_url %}
         <figure class="adv-hero__fig adv-hero__fig--top">
           <img class="adv-hero__img" src="{{ hero_asset_url }}" alt="{{ section.settings.headline | escape }}" width="1080" height="1080" fetchpriority="high" decoding="async">
         </figure>
@@ -121,6 +145,12 @@
   .adv-hero__inner { max-width: 680px; margin: 0 auto; padding: 0 20px; }
   .adv-hero__fig--top { margin: 0 -20px 24px; }
   .adv-hero__fig--top .adv-hero__img { width: 100%; height: auto; max-height: 560px; object-fit: cover; aspect-ratio: 4/3; border-radius: 0; }
+  .adv-hero__fig--video { background: var(--cream-soft, #faf8f5); }
+  .adv-hero__video { width: 100%; height: auto; max-height: 620px; object-fit: cover; aspect-ratio: 4/3; display: block; border-radius: 0; }
+  @media (min-width: 760px) {
+    .adv-hero__fig--video { border-radius: 18px; overflow: hidden; }
+    .adv-hero__video { border-radius: 18px; max-height: 720px; }
+  }
   .adv-hero__buybox { background: var(--cream-soft, #faf8f5); border: 1px solid var(--line, #ececec); border-radius: 16px; padding: 22px 22px 24px; margin: 8px 0 20px; text-align: center; }
   .adv-hero__buybox .adv-hero__cta-price { margin: 0 0 14px; font-size: 1.15rem; }
   .adv-hero__buybox .adv-hero__cta { display: block; width: 100%; padding: 18px 24px; font-size: 1.05rem; }
@@ -172,6 +202,9 @@
     { "type": "text", "id": "read_time", "label": "Read time" },
     { "type": "image_picker", "id": "hero_image", "label": "Lead image (Shopify Files)" },
     { "type": "text", "id": "hero_asset", "label": "Theme asset filename (overrides Lead image, e.g. hero-pov.jpg)" },
+    { "type": "header", "content": "Hero video (overrides image when set)" },
+    { "type": "text", "id": "video_asset", "label": "Theme video asset filename (e.g. kneuro-hero.mp4)" },
+    { "type": "image_picker", "id": "video_poster", "label": "Video poster image (shown while video loads)" },
     { "type": "text", "id": "caption", "label": "Image caption" },
     { "type": "text", "id": "cta_label", "label": "CTA button label", "default": "Shop now — from $19.99 →" },
     { "type": "url", "id": "cta_url", "label": "CTA link" },
