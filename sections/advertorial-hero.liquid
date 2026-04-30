@@ -143,6 +143,14 @@
 <style>
   .adv-hero { background: #ffffff; }
   .adv-hero__inner { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+  /* Desktop: 2-col split — image left, copy + buybox right, vertically centered */
+  @media (min-width: 960px) {
+    .adv-hero__inner { max-width: 1080px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 56px; align-items: center; }
+    .adv-hero__inner > .adv-hero__fig--top { grid-column: 1; grid-row: 1 / span 99; align-self: center; margin: 0; }
+    .adv-hero__inner > .adv-hero__fig--top .adv-hero__img { max-height: 600px; aspect-ratio: 4/5; }
+    .adv-hero__inner > :not(.adv-hero__fig--top):not(.adv-hero__fig) { grid-column: 2; }
+    .adv-hero__inner > .adv-hero__buybox { margin-bottom: 0; }
+  }
   .adv-hero__fig--top { margin: 0 0 28px; border-radius: 20px; overflow: hidden; }
   .adv-hero__fig--top .adv-hero__img { width: 100%; height: auto; max-height: 540px; object-fit: cover; aspect-ratio: 4/3; border-radius: 20px; display: block; }
   .adv-hero__fig--top.adv-hero__fig--video { background: var(--cream-soft, #faf8f5); margin: 0 auto 24px; max-width: 100%; }
