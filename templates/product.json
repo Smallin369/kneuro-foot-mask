@@ -417,41 +417,44 @@
       }
     },
     "ba-grid": {
-      "type": "advertorial-story",
+      "type": "ba-carousel",
       "blocks": {
         "g1": {
-          "type": "before_after",
+          "type": "pair",
           "settings": {
+            "before_image": "shopify://shop_images/freepik_amateur-smartphone-macro-_2870963720_1.png",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/freepik_same-shot-of-image-but-wa_2870994617.png",
+            "after_label": "After · 3 weeks",
             "eyebrow": "Sarah K. — 3 weeks of weekly use",
             "heading": "From cracked to soft.",
-            "before_image": "shopify://shop_images/freepik_amateur-smartphone-macro-_2870963720_1.png",
-            "after_image": "shopify://shop_images/freepik_same-shot-of-image-but-wa_2870994617.png",
-            "before_label": "Before",
-            "after_label": "After · 3 weeks",
+            "name": "Sarah",
             "caption": "One pair, weekly application, no peeling."
           }
         },
         "g2": {
-          "type": "before_after",
+          "type": "pair",
           "settings": {
+            "before_image": "shopify://shop_images/f0e7c886-b2fd-42ff-bd9b-b4706550d415.png",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/357c8eb6-2b36-4701-8688-519b48dda6fe.png",
+            "after_label": "After · 2 sessions",
             "eyebrow": "Priya R. — pregnant, 2 sessions",
             "heading": "Soft heels by morning.",
-            "before_image": "shopify://shop_images/f0e7c886-b2fd-42ff-bd9b-b4706550d415.png",
-            "after_image": "shopify://shop_images/357c8eb6-2b36-4701-8688-519b48dda6fe.png",
-            "before_label": "Before",
-            "after_label": "After · 2 sessions",
+            "name": "Priya",
             "caption": "Couldn't use peels with salicylic acid. Genuine relief, no flaking."
           }
         },
         "g3": {
-          "type": "before_after",
+          "type": "pair",
           "settings": {
+            "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png",
+            "after_label": "After · 1 session",
             "eyebrow": "Hannah M. — sensitive skin",
             "heading": "Smooth, no burn.",
-            "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
-            "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png",
-            "before_label": "Before",
-            "after_label": "After · 1 session",
+            "name": "Hannah",
             "caption": "Tried harsh foot peels before; this didn't burn or peel."
           }
         }
@@ -462,9 +465,16 @@
         "g3"
       ],
       "settings": {
+        "eyebrow": "The proof",
+        "heading": "Real customers.",
+        "heading_accent": "Real heels.",
+        "subhead": "",
+        "autoplay": true,
+        "interval": 6,
+        "bg": "",
+        "max_width": 1140,
         "padding_top": 56,
-        "padding_bottom": 56,
-        "bg": ""
+        "padding_bottom": 56
       }
     },
     "mini-compare": {
@@ -532,13 +542,13 @@
   },
   "order": [
     "main",
+    "howto",
+    "ingredients",
     "bundles",
     "ba-grid",
     "mini-compare",
     "quotes",
     "faq",
-    "howto",
-    "ingredients",
     "final"
   ]
 }
