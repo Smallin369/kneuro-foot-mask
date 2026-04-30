@@ -1,32 +1,62 @@
-{% if section.settings.ship_bar_text != blank %}
-  <div class="ship" style="background:{{ section.settings.ship_bar_bg | default: '#2a1c12' }};color:{{ section.settings.ship_bar_color | default: '#fbf3e3' }};">
-    {{ section.settings.ship_bar_text }}
-  </div>
+{%- liquid
+  assign editorial = false
+  if template.name == 'index'
+    assign editorial = true
+  endif
+  if template.name == 'page' and template.suffix == 'advertorial'
+    assign editorial = true
+  endif
+  assign sponsored_label = section.settings.sponsored_label | default: 'Sponsored content'
+-%}
+
+{% if editorial %}
+  <header class="nav nav--editorial">
+    <div class="nav-inner nav-inner--editorial">
+      <a href="{{ routes.root_url }}" class="brand brand--editorial">
+        {{ section.settings.brand_name | default: shop.name }}
+      </a>
+      <span class="nav-sponsored">{{ sponsored_label }}</span>
+    </div>
+  </header>
+  <style>
+    .nav--editorial { background: #ffffff; border-bottom: 1px solid var(--line, #ececec); padding: 14px 0; }
+    .nav-inner--editorial { max-width: 760px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand--editorial { font-family: var(--font-heading); font-weight: 700; font-size: 18px; letter-spacing: .5px; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+    .brand--editorial .brand-dot { display: none; }
+    .nav-sponsored { font-family: var(--font-body); font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted, #6a6a6a); padding: 4px 8px; border: 1px solid var(--line, #ececec); border-radius: 4px; }
+    @media (max-width: 540px) { .brand--editorial { font-size: 16px; } .nav-sponsored { font-size: 10px; padding: 3px 6px; } }
+  </style>
+{% else %}
+  {% if section.settings.ship_bar_text != blank %}
+    <div class="ship" style="background:{{ section.settings.ship_bar_bg | default: '#2a1c12' }};color:{{ section.settings.ship_bar_color | default: '#fbf3e3' }};">
+      {{ section.settings.ship_bar_text }}
+    </div>
+  {% endif %}
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="{{ routes.root_url }}" class="brand">
+        <span class="brand-dot"></span>{{ section.settings.brand_name | default: shop.name }}
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        {% if section.settings.menu != blank %}
+          {% for link in linklists[section.settings.menu].links %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% endfor %}
+        {% elsif linklists['main-menu'] != blank %}
+          {% for link in linklists['main-menu'].links %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% endfor %}
+        {% endif %}
+      </nav>
+
+      <a href="{{ routes.cart_url }}" class="cart-btn" aria-label="Cart">
+        <span>{{ section.settings.cart_label | default: 'Cart' }} · <span data-cart-count>{{ cart.item_count }}</span></span>
+      </a>
+    </div>
+  </header>
 {% endif %}
-
-<header class="nav">
-  <div class="nav-inner">
-    <a href="{{ routes.root_url }}" class="brand">
-      <span class="brand-dot"></span>{{ section.settings.brand_name | default: shop.name }}
-    </a>
-
-    <nav class="nav-links" aria-label="Primary">
-      {% if section.settings.menu != blank %}
-        {% for link in linklists[section.settings.menu].links %}
-          <a href="{{ link.url }}">{{ link.title }}</a>
-        {% endfor %}
-      {% elsif linklists['main-menu'] != blank %}
-        {% for link in linklists['main-menu'].links %}
-          <a href="{{ link.url }}">{{ link.title }}</a>
-        {% endfor %}
-      {% endif %}
-    </nav>
-
-    <a href="{{ routes.cart_url }}" class="cart-btn" aria-label="Cart">
-      <span>{{ section.settings.cart_label | default: 'Cart' }} · <span data-cart-count>{{ cart.item_count }}</span></span>
-    </a>
-  </div>
-</header>
 
 {% schema %}
 {
@@ -35,6 +65,8 @@
     { "type": "text", "id": "brand_name", "label": "Brand name (overrides shop name)" },
     { "type": "link_list", "id": "menu", "label": "Navigation menu" },
     { "type": "text", "id": "cart_label", "label": "Cart button label", "default": "Cart" },
+    { "type": "header", "content": "Editorial mode (homepage + advertorial)" },
+    { "type": "text", "id": "sponsored_label", "label": "Sponsored label", "default": "Sponsored content" },
     { "type": "header", "content": "Shipping bar" },
     { "type": "text", "id": "ship_bar_text", "label": "Shipping bar text (leave blank to hide)", "default": "30-day returns · Secure checkout" },
     { "type": "color", "id": "ship_bar_bg", "label": "Ship bar background", "default": "#2a1c12" },
