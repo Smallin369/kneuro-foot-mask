@@ -31,21 +31,6 @@
         "padding_bottom": 64
       }
     },
-    "reveal": {
-      "type": "product-reveal-card",
-      "settings": {
-        "eyebrow": "What I bought",
-        "title": "Kneuro Goat Milk Foot Mask",
-        "price": "From $19.99 · 30-day money-back",
-        "body": "A 30-minute foot mask with goat milk lactic acid + niacinamide — gentle enough for pregnancy and diabetic feet, but soft heels by morning.",
-        "cta_label": "View the foot mask now →",
-        "cta_url": "/products/goat-milk-callus-mask",
-        "image": "shopify://shop_images/couple_wearing_product.png",
-        "bg": "#ffffff",
-        "padding_top": 24,
-        "padding_bottom": 32
-      }
-    },
     "comparison": {
       "type": "comparison-table",
       "blocks": {
@@ -491,7 +476,6 @@
     "press",
     "hero",
     "ba",
-    "reveal",
     "bundles",
     "timeline",
     "quotes",
