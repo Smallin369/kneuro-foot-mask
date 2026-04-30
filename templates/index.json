@@ -31,7 +31,8 @@
         "cta_price": "From $19.99 · Save $30 on the 5-pack",
         "bg": "#ffffff",
         "padding_top": 28,
-        "padding_bottom": 56
+        "padding_bottom": 56,
+        "video_asset": "kneuro-hero.mp4"
       }
     },
     "story": {
