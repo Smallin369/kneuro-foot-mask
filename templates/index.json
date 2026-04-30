@@ -14,16 +14,16 @@
       "settings": {
         "publication": "Soft Skin Daily",
         "category": "Skincare",
-        "headline": "The $90 pedicure didn't work. A goat milk mask did.",
-        "subhead": "What actually softened my heels — and why my dermatologist approved it.",
+        "headline": "Cracked heels you can't show? It's not you — most foot peels make it worse.",
+        "subhead": "Goat milk + niacinamide. Soft heels in 30 minutes. No peeling phase, no burning, no salicylic acid. Pregnancy-safe. Diabetes-safe.",
         "byline": "Sarah K.",
         "date": "April 26, 2026",
         "read_time": "",
         "hero_image": "shopify://shop_images/couple_wearing_product.png",
-        "caption": "30 minutes. Both feet. Soft, hydrated heels — no peeling.",
+        "caption": "Real customer photo. 30-minute treatment. No 5-day flake.",
         "cta_url": "/products/goat-milk-callus-mask",
-        "trust_t1": "Pregnancy-safe",
-        "trust_t2": "Derm-tested",
+        "trust_t1": "No peeling phase",
+        "trust_t2": "Pregnancy-safe",
         "trust_t3": "30-day refund",
         "bg": "",
         "padding_top": 28,
@@ -117,197 +117,6 @@
         "padding_bottom": 48
       }
     },
-    "testimonials": {
-      "type": "testimonial-quotes",
-      "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "What customers say"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "Real heels.",
-            "accent": "Real reviews."
-          }
-        },
-        "s": {
-          "type": "subheading",
-          "settings": {
-            "text": "Early customers across pregnancy, sensitive skin, and gift purchases."
-          }
-        },
-        "q": {
-          "type": "quotes_row",
-          "settings": {
-            "q1_quote": "I've tried Baby Foot and the harsh peels — they always burned and made my feet flake painfully for two weeks. This one is gentle. Soft, hydrated feet the next morning, no flaking.",
-            "q1_name": "Hannah M.",
-            "q1_initials": "HM",
-            "q1_location": "Sensitive skin · Early customer",
-            "q2_quote": "I'm pregnant and couldn't use any of the regular foot peels — salicylic acid is a no-go. My feet were splitting from the swelling. Genuine relief by the next morning.",
-            "q2_name": "Priya R.",
-            "q2_initials": "PR",
-            "q2_location": "Pregnant · Early customer",
-            "q3_quote": "Bought the 3-pack for me, my mom, and my sister. All three of us texted in caps lock the next day. Officially the family group-chat skincare moment of the year.",
-            "q3_name": "Daniel K.",
-            "q3_initials": "DK",
-            "q3_location": "Bought as a gift · Early customer"
-          }
-        }
-      },
-      "block_order": [
-        "k",
-        "h",
-        "s",
-        "q"
-      ],
-      "settings": {
-        "padding_top": 64,
-        "padding_bottom": 64,
-        "bg_color": ""
-      }
-    },
-    "ingredients": {
-      "type": "ingredient-deepdive",
-      "blocks": {
-        "i1": {
-          "type": "ingredient",
-          "settings": {
-            "emoji": "🥛",
-            "image": "shopify://shop_images/ingredients2.png",
-            "title": "Goat Milk",
-            "scientific": "",
-            "role": "Naturally contains lactic acid, an alpha-hydroxy acid that loosens the bonds holding dead skin cells together — gently, without the burn of synthetic glycolic or salicylic acid.",
-            "benefit": "",
-            "source_note": "",
-            "proof_note": "",
-            "tags": "Natural AHA, Pregnancy-safe, Diabetic-safe"
-          }
-        },
-        "i2": {
-          "type": "ingredient",
-          "settings": {
-            "emoji": "✨",
-            "image": "shopify://shop_images/ingredients5.png",
-            "title": "Niacinamide (Vitamin B3)",
-            "scientific": "",
-            "role": "Strengthens the skin's lipid barrier, the natural shield that holds moisture in. Also evens out tone and reduces the redness that comes with cracked, irritated heels.",
-            "benefit": "",
-            "source_note": "",
-            "proof_note": "",
-            "tags": "Barrier repair, Brightening, Pregnancy-safe"
-          }
-        },
-        "i3": {
-          "type": "ingredient",
-          "settings": {
-            "emoji": "💧",
-            "image": "shopify://shop_images/ingredients1.png",
-            "title": "Glycerin",
-            "scientific": "",
-            "role": "A humectant — it pulls water from the air and from deeper skin layers up into the dry, parched outer layer, where you can feel it.",
-            "benefit": "",
-            "source_note": "",
-            "proof_note": "",
-            "tags": "Deep hydration, Plant-derived, Vegan"
-          }
-        },
-        "i4": {
-          "type": "ingredient",
-          "settings": {
-            "emoji": "🌿",
-            "image": "shopify://shop_images/ingredients6.png",
-            "title": "Allantoin",
-            "scientific": "",
-            "role": "A soothing agent that calms inflammation and accelerates the skin's natural cell turnover. Originally extracted from comfrey root; now plant-derived for purity.",
-            "benefit": "",
-            "source_note": "",
-            "proof_note": "",
-            "tags": "Soothing, Sensitive-skin, Eczema-safe"
-          }
-        }
-      },
-      "block_order": [
-        "i1",
-        "i2",
-        "i3",
-        "i4"
-      ],
-      "settings": {
-        "eyebrow": "Inside the formula",
-        "heading_lead": "Four ingredients,",
-        "heading_accent": "no compromise.",
-        "subhead": "What's inside the sock — and why each thing earned its spot. Pregnancy-safe. Diabetes-safe. No salicylic acid, no fragrance, no essential oils.",
-        "cta_label": "",
-        "padding_top": 64,
-        "padding_bottom": 64,
-        "bg": ""
-      }
-    },
-    "comparison": {
-      "type": "comparison-table",
-      "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "The honest comparison"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "Kneuro vs.",
-            "accent": "every other foot mask."
-          }
-        },
-        "t": {
-          "type": "table",
-          "settings": {
-            "col_brand": "Kneuro",
-            "col_2": "Baby Foot",
-            "col_3": "Generic peel",
-            "col_4": "Foot cream",
-            "row_1_label": "Pregnancy-safe",
-            "row_1_brand": "yes",
-            "row_1_c2": "no",
-            "row_1_c3": "no",
-            "row_1_c4": "yes",
-            "row_2_label": "No harsh acids",
-            "row_2_brand": "yes",
-            "row_2_c2": "no",
-            "row_2_c3": "no",
-            "row_2_c4": "yes",
-            "row_3_label": "Visible result in 30 min",
-            "row_3_brand": "yes",
-            "row_3_c2": "no",
-            "row_3_c3": "no",
-            "row_3_c4": "no",
-            "row_4_label": "No painful peeling",
-            "row_4_brand": "yes",
-            "row_4_c2": "no",
-            "row_4_c3": "no",
-            "row_4_c4": "yes",
-            "row_5_label": "Goat milk + niacinamide",
-            "row_5_brand": "yes",
-            "row_5_c2": "no",
-            "row_5_c3": "no",
-            "row_5_c4": "partial"
-          }
-        }
-      },
-      "block_order": [
-        "k",
-        "h",
-        "t"
-      ],
-      "settings": {
-        "padding_top": 64,
-        "padding_bottom": 64,
-        "bg_color": ""
-      }
-    },
     "bundles": {
       "type": "homepage-bundle-cards",
       "blocks": {
@@ -368,7 +177,7 @@
         "kicker": "Choose your pack",
         "heading": "Stop living with",
         "heading_accent": "cracked, dry feet.",
-        "subhead": "Joining 1,400+ customers softening their heels — pick the pack that fits your routine. Tap a bundle to skip the picker and head straight to checkout.",
+        "subhead": "If your heels aren't softer in 30 minutes, full refund — no questions asked. Joining 1,400+ customers softening their heels.",
         "fineprint": "All bundles pregnancy-safe, diabetes-safe, dermatologist-approved · 30-day money-back · processed in 1–3 days · standard delivery 8–14 days",
         "product_handle": "goat-milk-callus-mask",
         "bg": "#faf8f5",
@@ -382,29 +191,29 @@
         "kicker": {
           "type": "kicker",
           "settings": {
-            "text": "Questions, answered"
+            "text": "Before you order"
           }
         },
         "heading": {
           "type": "heading",
           "settings": {
-            "lead": "The",
-            "accent": "honest answers."
+            "lead": "The honest",
+            "accent": "answers."
           }
         },
         "list": {
           "type": "faq_list",
           "settings": {
-            "q1_question": "Does this actually work on cracked heels?",
-            "q1_answer": "Yes — and we back it with a 30-day money-back guarantee. Most customers see noticeably softer, hydrated feet after one 30-minute session. For deeply cracked heels, plan on 2–3 weekly applications. If it doesn't work for you, we refund you in full.",
-            "q2_question": "What if it doesn't work for me?",
-            "q2_answer": "30-day money-back guarantee, no questions asked. Email us, we refund you in full — even if the box is opened. We'd rather lose the sale than have you stuck with something that didn't deliver.",
-            "q3_question": "How is this different from Baby Foot?",
-            "q3_answer": "Baby Foot uses a strong acid blend (glycolic, lactic, salicylic) that causes dramatic skin peeling 3–7 days after — painful, embarrassing, and you can't wear sandals for a week. We use a goat milk + niacinamide hydrating formula that softens skin gradually with no peeling. Safer for sensitive skin, pregnancy, diabetes, and anyone who can't disappear for 7 days.",
-            "q4_question": "Is it safe for sensitive skin, pregnancy, or diabetes?",
-            "q4_answer": "Yes to all three. Our formula uses only goat milk, niacinamide, glycerin, and allantoin. Zero salicylic acid, zero glycolic acid, zero fragrance, zero essential oils. Customers with eczema, pregnant feet, and diabetic skin who couldn't use other foot peels use this safely. (Check with your doctor if you have specific concerns.)",
-            "q5_question": "How long do results last?",
-            "q5_answer": "One application keeps feet noticeably softer for 1–2 weeks for most people. Customers using the 3-pack as a weekly ritual maintain smooth heels indefinitely. Daily walkers, gym-goers, and people on their feet all day usually need a session every 7–10 days to maintain results.",
+            "q1_question": "Will this make my feet peel like Baby Foot did?",
+            "q1_answer": "No. That's the whole point. Baby Foot uses a strong acid blend (glycolic + lactic + salicylic) that causes 5-day peeling. Kneuro uses goat milk lactic acid at about 1/10 the strength — softens skin gradually with no peeling phase. Wear sandals the next day if you want.",
+            "q2_question": "Is it safe for sensitive skin, pregnancy, or diabetes?",
+            "q2_answer": "Yes to all three. Our formula is goat milk + niacinamide + glycerin + allantoin. Zero salicylic acid, zero glycolic acid, zero fragrance, zero essential oils. Customers with eczema, pregnant feet, and diabetic skin who couldn't use other foot peels use this safely.",
+            "q3_question": "What if it doesn't work?",
+            "q3_answer": "30-day money-back guarantee, no questions asked. Email us, we refund you in full — even if the box is opened. We'd rather lose the sale than have you stuck with something that didn't deliver.",
+            "q4_question": "How long does shipping take?",
+            "q4_answer": "Orders are processed within 1-3 business days. Standard delivery is 8-14 days because we ship directly from our overseas contract manufacturer to keep prices fair. Order ahead of weddings, beach trips, and sandal season.",
+            "q5_question": "",
+            "q5_answer": "",
             "q6_question": "",
             "q6_answer": "",
             "q7_question": "",
@@ -431,14 +240,14 @@
         "h": {
           "type": "heading",
           "settings": {
-            "lead": "Stop hiding your",
-            "accent": "cracked feet."
+            "lead": "Stop hiding",
+            "accent": "your feet."
           }
         },
         "body": {
           "type": "body",
           "settings": {
-            "text": "Goat milk. Niacinamide. 30 minutes. Soft heels by morning."
+            "text": "Soft heels by tomorrow morning. No peeling. No salicylic acid. Trusted by 1,400+ customers."
           }
         },
         "cta": {
@@ -488,31 +297,12 @@
         "padding_bottom": 96,
         "bg": ""
       }
-    },
-    "reveal": {
-      "type": "product-reveal-card",
-      "settings": {
-        "eyebrow": "What I bought",
-        "title": "Kneuro Goat Milk Foot Mask",
-        "price": "From $19.99 · 30-day money-back",
-        "body": "A 30-minute foot mask with goat milk lactic acid + niacinamide — gentle enough for pregnancy and diabetic feet, but soft heels by morning.",
-        "cta_label": "View the foot mask now →",
-        "cta_url": "/products/goat-milk-callus-mask",
-        "image": "shopify://shop_images/couple_wearing_product.png",
-        "bg": "#ffffff",
-        "padding_top": 24,
-        "padding_bottom": 32
-      }
     }
   },
   "order": [
     "hero",
     "story",
-    "reveal",
     "bundles",
-    "testimonials",
-    "comparison",
-    "ingredients",
     "faq",
     "final"
   ]
