@@ -411,20 +411,6 @@
         "bg_color": ""
       }
     },
-    "promise": {
-      "type": "customer-promise",
-      "settings": {
-        "heading": "Try Kneuro risk-free",
-        "item_1": "30-day money-back guarantee — full refund, no questions",
-        "item_2": "Soft heels in 30 minutes — or your money back",
-        "item_3": "Pregnancy-safe · diabetes-safe · sensitive-skin-safe",
-        "item_4": "Real human support — reply within 1 business day",
-        "item_5": "",
-        "bg": "#faf8f5",
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
-    },
     "final": {
       "type": "final-cta",
       "blocks": {
@@ -493,7 +479,6 @@
   "order": [
     "hero",
     "story",
-    "promise",
     "bundles",
     "testimonials",
     "comparison",
