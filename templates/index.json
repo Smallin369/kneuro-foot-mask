@@ -57,14 +57,6 @@
             "caption": "Real customer photo. One pair, weekly application, no peeling."
           }
         },
-        "cta1": {
-          "type": "inline_cta",
-          "settings": {
-            "label": "Get the Goat Milk Mask — from $19.99",
-            "url": "/products/goat-milk-callus-mask",
-            "subtext": "30-day money-back · free US shipping over $30"
-          }
-        },
         "ba2": {
           "type": "before_after",
           "settings": {
@@ -88,12 +80,19 @@
             "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
             "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png"
           }
+        },
+        "p_bridge": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>I'm not the only one. Customers writing in from different situations — pregnant, sensitive skin, the people most foot peels leave behind. Same outcome.</p>"
+          }
         }
       },
       "block_order": [
         "p1",
         "p2",
         "ba1",
+        "p_bridge",
         "ba2",
         "ba3"
       ],
@@ -102,109 +101,6 @@
         "bg": "",
         "padding_top": 16,
         "padding_bottom": 48
-      }
-    },
-    "timeline": {
-      "type": "day-by-day-timeline",
-      "blocks": {
-        "s1": {
-          "type": "step",
-          "settings": {
-            "time_label": "Hour 0",
-            "title": "Slip it on",
-            "body": "Pull each soft sock-shaped pouch over your foot. Serum's already sealed inside — no mixing, no measuring. Sit down, scroll your phone, watch one episode.",
-            "tag": "",
-            "image_alt": "",
-            "image_caption": ""
-          }
-        },
-        "s2": {
-          "type": "step",
-          "settings": {
-            "time_label": "30 min",
-            "title": "Take it off, rinse",
-            "body": "Peel the pouches off, rinse your feet warm. The serum has been working — goat milk lactic acid loosening dead skin, niacinamide soothing the barrier underneath.",
-            "tag": "First softness",
-            "image_alt": "",
-            "image_caption": ""
-          }
-        },
-        "s3": {
-          "type": "step",
-          "settings": {
-            "time_label": "Hour 1",
-            "title": "Touch your heels",
-            "body": "They feel different already. Not finished — but softer than before. Most customers notice the change here.",
-            "tag": "",
-            "image_alt": "",
-            "image_caption": ""
-          }
-        },
-        "s4": {
-          "type": "step",
-          "settings": {
-            "time_label": "Day 1 morning",
-            "title": "Wake up to softer skin",
-            "body": "Get out of bed and feel your heel on the floor. Skin instead of cracked plaster. The mask kept working through the night while the niacinamide repaired the barrier.",
-            "tag": "",
-            "image_alt": "",
-            "image_caption": ""
-          }
-        },
-        "s5": {
-          "type": "step",
-          "settings": {
-            "time_label": "Day 3",
-            "title": "Dry patches reduced",
-            "body": "Calluses haven't disappeared — this isn't a peel, it's a softener. But the rough patches are smoother, more pliable. No painful flaking, no scary skin shedding.",
-            "tag": "No peeling phase",
-            "image_alt": "",
-            "image_caption": ""
-          }
-        },
-        "s6": {
-          "type": "step",
-          "settings": {
-            "time_label": "Day 7",
-            "title": "Heels you'd actually show",
-            "body": "Smooth enough for sandals. Soft enough for bare-feet date nights. The kind of feet you stop thinking about — because there's nothing to hide anymore.",
-            "tag": "",
-            "image_alt": "",
-            "image_caption": ""
-          }
-        },
-        "s7": {
-          "type": "step",
-          "settings": {
-            "time_label": "Week 2+",
-            "title": "The maintenance ritual",
-            "body": "One mask per week keeps feet permanently soft. The 3-pack lasts a month, the 5-pack lasts 5 weeks. No salon. No appointment. 30 minutes on a Sunday.",
-            "tag": "Sustainable softness",
-            "image_alt": "",
-            "image_caption": ""
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3",
-        "s4",
-        "s5",
-        "s6",
-        "s7"
-      ],
-      "settings": {
-        "eyebrow": "What to expect",
-        "heading_lead": "From the moment you",
-        "heading_accent": "slip it on.",
-        "subhead": "Real timeline, no exaggeration. What 30 minutes of goat milk and niacinamide actually does to your feet — hour by hour, day by day.",
-        "cta_label": "",
-        "cta_url": "",
-        "cta_subtext": "",
-        "bg": "",
-        "padding_top": 64,
-        "padding_bottom": 64
       }
     },
     "testimonials": {
@@ -495,8 +391,8 @@
             "q4_answer": "Yes to all three. Our formula uses only goat milk, niacinamide, glycerin, and allantoin. Zero salicylic acid, zero glycolic acid, zero fragrance, zero essential oils. Customers with eczema, pregnant feet, and diabetic skin who couldn't use other foot peels use this safely. (Check with your doctor if you have specific concerns.)",
             "q5_question": "How long do results last?",
             "q5_answer": "One application keeps feet noticeably softer for 1–2 weeks for most people. Customers using the 3-pack as a weekly ritual maintain smooth heels indefinitely. Daily walkers, gym-goers, and people on their feet all day usually need a session every 7–10 days to maintain results.",
-            "q6_question": "Can I use it on my hands and elbows too?",
-            "q6_answer": "Absolutely. The same formula works on dry hands, rough elbows, and even knees. Many customers buy the 3-pack specifically to use across multiple body areas.",
+            "q6_question": "",
+            "q6_answer": "",
             "q7_question": "",
             "q7_answer": "",
             "q8_question": "",
@@ -514,16 +410,95 @@
         "padding_bottom": 80,
         "bg_color": ""
       }
+    },
+    "promise": {
+      "type": "customer-promise",
+      "settings": {
+        "heading": "Try Kneuro risk-free",
+        "item_1": "30-day money-back guarantee — full refund, no questions",
+        "item_2": "Soft heels in 30 minutes — or your money back",
+        "item_3": "Pregnancy-safe · diabetes-safe · sensitive-skin-safe",
+        "item_4": "Real human support — reply within 1 business day",
+        "item_5": "",
+        "bg": "#faf8f5",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "final": {
+      "type": "final-cta",
+      "blocks": {
+        "h": {
+          "type": "heading",
+          "settings": {
+            "lead": "Stop hiding your",
+            "accent": "cracked feet."
+          }
+        },
+        "body": {
+          "type": "body",
+          "settings": {
+            "text": "Goat milk. Niacinamide. 30 minutes. Soft heels by morning."
+          }
+        },
+        "cta": {
+          "type": "cta",
+          "settings": {
+            "label": "Get yours — from $19.99 →",
+            "link": "/products/goat-milk-callus-mask"
+          }
+        },
+        "ship": {
+          "type": "shipping",
+          "settings": {
+            "text": "Free shipping on 5-pack · Processed in 1–3 days · Delivery 8–14 days"
+          }
+        },
+        "guar": {
+          "type": "guarantee",
+          "settings": {
+            "text": "Backed by our 30-day money-back guarantee"
+          }
+        },
+        "trust": {
+          "type": "trust_row",
+          "settings": {
+            "t1_emoji": "🌿",
+            "t1_title": "Pregnancy-safe",
+            "t1_sub": "no salicylic acid",
+            "t2_emoji": "💰",
+            "t2_title": "30-day refund",
+            "t2_sub": "no questions asked",
+            "t3_emoji": "🚚",
+            "t3_title": "Free shipping",
+            "t3_sub": "on 5-pack orders"
+          }
+        }
+      },
+      "block_order": [
+        "h",
+        "body",
+        "cta",
+        "ship",
+        "guar",
+        "trust"
+      ],
+      "settings": {
+        "padding_top": 72,
+        "padding_bottom": 96,
+        "bg": ""
+      }
     }
   },
   "order": [
     "hero",
     "story",
+    "promise",
     "bundles",
-    "timeline",
     "testimonials",
-    "ingredients",
     "comparison",
-    "faq"
+    "ingredients",
+    "faq",
+    "final"
   ]
 }
