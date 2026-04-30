@@ -139,34 +139,33 @@
   }
 
   .ingdd__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  @media (min-width: 760px) { .ingdd__list { grid-template-columns: 1fr 1fr; gap: 20px; } }
+
+  /* Compact stacked card: image top, body below. 2-col on desktop, 1-col mobile. */
+  .ingdd__card,
+  .ingdd__card--alt {
     display: flex;
     flex-direction: column;
-    gap: 28px;
-  }
-
-  .ingdd__card {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 32px;
-    padding: 24px;
+    gap: 14px;
+    padding: 18px;
     background: var(--cream-soft, #faf8f5);
-    border-radius: 18px;
-    align-items: center;
-    box-shadow: 0 16px 40px -22px rgba(42,28,18,.18);
+    border: 1px solid var(--line, #ece4dc);
+    border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(42,28,18,.04), 0 12px 30px -22px rgba(42,28,18,.16);
+    align-items: stretch;
   }
-  .ingdd__card--alt {
-    grid-template-columns: 1fr 320px;
-    background: #fff;
-    border: 1px solid var(--line, #ececec);
-    box-shadow: none;
-  }
-  .ingdd__card--alt .ingdd__card-media { order: 2; }
-  .ingdd__card--alt .ingdd__card-body { order: 1; }
+  .ingdd__card--alt { background: #ffffff; }
+  .ingdd__card--alt .ingdd__card-media,
+  .ingdd__card--alt .ingdd__card-body { order: initial; }
 
   .ingdd__card-media {
-    border-radius: 14px;
+    border-radius: 12px;
     overflow: hidden;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 16 / 10;
     background: var(--cream, #f3ece1);
     display: flex;
     align-items: center;
@@ -179,7 +178,7 @@
     display: block;
   }
   .ingdd__card-emoji {
-    font-size: 5rem;
+    font-size: 3rem;
     line-height: 1;
   }
 
@@ -192,17 +191,18 @@
 
   .ingdd__card-body { min-width: 0; }
 
-  .ingdd__card-head { margin-bottom: 18px; }
+  .ingdd__card-head { margin-bottom: 8px; }
   .ingdd__card-title {
     font-family: var(--font-heading);
-    font-size: 1.55rem;
-    font-weight: 800;
+    font-size: 1.18rem;
+    font-weight: 600;
     line-height: 1.18;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.018em;
     color: var(--ink);
-    margin: 0 0 4px;
+    margin: 0 0 2px;
     display: flex;
     align-items: center;
+    font-variation-settings: "opsz" 72;
   }
   .ingdd__card-sci {
     font-family: var(--font-body);
@@ -216,47 +216,33 @@
 
   .ingdd__card-row {
     display: grid;
-    grid-template-columns: 110px 1fr;
-    gap: 14px;
-    padding: 9px 0;
-    border-top: 1px solid var(--line, #ececec);
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0;
+    border-top: 0;
     align-items: baseline;
   }
-  .ingdd__card-row:first-of-type { border-top: 0; padding-top: 0; }
+  /* Hide all rows except the first ("What it does"). Secondary rows (Why it matters / Sourced)
+     stay in markup for SEO/screen readers but visually compressed out of the grid. */
+  .ingdd__card-row + .ingdd__card-row { display: none; }
   .ingdd__card-row-label {
-    font-family: var(--font-heading);
-    font-size: 11.5px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: .14em;
-    color: var(--accent-deep, var(--ink));
+    display: none;
   }
   .ingdd__card-row-text {
     font-family: var(--font-body);
-    font-size: 14.5px;
-    line-height: 1.55;
-    color: var(--ink-2, #444);
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--ink-2, #3a2a31);
   }
 
-  .ingdd__card-proof {
-    font-family: var(--font-body);
-    font-size: 13.5px;
-    line-height: 1.55;
-    color: var(--ink-2, #444);
-    background: #fff;
-    border-left: 3px solid var(--accent, #0a0a0a);
-    padding: 10px 14px;
-    margin: 14px 0 0;
-    border-radius: 0 8px 8px 0;
-    font-style: italic;
-  }
-  .ingdd__card--alt .ingdd__card-proof { background: var(--cream-soft, #faf8f5); }
+  /* Pull-quote proof block hidden in compact mode */
+  .ingdd__card-proof { display: none; }
 
   .ingdd__card-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 14px;
+    gap: 5px;
+    margin-top: 8px;
   }
   .ingdd__card-tag {
     display: inline-block;
@@ -306,21 +292,13 @@
     .ingdd__subhead { font-size: 15px; margin-bottom: 30px; }
     .ingdd__card,
     .ingdd__card--alt {
-      grid-template-columns: 1fr;
-      gap: 18px;
-      padding: 18px;
+      gap: 14px;
+      padding: 16px;
     }
-    .ingdd__card--alt .ingdd__card-media { order: 1; }
-    .ingdd__card--alt .ingdd__card-body { order: 2; }
-    .ingdd__card-media {
-      aspect-ratio: 16 / 10;
-      max-height: 220px;
-    }
-    .ingdd__card-emoji { font-size: 4rem; }
-    .ingdd__card-title { font-size: 1.35rem; }
-    .ingdd__card-row { grid-template-columns: 1fr; gap: 4px; padding: 8px 0; }
-    .ingdd__card-row-label { font-size: 10.5px; }
-    .ingdd__card-row-text { font-size: 14px; }
+    .ingdd__card-media { aspect-ratio: 16 / 10; max-height: 200px; }
+    .ingdd__card-emoji { font-size: 2.4rem; }
+    .ingdd__card-title { font-size: 1.05rem; }
+    .ingdd__card-row-text { font-size: 13px; }
     .ingdd__cta { padding: 15px 26px; font-size: 15.5px; width: 100%; box-sizing: border-box; }
   }
 </style>

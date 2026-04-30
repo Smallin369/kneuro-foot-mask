@@ -127,6 +127,12 @@
   .adv-story { background: linear-gradient(180deg, #fff 0%, #fbf6ee 60%, #f4ede4 100%); position: relative; overflow: hidden; }
   .adv-story::before { content: ""; position: absolute; top: 8%; left: -120px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(92,58,74,.16), transparent 70%); pointer-events: none; }
   .adv-story::after { content: ""; position: absolute; bottom: 6%; right: -140px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(232,213,219,.55), transparent 70%); pointer-events: none; }
+  /* Desktop column frame — soft vertical lines flanking the editorial column on wide screens, hidden on mobile/tablet */
+  @media (min-width: 1100px) {
+    .adv-story__inner::before, .adv-story__inner::after { content: ""; position: absolute; top: 64px; bottom: 64px; width: 1px; background: linear-gradient(180deg, transparent, rgba(92,58,74,.18) 12%, rgba(92,58,74,.18) 88%, transparent); pointer-events: none; }
+    .adv-story__inner::before { left: -48px; }
+    .adv-story__inner::after { right: -48px; }
+  }
   @media (max-width: 760px) {
     .adv-story::before, .adv-story::after { display: none; }
   }
@@ -135,13 +141,13 @@
   /* Body paragraphs — editorial rhythm */
   .adv-story__p { font-family: var(--font-body); }
   .adv-story__p > p { font-size: 18px; line-height: 1.7; color: var(--ink); margin: 0 0 22px; letter-spacing: -0.003em; }
-  .adv-story__p > p strong { color: var(--accent-deep, var(--ink)); font-weight: 700; background: linear-gradient(transparent 64%, var(--accent-glaze, rgba(92,58,74,.18)) 64%, var(--accent-glaze, rgba(92,58,74,.18)) 92%, transparent 92%); padding: 0 1px; }
-  .adv-story__inner > .adv-story__p:first-of-type > p:first-of-type::first-letter { font-family: var(--font-heading); font-size: 3.6em; font-weight: 800; float: left; line-height: 0.88; padding: 6px 14px 0 0; color: var(--accent-deep, var(--ink)); letter-spacing: -0.04em; }
+  .adv-story__p > p strong { color: var(--accent-deep, var(--ink)); font-weight: 700; }
+  .adv-story__inner > .adv-story__p:first-of-type > p:first-of-type::first-letter { font-family: var(--font-heading); font-size: 3.2em; font-weight: 700; float: left; line-height: 0.92; padding: 8px 14px 0 0; color: var(--accent-deep, var(--ink)); letter-spacing: -0.03em; font-variation-settings: "opsz" 144; }
 
-  /* Section headings — story beats. Bigger gap above, lighter weight, accent rule for editorial rhythm. */
-  .adv-story__h { font-family: var(--font-heading); font-size: clamp(1.55rem, 3.8vw, 2.05rem); font-weight: 700; color: var(--ink); margin: 56px 0 20px; line-height: 1.16; letter-spacing: -0.028em; text-wrap: balance; max-width: 22ch; position: relative; padding: 18px 0 0; }
-  .adv-story__h::before { content: ""; display: block; position: absolute; top: 0; left: 0; width: 44px; height: 3px; background: var(--accent, #e8833a); border-radius: 2px; }
-  .adv-story__h em { font-style: normal; color: var(--accent-deep, #b85a1f); }
+  /* Section headings — story beats. Serif Fraunces with editorial accent rule. */
+  .adv-story__h { font-family: var(--font-heading); font-size: clamp(1.7rem, 4.2vw, 2.4rem); font-weight: 600; color: var(--ink); margin: 64px 0 22px; line-height: 1.12; letter-spacing: -0.022em; text-wrap: balance; max-width: 22ch; position: relative; padding: 22px 0 0; font-variation-settings: "opsz" 96; }
+  .adv-story__h::before { content: ""; display: block; position: absolute; top: 0; left: 0; width: 60px; height: 3px; background: var(--accent, #5C3A4A); border-radius: 2px; }
+  .adv-story__h em { font-style: italic; color: var(--accent-deep, #3D2535); font-weight: 600; }
 
   /* Before / After image pair — amplified, breaks out beyond the 680 column */
   .adv-story__ba { margin: 44px auto; max-width: 960px; width: calc(100% + 140px); margin-left: -70px; margin-right: -70px; padding: 0 20px; box-sizing: border-box; }
