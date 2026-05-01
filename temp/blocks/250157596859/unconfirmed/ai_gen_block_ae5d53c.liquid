@@ -1,6 +1,347 @@
+{% doc %}
+  @prompt
+    Create a Shopify Liquid theme block called "Advertorial Story". CRITICAL CSS OVERRIDE: add style tag with .advertorial-story-block{position:relative;width:100vw;left:50%;transform:translateX(-50%);background:#F5F0EA;box-sizing:border-box} and .advertorial-story-inner{max-width:640px;margin:0 auto;padding:40px 24px 48px;box-sizing:border-box;background:#F5F0EA}. SCHEMA with pre-filled defaults: headline "He hid his feet from me for three years."; star_rating "4.8"; review_count "1,400+"; customer_name "SARAH K."; customer_location "PHOENIX, AZ"; paragraph_1 "My husband wouldn't walk barefoot at home. Not in front of me. Not in front of the kids. He'd wear socks to bed."; paragraph_2 "He'd tried the obvious things — drugstore creams, a pumice stone, one of those electric files. He even did a peel that left him shedding skin in his work shoes for a week. A month later, the cracks were back."; paragraph_3 "So he gave up. Started buying socks in bulk."; paragraph_4 "Then a friend in Seoul sent me a sample of a Korean foot mask — goat-milk lactic acid, 30 minutes, no peeling. I left it on his nightstand. He didn't really believe me."; narrative_1 "The next morning he stopped in the kitchen and rubbed one foot against the other."; pull_quote "Wait. Something's different."; pull_quote_attr "— HIM, BEFORE COFFEE"; progress_image image_picker; narrative_2 "Three weeks in, he walked out to get the mail. Barefoot. On the driveway.". HTML: div.advertorial-story-block containing div.advertorial-story-inner with h1 clamp(28px,5vw,40px) bold Georgia #111; star rating flex row gold stars; 4 body paragraphs 16px #333 1.75 line-height; narrative 1 clamp(22px,4vw,30px) bold Georgia; blockquote border-left 3px solid #111 italic Georgia; progress image width:100% contained in column; narrative 2 same as narrative 1.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+<style>
+  .advertorial-story-block {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #F5F0EA;
+    box-sizing: border-box;
+  }
+
+  .advertorial-story-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 24px 48px;
+    box-sizing: border-box;
+    background: #F5F0EA;
+  }
+</style>
+
+{% style %}
+  .advertorial-story-block-{{ ai_gen_id }} {
+    display: block;
+  }
+
+  .advertorial-story-headline-{{ ai_gen_id }} {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: bold;
+    font-family: Georgia, serif;
+    color: #111;
+    margin: 0 0 24px 0;
+    line-height: 1.2;
+  }
+
+  .advertorial-story-rating-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .advertorial-story-stars-{{ ai_gen_id }} {
+    display: flex;
+    gap: 2px;
+    color: #FFB800;
+  }
+
+  .advertorial-story-rating-text-{{ ai_gen_id }} {
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+  }
+
+  .advertorial-story-review-count-{{ ai_gen_id }} {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .advertorial-story-customer-{{ ai_gen_id }} {
+    font-size: 12px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 32px;
+  }
+
+  .advertorial-story-paragraph-{{ ai_gen_id }} {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.75;
+    margin: 0 0 20px 0;
+  }
+
+  .advertorial-story-narrative-{{ ai_gen_id }} {
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: bold;
+    font-family: Georgia, serif;
+    color: #111;
+    margin: 32px 0 24px 0;
+    line-height: 1.3;
+  }
+
+  .advertorial-story-blockquote-{{ ai_gen_id }} {
+    border-left: 3px solid #111;
+    padding-left: 20px;
+    margin: 32px 0;
+    font-style: italic;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    color: #111;
+    line-height: 1.5;
+  }
+
+  .advertorial-story-quote-attr-{{ ai_gen_id }} {
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #666;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .advertorial-story-image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    margin: 32px 0;
+  }
+
+  .advertorial-story-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
+
+  .advertorial-story-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: #E5DDD5;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .advertorial-story-image-placeholder-{{ ai_gen_id }} svg {
+    width: 80px;
+    height: 80px;
+    opacity: 0.3;
+  }
+{% endstyle %}
+
+<advertorial-story-{{ ai_gen_id }} class="advertorial-story-block advertorial-story-block-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="advertorial-story-inner">
+    {% if block.settings.headline != blank %}
+      <h1 class="advertorial-story-headline-{{ ai_gen_id }}">{{ block.settings.headline }}</h1>
+    {% endif %}
+
+    <div class="advertorial-story-rating-{{ ai_gen_id }}">
+      <div class="advertorial-story-stars-{{ ai_gen_id }}">
+        {% for i in (1..5) %}
+          <span>★</span>
+        {% endfor %}
+      </div>
+      {% if block.settings.star_rating != blank %}
+        <span class="advertorial-story-rating-text-{{ ai_gen_id }}">{{ block.settings.star_rating }}</span>
+      {% endif %}
+      {% if block.settings.review_count != blank %}
+        <span class="advertorial-story-review-count-{{ ai_gen_id }}">({{ block.settings.review_count }} reviews)</span>
+      {% endif %}
+    </div>
+
+    {% if block.settings.customer_name != blank or block.settings.customer_location != blank %}
+      <div class="advertorial-story-customer-{{ ai_gen_id }}">
+        {{ block.settings.customer_name }}
+        {% if block.settings.customer_name != blank and block.settings.customer_location != blank %}
+          •
+        {% endif %}
+        {{ block.settings.customer_location }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.paragraph_1 != blank %}
+      <p class="advertorial-story-paragraph-{{ ai_gen_id }}">{{ block.settings.paragraph_1 }}</p>
+    {% endif %}
+
+    {% if block.settings.paragraph_2 != blank %}
+      <p class="advertorial-story-paragraph-{{ ai_gen_id }}">{{ block.settings.paragraph_2 }}</p>
+    {% endif %}
+
+    {% if block.settings.paragraph_3 != blank %}
+      <p class="advertorial-story-paragraph-{{ ai_gen_id }}">{{ block.settings.paragraph_3 }}</p>
+    {% endif %}
+
+    {% if block.settings.paragraph_4 != blank %}
+      <p class="advertorial-story-paragraph-{{ ai_gen_id }}">{{ block.settings.paragraph_4 }}</p>
+    {% endif %}
+
+    {% if block.settings.narrative_1 != blank %}
+      <div class="advertorial-story-narrative-{{ ai_gen_id }}">{{ block.settings.narrative_1 }}</div>
+    {% endif %}
+
+    {% if block.settings.pull_quote != blank %}
+      <blockquote class="advertorial-story-blockquote-{{ ai_gen_id }}">
+        {{ block.settings.pull_quote }}
+        {% if block.settings.pull_quote_attr != blank %}
+          <span class="advertorial-story-quote-attr-{{ ai_gen_id }}">{{ block.settings.pull_quote_attr }}</span>
+        {% endif %}
+      </blockquote>
+    {% endif %}
+
+    <div class="advertorial-story-image-wrapper-{{ ai_gen_id }}">
+      {% if block.settings.progress_image %}
+        <img
+          src="{{ block.settings.progress_image | image_url: width: 1280 }}"
+          alt="{{ block.settings.progress_image.alt | escape }}"
+          loading="lazy"
+          width="{{ block.settings.progress_image.width }}"
+          height="{{ block.settings.progress_image.height }}"
+          class="advertorial-story-image-{{ ai_gen_id }}"
+        >
+      {% else %}
+        <div class="advertorial-story-image-placeholder-{{ ai_gen_id }}">
+          {{ 'image' | placeholder_svg_tag }}
+        </div>
+      {% endif %}
+    </div>
+
+    {% if block.settings.narrative_2 != blank %}
+      <div class="advertorial-story-narrative-{{ ai_gen_id }}">{{ block.settings.narrative_2 }}</div>
+    {% endif %}
+  </div>
+</advertorial-story-{{ ai_gen_id }}>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Advertorial story",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Headline"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "He hid his feet from me for three years."
+    },
+    {
+      "type": "header",
+      "content": "Rating"
+    },
+    {
+      "type": "text",
+      "id": "star_rating",
+      "label": "Star rating",
+      "default": "4.8"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review count",
+      "default": "1,400+"
+    },
+    {
+      "type": "header",
+      "content": "Customer"
+    },
+    {
+      "type": "text",
+      "id": "customer_name",
+      "label": "Customer name",
+      "default": "SARAH K."
+    },
+    {
+      "type": "text",
+      "id": "customer_location",
+      "label": "Customer location",
+      "default": "PHOENIX, AZ"
+    },
+    {
+      "type": "header",
+      "content": "Story paragraphs"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_1",
+      "label": "Paragraph 1",
+      "default": "My husband wouldn't walk barefoot at home. Not in front of me. Not in front of the kids. He'd wear socks to bed."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_2",
+      "label": "Paragraph 2",
+      "default": "He'd tried the obvious things — drugstore creams, a pumice stone, one of those electric files. He even did a peel that left him shedding skin in his work shoes for a week. A month later, the cracks were back."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_3",
+      "label": "Paragraph 3",
+      "default": "So he gave up. Started buying socks in bulk."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_4",
+      "label": "Paragraph 4",
+      "default": "Then a friend in Seoul sent me a sample of a Korean foot mask — goat-milk lactic acid, 30 minutes, no peeling. I left it on his nightstand. He didn't really believe me."
+    },
+    {
+      "type": "header",
+      "content": "Narrative moments"
+    },
+    {
+      "type": "textarea",
+      "id": "narrative_1",
+      "label": "Narrative 1",
+      "default": "The next morning he stopped in the kitchen and rubbed one foot against the other."
+    },
+    {
+      "type": "header",
+      "content": "Pull quote"
+    },
+    {
+      "type": "textarea",
+      "id": "pull_quote",
+      "label": "Quote text",
+      "default": "Wait. Something's different."
+    },
+    {
+      "type": "text",
+      "id": "pull_quote_attr",
+      "label": "Quote attribution",
+      "default": "— HIM, BEFORE COFFEE"
+    },
+    {
+      "type": "header",
+      "content": "Progress image"
+    },
+    {
+      "type": "image_picker",
+      "id": "progress_image",
+      "label": "Progress image"
+    },
+    {
+      "type": "header",
+      "content": "Closing narrative"
+    },
+    {
+      "type": "textarea",
+      "id": "narrative_2",
+      "label": "Narrative 2",
+      "default": "Three weeks in, he walked out to get the mail. Barefoot. On the driveway."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advertorial story"
+    }
+  ]
+}
 {% endschema %}
