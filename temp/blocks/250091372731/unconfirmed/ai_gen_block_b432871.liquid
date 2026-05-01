@@ -1,6 +1,446 @@
+{% doc %}
+  @prompt
+    Redesign the existing editorial story strip block to display the following narrative text with strong advertorial typography. The text should feel like a magazine article — not a dense paragraph. Use these techniques: short lines with generous line height, a pull quote or emphasized sentence mid-story, subtle separator or spacing between beats, and a final "cliffhanger" line that draws the eye down. Warm cream background (#f5f0e8) to match the page. Font pairing: serif for story text (Fraunces or similar), clean sans for any labels. No images needed — pure typography layout.
+    
+    The content to display:
+    
+    "Sarah's husband stopped walking barefoot—even at home.
+    
+    His heels were so dry and cracked they would catch on socks.
+    
+    He tried everything… creams, scrubs, all those "miracle fixes"… nothing actually worked.
+    
+    At some point, he just gave up.
+    
+    Then one night, she got him to try something different.
+    
+    He didn't expect much.
+    
+    But the next morning was… strange.
+    
+    Over the next few days, it got even stranger.
+    
+    Look at this:"
+    
+    The final line "Look at this:" should be styled as a bold transition cue — slightly larger, centered, with extra space above it — to lead into the before/after section below.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-editorial-story-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.vertical_padding }}px {{ block.settings.horizontal_padding }}px;
+  }
+
+  .ai-editorial-story__container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-editorial-story__label-{{ ai_gen_id }} {
+    font-family: {{ block.settings.label_font.family }}, {{ block.settings.label_font.fallback_families }};
+    font-weight: {{ block.settings.label_font.weight }};
+    font-size: {{ block.settings.label_size }}px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: {{ block.settings.label_color }};
+    margin-bottom: {{ block.settings.label_spacing }}px;
+    text-align: {{ block.settings.text_alignment }};
+  }
+
+  .ai-editorial-story__line-{{ ai_gen_id }} {
+    font-family: {{ block.settings.story_font.family }}, {{ block.settings.story_font.fallback_families }};
+    font-weight: {{ block.settings.story_font.weight }};
+    font-size: {{ block.settings.story_font_size }}px;
+    line-height: {{ block.settings.line_height }};
+    color: {{ block.settings.text_color }};
+    margin-bottom: {{ block.settings.line_spacing }}px;
+    text-align: {{ block.settings.text_alignment }};
+  }
+
+  .ai-editorial-story__line--emphasized-{{ ai_gen_id }} {
+    font-style: italic;
+    font-size: {{ block.settings.story_font_size | times: 1.1 }}px;
+    color: {{ block.settings.emphasized_color }};
+    margin-top: {{ block.settings.emphasized_spacing }}px;
+    margin-bottom: {{ block.settings.emphasized_spacing }}px;
+  }
+
+  .ai-editorial-story__separator-{{ ai_gen_id }} {
+    width: {{ block.settings.separator_width }}px;
+    height: 1px;
+    background-color: {{ block.settings.separator_color }};
+    margin: {{ block.settings.separator_spacing }}px auto;
+  }
+
+  .ai-editorial-story__cta-{{ ai_gen_id }} {
+    font-family: {{ block.settings.label_font.family }}, {{ block.settings.label_font.fallback_families }};
+    font-weight: {{ block.settings.cta_font_weight }};
+    font-size: {{ block.settings.cta_font_size }}px;
+    color: {{ block.settings.cta_color }};
+    text-align: center;
+    margin-top: {{ block.settings.cta_spacing }}px;
+    letter-spacing: 0.02em;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-editorial-story__line-{{ ai_gen_id }} {
+      font-size: {{ block.settings.story_font_size | times: 0.9 }}px;
+    }
+
+    .ai-editorial-story__line--emphasized-{{ ai_gen_id }} {
+      font-size: {{ block.settings.story_font_size | times: 0.9 | times: 1.1 }}px;
+    }
+
+    .ai-editorial-story__cta-{{ ai_gen_id }} {
+      font-size: {{ block.settings.cta_font_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<editorial-story-{{ ai_gen_id }}
+  class="ai-editorial-story-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-editorial-story__container-{{ ai_gen_id }}">
+    {% if block.settings.show_label and block.settings.label != blank %}
+      <div class="ai-editorial-story__label-{{ ai_gen_id }}">
+        {{ block.settings.label }}
+      </div>
+    {% endif %}
+
+    <div class="ai-editorial-story__line-{{ ai_gen_id }}">
+      Sarah's husband stopped walking barefoot—even at home.
+    </div>
+
+    <div class="ai-editorial-story__line-{{ ai_gen_id }}">
+      His heels were so dry and cracked they would catch on socks.
+    </div>
+
+    <div class="ai-editorial-story__line-{{ ai_gen_id }}">
+      He tried everything… creams, scrubs, all those "miracle fixes"… nothing actually worked.
+    </div>
+
+    <div class="ai-editorial-story__line-{{ ai_gen_id }}">
+      At some point, he just gave up.
+    </div>
+
+    {% if block.settings.show_separator %}
+      <div class="ai-editorial-story__separator-{{ ai_gen_id }}"></div>
+    {% endif %}
+
+    <div class="ai-editorial-story__line-{{ ai_gen_id }}">
+      Then one night, she got him to try something different.
+    </div>
+
+    <div class="ai-editorial-story__line-{{ ai_gen_id }}">
+      He didn't expect much.
+    </div>
+
+    {% if block.settings.show_separator %}
+      <div class="ai-editorial-story__separator-{{ ai_gen_id }}"></div>
+    {% endif %}
+
+    <div class="ai-editorial-story__line-{{ ai_gen_id }}">
+      But the next morning was… strange.
+    </div>
+
+    <div class="ai-editorial-story__line-{{ ai_gen_id }} ai-editorial-story__line--emphasized-{{ ai_gen_id }}">
+      Over the next few days, it got even stranger.
+    </div>
+
+    <div class="ai-editorial-story__cta-{{ ai_gen_id }}">
+      Look at this:
+    </div>
+  </div>
+</editorial-story-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class EditorialStory{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.style.display = 'block';
+      }
+    }
+
+    customElements.define('editorial-story-{{ ai_gen_id }}', EditorialStory{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Editorial story strip",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Content max width",
+      "min": 400,
+      "max": 900,
+      "step": 50,
+      "unit": "px",
+      "default": 650
+    },
+    {
+      "type": "range",
+      "id": "vertical_padding",
+      "label": "Vertical padding",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "horizontal_padding",
+      "label": "Horizontal padding",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_label",
+      "label": "Show label",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label text"
+    },
+    {
+      "type": "font_picker",
+      "id": "label_font",
+      "label": "Label font",
+      "default": "inter_n4"
+    },
+    {
+      "type": "range",
+      "id": "label_size",
+      "label": "Label size",
+      "min": 8,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label color",
+      "default": "#8a7560"
+    },
+    {
+      "type": "range",
+      "id": "label_spacing",
+      "label": "Label spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Story typography"
+    },
+    {
+      "type": "font_picker",
+      "id": "story_font",
+      "label": "Story font",
+      "default": "fraunces_n6"
+    },
+    {
+      "type": "range",
+      "id": "story_font_size",
+      "label": "Font size",
+      "min": 14,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "line_height",
+      "label": "Line height",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.6
+    },
+    {
+      "type": "range",
+      "id": "line_spacing",
+      "label": "Line spacing",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#2a1c12"
+    },
+    {
+      "type": "header",
+      "content": "Emphasized line"
+    },
+    {
+      "type": "color",
+      "id": "emphasized_color",
+      "label": "Emphasized color",
+      "default": "#4a372a"
+    },
+    {
+      "type": "range",
+      "id": "emphasized_spacing",
+      "label": "Emphasized spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 25
+    },
+    {
+      "type": "header",
+      "content": "Separator"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_separator",
+      "label": "Show separator",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "separator_width",
+      "label": "Separator width",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "separator_color",
+      "label": "Separator color",
+      "default": "#e6d5b8"
+    },
+    {
+      "type": "range",
+      "id": "separator_spacing",
+      "label": "Separator spacing",
+      "min": 15,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Cliffhanger CTA"
+    },
+    {
+      "type": "range",
+      "id": "cta_font_size",
+      "label": "CTA font size",
+      "min": 16,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "cta_font_weight",
+      "label": "CTA font weight",
+      "min": 400,
+      "max": 700,
+      "step": 100,
+      "default": 600
+    },
+    {
+      "type": "color",
+      "id": "cta_color",
+      "label": "CTA color",
+      "default": "#2a1c12"
+    },
+    {
+      "type": "range",
+      "id": "cta_spacing",
+      "label": "CTA top spacing",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#f5f0e8"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial story strip"
+    }
+  ]
+}
 {% endschema %}
