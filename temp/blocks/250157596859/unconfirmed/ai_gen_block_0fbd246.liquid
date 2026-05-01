@@ -1,6 +1,288 @@
+{% doc %}
+  @prompt
+    Create a Shopify Liquid theme block called "Product Hero CTA". CRITICAL RULES: DO NOT add any heading title subtitle or product name text anywhere. First element must be the image, nothing above it. Background #F5F0EA everywhere. Image must be 100% width zero side margins. SCHEMA: product_image image_picker; cta_url url default "/products/goat-milk-foot-mask"; trust_line text default "30-DAY MONEY-BACK · FREE SHIPPING ON 5-PACK"; badge_1_title default "Pregnancy & diabetes safe"; badge_1_desc default "No salicylic acid"; badge_2_title default "30 days, no questions"; badge_2_desc default "Money-back refund"; badge_3_title default "Free US shipping"; badge_3_desc default "On orders over $50". HTML IN THIS EXACT ORDER: 1.div style="width:100vw;position:relative;left:50%;transform:translateX(-50%);margin:0;padding:0;overflow:hidden;line-height:0" containing img style="width:100%;height:auto;display:block;margin:0;padding:0". 2.anchor tag href=cta_url style="display:flex;justify-content:space-between;align-items:center;background-color:#111111;padding:18px 20px;text-decoration:none;width:100%;box-sizing:border-box;margin:0" with left span "SHOP THE FOOT MASK" 13px bold uppercase white and right span "FROM $19.99 →" 13px white. 3.div trust line style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#333;padding:14px 20px;border-bottom:1px solid #ddd;background:#F5F0EA;text-align:left;margin:0". 4.div style="display:grid;grid-template-columns:1fr 1fr 1fr;background:#F5F0EA;margin:0;padding:0" with three badge divs each style="padding:16px 8px;border-right:1px solid #ddd;text-align:center" last no border each with SVG icon 20px stroke #333 (heart, refresh, truck) title 12px bold #111 desc 11px #666.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-product-hero-cta-{{ ai_gen_id }} {
+    background-color: #F5F0EA;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+
+  .ai-product-hero-cta__image-wrapper-{{ ai_gen_id }} {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .ai-product-hero-cta__image-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ai-product-hero-cta__image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+
+  .ai-product-hero-cta__image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ai-product-hero-cta__cta-button-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111111;
+    padding: 18px 20px;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  .ai-product-hero-cta__cta-left-{{ ai_gen_id }} {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+
+  .ai-product-hero-cta__cta-right-{{ ai_gen_id }} {
+    font-size: 13px;
+    color: #ffffff;
+  }
+
+  .ai-product-hero-cta__trust-line-{{ ai_gen_id }} {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #333;
+    padding: 14px 20px;
+    border-bottom: 1px solid #ddd;
+    background: #F5F0EA;
+    text-align: left;
+    margin: 0;
+  }
+
+  .ai-product-hero-cta__badges-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: #F5F0EA;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ai-product-hero-cta__badge-{{ ai_gen_id }} {
+    padding: 16px 8px;
+    border-right: 1px solid #ddd;
+    text-align: center;
+  }
+
+  .ai-product-hero-cta__badge-{{ ai_gen_id }}:last-child {
+    border-right: none;
+  }
+
+  .ai-product-hero-cta__badge-icon-{{ ai_gen_id }} {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto 8px;
+    stroke: #333;
+  }
+
+  .ai-product-hero-cta__badge-title-{{ ai_gen_id }} {
+    font-size: 12px;
+    font-weight: 700;
+    color: #111;
+    margin: 0 0 4px;
+  }
+
+  .ai-product-hero-cta__badge-desc-{{ ai_gen_id }} {
+    font-size: 11px;
+    color: #666;
+    margin: 0;
+  }
+{% endstyle %}
+
+<product-hero-cta-{{ ai_gen_id }} class="ai-product-hero-cta-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-product-hero-cta__image-wrapper-{{ ai_gen_id }}">
+    {% if block.settings.product_image %}
+      <img
+        src="{{ block.settings.product_image | image_url: width: 2000 }}"
+        alt="{{ block.settings.product_image.alt | escape }}"
+        loading="lazy"
+        width="{{ block.settings.product_image.width }}"
+        height="{{ block.settings.product_image.height }}"
+        class="ai-product-hero-cta__image-{{ ai_gen_id }}"
+      >
+    {% else %}
+      <div class="ai-product-hero-cta__image-placeholder-{{ ai_gen_id }}">
+        {{ 'product-1' | placeholder_svg_tag }}
+      </div>
+    {% endif %}
+  </div>
+
+  <a href="{{ block.settings.cta_url }}" class="ai-product-hero-cta__cta-button-{{ ai_gen_id }}">
+    <span class="ai-product-hero-cta__cta-left-{{ ai_gen_id }}">SHOP THE FOOT MASK</span>
+    <span class="ai-product-hero-cta__cta-right-{{ ai_gen_id }}">FROM $19.99 →</span>
+  </a>
+
+  <div class="ai-product-hero-cta__trust-line-{{ ai_gen_id }}">
+    {{ block.settings.trust_line }}
+  </div>
+
+  <div class="ai-product-hero-cta__badges-{{ ai_gen_id }}">
+    <div class="ai-product-hero-cta__badge-{{ ai_gen_id }}">
+      <svg class="ai-product-hero-cta__badge-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+      </svg>
+      <div class="ai-product-hero-cta__badge-title-{{ ai_gen_id }}">{{ block.settings.badge_1_title }}</div>
+      <div class="ai-product-hero-cta__badge-desc-{{ ai_gen_id }}">{{ block.settings.badge_1_desc }}</div>
+    </div>
+
+    <div class="ai-product-hero-cta__badge-{{ ai_gen_id }}">
+      <svg class="ai-product-hero-cta__badge-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 4 23 10 17 10"></polyline>
+        <polyline points="1 20 1 14 7 14"></polyline>
+        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+      </svg>
+      <div class="ai-product-hero-cta__badge-title-{{ ai_gen_id }}">{{ block.settings.badge_2_title }}</div>
+      <div class="ai-product-hero-cta__badge-desc-{{ ai_gen_id }}">{{ block.settings.badge_2_desc }}</div>
+    </div>
+
+    <div class="ai-product-hero-cta__badge-{{ ai_gen_id }}">
+      <svg class="ai-product-hero-cta__badge-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="1" y="3" width="15" height="13"></rect>
+        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+        <circle cx="5.5" cy="18.5" r="2.5"></circle>
+        <circle cx="18.5" cy="18.5" r="2.5"></circle>
+      </svg>
+      <div class="ai-product-hero-cta__badge-title-{{ ai_gen_id }}">{{ block.settings.badge_3_title }}</div>
+      <div class="ai-product-hero-cta__badge-desc-{{ ai_gen_id }}">{{ block.settings.badge_3_desc }}</div>
+    </div>
+  </div>
+</product-hero-cta-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class ProductHeroCta{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+      }
+    }
+
+    customElements.define('product-hero-cta-{{ ai_gen_id }}', ProductHeroCta{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Product hero CTA",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product image"
+    },
+    {
+      "type": "header",
+      "content": "CTA button"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA link"
+    },
+    {
+      "type": "header",
+      "content": "Trust line"
+    },
+    {
+      "type": "text",
+      "id": "trust_line",
+      "label": "Trust line text",
+      "default": "30-DAY MONEY-BACK · FREE SHIPPING ON 5-PACK"
+    },
+    {
+      "type": "header",
+      "content": "Badge 1"
+    },
+    {
+      "type": "text",
+      "id": "badge_1_title",
+      "label": "Title",
+      "default": "Pregnancy & diabetes safe"
+    },
+    {
+      "type": "text",
+      "id": "badge_1_desc",
+      "label": "Description",
+      "default": "No salicylic acid"
+    },
+    {
+      "type": "header",
+      "content": "Badge 2"
+    },
+    {
+      "type": "text",
+      "id": "badge_2_title",
+      "label": "Title",
+      "default": "30 days, no questions"
+    },
+    {
+      "type": "text",
+      "id": "badge_2_desc",
+      "label": "Description",
+      "default": "Money-back refund"
+    },
+    {
+      "type": "header",
+      "content": "Badge 3"
+    },
+    {
+      "type": "text",
+      "id": "badge_3_title",
+      "label": "Title",
+      "default": "Free US shipping"
+    },
+    {
+      "type": "text",
+      "id": "badge_3_desc",
+      "label": "Description",
+      "default": "On orders over $50"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product hero CTA"
+    }
+  ]
+}
 {% endschema %}
