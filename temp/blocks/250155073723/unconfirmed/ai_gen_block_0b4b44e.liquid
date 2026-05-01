@@ -1,6 +1,541 @@
+{% doc %}
+  @prompt
+    Create a long-form advertorial hero section with a cream/off-white background (#F5F0EA). At the top, a full-width dark announcement bar with small caps white text: "FREE US SHIPPING OVER $50 · 30-DAY MONEY-BACK". Below, a minimal header with hamburger menu icon on left, centered brand name "KNEURO" in wide-letter-spaced serif/sans font, and cart icon on right. Then a large bold serif headline: "He hid his feet from me for three years." Below the headline, a star rating row: 5 gold stars, "4.8 · 1,400+ CUSTOMERS", and below that "SARAH K. · PHOENIX, AZ" in small caps. Then long-form editorial body copy in readable sans-serif, with key phrases bolded. Include a large pull-quote section with a left border line: '"Wait. Something's different." — HIM, BEFORE COFFEE'. Responsive for mobile and desktop.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-advertorial-hero-{{ ai_gen_id }} {
+    display: block;
+    background-color: {{ block.settings.background_color }};
+    width: 100%;
+  }
+
+  .ai-advertorial-hero__announcement-{{ ai_gen_id }} {
+    background-color: {{ block.settings.announcement_bg_color }};
+    color: {{ block.settings.announcement_text_color }};
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .ai-advertorial-hero__header-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ai-advertorial-hero__menu-icon-{{ ai_gen_id }},
+  .ai-advertorial-hero__cart-icon-{{ ai_gen_id }} {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    color: {{ block.settings.header_icon_color }};
+  }
+
+  .ai-advertorial-hero__brand-{{ ai_gen_id }} {
+    font-size: {{ block.settings.brand_font_size }}px;
+    letter-spacing: {{ block.settings.brand_letter_spacing }}px;
+    font-weight: 400;
+    color: {{ block.settings.brand_color }};
+    font-family: {{ block.settings.brand_font.family }}, {{ block.settings.brand_font.fallback_families }};
+    font-weight: {{ block.settings.brand_font.weight }};
+  }
+
+  .ai-advertorial-hero__content-{{ ai_gen_id }} {
+    max-width: {{ block.settings.content_max_width }}px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+  }
+
+  .ai-advertorial-hero__headline-{{ ai_gen_id }} {
+    font-size: {{ block.settings.headline_size_mobile }}px;
+    line-height: 1.2;
+    margin: 0 0 24px;
+    color: {{ block.settings.headline_color }};
+    font-family: {{ block.settings.headline_font.family }}, {{ block.settings.headline_font.fallback_families }};
+    font-weight: {{ block.settings.headline_font.weight }};
+  }
+
+  .ai-advertorial-hero__rating-{{ ai_gen_id }} {
+    margin-bottom: 8px;
+  }
+
+  .ai-advertorial-hero__stars-{{ ai_gen_id }} {
+    display: inline-flex;
+    gap: 4px;
+    margin-right: 8px;
+  }
+
+  .ai-advertorial-hero__star-{{ ai_gen_id }} {
+    width: 16px;
+    height: 16px;
+    color: {{ block.settings.star_color }};
+  }
+
+  .ai-advertorial-hero__rating-text-{{ ai_gen_id }} {
+    font-size: 14px;
+    color: {{ block.settings.text_color }};
+    font-weight: 600;
+  }
+
+  .ai-advertorial-hero__attribution-{{ ai_gen_id }} {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: {{ block.settings.muted_text_color }};
+    margin-bottom: 32px;
+  }
+
+  .ai-advertorial-hero__body-{{ ai_gen_id }} {
+    font-size: {{ block.settings.body_font_size }}px;
+    line-height: 1.7;
+    color: {{ block.settings.text_color }};
+    margin-bottom: 40px;
+  }
+
+  .ai-advertorial-hero__body-{{ ai_gen_id }} p {
+    margin: 0 0 20px;
+  }
+
+  .ai-advertorial-hero__body-{{ ai_gen_id }} strong {
+    font-weight: 700;
+  }
+
+  .ai-advertorial-hero__pullquote-{{ ai_gen_id }} {
+    border-left: 3px solid {{ block.settings.pullquote_border_color }};
+    padding: 24px 0 24px 24px;
+    margin: 40px 0;
+    font-size: {{ block.settings.pullquote_font_size }}px;
+    line-height: 1.5;
+    font-style: italic;
+    color: {{ block.settings.pullquote_color }};
+    font-family: {{ block.settings.pullquote_font.family }}, {{ block.settings.pullquote_font.fallback_families }};
+    font-weight: {{ block.settings.pullquote_font.weight }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .ai-advertorial-hero__announcement-{{ ai_gen_id }} {
+      font-size: 12px;
+      padding: 14px 20px;
+    }
+
+    .ai-advertorial-hero__header-{{ ai_gen_id }} {
+      padding: 24px 40px;
+    }
+
+    .ai-advertorial-hero__content-{{ ai_gen_id }} {
+      padding: 60px 40px 80px;
+    }
+
+    .ai-advertorial-hero__headline-{{ ai_gen_id }} {
+      font-size: {{ block.settings.headline_size_desktop }}px;
+      margin-bottom: 32px;
+    }
+
+    .ai-advertorial-hero__rating-{{ ai_gen_id }} {
+      margin-bottom: 10px;
+    }
+
+    .ai-advertorial-hero__stars-{{ ai_gen_id }} {
+      gap: 5px;
+      margin-right: 10px;
+    }
+
+    .ai-advertorial-hero__star-{{ ai_gen_id }} {
+      width: 18px;
+      height: 18px;
+    }
+
+    .ai-advertorial-hero__rating-text-{{ ai_gen_id }} {
+      font-size: 15px;
+    }
+
+    .ai-advertorial-hero__attribution-{{ ai_gen_id }} {
+      font-size: 12px;
+      margin-bottom: 40px;
+    }
+
+    .ai-advertorial-hero__body-{{ ai_gen_id }} {
+      font-size: {{ block.settings.body_font_size_desktop }}px;
+    }
+
+    .ai-advertorial-hero__pullquote-{{ ai_gen_id }} {
+      padding: 32px 0 32px 32px;
+      margin: 50px 0;
+      font-size: {{ block.settings.pullquote_font_size_desktop }}px;
+    }
+  }
+{% endstyle %}
+
+<advertorial-hero-{{ ai_gen_id }} class="ai-advertorial-hero-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-advertorial-hero__announcement-{{ ai_gen_id }}">
+    {{ block.settings.announcement_text }}
+  </div>
+
+  <div class="ai-advertorial-hero__header-{{ ai_gen_id }}">
+    <div class="ai-advertorial-hero__menu-icon-{{ ai_gen_id }}">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </div>
+
+    <div class="ai-advertorial-hero__brand-{{ ai_gen_id }}">
+      {{ block.settings.brand_name }}
+    </div>
+
+    <div class="ai-advertorial-hero__cart-icon-{{ ai_gen_id }}">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="21" r="1"></circle>
+        <circle cx="20" cy="21" r="1"></circle>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+      </svg>
+    </div>
+  </div>
+
+  <div class="ai-advertorial-hero__content-{{ ai_gen_id }}">
+    {% if block.settings.headline != blank %}
+      <h1 class="ai-advertorial-hero__headline-{{ ai_gen_id }}">
+        {{ block.settings.headline }}
+      </h1>
+    {% endif %}
+
+    <div class="ai-advertorial-hero__rating-{{ ai_gen_id }}">
+      <div class="ai-advertorial-hero__stars-{{ ai_gen_id }}">
+        {% for i in (1..5) %}
+          <svg class="ai-advertorial-hero__star-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        {% endfor %}
+      </div>
+      <span class="ai-advertorial-hero__rating-text-{{ ai_gen_id }}">{{ block.settings.rating_text }}</span>
+    </div>
+
+    {% if block.settings.attribution != blank %}
+      <div class="ai-advertorial-hero__attribution-{{ ai_gen_id }}">
+        {{ block.settings.attribution }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.body_copy != blank %}
+      <div class="ai-advertorial-hero__body-{{ ai_gen_id }}">
+        {{ block.settings.body_copy }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.pullquote != blank %}
+      <div class="ai-advertorial-hero__pullquote-{{ ai_gen_id }}">
+        {{ block.settings.pullquote }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.body_copy_2 != blank %}
+      <div class="ai-advertorial-hero__body-{{ ai_gen_id }}">
+        {{ block.settings.body_copy_2 }}
+      </div>
+    {% endif %}
+  </div>
+</advertorial-hero-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AdvertorialHero{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        const menuIcon = this.querySelector('.ai-advertorial-hero__menu-icon-{{ ai_gen_id }}');
+        const cartIcon = this.querySelector('.ai-advertorial-hero__cart-icon-{{ ai_gen_id }}');
+
+        if (menuIcon) {
+          menuIcon.addEventListener('click', () => {
+            console.log('Menu clicked');
+          });
+        }
+
+        if (cartIcon) {
+          cartIcon.addEventListener('click', () => {
+            window.location.href = '/cart';
+          });
+        }
+      }
+    }
+
+    customElements.define('advertorial-hero-{{ ai_gen_id }}', AdvertorialHero{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Advertorial hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Announcement bar"
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement text",
+      "default": "FREE US SHIPPING OVER $50"
+    },
+    {
+      "type": "color",
+      "id": "announcement_bg_color",
+      "label": "Background color",
+      "default": "#15110c"
+    },
+    {
+      "type": "color",
+      "id": "announcement_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand name",
+      "default": "KNEURO"
+    },
+    {
+      "type": "font_picker",
+      "id": "brand_font",
+      "label": "Brand font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "range",
+      "id": "brand_font_size",
+      "label": "Brand font size",
+      "min": 14,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "brand_letter_spacing",
+      "label": "Brand letter spacing",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "color",
+      "id": "brand_color",
+      "label": "Brand color",
+      "default": "#15110c"
+    },
+    {
+      "type": "color",
+      "id": "header_icon_color",
+      "label": "Icon color",
+      "default": "#15110c"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Content max width",
+      "min": 600,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "default": 750
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#F5F0EA"
+    },
+    {
+      "type": "header",
+      "content": "Headline"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "He hid his feet from me for three years."
+    },
+    {
+      "type": "font_picker",
+      "id": "headline_font",
+      "label": "Headline font",
+      "default": "serif"
+    },
+    {
+      "type": "range",
+      "id": "headline_size_mobile",
+      "label": "Headline size (mobile)",
+      "min": 24,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "headline_size_desktop",
+      "label": "Headline size (desktop)",
+      "min": 32,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "color",
+      "id": "headline_color",
+      "label": "Headline color",
+      "default": "#15110c"
+    },
+    {
+      "type": "header",
+      "content": "Rating"
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Rating text",
+      "default": "4.8"
+    },
+    {
+      "type": "text",
+      "id": "attribution",
+      "label": "Attribution",
+      "default": "SARAH K."
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star color",
+      "default": "#D4AF37"
+    },
+    {
+      "type": "header",
+      "content": "Body copy"
+    },
+    {
+      "type": "richtext",
+      "id": "body_copy",
+      "label": "Body copy (before pullquote)",
+      "default": "<p>I did not think much of it at first. My husband has always been self-conscious about his feet.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "body_copy_2",
+      "label": "Body copy (after pullquote)"
+    },
+    {
+      "type": "range",
+      "id": "body_font_size",
+      "label": "Body font size (mobile)",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "body_font_size_desktop",
+      "label": "Body font size (desktop)",
+      "min": 15,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 17
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#15110c"
+    },
+    {
+      "type": "color",
+      "id": "muted_text_color",
+      "label": "Muted text color",
+      "default": "#665a4d"
+    },
+    {
+      "type": "header",
+      "content": "Pullquote"
+    },
+    {
+      "type": "richtext",
+      "id": "pullquote",
+      "label": "Pullquote",
+      "default": "<p>Wait. Something is different.</p>"
+    },
+    {
+      "type": "font_picker",
+      "id": "pullquote_font",
+      "label": "Pullquote font",
+      "default": "serif"
+    },
+    {
+      "type": "range",
+      "id": "pullquote_font_size",
+      "label": "Pullquote font size (mobile)",
+      "min": 16,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "pullquote_font_size_desktop",
+      "label": "Pullquote font size (desktop)",
+      "min": 18,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "pullquote_color",
+      "label": "Pullquote color",
+      "default": "#15110c"
+    },
+    {
+      "type": "color",
+      "id": "pullquote_border_color",
+      "label": "Pullquote border color",
+      "default": "#b8624a"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advertorial hero"
+    }
+  ]
+}
 {% endschema %}
