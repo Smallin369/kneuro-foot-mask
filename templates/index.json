@@ -19,9 +19,9 @@
         "ai_gen_block_c6063f1_wrnWVW": {
           "type": "ai_gen_block_c6063f1",
           "settings": {
-            "eyebrow": "A customer story",
+            "eyebrow": "Sarah's Experience",
             "headline": "Three years of cracked heels, gone in a few sessions?",
-            "paragraph": "<p>Sarah's husband had struggled with dry, cracked feet for years. Nothing worked—until she surprised him with our goat milk foot mask. He woke up the next morning with soft, smooth heels. Now it's part of his weekly routine.</p>",
+            "paragraph": "<h3>Sarah's husband had struggled with dry, cracked feet for years. Nothing worked—until she surprised him with our goat milk foot mask. He woke up the next morning with soft, smooth heels. Now it's part of his weekly routine.</h3>",
             "main_image": "shopify://shop_images/ChatGPT_Image_May_1_2026_at_05_23_30_PM.png",
             "image_max_width": 1000,
             "image_margin_top": 40,
@@ -128,7 +128,7 @@
       "settings": {
         "padding_top": 80,
         "padding_bottom": 80,
-        "bg_color": "#faf8f5"
+        "bg_color": "#fbf3e3"
       }
     },
     "hero": {
@@ -216,10 +216,24 @@
         "subhead": "“Tested by sensitive skin. Trusted through every stage.”",
         "autoplay": true,
         "interval": 6,
-        "bg": "#ffffff",
+        "bg": "#fbf3e3",
         "max_width": 1140,
         "padding_top": 64,
         "padding_bottom": 72
+      }
+    },
+    "story_cta_7W6LBW": {
+      "type": "story-cta",
+      "name": "Story CTA",
+      "settings": {
+        "label": "View Full Testimonies",
+        "url": "shopify://products/goat-milk-callus-mask",
+        "subtext": "",
+        "alignment": "center",
+        "max_width": 680,
+        "bg": "#fbf3e3",
+        "padding_top": 20,
+        "padding_bottom": 20
       }
     },
     "bundles": {
@@ -336,7 +350,7 @@
       "settings": {
         "padding_top": 80,
         "padding_bottom": 80,
-        "bg_color": "#faf8f5"
+        "bg_color": "#fbf3e3"
       }
     },
     "final": {
@@ -426,6 +440,7 @@
     "comparison",
     "hero",
     "testimonials_split",
+    "story_cta_7W6LBW",
     "bundles",
     "faq",
     "final",
