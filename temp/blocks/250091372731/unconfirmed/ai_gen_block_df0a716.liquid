@@ -1,6 +1,472 @@
+{% doc %}
+  @prompt
+    Build a brand-new advertorial customer story section from scratch. Mobile-first, high-converting layout that feels like a real customer story and naturally leads into a before/after proof image.
+    
+    LAYOUT: Narrow article-style container, max-width 640px on desktop, centered on page. On mobile: full width with 20px side padding. Story text LEFT aligned. Controlled spacing, no huge vertical gaps. Image sits directly after the proof transition line.
+    
+    TOP LABEL (centered): Small uppercase label "A CUSTOMER STORY" - 11-12px, letter-spacing 2px, muted color.
+    
+    HEADLINE (centered): "Three years of cracked heels, gone in one night" - 28-36px, bold, clean.
+    
+    STORY COPY with visual hierarchy (all left-aligned):
+    1. NORMAL TEXT (16-18px, regular): "Sarah's husband stopped walking barefoot—even at home." / "His heels were so dry and cracked they would catch on socks." / "Then one night, she got him to try something different." / "He didn't expect much."
+    2. MEDIUM EMPHASIS (18-20px, semi-bold): "He tried everything… creams, scrubs, all those miracle fixes…" / "Over the next few days, it got even stranger."
+    3. HIGH EMPHASIS (22-24px, bold): "nothing actually worked." / "At some point, he completely gave up."
+    4. ITALIC TENSION (18-20px, italic): "But the next morning was… strange."
+    5. FINAL PROOF TRANSITION (24-28px, bold): "What happened next is hard to ignore:"
+    
+    IMAGE BLOCK: Full width of content container, rounded corners 12px, subtle box shadow, minimal gap from transition line, customizable via theme editor.
+    
+    BRIDGE LINE (under image, left-aligned, 18-20px semi-bold): "This wasn't just moisturizing the surface… something deeper was happening."
+    
+    SETTINGS: Expose top label, headline, each story paragraph, image upload, and background color in theme editor schema.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-advertorial-story-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: 60px 20px;
+  }
+
+  .ai-advertorial-story__container-{{ ai_gen_id }} {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .ai-advertorial-story__label-{{ ai_gen_id }} {
+    text-align: center;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: {{ block.settings.label_color }};
+    margin: 0 0 20px;
+    font-weight: 500;
+  }
+
+  .ai-advertorial-story__headline-{{ ai_gen_id }} {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: {{ block.settings.headline_color }};
+    margin: 0 0 40px;
+    line-height: 1.2;
+  }
+
+  .ai-advertorial-story__content-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .ai-advertorial-story__text-normal-{{ ai_gen_id }} {
+    font-size: 16px;
+    font-weight: 400;
+    color: {{ block.settings.text_color }};
+    line-height: 1.6;
+    margin: 0;
+    text-align: left;
+  }
+
+  .ai-advertorial-story__text-medium-{{ ai_gen_id }} {
+    font-size: 18px;
+    font-weight: 600;
+    color: {{ block.settings.text_color }};
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+  }
+
+  .ai-advertorial-story__text-high-{{ ai_gen_id }} {
+    font-size: 22px;
+    font-weight: 700;
+    color: {{ block.settings.text_color }};
+    line-height: 1.4;
+    margin: 0;
+    text-align: left;
+  }
+
+  .ai-advertorial-story__text-italic-{{ ai_gen_id }} {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
+    color: {{ block.settings.text_color }};
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+  }
+
+  .ai-advertorial-story__transition-{{ ai_gen_id }} {
+    font-size: 24px;
+    font-weight: 700;
+    color: {{ block.settings.text_color }};
+    line-height: 1.3;
+    margin: 30px 0 16px;
+    text-align: left;
+  }
+
+  .ai-advertorial-story__image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    margin: 0 0 20px;
+  }
+
+  .ai-advertorial-story__image-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: block;
+  }
+
+  .ai-advertorial-story__image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-advertorial-story__image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .ai-advertorial-story__empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .ai-advertorial-story__bridge-{{ ai_gen_id }} {
+    font-size: 18px;
+    font-weight: 600;
+    color: {{ block.settings.text_color }};
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ai-advertorial-story-{{ ai_gen_id }} {
+      padding: 80px 40px;
+    }
+
+    .ai-advertorial-story__label-{{ ai_gen_id }} {
+      font-size: 12px;
+      margin: 0 0 24px;
+    }
+
+    .ai-advertorial-story__headline-{{ ai_gen_id }} {
+      font-size: 36px;
+      margin: 0 0 50px;
+    }
+
+    .ai-advertorial-story__content-{{ ai_gen_id }} {
+      gap: 24px;
+    }
+
+    .ai-advertorial-story__text-normal-{{ ai_gen_id }} {
+      font-size: 18px;
+    }
+
+    .ai-advertorial-story__text-medium-{{ ai_gen_id }} {
+      font-size: 20px;
+    }
+
+    .ai-advertorial-story__text-high-{{ ai_gen_id }} {
+      font-size: 24px;
+    }
+
+    .ai-advertorial-story__text-italic-{{ ai_gen_id }} {
+      font-size: 20px;
+    }
+
+    .ai-advertorial-story__transition-{{ ai_gen_id }} {
+      font-size: 28px;
+      margin: 36px 0 20px;
+    }
+
+    .ai-advertorial-story__image-wrapper-{{ ai_gen_id }} {
+      margin: 0 0 24px;
+    }
+
+    .ai-advertorial-story__bridge-{{ ai_gen_id }} {
+      font-size: 20px;
+    }
+  }
+{% endstyle %}
+
+<advertorial-story-{{ ai_gen_id }}
+  class="ai-advertorial-story-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-advertorial-story__container-{{ ai_gen_id }}">
+    {% if block.settings.top_label != blank %}
+      <div class="ai-advertorial-story__label-{{ ai_gen_id }}">
+        {{ block.settings.top_label }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.headline != blank %}
+      <h2 class="ai-advertorial-story__headline-{{ ai_gen_id }}">
+        {{ block.settings.headline }}
+      </h2>
+    {% endif %}
+
+    <div class="ai-advertorial-story__content-{{ ai_gen_id }}">
+      {% if block.settings.paragraph_1 != blank %}
+        <p class="ai-advertorial-story__text-normal-{{ ai_gen_id }}">
+          {{ block.settings.paragraph_1 }}
+        </p>
+      {% endif %}
+
+      {% if block.settings.paragraph_2 != blank %}
+        <p class="ai-advertorial-story__text-normal-{{ ai_gen_id }}">
+          {{ block.settings.paragraph_2 }}
+        </p>
+      {% endif %}
+
+      {% if block.settings.paragraph_3 != blank %}
+        <p class="ai-advertorial-story__text-normal-{{ ai_gen_id }}">
+          {{ block.settings.paragraph_3 }}
+        </p>
+      {% endif %}
+
+      {% if block.settings.paragraph_4 != blank %}
+        <p class="ai-advertorial-story__text-normal-{{ ai_gen_id }}">
+          {{ block.settings.paragraph_4 }}
+        </p>
+      {% endif %}
+
+      {% if block.settings.emphasis_medium_1 != blank %}
+        <p class="ai-advertorial-story__text-medium-{{ ai_gen_id }}">
+          {{ block.settings.emphasis_medium_1 }}
+        </p>
+      {% endif %}
+
+      {% if block.settings.emphasis_high_1 != blank %}
+        <p class="ai-advertorial-story__text-high-{{ ai_gen_id }}">
+          {{ block.settings.emphasis_high_1 }}
+        </p>
+      {% endif %}
+
+      {% if block.settings.emphasis_high_2 != blank %}
+        <p class="ai-advertorial-story__text-high-{{ ai_gen_id }}">
+          {{ block.settings.emphasis_high_2 }}
+        </p>
+      {% endif %}
+
+      {% if block.settings.italic_tension != blank %}
+        <p class="ai-advertorial-story__text-italic-{{ ai_gen_id }}">
+          {{ block.settings.italic_tension }}
+        </p>
+      {% endif %}
+
+      {% if block.settings.emphasis_medium_2 != blank %}
+        <p class="ai-advertorial-story__text-medium-{{ ai_gen_id }}">
+          {{ block.settings.emphasis_medium_2 }}
+        </p>
+      {% endif %}
+
+      {% if block.settings.transition_line != blank %}
+        <p class="ai-advertorial-story__transition-{{ ai_gen_id }}">
+          {{ block.settings.transition_line }}
+        </p>
+      {% endif %}
+    </div>
+
+    <div class="ai-advertorial-story__image-wrapper-{{ ai_gen_id }}">
+      {% if block.settings.proof_image %}
+        <img
+          src="{{ block.settings.proof_image | image_url: width: 1280 }}"
+          alt="{{ block.settings.proof_image.alt | escape }}"
+          loading="lazy"
+          width="{{ block.settings.proof_image.width }}"
+          height="{{ block.settings.proof_image.height }}"
+          class="ai-advertorial-story__image-{{ ai_gen_id }}"
+        >
+      {% else %}
+        <div class="ai-advertorial-story__image-placeholder-{{ ai_gen_id }}">
+          {{ 'image' | placeholder_svg_tag }}
+          <div class="ai-advertorial-story__empty-state-{{ ai_gen_id }}">
+            Next, add your before/after proof image
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if block.settings.bridge_line != blank %}
+      <p class="ai-advertorial-story__bridge-{{ ai_gen_id }}">
+        {{ block.settings.bridge_line }}
+      </p>
+    {% endif %}
+  </div>
+</advertorial-story-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AdvertorialStory{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+      }
+    }
+
+    customElements.define('advertorial-story-{{ ai_gen_id }}', AdvertorialStory{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Customer story",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Top section"
+    },
+    {
+      "type": "text",
+      "id": "top_label",
+      "label": "Top label",
+      "default": "A CUSTOMER STORY"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Three years of cracked heels, gone in one night"
+    },
+    {
+      "type": "header",
+      "content": "Story paragraphs"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_1",
+      "label": "Paragraph 1",
+      "default": "Sarah's husband stopped walking barefoot—even at home."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_2",
+      "label": "Paragraph 2",
+      "default": "His heels were so dry and cracked they would catch on socks."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_3",
+      "label": "Paragraph 3",
+      "default": "Then one night, she got him to try something different."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_4",
+      "label": "Paragraph 4",
+      "default": "He didn't expect much."
+    },
+    {
+      "type": "header",
+      "content": "Emphasis text"
+    },
+    {
+      "type": "textarea",
+      "id": "emphasis_medium_1",
+      "label": "Medium emphasis 1",
+      "default": "He tried everything… creams, scrubs, all those miracle fixes…"
+    },
+    {
+      "type": "textarea",
+      "id": "emphasis_high_1",
+      "label": "High emphasis 1",
+      "default": "nothing actually worked."
+    },
+    {
+      "type": "textarea",
+      "id": "emphasis_high_2",
+      "label": "High emphasis 2",
+      "default": "At some point, he completely gave up."
+    },
+    {
+      "type": "textarea",
+      "id": "italic_tension",
+      "label": "Italic tension",
+      "default": "But the next morning was… strange."
+    },
+    {
+      "type": "textarea",
+      "id": "emphasis_medium_2",
+      "label": "Medium emphasis 2",
+      "default": "Over the next few days, it got even stranger."
+    },
+    {
+      "type": "header",
+      "content": "Proof section"
+    },
+    {
+      "type": "textarea",
+      "id": "transition_line",
+      "label": "Transition line",
+      "default": "What happened next is hard to ignore:"
+    },
+    {
+      "type": "image_picker",
+      "id": "proof_image",
+      "label": "Proof image"
+    },
+    {
+      "type": "textarea",
+      "id": "bridge_line",
+      "label": "Bridge line",
+      "default": "This wasn't just moisturizing the surface… something deeper was happening."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#fffaee"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label",
+      "default": "#8a7560"
+    },
+    {
+      "type": "color",
+      "id": "headline_color",
+      "label": "Headline",
+      "default": "#2a1c12"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#2a1c12"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer story"
+    }
+  ]
+}
 {% endschema %}
