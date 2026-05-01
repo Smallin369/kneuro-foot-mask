@@ -1,6 +1,574 @@
+{% doc %}
+  @prompt
+    Create a slim editorial advertorial story strip section designed to sit directly above the main hero section on the homepage. It should feel premium and editorial — inspired by Aesop and Apple's design language.
+    
+    The section should include:
+    - A small eyebrow label (e.g. "A customer story") in all-caps, spaced tracking, muted tone
+    - A large pull-quote style headline in 2–3 lines, warm serif or elegant sans-serif font
+    - A short 2–3 sentence narrative paragraph below the headline (the story of a wife whose husband had cracked dry feet for 3 years, tried the goat milk foot mask, and woke up with soft heels)
+    - A subtle before/after image pair side by side (small, tasteful — not clinical)
+    - Clean minimal layout, full-width, warm cream background (#f5f0e8)
+    - No heavy borders or boxes — open, airy, editorial feel
+    - Mobile responsive
+    - All content should be editable via theme editor blocks (eyebrow, headline, paragraph text, before image, after image, before label, after label)
+    - Smooth fade-in animation on scroll for a premium feel
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-editorial-strip-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.padding_top }}px 20px {{ block.settings.padding_bottom }}px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .ai-editorial-strip-{{ ai_gen_id }}.ai-editorial-strip-visible-{{ ai_gen_id }} {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .ai-editorial-strip__container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: {{ block.settings.content_gap }}px;
+  }
+
+  .ai-editorial-strip__eyebrow-{{ ai_gen_id }} {
+    font-size: {{ block.settings.eyebrow_size }}px;
+    letter-spacing: {{ block.settings.eyebrow_tracking }};
+    text-transform: uppercase;
+    color: {{ block.settings.eyebrow_color }};
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .ai-editorial-strip__headline-{{ ai_gen_id }} {
+    font-size: {{ block.settings.headline_size }}px;
+    line-height: {{ block.settings.headline_line_height }};
+    color: {{ block.settings.headline_color }};
+    font-weight: {{ block.settings.headline_weight }};
+    margin: 0;
+    max-width: {{ block.settings.headline_max_width }}px;
+  }
+
+  .ai-editorial-strip__paragraph-{{ ai_gen_id }} {
+    font-size: {{ block.settings.paragraph_size }}px;
+    line-height: {{ block.settings.paragraph_line_height }};
+    color: {{ block.settings.paragraph_color }};
+    margin: 0;
+    max-width: {{ block.settings.paragraph_max_width }}px;
+  }
+
+  .ai-editorial-strip__images-{{ ai_gen_id }} {
+    display: flex;
+    gap: {{ block.settings.image_gap }}px;
+    align-items: center;
+    justify-content: center;
+    margin-top: {{ block.settings.images_margin_top }}px;
+    flex-wrap: wrap;
+  }
+
+  .ai-editorial-strip__image-wrapper-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ai-editorial-strip__image-container-{{ ai_gen_id }} {
+    width: {{ block.settings.image_width }}px;
+    height: {{ block.settings.image_height }}px;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .ai-editorial-strip__image-container-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-editorial-strip__image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #e6d5b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-editorial-strip__image-placeholder-{{ ai_gen_id }} svg {
+    width: 50%;
+    height: 50%;
+    opacity: 0.3;
+  }
+
+  .ai-editorial-strip__image-label-{{ ai_gen_id }} {
+    font-size: {{ block.settings.label_size }}px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: {{ block.settings.label_color }};
+    font-weight: 500;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-editorial-strip-{{ ai_gen_id }} {
+      padding: {{ block.settings.padding_top | times: 0.6 }}px 16px {{ block.settings.padding_bottom | times: 0.6 }}px;
+    }
+
+    .ai-editorial-strip__eyebrow-{{ ai_gen_id }} {
+      font-size: {{ block.settings.eyebrow_size | times: 0.9 }}px;
+    }
+
+    .ai-editorial-strip__headline-{{ ai_gen_id }} {
+      font-size: {{ block.settings.headline_size | times: 0.6 }}px;
+    }
+
+    .ai-editorial-strip__paragraph-{{ ai_gen_id }} {
+      font-size: {{ block.settings.paragraph_size | times: 0.9 }}px;
+    }
+
+    .ai-editorial-strip__image-container-{{ ai_gen_id }} {
+      width: {{ block.settings.image_width | times: 0.8 }}px;
+      height: {{ block.settings.image_height | times: 0.8 }}px;
+    }
+
+    .ai-editorial-strip__images-{{ ai_gen_id }} {
+      gap: {{ block.settings.image_gap | times: 0.7 }}px;
+    }
+  }
+{% endstyle %}
+
+<ai-editorial-strip-{{ ai_gen_id }}
+  class="ai-editorial-strip-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-editorial-strip__container-{{ ai_gen_id }}">
+    {% if block.settings.eyebrow != blank %}
+      <p class="ai-editorial-strip__eyebrow-{{ ai_gen_id }}">{{ block.settings.eyebrow }}</p>
+    {% endif %}
+
+    {% if block.settings.headline != blank %}
+      <h2 class="ai-editorial-strip__headline-{{ ai_gen_id }}">{{ block.settings.headline }}</h2>
+    {% endif %}
+
+    {% if block.settings.paragraph != blank %}
+      <div class="ai-editorial-strip__paragraph-{{ ai_gen_id }}">{{ block.settings.paragraph }}</div>
+    {% endif %}
+
+    <div class="ai-editorial-strip__images-{{ ai_gen_id }}">
+      <div class="ai-editorial-strip__image-wrapper-{{ ai_gen_id }}">
+        <div class="ai-editorial-strip__image-container-{{ ai_gen_id }}">
+          {% if block.settings.before_image %}
+            <img
+              src="{{ block.settings.before_image | image_url: width: 400 }}"
+              alt="{{ block.settings.before_image.alt | escape }}"
+              loading="lazy"
+              width="{{ block.settings.before_image.width }}"
+              height="{{ block.settings.before_image.height }}"
+            >
+          {% else %}
+            <div class="ai-editorial-strip__image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+        {% if block.settings.before_label != blank %}
+          <span class="ai-editorial-strip__image-label-{{ ai_gen_id }}">{{ block.settings.before_label }}</span>
+        {% endif %}
+      </div>
+
+      <div class="ai-editorial-strip__image-wrapper-{{ ai_gen_id }}">
+        <div class="ai-editorial-strip__image-container-{{ ai_gen_id }}">
+          {% if block.settings.after_image %}
+            <img
+              src="{{ block.settings.after_image | image_url: width: 400 }}"
+              alt="{{ block.settings.after_image.alt | escape }}"
+              loading="lazy"
+              width="{{ block.settings.after_image.width }}"
+              height="{{ block.settings.after_image.height }}"
+            >
+          {% else %}
+            <div class="ai-editorial-strip__image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+        {% if block.settings.after_label != blank %}
+          <span class="ai-editorial-strip__image-label-{{ ai_gen_id }}">{{ block.settings.after_label }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</ai-editorial-strip-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AiEditorialStrip{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.observer = null;
+      }
+
+      connectedCallback() {
+        this.setupIntersectionObserver();
+      }
+
+      setupIntersectionObserver() {
+        const options = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        this.observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('ai-editorial-strip-visible-{{ ai_gen_id }}');
+              this.observer.unobserve(entry.target);
+            }
+          });
+        }, options);
+
+        this.observer.observe(this);
+      }
+
+      disconnectedCallback() {
+        if (this.observer) {
+          this.observer.disconnect();
+        }
+      }
+    }
+
+    customElements.define('ai-editorial-strip-{{ ai_gen_id }}', AiEditorialStrip{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Editorial story strip",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "A customer story"
+    },
+    {
+      "type": "textarea",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Three years of cracked heels, gone in one night"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Story paragraph",
+      "default": "<p>Sarah's husband had struggled with dry, cracked feet for years. Nothing worked—until she surprised him with our goat milk foot mask. He woke up the next morning with soft, smooth heels. Now it's part of his weekly routine.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Before image"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Before image"
+    },
+    {
+      "type": "text",
+      "id": "before_label",
+      "label": "Before label",
+      "default": "Before"
+    },
+    {
+      "type": "header",
+      "content": "After image"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "After image"
+    },
+    {
+      "type": "text",
+      "id": "after_label",
+      "label": "After label",
+      "default": "After"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum width",
+      "min": 600,
+      "max": 1400,
+      "step": 50,
+      "unit": "px",
+      "default": 1000
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 20,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 20,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "Content spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Eyebrow style"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "select",
+      "id": "eyebrow_tracking",
+      "label": "Letter spacing",
+      "options": [
+        {
+          "value": "0.05em",
+          "label": "Tight"
+        },
+        {
+          "value": "0.1em",
+          "label": "Normal"
+        },
+        {
+          "value": "0.15em",
+          "label": "Wide"
+        },
+        {
+          "value": "0.2em",
+          "label": "Extra wide"
+        }
+      ],
+      "default": "0.15em"
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Color",
+      "default": "#8a7560"
+    },
+    {
+      "type": "header",
+      "content": "Headline style"
+    },
+    {
+      "type": "range",
+      "id": "headline_size",
+      "label": "Font size",
+      "min": 24,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 42
+    },
+    {
+      "type": "range",
+      "id": "headline_line_height",
+      "label": "Line height",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.2
+    },
+    {
+      "type": "range",
+      "id": "headline_weight",
+      "label": "Font weight",
+      "min": 300,
+      "max": 700,
+      "step": 100,
+      "default": 500
+    },
+    {
+      "type": "range",
+      "id": "headline_max_width",
+      "label": "Maximum width",
+      "min": 400,
+      "max": 900,
+      "step": 50,
+      "unit": "px",
+      "default": 700
+    },
+    {
+      "type": "color",
+      "id": "headline_color",
+      "label": "Color",
+      "default": "#2a1c12"
+    },
+    {
+      "type": "header",
+      "content": "Paragraph style"
+    },
+    {
+      "type": "range",
+      "id": "paragraph_size",
+      "label": "Font size",
+      "min": 14,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "paragraph_line_height",
+      "label": "Line height",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.6
+    },
+    {
+      "type": "range",
+      "id": "paragraph_max_width",
+      "label": "Maximum width",
+      "min": 400,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "default": 600
+    },
+    {
+      "type": "color",
+      "id": "paragraph_color",
+      "label": "Color",
+      "default": "#4a372a"
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Image width",
+      "min": 100,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 180
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "label": "Image height",
+      "min": 100,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 180
+    },
+    {
+      "type": "range",
+      "id": "image_gap",
+      "label": "Gap between images",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "images_margin_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "label_size",
+      "label": "Label font size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label color",
+      "default": "#8a7560"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#f5f0e8"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial story strip"
+    }
+  ]
+}
 {% endschema %}
