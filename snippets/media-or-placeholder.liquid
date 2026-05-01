@@ -1,0 +1,5 @@
+{% if image != blank %}
+  {{ image | image_url: width: 1600 | image_tag: loading: 'lazy', sizes: sizes | default: '100vw' }}
+{% else %}
+  <div class="placeholder">{{ label | default: 'Add image' }}</div>
+{% endif %}

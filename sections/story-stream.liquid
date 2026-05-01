@@ -1,0 +1,44 @@
+<section class="section-shell {% if section.settings.surface == 'paper' %}section-paper{% else %}section-cream{% endif %}">
+  <div class="page-width section-pad">
+    {% if section.settings.eyebrow != blank %}<div class="eyebrow">{{ section.settings.eyebrow }}</div>{% endif %}
+    {% if section.settings.heading != blank %}<h2 class="section-title">{{ section.settings.heading }}</h2>{% endif %}
+    <div class="story-stream">
+      {% for block in section.blocks %}
+        <div class="story-block story-block--{{ block.type }}" {{ block.shopify_attributes }}>
+          {% case block.type %}
+            {% when 'paragraph' %}
+              <div class="rte">{{ block.settings.text }}</div>
+            {% when 'quote' %}
+              <div class="story-block--quote">{{ block.settings.quote }}</div>
+            {% when 'image' %}
+              <div class="media-frame">
+                {% render 'media-or-placeholder', image: block.settings.image, label: block.settings.placeholder_label %}
+                {% if block.settings.caption != blank %}
+                  <div style="margin-top: .6rem; font: 500 10px/1.5 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--color-muted);">{{ block.settings.caption }}</div>
+                {% endif %}
+              </div>
+            {% when 'divider' %}
+              <hr style="border: 0; border-top: 1px solid rgba(21,17,12,.12); width: 100%; margin: .5rem 0;">
+          {% endcase %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Story stream",
+  "settings": [
+    { "type": "select", "id": "surface", "label": "Surface", "default": "paper", "options": [ { "value": "cream", "label": "Cream" }, { "value": "paper", "label": "Paper" } ] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" }
+  ],
+  "blocks": [
+    { "type": "paragraph", "name": "Paragraph", "settings": [ { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Story paragraph</p>" } ] },
+    { "type": "quote", "name": "Quote", "settings": [ { "type": "inline_richtext", "id": "quote", "label": "Quote", "default": "Something is different." } ] },
+    { "type": "image", "name": "Image", "settings": [ { "type": "image_picker", "id": "image", "label": "Image" }, { "type": "text", "id": "placeholder_label", "label": "Placeholder label", "default": "Story image" }, { "type": "text", "id": "caption", "label": "Caption" } ] },
+    { "type": "divider", "name": "Divider", "settings": [] }
+  ]
+}
+{% endschema %}

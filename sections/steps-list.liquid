@@ -1,0 +1,38 @@
+<section class="section-shell {% if section.settings.dark %}section-dark{% else %}section-cream{% endif %}">
+  <div class="page-width section-pad">
+    {% if section.settings.eyebrow != blank %}<div class="eyebrow">{{ section.settings.eyebrow }}</div>{% endif %}
+    <h2 class="section-title">{{ section.settings.heading }}</h2>
+    <div class="steps-grid">
+      {% for block in section.blocks %}
+        <div class="card" {{ block.shopify_attributes }}>
+          <div style="font: 400 2rem/1 var(--font-display); color: var(--color-accent);">{{ block.settings.step_number }}</div>
+          <h3 style="font: 400 1.5rem/1.15 var(--font-display); margin: .75rem 0 .5rem;">{{ block.settings.title }}</h3>
+          <div class="rte">{{ block.settings.text }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Steps list",
+  "settings": [
+    { "type": "checkbox", "id": "dark", "label": "Dark background", "default": false },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The ritual" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Three steps. Thirty minutes." }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "step_number", "label": "Step number", "default": "01" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Slip on the booties" },
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Describe the step.</p>" }
+      ]
+    }
+  ],
+  "max_blocks": 6
+}
+{% endschema %}

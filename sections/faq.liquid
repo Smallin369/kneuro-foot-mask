@@ -1,93 +1,39 @@
-<section class="container" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;background:{{ section.settings.bg_color | default: 'transparent' }};">
-  <div style="text-align:center">
-    {% for block in section.blocks %}
-      {% case block.type %}
-        {% when 'kicker' %}
-          <div class="section-kicker" style="justify-content:center;display:inline-flex" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
-        {% when 'heading' %}
-          <h2 class="section-title" style="margin: 0 auto" {{ block.shopify_attributes }}>{{ block.settings.lead }} <em>{{ block.settings.accent }}</em></h2>
-        {% when 'faq_list' %}
-          <div class="faq" style="margin-top: 36px" {{ block.shopify_attributes }}>
-            {% for i in (1..10) %}
-              {%- liquid
-                assign k_q = 'q' | append: i | append: '_question'
-                assign k_a = 'q' | append: i | append: '_answer'
-                assign q = block.settings[k_q]
-                assign a = block.settings[k_a]
-              -%}
-              {% if q != blank %}
-                <details {% if i == 1 %}open{% endif %}>
-                  <summary>{{ q }}</summary>
-                  <p>{{ a }}</p>
-                </details>
-              {% endif %}
-            {% endfor %}
+<section class="section-shell section-cream">
+  <div class="page-width section-pad">
+    {% if section.settings.eyebrow != blank %}<div class="eyebrow">{{ section.settings.eyebrow }}</div>{% endif %}
+    <h2 class="section-title">{{ section.settings.heading }}</h2>
+    <div class="faq-list">
+      {% for block in section.blocks %}
+        <div class="faq-item" data-faq-item {{ block.shopify_attributes }}>
+          <button type="button" data-faq-trigger aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" style="width:100%;display:flex;justify-content:space-between;gap:1rem;background:none;border:0;padding:0;text-align:left;color:inherit;">
+            <span style="font-size: 1.3rem;">{{ block.settings.question }}</span>
+            <span data-faq-icon style="font: 500 1rem/1 var(--font-mono);">{% if forloop.first %}−{% else %}+{% endif %}</span>
+          </button>
+          <div class="faq-answer rte" data-faq-answer {% unless forloop.first %}hidden{% endunless %} style="padding-top: .75rem; color: var(--color-muted);">
+            {{ block.settings.answer }}
           </div>
-        {% when 'rich_text' %}
-          <div class="rich-text-block" {{ block.shopify_attributes }}>{{ block.settings.content }}</div>
-        {% when '@app' %}
-          {% render block %}
-      {% endcase %}
-    {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </section>
-
-{%- comment -%} FAQPage JSON-LD for Google rich results + AI search citations {%- endcomment -%}
-{%- capture faq_jsonld -%}
-{%- assign has_any = false -%}
-{%- for block in section.blocks -%}
-  {%- if block.type == 'faq_list' -%}
-    {%- for i in (1..10) -%}
-      {%- assign k_q = 'q' | append: i | append: '_question' -%}
-      {%- assign k_a = 'q' | append: i | append: '_answer' -%}
-      {%- assign q = block.settings[k_q] -%}
-      {%- assign a = block.settings[k_a] -%}
-      {%- if q != blank and a != blank -%}
-        {%- if has_any -%},{%- endif -%}
-        {"@type":"Question","name":{{ q | json }},"acceptedAnswer":{"@type":"Answer","text":{{ a | strip_html | json }}}}
-        {%- assign has_any = true -%}
-      {%- endif -%}
-    {%- endfor -%}
-  {%- endif -%}
-{%- endfor -%}
-{%- endcapture -%}
-{%- assign faq_jsonld = faq_jsonld | strip -%}
-{%- if faq_jsonld != '' -%}
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{ faq_jsonld }}]}</script>
-{%- endif -%}
 
 {% schema %}
 {
   "name": "FAQ",
   "settings": [
-    { "type": "header", "content": "Layout" },
-    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 88 },
-    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 88 },
-    { "type": "color", "id": "bg_color", "label": "Background" }
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Before you order" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The honest answers." }
   ],
   "blocks": [
-    { "type": "@app" },
-    { "type": "kicker", "name": "Kicker", "settings": [ { "type": "text", "id": "text", "label": "Text", "default": "Questions, answered" } ] },
-    { "type": "heading", "name": "Heading", "settings": [
-      { "type": "text", "id": "lead", "label": "Lead", "default": "The" },
-      { "type": "text", "id": "accent", "label": "Italic accent", "default": "honest answers." }
-    ]},
-    { "type": "faq_list", "name": "FAQ list (up to 10 items)", "limit": 1, "settings": [
-      { "type": "header", "content": "Q1" }, { "type": "text", "id": "q1_question", "label": "Question", "default": "What surfaces does it work on?" }, { "type": "textarea", "id": "q1_answer", "label": "Answer", "default": "Couches, fabric upholstery, car seats, rugs, clothes." },
-      { "type": "header", "content": "Q2" }, { "type": "text", "id": "q2_question", "label": "Question", "default": "How do I store unused pouches?" }, { "type": "textarea", "id": "q2_answer", "label": "Answer", "default": "Keep sealed in a cool, dry place. Each foil pouch is good for 24 months from manufacture." },
-      { "type": "header", "content": "Q3" }, { "type": "text", "id": "q3_question", "label": "Question", "default": "Is it reusable?" }, { "type": "textarea", "id": "q3_answer", "label": "Answer", "default": "Yes. Rinse after use and air dry." },
-      { "type": "header", "content": "Q4" }, { "type": "text", "id": "q4_question", "label": "Question", "default": "How long does shipping take?" }, { "type": "textarea", "id": "q4_answer", "label": "Answer", "default": "7-14 days depending on your location." },
-      { "type": "header", "content": "Q5" }, { "type": "text", "id": "q5_question", "label": "Question", "default": "What's your return policy?" }, { "type": "textarea", "id": "q5_answer", "label": "Answer", "default": "30-day returns on unused product." },
-      { "type": "header", "content": "Q6" }, { "type": "text", "id": "q6_question", "label": "Question" }, { "type": "textarea", "id": "q6_answer", "label": "Answer" },
-      { "type": "header", "content": "Q7" }, { "type": "text", "id": "q7_question", "label": "Question" }, { "type": "textarea", "id": "q7_answer", "label": "Answer" },
-      { "type": "header", "content": "Q8" }, { "type": "text", "id": "q8_question", "label": "Question" }, { "type": "textarea", "id": "q8_answer", "label": "Answer" }
-    ]},
-    { "type": "rich_text", "name": "Rich text", "settings": [ { "type": "richtext", "id": "content", "label": "Content", "default": "<p>Add anything here.</p>" } ] }
-  ],
-  "max_blocks": 20,
-  "presets": [{
-    "name": "FAQ",
-    "blocks": [ { "type": "kicker" }, { "type": "heading" }, { "type": "faq_list" } ]
-  }]
+    {
+      "type": "faq",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Will it peel my skin?" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>No. This theme keeps the answer in a block, not hardcoded in the section markup.</p>" }
+      ]
+    }
+  ]
 }
 {% endschema %}

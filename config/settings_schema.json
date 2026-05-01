@@ -1,76 +1,13 @@
 [
   {
-    "name": "theme_info",
-    "theme_name": "Kneuro",
-    "theme_version": "1.0.0",
-    "theme_author": "Kneuro",
-    "theme_documentation_url": "https://kneuro.store",
-    "theme_support_url": "https://kneuro.store"
-  },
-  {
-    "name": "Typography",
+    "name": "Theme settings",
     "settings": [
-      {
-        "type": "font_picker",
-        "id": "type_heading_font",
-        "label": "Heading font",
-        "default": "fraunces_n6"
-      },
-      {
-        "type": "font_picker",
-        "id": "type_body_font",
-        "label": "Body font",
-        "default": "inter_n4"
-      }
-    ]
-  },
-  {
-    "name": "Colors",
-    "settings": [
-      { "type": "color", "id": "color_cream",        "label": "Cream (background)",       "default": "#f5e8d1" },
-      { "type": "color", "id": "color_cream_soft",   "label": "Cream soft",                "default": "#fbf3e3" },
-      { "type": "color", "id": "color_surface",      "label": "Surface (cards)",           "default": "#fffaee" },
-      { "type": "color", "id": "color_ink",          "label": "Ink (primary text)",        "default": "#2a1c12" },
-      { "type": "color", "id": "color_ink_2",        "label": "Ink 2 (secondary text)",    "default": "#4a372a" },
-      { "type": "color", "id": "color_muted",        "label": "Muted text",                "default": "#8a7560" },
-      { "type": "color", "id": "color_line",         "label": "Line / border",             "default": "#e6d5b8" },
-      { "type": "color", "id": "color_accent",       "label": "Accent (amber)",            "default": "#e8833a" },
-      { "type": "color", "id": "color_accent_deep",  "label": "Accent deep",               "default": "#c26521" },
-      { "type": "color", "id": "color_sage",         "label": "Sage",                      "default": "#6d8c6a" },
-      { "type": "color", "id": "color_rose",         "label": "Rose",                      "default": "#e4a896" }
-    ]
-  },
-  {
-    "name": "Shipping Bar",
-    "settings": [
-      {
-        "type": "text",
-        "id": "shipping_bar_text",
-        "label": "Shipping bar message",
-        "default": "30-day returns · Secure checkout"
-      },
-      {
-        "type": "checkbox",
-        "id": "shipping_bar_enabled",
-        "label": "Show shipping bar",
-        "default": true
-      }
-    ]
-  },
-  {
-    "name": "Brand",
-    "settings": [
-      {
-        "type": "text",
-        "id": "brand_name",
-        "label": "Brand name",
-        "default": "Kneuro"
-      },
-      {
-        "type": "image_picker",
-        "id": "favicon",
-        "label": "Favicon"
-      }
+      { "type": "color", "id": "color_cream", "label": "Cream background", "default": "#f4ecdb" },
+      { "type": "color", "id": "color_paper", "label": "Paper background", "default": "#fbf6ea" },
+      { "type": "color", "id": "color_ink", "label": "Ink", "default": "#15110c" },
+      { "type": "color", "id": "color_muted", "label": "Muted text", "default": "#665a4d" },
+      { "type": "color", "id": "color_accent", "label": "Accent", "default": "#b8624a" },
+      { "type": "color", "id": "color_dark", "label": "Dark section background", "default": "#15110c" }
     ]
   }
 ]

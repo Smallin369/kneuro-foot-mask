@@ -1,0 +1,53 @@
+<section class="section-shell section-cream">
+  <div class="page-width section-pad editorial-hero">
+    <div class="editorial-hero__grid">
+      <div>
+        {% if section.settings.eyebrow != blank %}<div class="eyebrow">{{ section.settings.eyebrow }}</div>{% endif %}
+        <h1 class="section-title">{{ section.settings.title }}</h1>
+        {% if section.settings.meta != blank %}<div class="rich-text" style="color: var(--color-muted); margin-bottom: 1rem;">{{ section.settings.meta }}</div>{% endif %}
+        {% if section.settings.body != blank %}<div class="rte">{{ section.settings.body }}</div>{% endif %}
+        {% if section.settings.button_label != blank %}
+          <p style="margin-top: 1.5rem;">
+            <a class="button-primary" href="{{ section.settings.button_link | default: '#' }}">{{ section.settings.button_label }}</a>
+          </p>
+        {% endif %}
+      </div>
+      <div class="stack">
+        {% for block in section.blocks %}
+          <div class="media-frame" {{ block.shopify_attributes }}>
+            {% render 'media-or-placeholder', image: block.settings.image, label: block.settings.placeholder_label %}
+            {% if block.settings.caption != blank %}
+              <div style="margin-top: .6rem; font: 500 10px/1.5 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--color-muted);">{{ block.settings.caption }}</div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Editorial hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "A customer story · Submitted by mail" },
+    { "type": "inline_richtext", "id": "title", "label": "Title", "default": "Three years of cracked heels and nothing worked." },
+    { "type": "text", "id": "meta", "label": "Meta", "default": "As told by Sarah K. · Phoenix, AZ · Customer since 2025" },
+    { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Use this section for the opening narrative and primary call to action.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Pick your pack" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Hero image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "placeholder_label", "label": "Placeholder label", "default": "Hero image" },
+        { "type": "text", "id": "caption", "label": "Caption", "default": "Fig. 01 · Day zero" }
+      ]
+    }
+  ],
+  "max_blocks": 2
+}
+{% endschema %}
