@@ -97,11 +97,94 @@
         "padding_top": 40,
         "padding_bottom": 72,
         "bg_color": "",
+        "badge_text": "New",
         "gallery_image_1": "shopify://shop_images/couple_wearing_product.png",
         "gallery_image_2": "shopify://shop_images/freepik_amateur-smartphone-macro-_2870963720_1.png",
         "gallery_image_3": "shopify://shop_images/freepik_same-shot-of-image-but-wa_2870994617.png",
-        "gallery_image_4": "shopify://shop_images/ChatGPT_Image_Apr_27_2026_at_04_14_59_AM.png",
-        "badge_text": "New"
+        "gallery_image_4": "shopify://shop_images/ChatGPT_Image_Apr_27_2026_at_04_14_59_AM.png"
+      }
+    },
+    "ingredients": {
+      "type": "ingredient-deepdive",
+      "blocks": {
+        "i1": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "🥛",
+            "title": "Goat Milk",
+            "scientific": "Capra hircus milk",
+            "role": "Naturally contains lactic acid, an alpha-hydroxy acid that loosens the bonds holding dead skin cells together — gently, without the burn of synthetic glycolic or salicylic acid.",
+            "benefit": "About 1/10th the strength of harsh foot peels's acid blend. Softens visibly without the 5-day painful peeling phase. Pregnancy-safe, breastfeeding-safe, diabetic-skin-friendly.",
+            "source_note": "Whole goat milk extract. Used in skincare since Cleopatra's milk baths.",
+            "proof_note": "Lactic acid is the only AHA dermatologists routinely green-light during pregnancy.",
+            "tags": "Natural AHA, Pregnancy-safe, Diabetic-safe",
+            "image": "shopify://shop_images/ingredients2.png",
+            "image_alt": ""
+          }
+        },
+        "i2": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "✨",
+            "title": "Niacinamide (Vitamin B3)",
+            "scientific": "Nicotinamide",
+            "role": "Strengthens the skin's lipid barrier, the natural shield that holds moisture in. Also evens out tone and reduces the redness that comes with cracked, irritated heels.",
+            "benefit": "While the goat milk loosens dead skin, niacinamide repairs the new skin underneath. Skin doesn't just feel softer — it stays softer, because the barrier is rebuilding.",
+            "source_note": "Pharmaceutical-grade vitamin B3. The same form used in dermatology offices.",
+            "proof_note": "One of the most-studied ingredients in skincare. Used at 4–10% in clinical trials for barrier repair.",
+            "tags": "Barrier repair, Brightening, Pregnancy-safe",
+            "image": "shopify://shop_images/ingredients5.png",
+            "image_alt": ""
+          }
+        },
+        "i3": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "💧",
+            "title": "Glycerin",
+            "scientific": "Glycerol",
+            "role": "A humectant — it pulls water from the air and from deeper skin layers up into the dry, parched outer layer, where you can feel it.",
+            "benefit": "Goat milk loosens the rough surface. Niacinamide rebuilds. Glycerin floods what's left with deep moisture so the result lasts days, not hours.",
+            "source_note": "Plant-derived glycerin. Vegan, cruelty-free.",
+            "proof_note": "The most widely-used humectant in dermatology because it works in any humidity, on any skin type.",
+            "tags": "Deep hydration, Plant-derived, Vegan",
+            "image": "shopify://shop_images/ingredients1.png",
+            "image_alt": ""
+          }
+        },
+        "i4": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "🌿",
+            "title": "Allantoin",
+            "scientific": "5-ureidohydantoin",
+            "role": "A soothing agent that calms inflammation and accelerates the skin's natural cell turnover. Originally extracted from comfrey root; now plant-derived for purity.",
+            "benefit": "Cracked heels are micro-injuries. Allantoin is the part of the formula that says 'this skin's been through a lot — let's calm it down and help it heal.'",
+            "source_note": "Plant-derived. Pregnancy-safe, eczema-safe, diabetic-safe.",
+            "proof_note": "Allantoin is in baby products and post-procedure dermatology creams for a reason: it's gentle enough for the most reactive skin.",
+            "tags": "Soothing, Sensitive-skin, Eczema-safe",
+            "image": "shopify://shop_images/ingredients6.png",
+            "image_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "i1",
+        "i2",
+        "i3",
+        "i4"
+      ],
+      "settings": {
+        "eyebrow": "4 gentle ingredients. Nothing harsh. Nothing unnecessary.",
+        "heading_lead": "Goat milk + niacinamide.",
+        "heading_accent": "No fillers.",
+        "subhead": "Goat Milk softens · Niacinamide repairs · Glycerin hydrates · Allantoin soothes.",
+        "cta_label": "",
+        "cta_url": "",
+        "cta_subtext": "30-day money-back · free US shipping over $30",
+        "bg": "",
+        "padding_top": 56,
+        "padding_bottom": 56
       }
     },
     "howto": {
@@ -352,6 +435,64 @@
         "bg_color": ""
       }
     },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "k": {
+          "type": "kicker",
+          "settings": {
+            "text": "You asked, We answered!"
+          }
+        },
+        "h": {
+          "type": "heading",
+          "settings": {
+            "lead": "Q & A Section",
+            "accent": ""
+          }
+        },
+        "l": {
+          "type": "faq_list",
+          "settings": {
+            "q1_question": "Does it peel?",
+            "q1_answer": "No. Goat milk lactic acid softens skin gradually without the 5-day peeling phase that harsh foot peels cause. Wear sandals the next day.",
+            "q2_question": "Does it hurt or burn?",
+            "q2_answer": "No burning. Gentle by design — works for pregnancy, diabetic feet, sensitive skin.",
+            "q3_question": "How fast does it work?",
+            "q3_answer": "Most customers feel softer skin after the first 30-minute session. Plan on 2–3 weekly sessions for deeply cracked heels.",
+            "q4_question": "Is it safe for sensitive skin, pregnancy, or diabetes?",
+            "q4_answer": "Yes. Goat milk + niacinamide + glycerin + allantoin. Zero salicylic acid, zero glycolic acid, zero fragrance.",
+            "q5_question": "How long does shipping take?",
+            "q5_answer": "Ships 1–3 business days. Standard delivery 8–14 days. Order ahead of events.",
+            "q6_question": "What's your return policy?",
+            "q6_answer": "30-day money-back guarantee, no questions asked. Refund in full even if the box is opened.",
+            "q7_question": "",
+            "q7_answer": "",
+            "q8_question": "",
+            "q8_answer": ""
+          }
+        }
+      },
+      "block_order": [
+        "k",
+        "h",
+        "l"
+      ],
+      "settings": {
+        "padding_top": 88,
+        "padding_bottom": 88,
+        "bg_color": ""
+      }
+    },
+    "final": {
+      "type": "final-cta",
+      "settings": {
+        "mode": "light",
+        "bg": "",
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
     "bundles": {
       "type": "homepage-bundle-cards",
       "blocks": {
@@ -407,15 +548,76 @@
         "b3"
       ],
       "settings": {
-        "product_image": "shopify://shop_images/5pack.png",
-        "center": true,
         "kicker": "Save more with bundles",
         "heading": "Stock up,",
         "heading_accent": "save up to $30.",
         "subhead": "Trusted by 1,400+ early customers. Most grab the 3-pack — three weekly sessions covers most cracked-heel cases.",
         "fineprint": "Free US shipping on 5-pack · 30-day money-back · processed in 1–3 days · standard delivery 8–14 days",
         "product_handle": "goat-milk-callus-mask",
-        "bg": "#faf8f5",
+        "product_image": "shopify://shop_images/5pack.png",
+        "center": true,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "bg": "#faf8f5"
+      }
+    },
+    "ba-grid": {
+      "type": "ba-carousel",
+      "blocks": {
+        "g1": {
+          "type": "pair",
+          "settings": {
+            "before_image": "shopify://shop_images/freepik_amateur-smartphone-macro-_2870963720_1.png",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/freepik_same-shot-of-image-but-wa_2870994617.png",
+            "after_label": "After · 3 weeks",
+            "eyebrow": "Sarah K. — 3 weeks of weekly use",
+            "heading": "From cracked to soft.",
+            "name": "Sarah",
+            "caption": "One pair, weekly application, no peeling."
+          }
+        },
+        "g2": {
+          "type": "pair",
+          "settings": {
+            "before_image": "shopify://shop_images/f0e7c886-b2fd-42ff-bd9b-b4706550d415.png",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/357c8eb6-2b36-4701-8688-519b48dda6fe.png",
+            "after_label": "After · 2 sessions",
+            "eyebrow": "Priya R. — pregnant, 2 sessions",
+            "heading": "Soft heels by morning.",
+            "name": "Priya",
+            "caption": "Couldn't use peels with salicylic acid. Genuine relief, no flaking."
+          }
+        },
+        "g3": {
+          "type": "pair",
+          "settings": {
+            "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png",
+            "after_label": "After · 1 session",
+            "eyebrow": "Hannah M. — sensitive skin",
+            "heading": "Smooth, no burn.",
+            "name": "Hannah",
+            "caption": "Tried harsh foot peels before; this didn't burn or peel."
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3"
+      ],
+      "settings": {
+        "eyebrow": "The proof",
+        "heading": "Real customers.",
+        "heading_accent": "Real heels.",
+        "subhead": "",
+        "autoplay": true,
+        "interval": 6,
+        "bg": "",
+        "max_width": 1140,
         "padding_top": 56,
         "padding_bottom": 56
       }
@@ -481,70 +683,13 @@
         "padding_bottom": 56,
         "bg_color": ""
       }
-    },
-    "faq": {
-      "type": "faq",
-      "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "You asked, We answered!"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "Q & A Section",
-            "accent": ""
-          }
-        },
-        "l": {
-          "type": "faq_list",
-          "settings": {
-            "q1_question": "Does it peel?",
-            "q1_answer": "No. Goat milk lactic acid softens skin gradually without the 5-day peeling phase that harsh foot peels cause. Wear sandals the next day.",
-            "q2_question": "Does it hurt or burn?",
-            "q2_answer": "No burning. Gentle by design — works for pregnancy, diabetic feet, sensitive skin.",
-            "q3_question": "How fast does it work?",
-            "q3_answer": "Most customers feel softer skin after the first 30-minute session. Plan on 2–3 weekly sessions for deeply cracked heels.",
-            "q4_question": "Is it safe for sensitive skin, pregnancy, or diabetes?",
-            "q4_answer": "Yes. Goat milk + niacinamide + glycerin + allantoin. Zero salicylic acid, zero glycolic acid, zero fragrance.",
-            "q5_question": "How long does shipping take?",
-            "q5_answer": "Ships 1–3 business days. Standard delivery 8–14 days. Order ahead of events.",
-            "q6_question": "What's your return policy?",
-            "q6_answer": "30-day money-back guarantee, no questions asked. Refund in full even if the box is opened.",
-            "q7_question": "",
-            "q7_answer": "",
-            "q8_question": "",
-            "q8_answer": ""
-          }
-        }
-      },
-      "block_order": [
-        "k",
-        "h",
-        "l"
-      ],
-      "settings": {
-        "padding_top": 88,
-        "padding_bottom": 88,
-        "bg_color": ""
-      }
-    },
-    "final": {
-      "type": "final-cta",
-      "settings": {
-        "mode": "light",
-        "bg": "",
-        "padding_top": 0,
-        "padding_bottom": 60
-      }
     }
   },
   "order": [
     "main",
     "howto",
     "ingredients",
+    "bundles",
     "ba-grid",
     "mini-compare",
     "quotes",

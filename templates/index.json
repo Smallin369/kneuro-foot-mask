@@ -29,12 +29,12 @@
         "trust_t2": "No peeling, no burning",
         "trust_t3": "Pregnancy & diabetic-safe",
         "trust_t4": "1,400+ customers · 30-day refund",
-        "show_stars": true,
-        "stars_label": "Loved by early customers",
         "cta_price": "From $19.99 · Save $30 on the 5-pack",
         "bg": "#ffffff",
         "padding_top": 28,
-        "padding_bottom": 56
+        "padding_bottom": 56,
+        "show_stars": true,
+        "stars_label": "Loved by early customers"
       }
     },
     "story": {
@@ -256,7 +256,8 @@
       "settings": {
         "padding_top": 80,
         "padding_bottom": 80,
-        "bg_color": "#faf8f5"
+        "bg_color": "#faf8f5",
+        "bg": "#ffffff"
       }
     },
     "final": {
@@ -406,7 +407,8 @@
       "settings": {
         "padding_top": 80,
         "padding_bottom": 80,
-        "bg_color": "#faf8f5"
+        "bg_color": "#faf8f5",
+        "bg": "#f4ecee"
       }
     },
     "testimonials_split": {

@@ -96,6 +96,37 @@
     });
   };
 
+  // Bridges custom fetch('/cart/add.js') back to Shopify's customer-events pipeline
+  // so Web Pixels (incl. the FB & Instagram sales channel pixel) receive AddToCart.
+  function publishProductAddedToCart(item) {
+    if (!item || !item.variant_id) return;
+    if (!window.Shopify || !window.Shopify.analytics || typeof window.Shopify.analytics.publish !== 'function') return;
+    const currency = (window.Shopify.currency && window.Shopify.currency.active) || 'USD';
+    const unitAmount = ((item.final_price != null ? item.final_price : item.price) || 0) / 100;
+    const qty = item.quantity || 1;
+    window.Shopify.analytics.publish('product_added_to_cart', {
+      cartLine: {
+        cost: { totalAmount: { amount: unitAmount * qty, currencyCode: currency } },
+        merchandise: {
+          id: 'gid://shopify/ProductVariant/' + item.variant_id,
+          product: {
+            id: 'gid://shopify/Product/' + item.product_id,
+            title: item.product_title,
+            vendor: item.vendor || '',
+            type: item.product_type || '',
+            untranslatedTitle: item.product_title
+          },
+          title: item.variant_title || '',
+          price: { amount: unitAmount, currencyCode: currency },
+          sku: item.sku || ''
+        },
+        quantity: qty
+      }
+    });
+  }
+  // Expose for cart-drawer (which has its own fetch flow)
+  window.publishProductAddedToCart = publishProductAddedToCart;
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -104,6 +135,7 @@
       const res = await fetch('/cart/add.js', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } });
       if (!res.ok) throw new Error('add failed');
       const item = await res.json();
+      publishProductAddedToCart(item);
       open(item);
     } catch (err) {
       // Fallback to default form post

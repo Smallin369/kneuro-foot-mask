@@ -81,10 +81,10 @@ I tried lotion. Tried Vaseline socks. Tried that callus shaver
 thing. Nothing worked because nothing was actually breaking down
 the dead, callused skin.
 
-Then a friend in Seoul sent me a video of a goat milk foot mask.
-Looked like a soft sock filled with milk. She said K-beauty
-brands had been quietly making them for years — gentler, more
-hydrating, no peeling, no burning.
+Then a friend sent me a video of a goat milk foot mask.
+Looked like a soft sock filled with milk. A gentler approach to
+softening cracked heels — no salicylic acid, no glycolic acid,
+no peeling phase, no burning.
 
 Goat milk has lactic acid in it. Real lactic acid, occurring
 naturally, like a thousandth the strength of glycolic. The same
@@ -93,9 +93,11 @@ thing Cleopatra used for her skin (real story — Egyptian milk baths).
 
 I ordered one for $25 and my heels were soft in 30 minutes.
 
-That's the whole origin story. We spent 18 months reformulating
-the K-beauty version with US-sourced milk and a 5% niacinamide
-boost (vitamin B3, for skin barrier repair) and shipped Kneuro.
+That's the whole origin story. We worked with a contract
+manufacturer who specializes in this category and brought it
+to customers under the Kneuro name — goat milk lactic acid,
+niacinamide for barrier repair, glycerin, and allantoin.
+That's the whole formula.
 
 If that sounds like the kind of skincare logic you can get behind,
 WELCOME10 is still good at checkout.
@@ -223,7 +225,7 @@ If you want to use the code one last time:
 
 A few things people often ask before pulling the trigger:
 
-→ Free US shipping kicks in at $69 (the 3-pack and 5-pack qualify).
+→ Free US shipping kicks in at $30 (the 3-pack and 5-pack qualify).
 → 30-day money-back, no questions, even if you've used one.
 → The mask works on hands, elbows, knees too — same formula.
 → One mask = one 30-minute session. Most customers do it 1-2x/month.
