@@ -9,443 +9,108 @@
  */
 {
   "sections": {
-    "1777626719890029df": {
-      "type": "_blocks",
-      "settings": {}
-    },
-    "blocks_6wQNyR": {
-      "type": "_blocks",
+    "hero": {
+      "type": "editorial-hero",
       "blocks": {
-        "ai_gen_block_c6063f1_wrnWVW": {
-          "type": "ai_gen_block_c6063f1",
+        "hero_image": {
+          "type": "image",
           "settings": {
-            "eyebrow": "Sarah's Experience",
-            "headline": "Three years of cracked heels, gone in a few sessions?",
-            "paragraph": "<h3>Sarah's husband had struggled with dry, cracked feet for years. Nothing worked—until she surprised him with our goat milk foot mask. He woke up the next morning with soft, smooth heels. Now it's part of his weekly routine.</h3>",
-            "main_image": "shopify://shop_images/ChatGPT_Image_May_1_2026_at_05_23_30_PM.png",
-            "image_max_width": 1000,
-            "image_margin_top": 40,
-            "image_aspect_ratio": "16 / 9",
-            "image_border_radius": 12,
-            "image_frame_padding": 8,
-            "image_shadow": "0 8px 24px rgba(42, 28, 18, 0.08)",
-            "max_width": 1200,
-            "padding_top": 60,
-            "padding_bottom": 60,
-            "content_gap": 25,
-            "eyebrow_size": 11,
-            "eyebrow_tracking": "0.15em",
-            "eyebrow_ornament_width": 40,
-            "eyebrow_color": "#8a7560",
-            "headline_size": 56,
-            "headline_line_height": 1.1,
-            "headline_weight": 600,
-            "headline_max_width": 800,
-            "headline_color": "#2a1c12",
-            "drop_cap_color": "#e8833a",
-            "paragraph_size": 18,
-            "paragraph_line_height": 1.6,
-            "paragraph_max_width": 700,
-            "paragraph_color": "#4a372a",
-            "quote_mark_color": "#e8833a",
-            "quote_mark_opacity": 0.1,
-            "show_corner_ornaments": true,
-            "corner_ornament_size": 40,
-            "corner_ornament_offset": 10,
-            "ornament_color": "#8a7560",
-            "ornament_opacity": 0.3,
-            "accent_line_color": "#8a7560",
-            "accent_line_opacity": 0.1,
-            "background_color": "#f5f0e8",
-            "frame_gradient_start": "#f5f0e8",
-            "frame_gradient_end": "#e6d5b8"
-          },
-          "blocks": {}
+            "placeholder_label": "iPhone shot · husband’s feet on couch",
+            "caption": "Fig. 01 · Day zero — taken by Sarah, Tuesday evening."
+          }
         }
       },
       "block_order": [
-        "ai_gen_block_c6063f1_wrnWVW"
+        "hero_image"
       ],
-      "name": "Editorial story strip",
-      "settings": {}
+      "settings": {
+        "eyebrow": "A customer story · Submitted by mail",
+        "title": "Three years of cracked heels and nothing worked.",
+        "meta": "As told by Sarah K. · Phoenix, AZ · Customer since 2025",
+        "body": "<p>Build the landing page with sections and blocks, then swap this placeholder copy for merchant-managed content in the Theme Editor.</p>",
+        "button_label": "Pick your pack"
+      }
+    },
+    "story": {
+      "type": "story-stream",
+      "blocks": {
+        "p1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>He tried everything. Drugstore creams. Pumice stones. Electric files. The story now lives in blocks, so each paragraph can be reordered or replaced without touching code.</p>"
+          }
+        },
+        "d1": {
+          "type": "divider",
+          "settings": {}
+        },
+        "q1": {
+          "type": "quote",
+          "settings": {
+            "quote": "Something is different."
+          }
+        },
+        "img1": {
+          "type": "image",
+          "settings": {
+            "placeholder_label": "Story image",
+            "caption": "Customer photo"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "d1",
+        "q1",
+        "img1"
+      ],
+      "settings": {
+        "surface": "paper"
+      }
     },
     "comparison": {
       "type": "comparison-table",
-      "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "Why people switch"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "Why people switch from",
-            "accent": "harsh foot peels."
-          }
-        },
-        "t": {
-          "type": "table",
-          "settings": {
-            "col_brand": "Kneuro",
-            "col_2": "Harsh peels",
-            "col_3": "",
-            "col_4": "",
-            "row_1_label": "No 5-day peeling phase",
-            "row_1_brand": "yes",
-            "row_1_c2": "no",
-            "row_1_c3": "",
-            "row_1_c4": "",
-            "row_2_label": "No hiding your feet in public",
-            "row_2_brand": "yes",
-            "row_2_c2": "no",
-            "row_2_c3": "",
-            "row_2_c4": "",
-            "row_3_label": "No harsh acid burn",
-            "row_3_brand": "yes",
-            "row_3_c2": "no",
-            "row_3_c3": "",
-            "row_3_c4": "",
-            "row_4_label": "Softness after one session",
-            "row_4_brand": "yes",
-            "row_4_c2": "no",
-            "row_4_c3": "",
-            "row_4_c4": "",
-            "row_5_label": "Safe for sensitive / pregnancy / diabetes",
-            "row_5_brand": "yes",
-            "row_5_c2": "no",
-            "row_5_c3": "",
-            "row_5_c4": ""
-          }
-        }
-      },
-      "block_order": [
-        "k",
-        "h",
-        "t"
-      ],
+      "settings": {}
+    },
+    "proof": {
+      "type": "cards-grid",
       "settings": {
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "bg_color": "#fbf3e3"
+        "surface": "paper",
+        "columns": "3",
+        "eyebrow": "The proof",
+        "heading": "Real heels. Real timelines."
       }
     },
-    "hero": {
-      "type": "advertorial-hero",
-      "disabled": true,
-      "settings": {
-        "publication": "Soft Skin Daily",
-        "category": "Skincare",
-        "headline": "Fix His Dry, Cracked Feet in 30 Minutes — Without the Peeling",
-        "subhead": "A gentle goat milk foot mask that softens rough heels fast — no harsh acids, no downtime.",
-        "byline": "",
-        "date": "",
-        "read_time": "",
-        "hero_image": "shopify://shop_images/ChatGPT_Image_May_1_2026_at_04_49_25_PM.png",
-        "hero_asset": "",
-        "video_asset": "",
-        "caption": "",
-        "cta_label": "Get Soft Feet Today →",
-        "cta_url": "/products/goat-milk-callus-mask",
-        "cta_subtext": "🚚 Free shipping above the 5-packs",
-        "trust_t1": "Soft heels in 30 minutes",
-        "trust_t2": "No peeling, no burning",
-        "trust_t3": "Pregnancy & diabetic-safe",
-        "trust_t4": "1,400+ customers · 30-day refund",
-        "show_stars": true,
-        "stars_label": "Loved by 1000+ Customers",
-        "cta_price": "From $19.99 · Save $30 on the 5-pack",
-        "bg": "#f5f0e8",
-        "padding_top": 28,
-        "padding_bottom": 56
-      }
+    "steps": {
+      "type": "steps-list",
+      "settings": {}
     },
-    "testimonials_split": {
-      "type": "ba-carousel",
-      "blocks": {
-        "sarah": {
-          "type": "pair",
-          "settings": {
-            "before_image": "shopify://shop_images/freepik_amateur-smartphone-macro-_2870963720_1.png",
-            "before_label": "Before",
-            "after_image": "shopify://shop_images/freepik_same-shot-of-image-but-wa_2870994617.png",
-            "after_label": "After · 3 weeks",
-            "eyebrow": "Sarah K. · 3 weeks of weekly use",
-            "heading": "From cracked to soft.",
-            "name": "Sarah",
-            "caption": "One pair, weekly application, no peeling. Softer heels by the second session."
-          }
-        },
-        "priya": {
-          "type": "pair",
-          "settings": {
-            "before_image": "shopify://shop_images/f0e7c886-b2fd-42ff-bd9b-b4706550d415.png",
-            "before_label": "Before",
-            "after_image": "shopify://shop_images/357c8eb6-2b36-4701-8688-519b48dda6fe.png",
-            "after_label": "After · 2 sessions",
-            "eyebrow": "Priya R. · pregnant, 2 sessions",
-            "heading": "Soft heels by morning.",
-            "name": "Priya",
-            "caption": "Couldn't use harsh foot peels. Visibly softer feet without any salicylic acid."
-          }
-        },
-        "hannah": {
-          "type": "pair",
-          "settings": {
-            "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
-            "before_label": "Before",
-            "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png",
-            "after_label": "After · 1 session",
-            "eyebrow": "Hannah M. · sensitive skin",
-            "heading": "Smooth, no burn.",
-            "name": "Hannah",
-            "caption": "One 30-minute session. No burning, no flake. Skin felt different by morning."
-          }
-        }
-      },
-      "block_order": [
-        "sarah",
-        "priya",
-        "hannah"
-      ],
-      "settings": {
-        "eyebrow": "BEFORE & AFTER",
-        "heading": "Finally,",
-        "heading_accent": "Heels that feel like skin again.",
-        "subhead": "“Tested by sensitive skin. Trusted through every stage.”",
-        "autoplay": true,
-        "interval": 6,
-        "bg": "#fbf3e3",
-        "max_width": 1140,
-        "padding_top": 64,
-        "padding_bottom": 72
-      }
-    },
-    "story_cta_7W6LBW": {
-      "type": "story-cta",
-      "name": "Story CTA",
-      "settings": {
-        "label": "View Full Testimonies",
-        "url": "shopify://products/goat-milk-callus-mask",
-        "subtext": "",
-        "alignment": "center",
-        "max_width": 680,
-        "bg": "#fbf3e3",
-        "padding_top": 20,
-        "padding_bottom": 20
-      }
+    "ingredients": {
+      "type": "ingredients-list",
+      "settings": {}
     },
     "bundles": {
-      "type": "homepage-bundle-cards",
-      "blocks": {
-        "b1": {
-          "type": "bundle",
-          "settings": {
-            "pack_label": "1 Pack",
-            "price": "$19.99",
-            "per_pack": "$19.99 / pack",
-            "savings": "",
-            "shipping_pill": "",
-            "body": "Try one 30-minute session.",
-            "cta_label": "Try one →",
-            "variant_id": "47758582055099",
-            "featured": false,
-            "badge": ""
-          }
-        },
-        "b2": {
-          "type": "bundle",
-          "settings": {
-            "pack_label": "3 Pack",
-            "price": "$44.99",
-            "per_pack": "$15.00 / pack",
-            "savings": "Save $15",
-            "shipping_pill": "",
-            "body": "Most Popular — three sessions to soften and maintain rough heels.",
-            "cta_label": "Get the 3-pack →",
-            "variant_id": "47758582087867",
-            "featured": true,
-            "badge": "MOST POPULAR"
-          }
-        },
-        "b3": {
-          "type": "bundle",
-          "settings": {
-            "pack_label": "5 Pack",
-            "price": "$69.99",
-            "per_pack": "$14.00 / pack",
-            "savings": "Save $30",
-            "shipping_pill": "✓ Free US shipping",
-            "body": "Best Value — for couples, households, or long-term upkeep.",
-            "cta_label": "Get the 5-pack →",
-            "variant_id": "47758582120635",
-            "featured": false,
-            "badge": "BEST VALUE"
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3"
-      ],
-      "settings": {
-        "product_image": "shopify://shop_images/5pack.png",
-        "center": true,
-        "kicker": "Pick your pack",
-        "heading": "Soft heels.",
-        "heading_accent": "No peeling. No nagging him.",
-        "subhead": "30-day money-back guarantee. Free shipping on the 5-pack.",
-        "fineprint": "All bundles pregnancy-safe, diabetes-safe, dermatologist-approved · 30-day money-back · processed in 1–3 days · standard delivery 8–14 days",
-        "product_handle": "goat-milk-callus-mask",
-        "bg": "#f5f0e8",
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
+      "type": "featured-product-editorial",
+      "settings": {}
     },
     "faq": {
       "type": "faq",
-      "blocks": {
-        "kicker": {
-          "type": "kicker",
-          "settings": {
-            "text": "Before you order"
-          }
-        },
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "lead": "The honest",
-            "accent": "answers."
-          }
-        },
-        "list": {
-          "type": "faq_list",
-          "settings": {
-            "q1_question": "Does it peel?",
-            "q1_answer": "No. Most foot peels use a strong acid blend (glycolic + lactic + salicylic) that causes a 5-day peeling phase. Kneuro uses goat milk lactic acid at about 1/10 the strength — softens skin gradually with no peeling phase. Wear sandals the next day if you want.",
-            "q2_question": "Does it hurt or burn?",
-            "q2_answer": "No burning. Goat milk lactic acid is gentle by design — that's why it works for pregnancy, diabetic feet, and sensitive skin. If you've been burned by harsh acid peels before, this is the opposite.",
-            "q3_question": "How fast does it work?",
-            "q3_answer": "Most customers feel softer skin after the first 30-minute session. For deeply cracked heels, plan on 2–3 weekly sessions for full softness. The 3-pack is the sweet spot.",
-            "q4_question": "Is it safe for sensitive skin, pregnancy, or diabetes?",
-            "q4_answer": "Yes to all three. Our formula is goat milk + niacinamide + glycerin + allantoin. Zero salicylic acid, zero glycolic acid, zero fragrance, zero essential oils. Customers with eczema, pregnant feet, and diabetic skin who couldn't use other foot peels use this safely.",
-            "q5_question": "How long does shipping take?",
-            "q5_answer": "Orders ship in 1–3 business days. Standard delivery 8–14 days because we ship from our overseas manufacturer to keep prices fair. Order ahead of weddings, beach trips, sandal season.",
-            "q6_question": "What if it doesn't work?",
-            "q6_answer": "30-day money-back guarantee, no questions asked. Email us, we refund you in full — even if the box is opened.",
-            "q7_question": "",
-            "q7_answer": "",
-            "q8_question": "",
-            "q8_answer": ""
-          }
-        }
-      },
-      "block_order": [
-        "kicker",
-        "heading",
-        "list"
-      ],
-      "settings": {
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "bg_color": "#fbf3e3"
-      }
-    },
-    "final": {
-      "type": "final-cta",
-      "blocks": {
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "Give him softer feet",
-            "accent": "— without the hassle."
-          }
-        },
-        "body": {
-          "type": "body",
-          "settings": {
-            "text": "30 minutes. No peeling. No harsh acids. Backed by our 30-day money-back guarantee."
-          }
-        },
-        "cta": {
-          "type": "cta",
-          "settings": {
-            "label": "Shop Kneuro Foot Mask →",
-            "link": "/products/goat-milk-callus-mask"
-          }
-        },
-        "ship": {
-          "type": "shipping",
-          "settings": {
-            "text": "Ships in 1–3 days · Standard delivery 8–14 days"
-          }
-        },
-        "guar": {
-          "type": "guarantee",
-          "settings": {
-            "text": "30-day money-back guarantee"
-          }
-        },
-        "trust": {
-          "type": "trust_row",
-          "settings": {
-            "t1_emoji": "🌿",
-            "t1_title": "No peeling",
-            "t1_sub": "gentle by design",
-            "t2_emoji": "🤰",
-            "t2_title": "Pregnancy-safe",
-            "t2_sub": "no harsh acids",
-            "t3_emoji": "✅",
-            "t3_title": "30-day refund",
-            "t3_sub": "no questions asked",
-            "t4_emoji": "🚚",
-            "t4_title": "Free US shipping",
-            "t4_sub": "on orders over $30"
-          }
-        }
-      },
-      "block_order": [
-        "h",
-        "body",
-        "cta",
-        "ship",
-        "guar",
-        "trust"
-      ],
-      "settings": {
-        "mode": "dark",
-        "bg": "#1a2e1a",
-        "padding_top": 80,
-        "padding_bottom": 96
-      }
-    },
-    "177762808902833bb8": {
-      "type": "_blocks",
       "settings": {}
     },
-    "177762861849247d78": {
-      "type": "_blocks",
-      "settings": {}
-    },
-    "177762889680803ad3": {
-      "type": "_blocks",
+    "cta": {
+      "type": "cta-banner",
       "settings": {}
     }
   },
   "order": [
-    "1777626719890029df",
-    "blocks_6wQNyR",
-    "comparison",
     "hero",
-    "testimonials_split",
-    "story_cta_7W6LBW",
+    "story",
+    "comparison",
+    "proof",
+    "steps",
+    "ingredients",
     "bundles",
     "faq",
-    "final",
-    "177762808902833bb8",
-    "177762861849247d78",
-    "177762889680803ad3"
+    "cta"
   ]
 }
