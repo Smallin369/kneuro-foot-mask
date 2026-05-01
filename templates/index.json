@@ -20,7 +20,6 @@
         "date": "",
         "read_time": "",
         "hero_image": "shopify://shop_images/couple_wearing_product.png",
-        "hero_asset": "",
         "video_asset": "",
         "caption": "Real customer photo. 30-min treatment.",
         "cta_label": "Get Soft Feet Today →",
@@ -30,33 +29,12 @@
         "trust_t2": "No peeling, no burning",
         "trust_t3": "Pregnancy & diabetic-safe",
         "trust_t4": "1,400+ customers · 30-day refund",
+        "show_stars": true,
+        "stars_label": "Loved by early customers",
         "cta_price": "From $19.99 · Save $30 on the 5-pack",
         "bg": "#ffffff",
         "padding_top": 28,
         "padding_bottom": 56
-      }
-    },
-    "clarity": {
-      "type": "customer-promise",
-      "settings": {
-        "eyebrow": "What you get",
-        "heading": "What this actually does",
-        "subhead": "A 30-minute mask. No harsh acids. Soft skin without the 5-day peeling phase.",
-        "title_1": "Soft skin in 30 minutes",
-        "body_1": "One short session. No 5-day peeling phase to hide through.",
-        "icon_1": "clock",
-        "title_2": "No harsh acids",
-        "body_2": "Goat milk + niacinamide. No salicylic, no glycolic, no burning.",
-        "icon_2": "leaf",
-        "title_3": "Pregnancy-safe",
-        "body_3": "Gentle enough for pregnant skin, diabetics, sensitive feet.",
-        "icon_3": "shield",
-        "title_4": "30-day money-back",
-        "body_4": "If your heels aren't softer, full refund. No questions.",
-        "icon_4": "refresh",
-        "bg": "#ffffff",
-        "padding_top": 72,
-        "padding_bottom": 72
       }
     },
     "story": {
@@ -68,22 +46,10 @@
             "text": "<p><strong>My husband didn't think his feet were a problem.</strong> I did. Three years of cracked, rough heels — and lotion never reached deep enough to fix any of it.</p>"
           }
         },
-        "hk1": {
-          "type": "heading",
-          "settings": {
-            "text": "Six foot products. Three years. Nothing worked."
-          }
-        },
         "p2": {
           "type": "paragraph",
           "settings": {
             "text": "<p>A friend sent me a thirty-second video. A soft sock-shaped pouch, milky liquid sealed inside. He slipped them on, watched a show. <strong>The next morning, his heels felt like skin again.</strong></p>"
-          }
-        },
-        "hk2": {
-          "type": "heading",
-          "settings": {
-            "text": "Soft heels by morning. No peeling, no burning."
           }
         },
         "ba1": {
@@ -95,7 +61,37 @@
             "before_label": "Before",
             "after_image": "shopify://shop_images/freepik_same-shot-of-image-but-wa_2870994617.png",
             "after_label": "After · 3 weeks",
-            "caption": "His feet before and after"
+            "caption": "Real customer photo. After 2–3 sessions — no peeling, no burning."
+          }
+        },
+        "ba2": {
+          "type": "before_after",
+          "settings": {
+            "eyebrow": "Pregnancy customer",
+            "heading": "Priya's swollen, splitting heels.",
+            "before_image": "shopify://shop_images/f0e7c886-b2fd-42ff-bd9b-b4706550d415.png",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/357c8eb6-2b36-4701-8688-519b48dda6fe.png",
+            "after_label": "After · 2 sessions",
+            "caption": "Pregnant customer. Couldn't use harsh foot peels. Visible softness without harsh acids."
+          }
+        },
+        "ba3": {
+          "type": "before_after",
+          "settings": {
+            "eyebrow": "Sensitive-skin customer",
+            "heading": "Hannah's rough heels — without the burn.",
+            "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png",
+            "after_label": "After · 1 session",
+            "caption": "Sensitive-skin customer. One 30-minute session, no burning."
+          }
+        },
+        "p_bridge": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>I'm not the only one. Customers writing in from different situations — pregnant, sensitive skin, the people most foot peels leave behind. Same outcome.</p>"
           }
         },
         "p_science": {
@@ -104,16 +100,28 @@
             "text": "<p>Goat milk has natural lactic acid — about <strong>1/10 the strength</strong> of foot peels. Strong enough to soften in 30 minutes. Gentle enough for pregnancy, diabetes, eczema. No five-day flake. No burn.</p>"
           }
         },
-        "hk3": {
-          "type": "heading",
-          "settings": {
-            "text": "Lactic acid from milk — gentle enough for pregnancy."
-          }
-        },
         "p_proof": {
           "type": "paragraph",
           "settings": {
             "text": "<p>And it's not just us. Customers write in from pregnancy, sensitive skin, diabetic feet — <strong>the people most foot peels leave behind</strong>.</p>"
+          }
+        },
+        "hk1": {
+          "type": "heading",
+          "settings": {
+            "text": "Six foot products. Three years. Nothing worked."
+          }
+        },
+        "hk2": {
+          "type": "heading",
+          "settings": {
+            "text": "Soft heels by morning. No peeling, no burning."
+          }
+        },
+        "hk3": {
+          "type": "heading",
+          "settings": {
+            "text": "Lactic acid from milk — gentle enough for pregnancy."
           }
         }
       },
@@ -134,115 +142,6 @@
         "padding_bottom": 80
       }
     },
-    "testimonials_split": {
-      "type": "testimonial-split-cards",
-      "blocks": {
-        "priya": {
-          "type": "testimonial",
-          "settings": {
-            "before_image": "shopify://shop_images/f0e7c886-b2fd-42ff-bd9b-b4706550d415.png",
-            "before_label": "Before",
-            "after_image": "shopify://shop_images/357c8eb6-2b36-4701-8688-519b48dda6fe.png",
-            "after_label": "After · 2 sessions",
-            "name": "Priya",
-            "tag": "Pregnant · sensitive skin",
-            "caption": "Couldn't use harsh foot peels. Visibly softer feet without any salicylic acid.",
-            "cta_label": "View more →",
-            "cta_url": "/products/goat-milk-callus-mask"
-          }
-        },
-        "hannah": {
-          "type": "testimonial",
-          "settings": {
-            "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
-            "before_label": "Before",
-            "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png",
-            "after_label": "After · 1 session",
-            "name": "Hannah",
-            "tag": "Sensitive-skin customer",
-            "caption": "One 30-minute session. No burning, no flake. Skin felt different by morning.",
-            "cta_label": "View more →",
-            "cta_url": "/products/goat-milk-callus-mask"
-          }
-        }
-      },
-      "block_order": [
-        "priya",
-        "hannah"
-      ],
-      "settings": {
-        "eyebrow": "What our customers experienced",
-        "heading": "Real heels.",
-        "heading_accent": "Real photos.",
-        "subhead": "",
-        "bg": "#ffffff",
-        "max_width": 1080,
-        "padding_top": 64,
-        "padding_bottom": 72
-      }
-    },
-    "comparison": {
-      "type": "comparison-table",
-      "blocks": {
-        "k": {
-          "type": "kicker",
-          "settings": {
-            "text": "Why people switch"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "lead": "Why people switch from",
-            "accent": "harsh foot peels."
-          }
-        },
-        "t": {
-          "type": "table",
-          "settings": {
-            "col_brand": "Kneuro",
-            "col_2": "Harsh peels",
-            "col_3": "",
-            "col_4": "",
-            "row_1_label": "No 5-day peeling phase",
-            "row_1_brand": "yes",
-            "row_1_c2": "no",
-            "row_1_c3": "",
-            "row_1_c4": "",
-            "row_2_label": "No hiding your feet in public",
-            "row_2_brand": "yes",
-            "row_2_c2": "no",
-            "row_2_c3": "",
-            "row_2_c4": "",
-            "row_3_label": "No harsh acid burn",
-            "row_3_brand": "yes",
-            "row_3_c2": "no",
-            "row_3_c3": "",
-            "row_3_c4": "",
-            "row_4_label": "Softness after one session",
-            "row_4_brand": "yes",
-            "row_4_c2": "no",
-            "row_4_c3": "",
-            "row_4_c4": "",
-            "row_5_label": "Safe for sensitive / pregnancy / diabetes",
-            "row_5_brand": "yes",
-            "row_5_c2": "no",
-            "row_5_c3": "",
-            "row_5_c4": ""
-          }
-        }
-      },
-      "block_order": [
-        "k",
-        "h",
-        "t"
-      ],
-      "settings": {
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "bg_color": "#faf8f5"
-      }
-    },
     "bundles": {
       "type": "homepage-bundle-cards",
       "blocks": {
@@ -254,8 +153,8 @@
             "per_pack": "$19.99 / pack",
             "savings": "",
             "shipping_pill": "",
-            "body": "After 30-minute session, you'll be hooked!",
-            "cta_label": "Try one",
+            "body": "Try one 30-minute session.",
+            "cta_label": "Try one →",
             "variant_id": "47758582055099",
             "featured": false,
             "badge": ""
@@ -406,10 +305,7 @@
             "t2_sub": "no harsh acids",
             "t3_emoji": "🚚",
             "t3_title": "30-day refund",
-            "t3_sub": "no questions asked",
-            "t4_emoji": "🚚",
-            "t4_title": "Free US shipping",
-            "t4_sub": "on orders over $30"
+            "t3_sub": "no questions asked"
           }
         }
       },
@@ -423,9 +319,141 @@
       ],
       "settings": {
         "mode": "dark",
-        "bg": "#3d2535",
+        "bg": "#3D2535",
         "padding_top": 80,
         "padding_bottom": 96
+      }
+    },
+    "clarity": {
+      "type": "customer-promise",
+      "settings": {
+        "eyebrow": "What you get",
+        "heading": "What this actually does",
+        "subhead": "A 30-minute mask. No harsh acids. Soft skin without the 5-day peeling phase.",
+        "title_1": "Soft skin in 30 minutes",
+        "body_1": "One short session. No 5-day peeling phase to hide through.",
+        "icon_1": "clock",
+        "title_2": "No harsh acids",
+        "body_2": "Goat milk + niacinamide. No salicylic, no glycolic, no burning.",
+        "icon_2": "leaf",
+        "title_3": "Pregnancy-safe",
+        "body_3": "Gentle enough for pregnant skin, diabetics, sensitive feet.",
+        "icon_3": "shield",
+        "title_4": "30-day money-back",
+        "body_4": "If your heels aren't softer, full refund. No questions.",
+        "icon_4": "refresh",
+        "bg": "#ffffff",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "comparison": {
+      "type": "comparison-table",
+      "blocks": {
+        "k": {
+          "type": "kicker",
+          "settings": {
+            "text": "Why people switch"
+          }
+        },
+        "h": {
+          "type": "heading",
+          "settings": {
+            "lead": "Why people switch from",
+            "accent": "harsh foot peels."
+          }
+        },
+        "t": {
+          "type": "table",
+          "settings": {
+            "col_brand": "Kneuro",
+            "col_2": "Harsh peels",
+            "col_3": "",
+            "col_4": "",
+            "row_1_label": "No 5-day peeling phase",
+            "row_1_brand": "yes",
+            "row_1_c2": "no",
+            "row_1_c3": "",
+            "row_1_c4": "",
+            "row_2_label": "No hiding your feet in public",
+            "row_2_brand": "yes",
+            "row_2_c2": "no",
+            "row_2_c3": "",
+            "row_2_c4": "",
+            "row_3_label": "No harsh acid burn",
+            "row_3_brand": "yes",
+            "row_3_c2": "no",
+            "row_3_c3": "",
+            "row_3_c4": "",
+            "row_4_label": "Softness after one session",
+            "row_4_brand": "yes",
+            "row_4_c2": "no",
+            "row_4_c3": "",
+            "row_4_c4": "",
+            "row_5_label": "Safe for sensitive / pregnancy / diabetes",
+            "row_5_brand": "yes",
+            "row_5_c2": "no",
+            "row_5_c3": "",
+            "row_5_c4": ""
+          }
+        }
+      },
+      "block_order": [
+        "k",
+        "h",
+        "t"
+      ],
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "bg_color": "#faf8f5"
+      }
+    },
+    "testimonials_split": {
+      "type": "testimonial-split-cards",
+      "blocks": {
+        "priya": {
+          "type": "testimonial",
+          "settings": {
+            "before_image": "shopify://shop_images/f0e7c886-b2fd-42ff-bd9b-b4706550d415.png",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/357c8eb6-2b36-4701-8688-519b48dda6fe.png",
+            "after_label": "After · 2 sessions",
+            "name": "Priya",
+            "tag": "Pregnant · sensitive skin",
+            "caption": "Couldn't use harsh foot peels. Visibly softer feet without any salicylic acid.",
+            "cta_label": "View more →",
+            "cta_url": "/products/goat-milk-callus-mask"
+          }
+        },
+        "hannah": {
+          "type": "testimonial",
+          "settings": {
+            "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png",
+            "after_label": "After · 1 session",
+            "name": "Hannah",
+            "tag": "Sensitive-skin customer",
+            "caption": "One 30-minute session. No burning, no flake. Skin felt different by morning.",
+            "cta_label": "View more →",
+            "cta_url": "/products/goat-milk-callus-mask"
+          }
+        }
+      },
+      "block_order": [
+        "priya",
+        "hannah"
+      ],
+      "settings": {
+        "eyebrow": "More real customers",
+        "heading": "Real heels.",
+        "heading_accent": "Real photos.",
+        "subhead": "",
+        "bg": "#ffffff",
+        "max_width": 1080,
+        "padding_top": 64,
+        "padding_bottom": 72
       }
     }
   },

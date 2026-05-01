@@ -74,6 +74,15 @@
         </ul>
       {% endif %}
 
+      {% if section.settings.show_stars %}
+        <div class="adv-hero__rating" aria-label="{{ section.settings.stars_label | default: 'Rated 5 out of 5 stars by early customers' | escape }}">
+          <span class="adv-hero__rating-stars" aria-hidden="true">★★★★★</span>
+          {% if section.settings.stars_label != blank %}
+            <span class="adv-hero__rating-label">{{ section.settings.stars_label }}</span>
+          {% endif %}
+        </div>
+      {% endif %}
+
       {% if section.settings.cta_url != blank or section.settings.cta_label != blank %}
         <div class="adv-hero__buybox">
           {% if section.settings.cta_price != blank %}
@@ -161,8 +170,15 @@
   }
   .adv-hero__buybox { background: transparent; border: 0; border-top: 1px solid var(--line, #ece4dc); border-bottom: 1px solid var(--line, #ece4dc); border-radius: 0; padding: 22px 0 26px; margin: 12px 0 22px; text-align: center; }
   .adv-hero__buybox .adv-hero__cta-price { margin: 0 0 14px; font-size: 1.15rem; }
-  .adv-hero__buybox .adv-hero__cta { display: block; width: 100%; padding: 18px 24px; font-size: 1.05rem; }
+  .adv-hero__buybox .adv-hero__cta { display: block; width: 100%; padding: 20px 32px; font-size: 1.12rem; font-weight: 800; letter-spacing: .005em; box-shadow: 0 8px 24px -8px rgba(15,15,15,.35), 0 2px 4px rgba(15,15,15,.12); transition: transform .15s ease, box-shadow .2s ease, background .15s ease; }
+  .adv-hero__buybox .adv-hero__cta:hover { transform: translateY(-2px); box-shadow: 0 14px 32px -8px rgba(15,15,15,.45), 0 4px 8px rgba(15,15,15,.18); }
+  .adv-hero__buybox .adv-hero__cta:active { transform: translateY(0); box-shadow: 0 4px 12px -4px rgba(15,15,15,.3); }
   .adv-hero__buybox .adv-hero__cta-sub { margin-top: 12px; font-size: .8rem; }
+
+  /* Star rating block — sits between trust pills and buybox */
+  .adv-hero__rating { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; margin: 4px 0 16px; border-radius: 999px; background: var(--cream-soft, #fbf6ee); border: 1px solid var(--line, #ece4dc); }
+  .adv-hero__rating-stars { color: #e8a93d; font-size: .9rem; letter-spacing: 1.5px; line-height: 1; }
+  .adv-hero__rating-label { font-family: var(--font-heading); font-size: .78rem; font-weight: 700; letter-spacing: .04em; color: var(--ink); }
   .adv-hero__caption { font-family: var(--font-body); font-size: .82rem; color: var(--muted, #6a6a6a); text-align: center; margin: 8px 0 16px; font-style: italic; }
   @media (min-width: 760px) {
     .adv-hero__fig--top { margin: 0 0 32px; }
@@ -222,6 +238,10 @@
     { "type": "text", "id": "trust_t2", "label": "Trust token 2", "default": "Derm-tested" },
     { "type": "text", "id": "trust_t3", "label": "Trust token 3", "default": "30-day refund" },
     { "type": "text", "id": "trust_t4", "label": "Trust token 4 (optional)" },
+    { "type": "header", "content": "Rating block (above CTA)" },
+    { "type": "checkbox", "id": "show_stars", "label": "Show 5-star rating block", "default": true },
+    { "type": "text", "id": "stars_label", "label": "Rating label", "default": "Loved by early customers" },
+    { "type": "header", "content": "CTA" },
     { "type": "text", "id": "cta_price", "label": "Price line above CTA button" },
     { "type": "header", "content": "Layout" },
     { "type": "color", "id": "bg", "label": "Background" },
