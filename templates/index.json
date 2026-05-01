@@ -31,9 +31,9 @@
         "trust_t3": "Pregnancy & diabetic-safe",
         "trust_t4": "1,400+ customers · 30-day refund",
         "show_stars": true,
-        "stars_label": "Loved by early customers",
+        "stars_label": "Loved by 1000+ Customers",
         "cta_price": "From $19.99 · Save $30 on the 5-pack",
-        "bg": "#fffaee",
+        "bg": "#f5f0e8",
         "padding_top": 28,
         "padding_bottom": 56
       }
@@ -41,7 +41,7 @@
     "clarity": {
       "type": "customer-promise",
       "settings": {
-        "eyebrow": "What you get",
+        "eyebrow": "WHAT YOU GET",
         "heading": "What this actually does",
         "subhead": "A 30-minute mask. No harsh acids. Soft skin without the 5-day peeling phase.",
         "title_1": "Soft skin in 30 minutes",
@@ -56,7 +56,7 @@
         "title_4": "30-day money-back",
         "body_4": "If your heels aren't softer, full refund. No questions.",
         "icon_4": "refresh",
-        "bg": "#ffffff",
+        "bg": "#f5f0e8",
         "padding_top": 72,
         "padding_bottom": 72
       }
@@ -97,13 +97,13 @@
             "before_label": "Before",
             "after_image": "shopify://shop_images/freepik_same-shot-of-image-but-wa_2870994617.png",
             "after_label": "After · 3 weeks",
-            "caption": "Real customer photo. After 2–3 sessions — no peeling, no burning."
+            "caption": ""
           }
         },
         "p_science": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Goat milk has natural lactic acid — about <strong>1/10 the strength</strong> of foot peels. Strong enough to soften in 30 minutes. Gentle enough for pregnancy, diabetes, eczema. No five-day flake. No burn.</p>"
+            "text": "<p><strong>Goat milk has natural lactic acid — about 1/10 the strength of foot peels. Strong enough to soften in 30 minutes. Gentle enough for pregnancy, diabetes, eczema. No five-day flake. No burn.</strong></p>"
           }
         },
         "hk3": {
@@ -131,7 +131,7 @@
       ],
       "settings": {
         "cta_url": "/products/goat-milk-callus-mask",
-        "bg": "#ffffff",
+        "bg": "#f5f0e8",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -185,9 +185,9 @@
         "hannah"
       ],
       "settings": {
-        "eyebrow": "BEFORE AND AFTER",
+        "eyebrow": "BEFORE & AFTER",
         "heading": "Finally,",
-        "heading_accent": "Hills that feel like skin again !",
+        "heading_accent": "Heels that feel like skin again.",
         "subhead": "“Tested by sensitive skin. Trusted through every stage.”",
         "autoplay": true,
         "interval": 6,
@@ -322,7 +322,7 @@
         "subhead": "30-day money-back guarantee. Free shipping on the 5-pack.",
         "fineprint": "All bundles pregnancy-safe, diabetes-safe, dermatologist-approved · 30-day money-back · processed in 1–3 days · standard delivery 8–14 days",
         "product_handle": "goat-milk-callus-mask",
-        "bg": "#ffffff",
+        "bg": "#f5f0e8",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -417,10 +417,10 @@
             "t1_emoji": "🌿",
             "t1_title": "No peeling",
             "t1_sub": "gentle by design",
-            "t2_emoji": "💰",
+            "t2_emoji": "🤰",
             "t2_title": "Pregnancy-safe",
             "t2_sub": "no harsh acids",
-            "t3_emoji": "🚚",
+            "t3_emoji": "✅",
             "t3_title": "30-day refund",
             "t3_sub": "no questions asked",
             "t4_emoji": "🚚",
@@ -439,7 +439,7 @@
       ],
       "settings": {
         "mode": "dark",
-        "bg": "#3d2535",
+        "bg": "#1a2e1a",
         "padding_top": 80,
         "padding_bottom": 96
       }
