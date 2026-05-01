@@ -9,6 +9,66 @@
  */
 {
   "sections": {
+    "1777626719890029df": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "blocks_6wQNyR": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c6063f1_wrnWVW": {
+          "type": "ai_gen_block_c6063f1",
+          "settings": {
+            "eyebrow": "A customer story",
+            "headline": "Three years of cracked heels, gone in one night",
+            "paragraph": "<p>Sarah's husband had struggled with dry, cracked feet for years. Nothing worked—until she surprised him with our goat milk foot mask. He woke up the next morning with soft, smooth heels. Now it's part of his weekly routine.</p>",
+            "main_image": "shopify://shop_images/ChatGPT_Image_May_1_2026_at_05_23_30_PM.png",
+            "image_max_width": 1000,
+            "image_margin_top": 40,
+            "image_aspect_ratio": "16 / 9",
+            "image_border_radius": 12,
+            "image_frame_padding": 8,
+            "image_shadow": "0 8px 24px rgba(42, 28, 18, 0.08)",
+            "max_width": 1200,
+            "padding_top": 60,
+            "padding_bottom": 60,
+            "content_gap": 25,
+            "eyebrow_size": 11,
+            "eyebrow_tracking": "0.15em",
+            "eyebrow_ornament_width": 40,
+            "eyebrow_color": "#8a7560",
+            "headline_size": 56,
+            "headline_line_height": 1.1,
+            "headline_weight": 600,
+            "headline_max_width": 800,
+            "headline_color": "#2a1c12",
+            "drop_cap_color": "#e8833a",
+            "paragraph_size": 18,
+            "paragraph_line_height": 1.6,
+            "paragraph_max_width": 700,
+            "paragraph_color": "#4a372a",
+            "quote_mark_color": "#e8833a",
+            "quote_mark_opacity": 0.1,
+            "show_corner_ornaments": true,
+            "corner_ornament_size": 40,
+            "corner_ornament_offset": 10,
+            "ornament_color": "#8a7560",
+            "ornament_opacity": 0.3,
+            "accent_line_color": "#8a7560",
+            "accent_line_opacity": 0.1,
+            "background_color": "#f5f0e8",
+            "frame_gradient_start": "#f5f0e8",
+            "frame_gradient_end": "#e6d5b8"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c6063f1_wrnWVW"
+      ],
+      "name": "Editorial story strip",
+      "settings": {}
+    },
     "hero": {
       "type": "advertorial-hero",
       "settings": {
@@ -443,9 +503,15 @@
         "padding_top": 80,
         "padding_bottom": 96
       }
+    },
+    "177762808902833bb8": {
+      "type": "_blocks",
+      "settings": {}
     }
   },
   "order": [
+    "1777626719890029df",
+    "blocks_6wQNyR",
     "hero",
     "clarity",
     "story",
@@ -453,6 +519,7 @@
     "comparison",
     "bundles",
     "faq",
-    "final"
+    "final",
+    "177762808902833bb8"
   ]
 }
