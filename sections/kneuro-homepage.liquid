@@ -12,12 +12,14 @@
     --kneuro-frame-width: 412px;
     --kneuro-scale: 1;
     width: calc(var(--kneuro-frame-width) * var(--kneuro-scale));
-    max-width: 100%;
     margin: 0 auto;
     padding-bottom: 0;
+    display: flex;
+    justify-content: center;
   }
   #shopify-section-{{ section.id }} .kneuro-homepage-frame {
     width: var(--kneuro-frame-width);
+    flex: 0 0 auto;
     background: #f4ecdb;
     min-height: 100vh;
     box-shadow: 0 0 80px rgba(0,0,0,0.35);
