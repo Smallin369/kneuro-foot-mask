@@ -1,397 +1,46 @@
-{{ 'kneuro-liquid.css' | asset_url | stylesheet_tag }}
-{{ 'kneuro-liquid.js' | asset_url | script_tag }}
-
-{% assign product = section.settings.product %}
-
-<section class="kneuro-shell">
-  {% if section.blocks.size > 0 %}
-    <div class="kneuro-announcement">
-      {% assign announcement_blocks = section.blocks | where: 'type', 'announcement' %}
-      {% for block in announcement_blocks limit: 1 %}
-        {{ block.settings.text }}
-      {% endfor %}
-    </div>
-  {% endif %}
-
-  <div class="kneuro-header">
-    <button class="kneuro-icon-btn" type="button" aria-label="menu">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 6h14M2 12h14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-    </button>
-    <div class="kneuro-brand">{{ section.settings.brand_text }}</div>
-    <a class="kneuro-icon-btn" href="{{ routes.cart_url }}" aria-label="cart">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <path d="M3.5 5.5h11l-.9 8a1.4 1.4 0 0 1-1.4 1.2H5.8a1.4 1.4 0 0 1-1.4-1.2l-.9-8Z" stroke="currentColor" stroke-width="1.1"/>
-        <path d="M6.5 5.5a2.5 2.5 0 0 1 5 0" stroke="currentColor" stroke-width="1.1"/>
-      </svg>
-    </a>
+<section id="kneuro-homepage-{{ section.id }}">
+  <div class="kneuro-homepage-frame">
+    <div id="kneuro-homepage-root-{{ section.id }}"></div>
   </div>
-
-  <div class="kneuro-issue">
-    <span>{{ section.settings.issue_left }}</span>
-    <span>{{ section.settings.issue_center }}</span>
-    <span>{{ section.settings.issue_right }}</span>
-  </div>
-
-  <section class="kneuro-section kneuro-section-cream" style="padding-top:24px;">
-    <div class="kneuro-eyebrow">{{ section.settings.hero_eyebrow }}</div>
-    <h1 class="kneuro-title kneuro-title--hero">{{ section.settings.hero_title }}<br><em>{{ section.settings.hero_title_emphasis }}</em></h1>
-    <div class="kneuro-meta">{{ section.settings.hero_meta }}</div>
-  </section>
-
-  <section class="kneuro-section kneuro-section-cream" style="padding-top:28px;padding-bottom:4px;">
-    {% assign story_blocks = section.blocks | where: 'type', 'story_paragraph' %}
-    {% for block in story_blocks %}
-      <div {{ block.shopify_attributes }}>
-        {% if forloop.first %}
-          <p class="kneuro-body"><span class="kneuro-dropcap">{{ block.settings.dropcap }}</span>{{ block.settings.text }}</p>
-        {% elsif block.settings.style == 'quote_line' %}
-          <p class="kneuro-quote-line">"{{ block.settings.text }}"</p>
-        {% else %}
-          <p class="kneuro-body{% if block.settings.style == 'emphasis' %} kneuro-body--emphasis{% endif %}">{{ block.settings.text }}</p>
-        {% endif %}
-        {% if block.settings.show_rule %}
-          <div class="kneuro-rule"></div>
-        {% endif %}
-      </div>
-    {% endfor %}
-  </section>
-
-  {% assign hero_image_blocks = section.blocks | where: 'type', 'hero_image' %}
-  {% for block in hero_image_blocks limit: 1 %}
-    <div class="kneuro-section" style="padding-top:28px;padding-bottom:8px;" {{ block.shopify_attributes }}>
-      <div class="kneuro-media">
-        {% if block.settings.image != blank %}
-          {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy' }}
-        {% else %}
-          <div class="kneuro-ph">{{ block.settings.placeholder }}</div>
-        {% endif %}
-      </div>
-      <div class="kneuro-caption">{{ block.settings.caption }}</div>
-    </div>
-  {% endfor %}
-
-  <section class="kneuro-section kneuro-section-paper" style="padding-top:40px;padding-bottom:36px;margin-top:16px;">
-    <div class="kneuro-eyebrow">{{ section.settings.reveal_eyebrow }}</div>
-    <h2 class="kneuro-title kneuro-title--center">{{ section.settings.reveal_title }}<br><em>{{ section.settings.reveal_title_emphasis }}</em></h2>
-    <div class="kneuro-subtitle">{{ section.settings.reveal_subtitle }}</div>
-    <div class="kneuro-media">
-      {% if section.settings.reveal_image != blank %}
-        {{ section.settings.reveal_image | image_url: width: 1200 | image_tag: loading: 'lazy' }}
-      {% else %}
-        <div class="kneuro-ph">{{ section.settings.reveal_image_placeholder }}</div>
-      {% endif %}
-    </div>
-    {% if section.settings.reveal_button_label != blank %}
-      <div style="margin-top:24px;">
-        <a class="kneuro-button" href="{{ section.settings.reveal_button_link | default: '#bundles' }}">{{ section.settings.reveal_button_label }}</a>
-        <div class="kneuro-subcopy">{{ section.settings.reveal_subcopy }}</div>
-      </div>
-    {% endif %}
-  </section>
-
-  <section class="kneuro-section kneuro-section-cream" style="padding-top:52px;padding-bottom:40px;">
-    <div class="kneuro-eyebrow">{{ section.settings.compare_eyebrow }}</div>
-    <h2 class="kneuro-title kneuro-title--center">{{ section.settings.compare_title }} <em style="color:var(--kn-oxblood);">{{ section.settings.compare_title_emphasis }}</em></h2>
-    <div class="kneuro-compare">
-      <div class="kneuro-compare-head">
-        <div class="kneuro-compare-cell"></div>
-        <div class="kneuro-compare-col-head">{{ section.settings.compare_other_label }}</div>
-        <div class="kneuro-compare-col-head kneuro-compare-col-head--brand">{{ section.settings.compare_brand_label }}</div>
-      </div>
-      {% assign compare_rows = section.blocks | where: 'type', 'compare_row' %}
-      {% for block in compare_rows %}
-        <div class="kneuro-compare-row" {{ block.shopify_attributes }}>
-          <div class="kneuro-compare-cell" style="font:400 16px/1.45 var(--kn-body);">{{ block.settings.label }}</div>
-          <div class="kneuro-compare-cell">{% if block.settings.other_has %}<span class="kneuro-check">✓</span>{% else %}<span class="kneuro-cross">×</span>{% endif %}</div>
-          <div class="kneuro-compare-cell">{% if block.settings.brand_has %}<span class="kneuro-check">✓</span>{% else %}<span class="kneuro-cross">×</span>{% endif %}</div>
-        </div>
-      {% endfor %}
-    </div>
-    <p class="kneuro-subtitle" style="font-size:14.5px;margin-top:16px;">{{ section.settings.compare_note }}</p>
-  </section>
-
-  <section class="kneuro-section-paper" style="padding-top:52px;padding-bottom:40px;">
-    <div class="kneuro-section">
-      <div class="kneuro-eyebrow">{{ section.settings.proof_eyebrow }}</div>
-      <h2 class="kneuro-title kneuro-title--large-center">{{ section.settings.proof_title }} <em>{{ section.settings.proof_title_emphasis }}</em></h2>
-      <p class="kneuro-subtitle" style="font-size:16px;max-width:320px;">{{ section.settings.proof_subtitle }}</p>
-    </div>
-    <div class="kneuro-carousel">
-      {% assign ba_blocks = section.blocks | where: 'type', 'before_after' %}
-      {% for block in ba_blocks %}
-        <article class="kneuro-ba-card" {{ block.shopify_attributes }}>
-          <div class="kneuro-ba-meta"><span>{{ block.settings.name }} · {{ block.settings.location }}</span><span>{{ block.settings.weeks }}</span></div>
-          <div class="kneuro-ba-headline">"{{ block.settings.headline }}"</div>
-          <div class="{% if block.settings.mode == 'triplet' %}kneuro-ba-grid-3{% else %}kneuro-ba-grid-2{% endif %}">
-            {% if block.settings.mode == 'triplet' %}
-              {% for idx in (1..3) %}
-                {% liquid
-                  assign image_key = 'image_' | append: idx
-                  assign label_key = 'label_' | append: idx
-                  assign chip_key = 'chip_' | append: idx
-                  assign image = block.settings[image_key]
-                  assign label = block.settings[label_key]
-                  assign chip = block.settings[chip_key]
-                %}
-                <div style="position:relative;">
-                  <div class="kneuro-media" style="min-height:150px;">
-                    {% if image != blank %}
-                      {{ image | image_url: width: 800 | image_tag: loading: 'lazy' }}
-                    {% else %}
-                      <div class="kneuro-ph" style="min-height:150px;">{{ label }}</div>
-                    {% endif %}
-                  </div>
-                  <span class="kneuro-chip" style="{% if idx == 3 %}background:var(--kn-aubergine);color:#fff;{% else %}background:var(--kn-cream);color:var(--kn-ink);{% endif %}">{{ chip }}</span>
-                </div>
-              {% endfor %}
-            {% else %}
-              <div style="position:relative;">
-                <div class="kneuro-media" style="min-height:150px;">
-                  {% if block.settings.before_image != blank %}
-                    {{ block.settings.before_image | image_url: width: 800 | image_tag: loading: 'lazy' }}
-                  {% else %}
-                    <div class="kneuro-ph" style="min-height:150px;">{{ block.settings.before_label }}</div>
-                  {% endif %}
-                </div>
-                <span class="kneuro-chip" style="background:var(--kn-cream);color:var(--kn-ink);">Before</span>
-              </div>
-              <div style="position:relative;">
-                <div class="kneuro-media" style="min-height:150px;">
-                  {% if block.settings.after_image != blank %}
-                    {{ block.settings.after_image | image_url: width: 800 | image_tag: loading: 'lazy' }}
-                  {% else %}
-                    <div class="kneuro-ph" style="min-height:150px;">{{ block.settings.after_label }}</div>
-                  {% endif %}
-                </div>
-                <span class="kneuro-chip" style="background:var(--kn-aubergine);color:#fff;">After · {{ block.settings.weeks }}</span>
-              </div>
-            {% endif %}
-          </div>
-          <div class="kneuro-ba-copy">{{ block.settings.body }}</div>
-        </article>
-      {% endfor %}
-    </div>
-  </section>
-
-  <section class="kneuro-section kneuro-section-cream kneuro-steps" style="padding-top:52px;padding-bottom:40px;">
-    <div class="kneuro-eyebrow">{{ section.settings.steps_eyebrow }}</div>
-    <h2 class="kneuro-title kneuro-title--center">{{ section.settings.steps_title }} <em>{{ section.settings.steps_title_emphasis }}</em></h2>
-    {% assign step_blocks = section.blocks | where: 'type', 'step' %}
-    {% for block in step_blocks %}
-      <div class="kneuro-step" {{ block.shopify_attributes }}>
-        <div class="kneuro-step-number">{{ block.settings.number }}</div>
-        <div>
-          <div class="kneuro-step-title">{{ block.settings.title }}</div>
-          <div class="kneuro-step-copy">{{ block.settings.text }}</div>
-        </div>
-      </div>
-    {% endfor %}
-  </section>
-
-  <section class="kneuro-section kneuro-section-dark kneuro-ingredients" style="padding-top:52px;padding-bottom:44px;">
-    <div class="kneuro-eyebrow" style="color:rgba(255,235,215,.6);">{{ section.settings.ingredients_eyebrow }}</div>
-    <h2 class="kneuro-title kneuro-title--center kneuro-title--dark">{{ section.settings.ingredients_title }} <em style="color:var(--kn-paper);">{{ section.settings.ingredients_title_emphasis }}</em></h2>
-    {% assign ingredient_blocks = section.blocks | where: 'type', 'ingredient' %}
-    {% for block in ingredient_blocks %}
-      <div class="kneuro-ingredient" {{ block.shopify_attributes }}>
-        <div>
-          <div class="kneuro-ingredient-name">{{ block.settings.name }}</div>
-          <div class="kneuro-ingredient-copy">{{ block.settings.note }}</div>
-        </div>
-        <div class="kneuro-ingredient-pct">{{ block.settings.pct }}</div>
-      </div>
-    {% endfor %}
-    <div class="kneuro-subcopy" style="color:rgba(255,235,215,.55);">{{ section.settings.ingredients_footer }}</div>
-  </section>
-
-  <section id="bundles" class="kneuro-section kneuro-section-cream" style="padding-top:56px;padding-bottom:40px;">
-    <div class="kneuro-eyebrow">{{ section.settings.bundles_eyebrow }}</div>
-    <h2 class="kneuro-title kneuro-title--center">{{ section.settings.bundles_title }} <em>{{ section.settings.bundles_title_emphasis }}</em></h2>
-    <p class="kneuro-subtitle" style="font-size:16px;max-width:320px;">{{ section.settings.bundles_subtitle }}</p>
-    <div style="display:flex;flex-direction:column;gap:18px;">
-      {% if product != blank %}
-        {% form 'product', product %}
-          {% for variant in product.variants %}
-            {% assign bundle_block = section.blocks | where: 'type', 'bundle' | where: 'settings.variant_title', variant.title | first %}
-            <label class="kneuro-bundle{% if bundle_block.settings.highlight %} is-highlight{% endif %}">
-              {% if bundle_block.settings.tag != blank %}<span class="kneuro-bundle-tag">{{ bundle_block.settings.tag }}</span>{% endif %}
-              <input type="radio" name="id" value="{{ variant.id }}" {% if forloop.first %}checked{% endif %} style="display:none;">
-              <div class="kneuro-bundle-head">
-                <div>
-                  <div class="kneuro-bundle-size">{{ variant.title }}</div>
-                  <div class="kneuro-bundle-price">{{ variant.price | money }}</div>
-                  <div class="kneuro-bundle-unit">{{ bundle_block.settings.per_pack }}</div>
-                </div>
-                <div class="kneuro-bundle-badges">
-                  {% if bundle_block.settings.savings != blank %}<span class="kneuro-badge" style="background:var(--kn-cream);color:var(--kn-ink);">{{ bundle_block.settings.savings }}</span>{% endif %}
-                  {% if bundle_block.settings.free_ship %}<span class="kneuro-badge" style="background:#dbe4cf;color:#2e3d22;">Free shipping</span>{% endif %}
-                </div>
-              </div>
-              <div class="kneuro-bundle-copy">{{ bundle_block.settings.blurb }}</div>
-              <div class="kneuro-bundle-cta">Add to cart →</div>
-            </label>
-          {% endfor %}
-        {% endform %}
-      {% else %}
-        {% assign bundle_blocks = section.blocks | where: 'type', 'bundle' %}
-        {% for block in bundle_blocks %}
-          <div class="kneuro-bundle{% if block.settings.highlight %} is-highlight{% endif %}" {{ block.shopify_attributes }}>
-            {% if block.settings.tag != blank %}<span class="kneuro-bundle-tag">{{ block.settings.tag }}</span>{% endif %}
-            <div class="kneuro-bundle-head">
-              <div>
-                <div class="kneuro-bundle-size">{{ block.settings.variant_title }}</div>
-                <div class="kneuro-bundle-price">{{ block.settings.price }}</div>
-                <div class="kneuro-bundle-unit">{{ block.settings.per_pack }}</div>
-              </div>
-              <div class="kneuro-bundle-badges">
-                {% if block.settings.savings != blank %}<span class="kneuro-badge" style="background:var(--kn-cream);color:var(--kn-ink);">{{ block.settings.savings }}</span>{% endif %}
-                {% if block.settings.free_ship %}<span class="kneuro-badge" style="background:#dbe4cf;color:#2e3d22;">Free shipping</span>{% endif %}
-              </div>
-            </div>
-            <div class="kneuro-bundle-copy">{{ block.settings.blurb }}</div>
-            <div class="kneuro-bundle-cta">Add to cart →</div>
-          </div>
-        {% endfor %}
-      {% endif %}
-    </div>
-    <div style="margin-top:22px;padding:18px 16px;background:var(--kn-paper);border:1px solid var(--kn-rule-soft);">
-      <div class="kneuro-subcopy" style="margin-top:0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;line-height:1.8;">{{ section.settings.bundle_trust_line }}</div>
-    </div>
-  </section>
-
-  <section class="kneuro-section kneuro-section-paper" style="padding-top:40px;padding-bottom:40px;border-top:1px solid var(--kn-rule-soft);border-bottom:1px solid var(--kn-rule-soft);">
-    <div style="text-align:center;margin-bottom:24px;">
-      <div class="kneuro-stars" style="font-size:18px;">
-        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-      </div>
-      <div style="font:400 22px/1.2 var(--kn-display);margin-top:10px;">{{ section.settings.reviews_summary }} <span style="font:italic 400 18px/1.2 var(--kn-body);color:var(--kn-muted);">{{ section.settings.reviews_summary_sub }}</span></div>
-    </div>
-    {% assign review_blocks = section.blocks | where: 'type', 'review' %}
-    {% for block in review_blocks %}
-      <div class="kneuro-review-item" {{ block.shopify_attributes }}>
-        <div class="kneuro-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="kneuro-review-quote">"{{ block.settings.quote }}"</p>
-        <div class="kneuro-review-meta">{{ block.settings.name }}{% if block.settings.verified %} · <span style="color:#3d6028;">verified buyer</span>{% endif %}</div>
-      </div>
-    {% endfor %}
-  </section>
-
-  <section class="kneuro-section kneuro-section-cream" style="padding-top:56px;padding-bottom:40px;">
-    <div class="kneuro-eyebrow">{{ section.settings.faq_eyebrow }}</div>
-    <h2 class="kneuro-title kneuro-title--large-center">{{ section.settings.faq_title }} <em>{{ section.settings.faq_title_emphasis }}</em></h2>
-    {% assign faq_blocks = section.blocks | where: 'type', 'faq' %}
-    {% for block in faq_blocks %}
-      <div class="kneuro-faq-item" data-kneuro-faq-item {{ block.shopify_attributes }}>
-        <button class="kneuro-faq-trigger" type="button" data-kneuro-faq-trigger aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
-          <span class="kneuro-faq-q">{{ block.settings.question }}</span>
-          <span class="kneuro-faq-icon" data-kneuro-faq-icon>{% if forloop.first %}−{% else %}+{% endif %}</span>
-        </button>
-        <div class="kneuro-faq-a" data-kneuro-faq-answer {% unless forloop.first %}hidden{% endunless %}>{{ block.settings.answer }}</div>
-      </div>
-    {% endfor %}
-  </section>
-
-  <section class="kneuro-section kneuro-section-black" style="padding-top:60px;padding-bottom:56px;">
-    <div class="kneuro-eyebrow" style="color:rgba(255,235,215,.55);">{{ section.settings.final_eyebrow }}</div>
-    <h2 class="kneuro-title kneuro-title--hero kneuro-title--dark" style="font-size:36px;">{{ section.settings.final_title }}<br><em style="color:#d9a18a;">{{ section.settings.final_title_emphasis }}</em></h2>
-    <p class="kneuro-subtitle" style="color:rgba(255,235,215,.72);font-size:16px;max-width:320px;">{{ section.settings.final_copy }}</p>
-    <a class="kneuro-button kneuro-button--light" href="{{ section.settings.final_button_link | default: '#bundles' }}">{{ section.settings.final_button_label }}</a>
-    <div class="kneuro-subcopy" style="color:rgba(255,235,215,.5);">{{ section.settings.final_meta }}</div>
-  </section>
-
-  <footer class="kneuro-footer">
-    <div class="kneuro-footer-brand">{{ section.settings.brand_text }}</div>
-    <div class="kneuro-rule" style="background:rgba(255,235,215,.15);margin:0;"></div>
-    <div class="kneuro-footer-grid">
-      {% assign footer_blocks = section.blocks | where: 'type', 'footer_column' %}
-      {% for block in footer_blocks %}
-        <div {{ block.shopify_attributes }}>
-          <div class="kneuro-footer-heading">{{ block.settings.heading }}</div>
-          {% assign items = block.settings.links | newline_to_br | split: '<br />' %}
-          {% for item in items %}
-            {% if item != blank %}<span class="kneuro-footer-link">{{ item }}</span>{% endif %}
-          {% endfor %}
-        </div>
-      {% endfor %}
-    </div>
-    <div class="kneuro-rule" style="background:rgba(255,235,215,.15);margin:0;"></div>
-    <div class="kneuro-footer-meta">{{ section.settings.footer_meta }}</div>
-  </footer>
 </section>
+
+<style>
+  #shopify-section-{{ section.id }} {
+    margin: 0;
+  }
+  #shopify-section-{{ section.id }} .kneuro-homepage-frame {
+    max-width: 412px;
+    margin: 0 auto;
+    background: #f4ecdb;
+    min-height: 100vh;
+    box-shadow: 0 0 80px rgba(0,0,0,0.35);
+    position: relative;
+  }
+  #shopify-section-{{ section.id }} .kneuro-homepage-frame,
+  #shopify-section-{{ section.id }} .kneuro-homepage-frame * {
+    box-sizing: border-box;
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<script type="text/babel">
+  const homepageRootEl = document.getElementById('kneuro-homepage-root-{{ section.id }}');
+  if (homepageRootEl && !homepageRootEl.dataset.booted) {
+    homepageRootEl.dataset.booted = 'true';
+    homepageRootEl.id = 'root';
+  }
+</script>
+<script type="text/babel" src="{{ 'kneuro-homepage.js' | asset_url }}"></script>
 
 {% schema %}
 {
   "name": "Kneuro homepage",
-  "settings": [
-    { "type": "text", "id": "brand_text", "label": "Brand text", "default": "KNEURO" },
-    { "type": "product", "id": "product", "label": "Bundle product" },
-    { "type": "text", "id": "issue_left", "label": "Issue left", "default": "Vol. 01 · No. 04" },
-    { "type": "text", "id": "issue_center", "label": "Issue center", "default": "The Kneuro Letter" },
-    { "type": "text", "id": "issue_right", "label": "Issue right", "default": "May 2026" },
-    { "type": "text", "id": "hero_eyebrow", "label": "Hero eyebrow", "default": "A Customer Story · Submitted by mail" },
-    { "type": "text", "id": "hero_title", "label": "Hero title", "default": "Three years of cracked heels" },
-    { "type": "text", "id": "hero_title_emphasis", "label": "Hero emphasis", "default": "and nothing worked." },
-    { "type": "text", "id": "hero_meta", "label": "Hero meta", "default": "As told by Sarah K. · Phoenix, AZ · Customer since 2025" },
-    { "type": "text", "id": "reveal_eyebrow", "label": "Reveal eyebrow", "default": "The product, finally" },
-    { "type": "text", "id": "reveal_title", "label": "Reveal title", "default": "Kneuro Foot Mask." },
-    { "type": "text", "id": "reveal_title_emphasis", "label": "Reveal title emphasis", "default": "30 minutes. No peeling." },
-    { "type": "textarea", "id": "reveal_subtitle", "label": "Reveal subtitle", "default": "Goat-milk lactic acid, hyaluronic acid, urea. One sachet, two booties, thirty minutes on the couch." },
-    { "type": "image_picker", "id": "reveal_image", "label": "Reveal image" },
-    { "type": "text", "id": "reveal_image_placeholder", "label": "Reveal image placeholder", "default": "hero · 4 sachets fanned on linen with eucalyptus" },
-    { "type": "text", "id": "reveal_button_label", "label": "Reveal button label", "default": "Pick your pack →" },
-    { "type": "url", "id": "reveal_button_link", "label": "Reveal button link" },
-    { "type": "text", "id": "reveal_subcopy", "label": "Reveal subcopy", "default": "30-day money-back · Free US shipping on the 5-pack" },
-    { "type": "text", "id": "compare_eyebrow", "label": "Compare eyebrow", "default": "Why people switch" },
-    { "type": "text", "id": "compare_title", "label": "Compare title", "default": "Kneuro vs." },
-    { "type": "text", "id": "compare_title_emphasis", "label": "Compare title emphasis", "default": "harsh foot peels" },
-    { "type": "text", "id": "compare_other_label", "label": "Compare other label", "default": "Foot peels" },
-    { "type": "text", "id": "compare_brand_label", "label": "Compare brand label", "default": "KNEURO" },
-    { "type": "textarea", "id": "compare_note", "label": "Compare note", "default": "Compared against the three best-selling foot peels on Amazon, May 2026." },
-    { "type": "text", "id": "proof_eyebrow", "label": "Proof eyebrow", "default": "The proof" },
-    { "type": "text", "id": "proof_title", "label": "Proof title", "default": "Real heels." },
-    { "type": "text", "id": "proof_title_emphasis", "label": "Proof emphasis", "default": "Real timelines." },
-    { "type": "textarea", "id": "proof_subtitle", "label": "Proof subtitle", "default": "Customers' own iPhone photos. No retouching. No studio." },
-    { "type": "text", "id": "steps_eyebrow", "label": "Steps eyebrow", "default": "The ritual" },
-    { "type": "text", "id": "steps_title", "label": "Steps title", "default": "Three steps." },
-    { "type": "text", "id": "steps_title_emphasis", "label": "Steps emphasis", "default": "Thirty minutes." },
-    { "type": "text", "id": "ingredients_eyebrow", "label": "Ingredients eyebrow", "default": "What's actually in it" },
-    { "type": "text", "id": "ingredients_title", "label": "Ingredients title", "default": "Three ingredients" },
-    { "type": "text", "id": "ingredients_title_emphasis", "label": "Ingredients emphasis", "default": "doing the work." },
-    { "type": "text", "id": "ingredients_footer", "label": "Ingredients footer", "default": "Cruelty-free · Vegan-formulated · Made in South Korea" },
-    { "type": "text", "id": "bundles_eyebrow", "label": "Bundles eyebrow", "default": "Pick your pack" },
-    { "type": "text", "id": "bundles_title", "label": "Bundles title", "default": "The honest" },
-    { "type": "text", "id": "bundles_title_emphasis", "label": "Bundles emphasis", "default": "pricing." },
-    { "type": "textarea", "id": "bundles_subtitle", "label": "Bundles subtitle", "default": "One session = 30 minutes. Most people use one a week." },
-    { "type": "textarea", "id": "bundle_trust_line", "label": "Bundle trust line", "default": "30-day money-back · Pregnancy-safe · Diabetes-safe · Dermatologist-approved · Ships 1–3 days" },
-    { "type": "text", "id": "reviews_summary", "label": "Reviews summary", "default": "4.8" },
-    { "type": "text", "id": "reviews_summary_sub", "label": "Reviews summary sub", "default": "from 2,847 customers" },
-    { "type": "text", "id": "faq_eyebrow", "label": "FAQ eyebrow", "default": "Before you order" },
-    { "type": "text", "id": "faq_title", "label": "FAQ title", "default": "The honest" },
-    { "type": "text", "id": "faq_title_emphasis", "label": "FAQ emphasis", "default": "answers." },
-    { "type": "text", "id": "final_eyebrow", "label": "Final eyebrow", "default": "One more thing" },
-    { "type": "text", "id": "final_title", "label": "Final title", "default": "Soft heels." },
-    { "type": "text", "id": "final_title_emphasis", "label": "Final title emphasis", "default": "No peeling. No nagging." },
-    { "type": "textarea", "id": "final_copy", "label": "Final copy", "default": "30 minutes. No harsh acids. Backed by a 30-day money-back guarantee, because if it doesn't work, you don't pay." },
-    { "type": "text", "id": "final_button_label", "label": "Final button label", "default": "Shop Kneuro Foot Mask →" },
-    { "type": "url", "id": "final_button_link", "label": "Final button link" },
-    { "type": "text", "id": "final_meta", "label": "Final meta", "default": "Ships 1–3 days · Standard delivery 8–14 days" },
-    { "type": "textarea", "id": "footer_meta", "label": "Footer meta", "default": "© 2026 Kneuro · Made in South Korea<br>kneuro.store · Visa · Mastercard · Amex · Shop Pay · Apple Pay" }
-  ],
-  "blocks": [
-    { "type": "announcement", "name": "Announcement", "limit": 1, "settings": [ { "type": "text", "id": "text", "label": "Text", "default": "Free US shipping on the 5-pack · 30-day money-back guarantee" } ] },
-    { "type": "story_paragraph", "name": "Story paragraph", "settings": [ { "type": "text", "id": "dropcap", "label": "Drop cap", "default": "M" }, { "type": "textarea", "id": "text", "label": "Text", "default": "y husband had been dealing with dry, cracked heels for years." }, { "type": "select", "id": "style", "label": "Style", "default": "body", "options": [ { "value": "body", "label": "Body" }, { "value": "quote_line", "label": "Quote line" }, { "value": "emphasis", "label": "Emphasis" } ] }, { "type": "checkbox", "id": "show_rule", "label": "Show rule after", "default": false } ] },
-    { "type": "hero_image", "name": "Hero image", "limit": 1, "settings": [ { "type": "image_picker", "id": "image", "label": "Image" }, { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "iphone shot · husband's feet on couch · natural light · before kneuro" }, { "type": "text", "id": "caption", "label": "Caption", "default": "Fig. 01 · Day zero — taken by Sarah, Tuesday evening." } ] },
-    { "type": "compare_row", "name": "Compare row", "settings": [ { "type": "text", "id": "label", "label": "Label", "default": "No 5-day peeling phase" }, { "type": "checkbox", "id": "other_has", "label": "Other has", "default": false }, { "type": "checkbox", "id": "brand_has", "label": "Brand has", "default": true } ] },
-    { "type": "before_after", "name": "Before / after", "settings": [ { "type": "text", "id": "name", "label": "Name", "default": "Sarah K." }, { "type": "text", "id": "location", "label": "Location", "default": "Phoenix, AZ" }, { "type": "text", "id": "weeks", "label": "Timeline", "default": "3 weeks" }, { "type": "text", "id": "headline", "label": "Headline", "default": "My husband stopped hiding his feet at home." }, { "type": "textarea", "id": "body", "label": "Body", "default": "One pair, weekly application, no peeling." }, { "type": "select", "id": "mode", "label": "Mode", "default": "pair", "options": [ { "value": "pair", "label": "Pair" }, { "value": "triplet", "label": "Triplet" } ] }, { "type": "image_picker", "id": "before_image", "label": "Before image" }, { "type": "text", "id": "before_label", "label": "Before placeholder", "default": "before · heel" }, { "type": "image_picker", "id": "after_image", "label": "After image" }, { "type": "text", "id": "after_label", "label": "After placeholder", "default": "after · heel" }, { "type": "image_picker", "id": "image_1", "label": "Triplet image 1" }, { "type": "text", "id": "label_1", "label": "Triplet label 1", "default": "heel · day 0" }, { "type": "text", "id": "chip_1", "label": "Triplet chip 1", "default": "DAY 0" }, { "type": "image_picker", "id": "image_2", "label": "Triplet image 2" }, { "type": "text", "id": "label_2", "label": "Triplet label 2", "default": "heel · wk 1" }, { "type": "text", "id": "chip_2", "label": "Triplet chip 2", "default": "WK 1" }, { "type": "image_picker", "id": "image_3", "label": "Triplet image 3" }, { "type": "text", "id": "label_3", "label": "Triplet label 3", "default": "heel · wk 3" }, { "type": "text", "id": "chip_3", "label": "Triplet chip 3", "default": "WK 3" } ] },
-    { "type": "step", "name": "Step", "settings": [ { "type": "text", "id": "number", "label": "Number", "default": "01" }, { "type": "text", "id": "title", "label": "Title", "default": "Slip on the booties" }, { "type": "textarea", "id": "text", "label": "Text", "default": "Tear open one sachet. The pre-soaked booties go on like socks." } ] },
-    { "type": "ingredient", "name": "Ingredient", "settings": [ { "type": "text", "id": "name", "label": "Name", "default": "Goat-milk lactic acid" }, { "type": "text", "id": "pct", "label": "Percent", "default": "4%" }, { "type": "textarea", "id": "note", "label": "Note", "default": "Naturally exfoliating, ~1/10 the strength of standard foot-peel acids." } ] },
-    { "type": "bundle", "name": "Bundle", "settings": [ { "type": "text", "id": "variant_title", "label": "Variant title", "default": "3-Pack" }, { "type": "text", "id": "price", "label": "Fallback price", "default": "$44.99" }, { "type": "text", "id": "per_pack", "label": "Per-pack text", "default": "$15.00 / pack" }, { "type": "text", "id": "tag", "label": "Tag", "default": "Most popular" }, { "type": "text", "id": "savings", "label": "Savings", "default": "Save $15" }, { "type": "checkbox", "id": "free_ship", "label": "Free shipping", "default": false }, { "type": "textarea", "id": "blurb", "label": "Blurb", "default": "Three sessions across a month — softens and maintains." }, { "type": "checkbox", "id": "highlight", "label": "Highlight", "default": true } ] },
-    { "type": "review", "name": "Review", "settings": [ { "type": "textarea", "id": "quote", "label": "Quote", "default": "I bought it for my husband. I'm the one using it now too. Soft heels, no fuss." }, { "type": "text", "id": "name", "label": "Name", "default": "Megan T." }, { "type": "checkbox", "id": "verified", "label": "Verified", "default": true } ] },
-    { "type": "faq", "name": "FAQ", "settings": [ { "type": "text", "id": "question", "label": "Question", "default": "Will it peel my skin?" }, { "type": "textarea", "id": "answer", "label": "Answer", "default": "No. Kneuro uses goat-milk lactic acid at roughly 1/10 the strength of standard foot-peel acids." } ] },
-    { "type": "footer_column", "name": "Footer column", "settings": [ { "type": "text", "id": "heading", "label": "Heading", "default": "Shop" }, { "type": "textarea", "id": "links", "label": "Links, one per line", "default": "Foot mask\nBundles\nSubscription" } ] }
-  ],
-  "presets": [
-    { "name": "Kneuro homepage" }
-  ]
+  "settings": []
 }
 {% endschema %}
