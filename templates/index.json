@@ -69,119 +69,6 @@
       "name": "Editorial story strip",
       "settings": {}
     },
-    "hero": {
-      "type": "advertorial-hero",
-      "settings": {
-        "publication": "Soft Skin Daily",
-        "category": "Skincare",
-        "headline": "Fix His Dry, Cracked Feet in 30 Minutes — Without the Peeling",
-        "subhead": "A gentle goat milk foot mask that softens rough heels fast — no harsh acids, no downtime.",
-        "byline": "",
-        "date": "",
-        "read_time": "",
-        "hero_image": "shopify://shop_images/ChatGPT_Image_May_1_2026_at_04_49_25_PM.png",
-        "hero_asset": "",
-        "video_asset": "",
-        "caption": "",
-        "cta_label": "Get Soft Feet Today →",
-        "cta_url": "/products/goat-milk-callus-mask",
-        "cta_subtext": "🚚 Free shipping above the 5-packs",
-        "trust_t1": "Soft heels in 30 minutes",
-        "trust_t2": "No peeling, no burning",
-        "trust_t3": "Pregnancy & diabetic-safe",
-        "trust_t4": "1,400+ customers · 30-day refund",
-        "show_stars": true,
-        "stars_label": "Loved by 1000+ Customers",
-        "cta_price": "From $19.99 · Save $30 on the 5-pack",
-        "bg": "#f5f0e8",
-        "padding_top": 28,
-        "padding_bottom": 56
-      }
-    },
-    "clarity": {
-      "type": "customer-promise",
-      "settings": {
-        "eyebrow": "WHAT YOU GET",
-        "heading": "What this actually does",
-        "subhead": "A 30-minute mask. No harsh acids. Soft skin without the 5-day peeling phase.",
-        "title_1": "Soft skin in 30 minutes",
-        "body_1": "One short session. No 5-day peeling phase to hide through.",
-        "icon_1": "clock",
-        "title_2": "No harsh acids",
-        "body_2": "Goat milk + niacinamide. No salicylic, no glycolic, no burning.",
-        "icon_2": "leaf",
-        "title_3": "Pregnancy-safe",
-        "body_3": "Gentle enough for pregnant skin, diabetics, sensitive feet.",
-        "icon_3": "shield",
-        "title_4": "30-day money-back",
-        "body_4": "If your heels aren't softer, full refund. No questions.",
-        "icon_4": "refresh",
-        "bg": "#f5f0e8",
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
-    "testimonials_split": {
-      "type": "ba-carousel",
-      "blocks": {
-        "sarah": {
-          "type": "pair",
-          "settings": {
-            "before_image": "shopify://shop_images/freepik_amateur-smartphone-macro-_2870963720_1.png",
-            "before_label": "Before",
-            "after_image": "shopify://shop_images/freepik_same-shot-of-image-but-wa_2870994617.png",
-            "after_label": "After · 3 weeks",
-            "eyebrow": "Sarah K. · 3 weeks of weekly use",
-            "heading": "From cracked to soft.",
-            "name": "Sarah",
-            "caption": "One pair, weekly application, no peeling. Softer heels by the second session."
-          }
-        },
-        "priya": {
-          "type": "pair",
-          "settings": {
-            "before_image": "shopify://shop_images/f0e7c886-b2fd-42ff-bd9b-b4706550d415.png",
-            "before_label": "Before",
-            "after_image": "shopify://shop_images/357c8eb6-2b36-4701-8688-519b48dda6fe.png",
-            "after_label": "After · 2 sessions",
-            "eyebrow": "Priya R. · pregnant, 2 sessions",
-            "heading": "Soft heels by morning.",
-            "name": "Priya",
-            "caption": "Couldn't use harsh foot peels. Visibly softer feet without any salicylic acid."
-          }
-        },
-        "hannah": {
-          "type": "pair",
-          "settings": {
-            "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
-            "before_label": "Before",
-            "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png",
-            "after_label": "After · 1 session",
-            "eyebrow": "Hannah M. · sensitive skin",
-            "heading": "Smooth, no burn.",
-            "name": "Hannah",
-            "caption": "One 30-minute session. No burning, no flake. Skin felt different by morning."
-          }
-        }
-      },
-      "block_order": [
-        "sarah",
-        "priya",
-        "hannah"
-      ],
-      "settings": {
-        "eyebrow": "BEFORE & AFTER",
-        "heading": "Finally,",
-        "heading_accent": "Heels that feel like skin again.",
-        "subhead": "“Tested by sensitive skin. Trusted through every stage.”",
-        "autoplay": true,
-        "interval": 6,
-        "bg": "#ffffff",
-        "max_width": 1140,
-        "padding_top": 64,
-        "padding_bottom": 72
-      }
-    },
     "comparison": {
       "type": "comparison-table",
       "blocks": {
@@ -242,6 +129,36 @@
         "padding_top": 80,
         "padding_bottom": 80,
         "bg_color": "#faf8f5"
+      }
+    },
+    "hero": {
+      "type": "advertorial-hero",
+      "disabled": true,
+      "settings": {
+        "publication": "Soft Skin Daily",
+        "category": "Skincare",
+        "headline": "Fix His Dry, Cracked Feet in 30 Minutes — Without the Peeling",
+        "subhead": "A gentle goat milk foot mask that softens rough heels fast — no harsh acids, no downtime.",
+        "byline": "",
+        "date": "",
+        "read_time": "",
+        "hero_image": "shopify://shop_images/ChatGPT_Image_May_1_2026_at_04_49_25_PM.png",
+        "hero_asset": "",
+        "video_asset": "",
+        "caption": "",
+        "cta_label": "Get Soft Feet Today →",
+        "cta_url": "/products/goat-milk-callus-mask",
+        "cta_subtext": "🚚 Free shipping above the 5-packs",
+        "trust_t1": "Soft heels in 30 minutes",
+        "trust_t2": "No peeling, no burning",
+        "trust_t3": "Pregnancy & diabetic-safe",
+        "trust_t4": "1,400+ customers · 30-day refund",
+        "show_stars": true,
+        "stars_label": "Loved by 1000+ Customers",
+        "cta_price": "From $19.99 · Save $30 on the 5-pack",
+        "bg": "#f5f0e8",
+        "padding_top": 28,
+        "padding_bottom": 56
       }
     },
     "bundles": {
@@ -310,6 +227,67 @@
         "bg": "#f5f0e8",
         "padding_top": 80,
         "padding_bottom": 80
+      }
+    },
+    "testimonials_split": {
+      "type": "ba-carousel",
+      "blocks": {
+        "sarah": {
+          "type": "pair",
+          "settings": {
+            "before_image": "shopify://shop_images/freepik_amateur-smartphone-macro-_2870963720_1.png",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/freepik_same-shot-of-image-but-wa_2870994617.png",
+            "after_label": "After · 3 weeks",
+            "eyebrow": "Sarah K. · 3 weeks of weekly use",
+            "heading": "From cracked to soft.",
+            "name": "Sarah",
+            "caption": "One pair, weekly application, no peeling. Softer heels by the second session."
+          }
+        },
+        "priya": {
+          "type": "pair",
+          "settings": {
+            "before_image": "shopify://shop_images/f0e7c886-b2fd-42ff-bd9b-b4706550d415.png",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/357c8eb6-2b36-4701-8688-519b48dda6fe.png",
+            "after_label": "After · 2 sessions",
+            "eyebrow": "Priya R. · pregnant, 2 sessions",
+            "heading": "Soft heels by morning.",
+            "name": "Priya",
+            "caption": "Couldn't use harsh foot peels. Visibly softer feet without any salicylic acid."
+          }
+        },
+        "hannah": {
+          "type": "pair",
+          "settings": {
+            "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png",
+            "after_label": "After · 1 session",
+            "eyebrow": "Hannah M. · sensitive skin",
+            "heading": "Smooth, no burn.",
+            "name": "Hannah",
+            "caption": "One 30-minute session. No burning, no flake. Skin felt different by morning."
+          }
+        }
+      },
+      "block_order": [
+        "sarah",
+        "priya",
+        "hannah"
+      ],
+      "settings": {
+        "eyebrow": "BEFORE & AFTER",
+        "heading": "Finally,",
+        "heading_accent": "Heels that feel like skin again.",
+        "subhead": "“Tested by sensitive skin. Trusted through every stage.”",
+        "autoplay": true,
+        "interval": 6,
+        "bg": "#ffffff",
+        "max_width": 1140,
+        "padding_top": 64,
+        "padding_bottom": 72
       }
     },
     "faq": {
@@ -445,11 +423,10 @@
   "order": [
     "1777626719890029df",
     "blocks_6wQNyR",
-    "hero",
-    "clarity",
-    "testimonials_split",
     "comparison",
+    "hero",
     "bundles",
+    "testimonials_split",
     "faq",
     "final",
     "177762808902833bb8",
