@@ -1,0 +1,74 @@
+{% assign product = section.settings.product %}
+<section class="section-shell section-cream">
+  <div class="page-width section-pad featured-product">
+    <div class="featured-product__grid">
+      <div class="stack">
+        {% if section.settings.eyebrow != blank %}<div class="eyebrow">{{ section.settings.eyebrow }}</div>{% endif %}
+        <h2 class="section-title">{{ section.settings.heading }}</h2>
+        {% if section.settings.subheading != blank %}<div class="section-subtitle">{{ section.settings.subheading }}</div>{% endif %}
+        {% if product != blank %}
+          <div class="media-frame">
+            {% assign featured_media = product.featured_media | default: product.media.first %}
+            {% render 'media-or-placeholder', image: featured_media.preview_image, label: product.title %}
+          </div>
+          {% form 'product', product, class: 'product-form stack' %}
+            {% if product.has_only_default_variant == false %}
+              <div class="bundle-picker">
+                {% for variant in product.variants %}
+                  <label class="bundle-option{% if forloop.first %} is-selected{% endif %}">
+                    <input type="radio" name="id" value="{{ variant.id }}" {% if forloop.first %}checked{% endif %}>
+                    <div style="display:flex;justify-content:space-between;gap:1rem;align-items:baseline;">
+                      <strong>{{ variant.title }}</strong>
+                      <span>{{ variant.price | money }}</span>
+                    </div>
+                    {% if variant.metafields.custom.short_description != blank %}
+                      <div style="color: var(--color-muted); margin-top: .4rem;">{{ variant.metafields.custom.short_description }}</div>
+                    {% endif %}
+                  </label>
+                {% endfor %}
+              </div>
+            {% else %}
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            {% endif %}
+            <button type="submit" class="button-primary product-form__submit">{{ section.settings.button_label }}</button>
+          {% endform %}
+        {% else %}
+          <div class="placeholder">Select a product in this section</div>
+        {% endif %}
+      </div>
+      <div class="stack">
+        {% for block in section.blocks %}
+          <div class="card" {{ block.shopify_attributes }}>
+            {% if block.settings.kicker != blank %}<div class="eyebrow" style="justify-content:flex-start;">{{ block.settings.kicker }}</div>{% endif %}
+            <h3 style="margin: .75rem 0 .4rem; font: 400 1.4rem/1.15 var(--font-display);">{{ block.settings.title }}</h3>
+            <div class="rte">{{ block.settings.text }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured product",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Pick your pack" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The honest pricing." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Connect this section to the real Shopify product and let variants drive the pack options." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Add to cart" }
+  ],
+  "blocks": [
+    {
+      "type": "info",
+      "name": "Info card",
+      "settings": [
+        { "type": "text", "id": "kicker", "label": "Kicker", "default": "30-day money-back" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Pregnancy-safe" },
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Use blocks here for guarantees, shipping, proof points, or bundle notes.</p>" }
+      ]
+    }
+  ]
+}
+{% endschema %}
