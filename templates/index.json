@@ -12,13 +12,13 @@
     "hero": {
       "type": "advertorial-hero",
       "settings": {
-        "publication": "",
-        "category": "",
+        "publication": "Soft Skin Daily",
+        "category": "Skincare",
         "headline": "Fix His Dry, Cracked Feet in 30 Minutes — Without the Peeling",
         "subhead": "A gentle goat milk foot mask that softens rough heels fast — no harsh acids, no downtime.",
-        "byline": "",
-        "date": "",
-        "read_time": "",
+        "byline": "Mariah K.",
+        "date": "April 26, 2026",
+        "read_time": "4 min read",
         "hero_image": "shopify://shop_images/couple_wearing_product.png",
         "video_asset": "",
         "caption": "Real customer photo. 30-min treatment.",
@@ -410,48 +410,62 @@
       }
     },
     "testimonials_split": {
-      "type": "testimonial-split-cards",
+      "type": "ba-carousel",
       "blocks": {
+        "sarah": {
+          "type": "pair",
+          "settings": {
+            "before_image": "shopify://shop_images/freepik_amateur-smartphone-macro-_2870963720_1.png",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/freepik_same-shot-of-image-but-wa_2870994617.png",
+            "after_label": "After · 3 weeks",
+            "eyebrow": "Sarah K. · 3 weeks of weekly use",
+            "heading": "From cracked to soft.",
+            "name": "Sarah",
+            "caption": "One pair, weekly application, no peeling. Softer heels by the second session."
+          }
+        },
         "priya": {
-          "type": "testimonial",
+          "type": "pair",
           "settings": {
             "before_image": "shopify://shop_images/f0e7c886-b2fd-42ff-bd9b-b4706550d415.png",
             "before_label": "Before",
             "after_image": "shopify://shop_images/357c8eb6-2b36-4701-8688-519b48dda6fe.png",
             "after_label": "After · 2 sessions",
+            "eyebrow": "Priya R. · pregnant, 2 sessions",
+            "heading": "Soft heels by morning.",
             "name": "Priya",
-            "tag": "Pregnant · sensitive skin",
-            "caption": "Couldn't use harsh foot peels. Visibly softer feet without any salicylic acid.",
-            "cta_label": "View more →",
-            "cta_url": "/products/goat-milk-callus-mask"
+            "caption": "Couldn't use harsh foot peels. Visibly softer feet without any salicylic acid."
           }
         },
         "hannah": {
-          "type": "testimonial",
+          "type": "pair",
           "settings": {
             "before_image": "shopify://shop_images/ddd10f25-d72b-4a07-842a-07cc0cf6b0bc.png",
             "before_label": "Before",
             "after_image": "shopify://shop_images/aff654c6-8877-43d1-8d6f-36807e4992a8.png",
             "after_label": "After · 1 session",
+            "eyebrow": "Hannah M. · sensitive skin",
+            "heading": "Smooth, no burn.",
             "name": "Hannah",
-            "tag": "Sensitive-skin customer",
-            "caption": "One 30-minute session. No burning, no flake. Skin felt different by morning.",
-            "cta_label": "View more →",
-            "cta_url": "/products/goat-milk-callus-mask"
+            "caption": "One 30-minute session. No burning, no flake. Skin felt different by morning."
           }
         }
       },
       "block_order": [
+        "sarah",
         "priya",
         "hannah"
       ],
       "settings": {
-        "eyebrow": "More real customers",
+        "eyebrow": "The proof",
         "heading": "Real heels.",
         "heading_accent": "Real photos.",
-        "subhead": "",
+        "subhead": "Real customers across pregnancy, sensitive skin, and weekly users.",
+        "autoplay": true,
+        "interval": 6,
         "bg": "#ffffff",
-        "max_width": 1080,
+        "max_width": 1140,
         "padding_top": 64,
         "padding_bottom": 72
       }

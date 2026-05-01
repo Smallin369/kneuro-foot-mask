@@ -78,9 +78,15 @@
   .cpx__icon { display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 16px; background: var(--cream, #f4ede2); color: var(--accent-deep, #3D2535); margin: 0 0 16px; transition: transform .22s ease; }
   .cpx__icon svg { width: 30px; height: 30px; display: block; }
   .cpx__tile:hover .cpx__icon { transform: rotate(-4deg) scale(1.06); }
-  /* Charcoal cohesive: warm-cream icon backgrounds, near-black icons */
-  .cpx__tile .cpx__icon { background: #f1ece2; color: #0f0f0f; }
-  .cpx__tile::before { background: #0f0f0f; }
+  /* Plum-family swatches: variety within a single hue family for cohesion */
+  .cpx__tile:nth-child(1) .cpx__icon { color: #5C3A4A; }
+  .cpx__tile:nth-child(1)::before { background: #5C3A4A; }
+  .cpx__tile:nth-child(2) .cpx__icon { color: #5e533c; }
+  .cpx__tile:nth-child(2)::before { background: #5e533c; }
+  .cpx__tile:nth-child(3) .cpx__icon { color: #8a4357; }
+  .cpx__tile:nth-child(3)::before { background: #8a4357; }
+  .cpx__tile:nth-child(4) .cpx__icon { color: #3D2535; }
+  .cpx__tile:nth-child(4)::before { background: #3D2535; }
   .cpx__title { font-family: var(--font-heading); font-size: 1.18rem; font-weight: 600; color: var(--ink, #1a1216); margin: 0 0 6px; line-height: 1.2; letter-spacing: -0.012em; font-variation-settings: "opsz" 72; }
   .cpx__body { font-family: var(--font-body); font-size: .94rem; line-height: 1.5; color: var(--muted, #7a6770); margin: 0; }
 </style>
