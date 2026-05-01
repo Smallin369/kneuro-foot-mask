@@ -1,6 +1,642 @@
+{% doc %}
+  @prompt
+    Add a subtle outline/border to each bundle card. When a bundle card is selected or clicked, the outline becomes thicker to indicate the active/selected state. The default state should have a thin border, and the selected state should have a noticeably thicker border, using the same border color or a highlighted accent color.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-bundle-cards-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .ai-bundle-cards__container-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .ai-bundle-card-{{ ai_gen_id }} {
+    background-color: {{ block.settings.card_background }};
+    border: {{ block.settings.border_width_default }}px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .ai-bundle-card-{{ ai_gen_id }}:hover {
+    border-color: {{ block.settings.border_color_hover }};
+  }
+
+  .ai-bundle-card-{{ ai_gen_id }}.selected {
+    border-width: {{ block.settings.border_width_selected }}px;
+    border-color: {{ block.settings.border_color_selected }};
+  }
+
+  .ai-bundle-card__badge-{{ ai_gen_id }} {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: {{ block.settings.badge_background }};
+    color: {{ block.settings.badge_text_color }};
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .ai-bundle-card__title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.title_size }}px;
+    font-weight: 600;
+    color: {{ block.settings.text_color }};
+    margin: 0 0 8px 0;
+  }
+
+  .ai-bundle-card__description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.description_size }}px;
+    color: {{ block.settings.text_color_secondary }};
+    margin: 0 0 16px 0;
+    line-height: 1.5;
+  }
+
+  .ai-bundle-card__price-wrapper-{{ ai_gen_id }} {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .ai-bundle-card__price-{{ ai_gen_id }} {
+    font-size: {{ block.settings.price_size }}px;
+    font-weight: 700;
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-bundle-card__compare-price-{{ ai_gen_id }} {
+    font-size: {{ block.settings.compare_price_size }}px;
+    color: {{ block.settings.text_color_secondary }};
+    text-decoration: line-through;
+  }
+
+  .ai-bundle-card__savings-{{ ai_gen_id }} {
+    font-size: 14px;
+    color: {{ block.settings.savings_color }};
+    font-weight: 600;
+  }
+
+  .ai-bundle-card__features-{{ ai_gen_id }} {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ai-bundle-card__feature-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: {{ block.settings.text_color_secondary }};
+    margin-bottom: 8px;
+  }
+
+  .ai-bundle-card__feature-{{ ai_gen_id }}:last-child {
+    margin-bottom: 0;
+  }
+
+  .ai-bundle-card__checkmark-{{ ai_gen_id }} {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: {{ block.settings.checkmark_color }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-bundle-cards__container-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstyle %}
+
+<bundle-cards-{{ ai_gen_id }}
+  class="ai-bundle-cards-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-bundle-cards__container-{{ ai_gen_id }}">
+    {% for i in (1..3) %}
+      {% liquid
+        assign enabled_key = 'bundle_' | append: i | append: '_enabled'
+        assign title_key = 'bundle_' | append: i | append: '_title'
+        assign description_key = 'bundle_' | append: i | append: '_description'
+        assign price_key = 'bundle_' | append: i | append: '_price'
+        assign compare_price_key = 'bundle_' | append: i | append: '_compare_price'
+        assign badge_key = 'bundle_' | append: i | append: '_badge'
+        assign feature_1_key = 'bundle_' | append: i | append: '_feature_1'
+        assign feature_2_key = 'bundle_' | append: i | append: '_feature_2'
+        assign feature_3_key = 'bundle_' | append: i | append: '_feature_3'
+
+        assign enabled = block.settings[enabled_key]
+        assign title = block.settings[title_key]
+        assign description = block.settings[description_key]
+        assign price = block.settings[price_key]
+        assign compare_price = block.settings[compare_price_key]
+        assign badge = block.settings[badge_key]
+        assign feature_1 = block.settings[feature_1_key]
+        assign feature_2 = block.settings[feature_2_key]
+        assign feature_3 = block.settings[feature_3_key]
+      %}
+
+      {% if enabled %}
+        <div
+          class="ai-bundle-card-{{ ai_gen_id }} {% if i == block.settings.default_selected %}selected{% endif %}"
+          data-bundle-id="{{ i }}"
+        >
+          {% if badge != blank %}
+            <div class="ai-bundle-card__badge-{{ ai_gen_id }}">{{ badge }}</div>
+          {% endif %}
+
+          {% if title != blank %}
+            <h3 class="ai-bundle-card__title-{{ ai_gen_id }}">{{ title }}</h3>
+          {% endif %}
+
+          {% if description != blank %}
+            <p class="ai-bundle-card__description-{{ ai_gen_id }}">{{ description }}</p>
+          {% endif %}
+
+          <div class="ai-bundle-card__price-wrapper-{{ ai_gen_id }}">
+            {% if price != blank %}
+              <div class="ai-bundle-card__price-{{ ai_gen_id }}">{{ price }}</div>
+            {% endif %}
+            {% if compare_price != blank %}
+              <div class="ai-bundle-card__compare-price-{{ ai_gen_id }}">{{ compare_price }}</div>
+            {% endif %}
+          </div>
+
+          {% if price != blank and compare_price != blank %}
+            <div class="ai-bundle-card__savings-{{ ai_gen_id }}">
+              {{ block.settings.savings_text }}
+            </div>
+          {% endif %}
+
+          {% if feature_1 != blank or feature_2 != blank or feature_3 != blank %}
+            <ul class="ai-bundle-card__features-{{ ai_gen_id }}">
+              {% if feature_1 != blank %}
+                <li class="ai-bundle-card__feature-{{ ai_gen_id }}">
+                  <svg
+                    class="ai-bundle-card__checkmark-{{ ai_gen_id }}"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  {{ feature_1 }}
+                </li>
+              {% endif %}
+              {% if feature_2 != blank %}
+                <li class="ai-bundle-card__feature-{{ ai_gen_id }}">
+                  <svg
+                    class="ai-bundle-card__checkmark-{{ ai_gen_id }}"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  {{ feature_2 }}
+                </li>
+              {% endif %}
+              {% if feature_3 != blank %}
+                <li class="ai-bundle-card__feature-{{ ai_gen_id }}">
+                  <svg
+                    class="ai-bundle-card__checkmark-{{ ai_gen_id }}"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  {{ feature_3 }}
+                </li>
+              {% endif %}
+            </ul>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</bundle-cards-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class BundleCards{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.cards = this.querySelectorAll('.ai-bundle-card-{{ ai_gen_id }}');
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        this.cards.forEach((card) => {
+          card.addEventListener('click', () => {
+            this.cards.forEach((c) => c.classList.remove('selected'));
+            card.classList.add('selected');
+          });
+        });
+      }
+    }
+
+    customElements.define('bundle-cards-{{ ai_gen_id }}', BundleCards{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Bundle cards",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Border style"
+    },
+    {
+      "type": "range",
+      "id": "border_width_default",
+      "label": "Default border width",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "border_width_selected",
+      "label": "Selected border width",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "unit": "px",
+      "default": 3
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#e6d5b8"
+    },
+    {
+      "type": "color",
+      "id": "border_color_hover",
+      "label": "Hover border color",
+      "default": "#c26521"
+    },
+    {
+      "type": "color",
+      "id": "border_color_selected",
+      "label": "Selected border color",
+      "default": "#e8833a"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Background",
+      "default": "#fffaee"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#2a1c12"
+    },
+    {
+      "type": "color",
+      "id": "text_color_secondary",
+      "label": "Secondary text color",
+      "default": "#8a7560"
+    },
+    {
+      "type": "color",
+      "id": "checkmark_color",
+      "label": "Checkmark color",
+      "default": "#6d8c6a"
+    },
+    {
+      "type": "color",
+      "id": "savings_color",
+      "label": "Savings text color",
+      "default": "#6d8c6a"
+    },
+    {
+      "type": "header",
+      "content": "Badge style"
+    },
+    {
+      "type": "color",
+      "id": "badge_background",
+      "label": "Badge background",
+      "default": "#e8833a"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Badge text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 14,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "price_size",
+      "label": "Price size",
+      "min": 16,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "compare_price_size",
+      "label": "Compare price size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "General settings"
+    },
+    {
+      "type": "select",
+      "id": "default_selected",
+      "label": "Default selected bundle",
+      "options": [
+        {
+          "value": "1",
+          "label": "Bundle 1"
+        },
+        {
+          "value": "2",
+          "label": "Bundle 2"
+        },
+        {
+          "value": "3",
+          "label": "Bundle 3"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "text",
+      "id": "savings_text",
+      "label": "Savings text",
+      "default": "Save 20%"
+    },
+    {
+      "type": "header",
+      "content": "Bundle 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "bundle_1_enabled",
+      "label": "Enable bundle 1",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "bundle_1_title",
+      "label": "Title",
+      "default": "Single glove"
+    },
+    {
+      "type": "textarea",
+      "id": "bundle_1_description",
+      "label": "Description",
+      "default": "Perfect for trying out"
+    },
+    {
+      "type": "text",
+      "id": "bundle_1_price",
+      "label": "Price",
+      "default": "$19.99"
+    },
+    {
+      "type": "text",
+      "id": "bundle_1_compare_price",
+      "label": "Compare price"
+    },
+    {
+      "type": "text",
+      "id": "bundle_1_badge",
+      "label": "Badge text"
+    },
+    {
+      "type": "text",
+      "id": "bundle_1_feature_1",
+      "label": "Feature 1",
+      "default": "1 grooming glove"
+    },
+    {
+      "type": "text",
+      "id": "bundle_1_feature_2",
+      "label": "Feature 2",
+      "default": "Free shipping"
+    },
+    {
+      "type": "text",
+      "id": "bundle_1_feature_3",
+      "label": "Feature 3"
+    },
+    {
+      "type": "header",
+      "content": "Bundle 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "bundle_2_enabled",
+      "label": "Enable bundle 2",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "bundle_2_title",
+      "label": "Title",
+      "default": "Pair of gloves"
+    },
+    {
+      "type": "textarea",
+      "id": "bundle_2_description",
+      "label": "Description",
+      "default": "Most popular choice"
+    },
+    {
+      "type": "text",
+      "id": "bundle_2_price",
+      "label": "Price",
+      "default": "$34.99"
+    },
+    {
+      "type": "text",
+      "id": "bundle_2_compare_price",
+      "label": "Compare price",
+      "default": "$39.98"
+    },
+    {
+      "type": "text",
+      "id": "bundle_2_badge",
+      "label": "Badge text",
+      "default": "Best value"
+    },
+    {
+      "type": "text",
+      "id": "bundle_2_feature_1",
+      "label": "Feature 1",
+      "default": "2 grooming gloves"
+    },
+    {
+      "type": "text",
+      "id": "bundle_2_feature_2",
+      "label": "Feature 2",
+      "default": "Free shipping"
+    },
+    {
+      "type": "text",
+      "id": "bundle_2_feature_3",
+      "label": "Feature 3",
+      "default": "Save 20%"
+    },
+    {
+      "type": "header",
+      "content": "Bundle 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "bundle_3_enabled",
+      "label": "Enable bundle 3",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "bundle_3_title",
+      "label": "Title",
+      "default": "Family pack"
+    },
+    {
+      "type": "textarea",
+      "id": "bundle_3_description",
+      "label": "Description",
+      "default": "Best for multiple pets"
+    },
+    {
+      "type": "text",
+      "id": "bundle_3_price",
+      "label": "Price",
+      "default": "$49.99"
+    },
+    {
+      "type": "text",
+      "id": "bundle_3_compare_price",
+      "label": "Compare price",
+      "default": "$59.97"
+    },
+    {
+      "type": "text",
+      "id": "bundle_3_badge",
+      "label": "Badge text"
+    },
+    {
+      "type": "text",
+      "id": "bundle_3_feature_1",
+      "label": "Feature 1",
+      "default": "3 grooming gloves"
+    },
+    {
+      "type": "text",
+      "id": "bundle_3_feature_2",
+      "label": "Feature 2",
+      "default": "Free shipping"
+    },
+    {
+      "type": "text",
+      "id": "bundle_3_feature_3",
+      "label": "Feature 3",
+      "default": "Save 25%"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bundle cards"
+    }
+  ]
+}
 {% endschema %}
