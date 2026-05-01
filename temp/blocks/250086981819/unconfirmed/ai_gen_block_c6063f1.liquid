@@ -1,6 +1,730 @@
+{% doc %}
+  @prompt
+    Create a slim editorial advertorial story strip section designed to sit directly above the main hero section on the homepage. It should feel premium and editorial — inspired by Aesop and Apple's design language.
+    
+    The section should include:
+    - A small eyebrow label (e.g. "A customer story") in all-caps, spaced tracking, muted tone
+    - A large pull-quote style headline in 2–3 lines, warm serif or elegant sans-serif font
+    - A short 2–3 sentence narrative paragraph below the headline (the story of a wife whose husband had cracked dry feet for 3 years, tried the goat milk foot mask, and woke up with soft heels)
+    - A subtle before/after image pair side by side (small, tasteful — not clinical)
+    - Clean minimal layout, full-width, warm cream background (#f5f0e8)
+    - No heavy borders or boxes — open, airy, editorial feel
+    - Mobile responsive
+    - All content should be editable via theme editor blocks (eyebrow, headline, paragraph text, before image, after image, before label, after label)
+    - Smooth fade-in animation on scroll for a premium feel, I want you to retouch this section. Make the typography dominant. FOr the before and after I dont want that. I want you to rework it into 3 individual cards marked by 1 session 2 session and 3 session. MAke sure it is mobile friendly, I want you to make it one rectangular box for the image I want to upload. The image  hatGPT_Image_May_1_2026_at_05_23_30_PM.png , yes this is exactly what I wanted. Now I want you to refine the this section polish it up add some details / graphics to make it look more premium
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-editorial-strip-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.padding_top }}px 20px {{ block.settings.padding_bottom }}px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-editorial-strip-{{ ai_gen_id }}::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, {{ block.settings.accent_line_color }}, transparent);
+    opacity: {{ block.settings.accent_line_opacity }};
+  }
+
+  .ai-editorial-strip-{{ ai_gen_id }}.ai-editorial-strip-visible-{{ ai_gen_id }} {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .ai-editorial-strip__container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: {{ block.settings.content_gap }}px;
+    position: relative;
+  }
+
+  .ai-editorial-strip__eyebrow-{{ ai_gen_id }} {
+    font-size: {{ block.settings.eyebrow_size }}px;
+    letter-spacing: {{ block.settings.eyebrow_tracking }};
+    text-transform: uppercase;
+    color: {{ block.settings.eyebrow_color }};
+    font-weight: 500;
+    margin: 0;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ai-editorial-strip__eyebrow-{{ ai_gen_id }}::before,
+  .ai-editorial-strip__eyebrow-{{ ai_gen_id }}::after {
+    content: '';
+    width: {{ block.settings.eyebrow_ornament_width }}px;
+    height: 1px;
+    background-color: {{ block.settings.eyebrow_color }};
+    opacity: 0.4;
+  }
+
+  .ai-editorial-strip__headline-{{ ai_gen_id }} {
+    font-size: {{ block.settings.headline_size }}px;
+    line-height: {{ block.settings.headline_line_height }};
+    color: {{ block.settings.headline_color }};
+    font-weight: {{ block.settings.headline_weight }};
+    margin: 0;
+    max-width: {{ block.settings.headline_max_width }}px;
+    position: relative;
+  }
+
+  .ai-editorial-strip__headline-{{ ai_gen_id }}::first-letter {
+    font-size: {{ block.settings.headline_size | times: 1.3 }}px;
+    color: {{ block.settings.drop_cap_color }};
+  }
+
+  .ai-editorial-strip__paragraph-{{ ai_gen_id }} {
+    font-size: {{ block.settings.paragraph_size }}px;
+    line-height: {{ block.settings.paragraph_line_height }};
+    color: {{ block.settings.paragraph_color }};
+    margin: 0;
+    max-width: {{ block.settings.paragraph_max_width }}px;
+    position: relative;
+  }
+
+  .ai-editorial-strip__paragraph-{{ ai_gen_id }}::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: -30px;
+    font-size: 80px;
+    color: {{ block.settings.quote_mark_color }};
+    opacity: {{ block.settings.quote_mark_opacity }};
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+
+  .ai-editorial-strip__image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    max-width: {{ block.settings.image_max_width }}px;
+    margin-top: {{ block.settings.image_margin_top }}px;
+    position: relative;
+  }
+
+  .ai-editorial-strip__image-frame-{{ ai_gen_id }} {
+    position: relative;
+    padding: {{ block.settings.image_frame_padding }}px;
+    background: linear-gradient(135deg, {{ block.settings.frame_gradient_start }}, {{ block.settings.frame_gradient_end }});
+    border-radius: {{ block.settings.image_border_radius }}px;
+    box-shadow: {{ block.settings.image_shadow }};
+  }
+
+  .ai-editorial-strip__image-container-{{ ai_gen_id }} {
+    width: 100%;
+    border-radius: {{ block.settings.image_border_radius | minus: 4 }}px;
+    overflow: hidden;
+    position: relative;
+    background-color: #ffffff;
+  }
+
+  .ai-editorial-strip__image-container-{{ ai_gen_id }} img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ai-editorial-strip__image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: {{ block.settings.image_aspect_ratio }};
+    background: linear-gradient(135deg, #f0e8dc, #e6d5b8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-editorial-strip__image-placeholder-{{ ai_gen_id }} svg {
+    width: 30%;
+    height: 30%;
+    opacity: 0.2;
+  }
+
+  .ai-editorial-strip__empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #8a7560;
+    text-align: center;
+    pointer-events: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+  }
+
+  .ai-editorial-strip__corner-ornament-{{ ai_gen_id }} {
+    position: absolute;
+    width: {{ block.settings.corner_ornament_size }}px;
+    height: {{ block.settings.corner_ornament_size }}px;
+    border: 1px solid {{ block.settings.ornament_color }};
+    opacity: {{ block.settings.ornament_opacity }};
+  }
+
+  .ai-editorial-strip__corner-ornament-{{ ai_gen_id }}--top-left {
+    top: -{{ block.settings.corner_ornament_offset }}px;
+    left: -{{ block.settings.corner_ornament_offset }}px;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .ai-editorial-strip__corner-ornament-{{ ai_gen_id }}--bottom-right {
+    bottom: -{{ block.settings.corner_ornament_offset }}px;
+    right: -{{ block.settings.corner_ornament_offset }}px;
+    border-left: none;
+    border-top: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-editorial-strip-{{ ai_gen_id }} {
+      padding: {{ block.settings.padding_top | times: 0.6 }}px 16px {{ block.settings.padding_bottom | times: 0.6 }}px;
+    }
+
+    .ai-editorial-strip__eyebrow-{{ ai_gen_id }} {
+      font-size: {{ block.settings.eyebrow_size | times: 0.9 }}px;
+    }
+
+    .ai-editorial-strip__eyebrow-{{ ai_gen_id }}::before,
+    .ai-editorial-strip__eyebrow-{{ ai_gen_id }}::after {
+      width: {{ block.settings.eyebrow_ornament_width | times: 0.5 }}px;
+    }
+
+    .ai-editorial-strip__headline-{{ ai_gen_id }} {
+      font-size: {{ block.settings.headline_size | times: 0.5 }}px;
+    }
+
+    .ai-editorial-strip__headline-{{ ai_gen_id }}::first-letter {
+      font-size: {{ block.settings.headline_size | times: 0.65 }}px;
+    }
+
+    .ai-editorial-strip__paragraph-{{ ai_gen_id }} {
+      font-size: {{ block.settings.paragraph_size | times: 0.9 }}px;
+    }
+
+    .ai-editorial-strip__paragraph-{{ ai_gen_id }}::before {
+      font-size: 50px;
+      top: -10px;
+      left: -15px;
+    }
+
+    .ai-editorial-strip__image-frame-{{ ai_gen_id }} {
+      padding: {{ block.settings.image_frame_padding | times: 0.5 }}px;
+    }
+
+    .ai-editorial-strip__corner-ornament-{{ ai_gen_id }} {
+      width: {{ block.settings.corner_ornament_size | times: 0.7 }}px;
+      height: {{ block.settings.corner_ornament_size | times: 0.7 }}px;
+    }
+  }
+{% endstyle %}
+
+<ai-editorial-strip-{{ ai_gen_id }}
+  class="ai-editorial-strip-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-editorial-strip__container-{{ ai_gen_id }}">
+    {% if block.settings.eyebrow != blank %}
+      <p class="ai-editorial-strip__eyebrow-{{ ai_gen_id }}">{{ block.settings.eyebrow }}</p>
+    {% endif %}
+
+    {% if block.settings.headline != blank %}
+      <h2 class="ai-editorial-strip__headline-{{ ai_gen_id }}">{{ block.settings.headline }}</h2>
+    {% endif %}
+
+    {% if block.settings.paragraph != blank %}
+      <div class="ai-editorial-strip__paragraph-{{ ai_gen_id }}">{{ block.settings.paragraph }}</div>
+    {% endif %}
+
+    <div class="ai-editorial-strip__image-wrapper-{{ ai_gen_id }}">
+      {% if block.settings.show_corner_ornaments %}
+        <div class="ai-editorial-strip__corner-ornament-{{ ai_gen_id }} ai-editorial-strip__corner-ornament-{{ ai_gen_id }}--top-left"></div>
+        <div class="ai-editorial-strip__corner-ornament-{{ ai_gen_id }} ai-editorial-strip__corner-ornament-{{ ai_gen_id }}--bottom-right"></div>
+      {% endif %}
+
+      <div class="ai-editorial-strip__image-frame-{{ ai_gen_id }}">
+        <div class="ai-editorial-strip__image-container-{{ ai_gen_id }}">
+          {% if block.settings.main_image %}
+            <img
+              src="{{ block.settings.main_image | image_url: width: 1600 }}"
+              alt="{{ block.settings.main_image.alt | escape }}"
+              loading="lazy"
+              width="{{ block.settings.main_image.width }}"
+              height="{{ block.settings.main_image.height }}"
+            >
+          {% else %}
+            <div class="ai-editorial-strip__image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+              <div class="ai-editorial-strip__empty-state-{{ ai_gen_id }}">
+                Next, add your image
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</ai-editorial-strip-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AiEditorialStrip{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.observer = null;
+      }
+
+      connectedCallback() {
+        this.setupIntersectionObserver();
+      }
+
+      setupIntersectionObserver() {
+        const options = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        this.observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('ai-editorial-strip-visible-{{ ai_gen_id }}');
+              this.observer.unobserve(entry.target);
+            }
+          });
+        }, options);
+
+        this.observer.observe(this);
+      }
+
+      disconnectedCallback() {
+        if (this.observer) {
+          this.observer.disconnect();
+        }
+      }
+    }
+
+    customElements.define('ai-editorial-strip-{{ ai_gen_id }}', AiEditorialStrip{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Editorial story strip",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "A customer story"
+    },
+    {
+      "type": "textarea",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Three years of cracked heels, gone in one night"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Story paragraph",
+      "default": "<p>Sarah's husband had struggled with dry, cracked feet for years. Nothing worked—until she surprised him with our goat milk foot mask. He woke up the next morning with soft, smooth heels. Now it's part of his weekly routine.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "image_max_width",
+      "label": "Maximum width",
+      "min": 400,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "default": 1000
+    },
+    {
+      "type": "range",
+      "id": "image_margin_top",
+      "label": "Top spacing",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Placeholder aspect ratio",
+      "options": [
+        {
+          "value": "16 / 9",
+          "label": "Wide"
+        },
+        {
+          "value": "4 / 3",
+          "label": "Landscape"
+        },
+        {
+          "value": "3 / 2",
+          "label": "Classic"
+        },
+        {
+          "value": "1 / 1",
+          "label": "Square"
+        }
+      ],
+      "default": "16 / 9"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "image_frame_padding",
+      "label": "Frame padding",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "text",
+      "id": "image_shadow",
+      "label": "Shadow",
+      "default": "0 8px 24px rgba(42, 28, 18, 0.08)"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum width",
+      "min": 600,
+      "max": 1400,
+      "step": 50,
+      "unit": "px",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 20,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 20,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "Content spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 25
+    },
+    {
+      "type": "header",
+      "content": "Eyebrow style"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "select",
+      "id": "eyebrow_tracking",
+      "label": "Letter spacing",
+      "options": [
+        {
+          "value": "0.05em",
+          "label": "Tight"
+        },
+        {
+          "value": "0.1em",
+          "label": "Normal"
+        },
+        {
+          "value": "0.15em",
+          "label": "Wide"
+        },
+        {
+          "value": "0.2em",
+          "label": "Extra wide"
+        }
+      ],
+      "default": "0.15em"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_ornament_width",
+      "label": "Ornament width",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Color",
+      "default": "#8a7560"
+    },
+    {
+      "type": "header",
+      "content": "Headline style"
+    },
+    {
+      "type": "range",
+      "id": "headline_size",
+      "label": "Font size",
+      "min": 32,
+      "max": 96,
+      "step": 2,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "headline_line_height",
+      "label": "Line height",
+      "min": 1,
+      "max": 1.5,
+      "step": 0.1,
+      "default": 1.1
+    },
+    {
+      "type": "range",
+      "id": "headline_weight",
+      "label": "Font weight",
+      "min": 300,
+      "max": 700,
+      "step": 100,
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "headline_max_width",
+      "label": "Maximum width",
+      "min": 400,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "default": 800
+    },
+    {
+      "type": "color",
+      "id": "headline_color",
+      "label": "Color",
+      "default": "#2a1c12"
+    },
+    {
+      "type": "color",
+      "id": "drop_cap_color",
+      "label": "Drop cap color",
+      "default": "#e8833a"
+    },
+    {
+      "type": "header",
+      "content": "Paragraph style"
+    },
+    {
+      "type": "range",
+      "id": "paragraph_size",
+      "label": "Font size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "paragraph_line_height",
+      "label": "Line height",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.6
+    },
+    {
+      "type": "range",
+      "id": "paragraph_max_width",
+      "label": "Maximum width",
+      "min": 400,
+      "max": 900,
+      "step": 50,
+      "unit": "px",
+      "default": 700
+    },
+    {
+      "type": "color",
+      "id": "paragraph_color",
+      "label": "Color",
+      "default": "#4a372a"
+    },
+    {
+      "type": "color",
+      "id": "quote_mark_color",
+      "label": "Quote mark color",
+      "default": "#e8833a"
+    },
+    {
+      "type": "range",
+      "id": "quote_mark_opacity",
+      "label": "Quote mark opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.1
+    },
+    {
+      "type": "header",
+      "content": "Decorative elements"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_corner_ornaments",
+      "label": "Show corner ornaments",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "corner_ornament_size",
+      "label": "Corner ornament size",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "corner_ornament_offset",
+      "label": "Corner ornament offset",
+      "min": 5,
+      "max": 20,
+      "step": 5,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "ornament_color",
+      "label": "Ornament color",
+      "default": "#8a7560"
+    },
+    {
+      "type": "range",
+      "id": "ornament_opacity",
+      "label": "Ornament opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.3
+    },
+    {
+      "type": "color",
+      "id": "accent_line_color",
+      "label": "Center line color",
+      "default": "#8a7560"
+    },
+    {
+      "type": "range",
+      "id": "accent_line_opacity",
+      "label": "Center line opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.1
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#f5f0e8"
+    },
+    {
+      "type": "color",
+      "id": "frame_gradient_start",
+      "label": "Frame gradient start",
+      "default": "#f5f0e8"
+    },
+    {
+      "type": "color",
+      "id": "frame_gradient_end",
+      "label": "Frame gradient end",
+      "default": "#e6d5b8"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial story strip"
+    }
+  ]
+}
 {% endschema %}
