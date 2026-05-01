@@ -1,0 +1,43 @@
+<section id="kneuro-pdp-react-{{ section.id }}">
+  <div class="kneuro-react-frame">
+    <div id="kneuro-pdp-root-{{ section.id }}"></div>
+  </div>
+</section>
+
+<style>
+  #shopify-section-{{ section.id }} {
+    margin: 0;
+  }
+  #shopify-section-{{ section.id }} .kneuro-react-frame {
+    max-width: 412px;
+    margin: 0 auto;
+    background: #f4ecdb;
+    min-height: 100vh;
+    box-shadow: 0 0 80px rgba(0,0,0,0.35);
+    position: relative;
+  }
+  #shopify-section-{{ section.id }} .kneuro-react-frame,
+  #shopify-section-{{ section.id }} .kneuro-react-frame * {
+    box-sizing: border-box;
+  }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<script src="{{ 'kneuro-pdp-images.js' | asset_url }}"></script>
+<script type="text/babel">
+  const pdpRootEl = document.getElementById('kneuro-pdp-root-{{ section.id }}');
+  if (pdpRootEl && !pdpRootEl.dataset.booted) {
+    pdpRootEl.dataset.booted = 'true';
+    pdpRootEl.id = 'root';
+  }
+</script>
+<script type="text/babel" src="{{ 'kneuro-pdp-react.js' | asset_url }}"></script>
+
+{% schema %}
+{
+  "name": "Kneuro PDP",
+  "settings": []
+}
+{% endschema %}

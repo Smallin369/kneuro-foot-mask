@@ -9,41 +9,10 @@
  */
 {
   "sections": {
-    "hero": {
-      "type": "featured-product-editorial",
-      "settings": {
-        "eyebrow": "Kneuro Foot Mask",
-        "heading": "30 minutes. No peeling.",
-        "subheading": "Use this as the PDP hero. Product selection, pricing, and add-to-cart are driven by the Shopify product, not hardcoded bundle cards.",
-        "button_label": "Add to cart"
-      }
-    },
-    "details": {
-      "type": "cards-grid",
-      "settings": {
-        "surface": "paper",
-        "columns": "3",
-        "eyebrow": "Why it works",
-        "heading": "Proof, process, and objections"
-      }
-    },
-    "faq": {
-      "type": "faq",
+    "main": {
+      "type": "kneuro-pdp",
       "settings": {}
-    },
-    "cta": {
-      "type": "cta-banner",
-      "settings": {
-        "eyebrow": "Still deciding?",
-        "heading": "Start with the variant that matches your pack strategy.",
-        "text": "Set up variants or separate products in Shopify admin, then use blocks here for support copy and trust cues."
-      }
     }
   },
-  "order": [
-    "hero",
-    "details",
-    "faq",
-    "cta"
-  ]
+  "order": ["main"]
 }

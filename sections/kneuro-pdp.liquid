@@ -1,0 +1,248 @@
+{{ 'kneuro-liquid.css' | asset_url | stylesheet_tag }}
+{{ 'kneuro-liquid.js' | asset_url | script_tag }}
+
+<section class="kneuro-shell">
+  <div class="kneuro-announcement">{{ section.settings.announcement }}</div>
+  <div class="kneuro-header">
+    <a class="kneuro-icon-btn" href="{{ routes.root_url }}" aria-label="home">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 6h14M2 12h14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    </a>
+    <div class="kneuro-brand" style="font-family:'Geist',-apple-system,system-ui,sans-serif;letter-spacing:-0.02em;text-indent:0;">{{ section.settings.brand_text | downcase }}</div>
+    <a class="kneuro-icon-btn" href="{{ routes.cart_url }}" aria-label="cart">
+      <span style="font:600 11px/1 'Geist',-apple-system,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;">Cart</span>
+    </a>
+  </div>
+
+  <div class="kneuro-pdp-gallery-main">
+    {% assign gallery_blocks = section.blocks | where: 'type', 'gallery' %}
+    {% assign first_gallery = gallery_blocks.first %}
+    {% if first_gallery.settings.image != blank %}
+      {{ first_gallery.settings.image | image_url: width: 1600 | image_tag: loading: 'lazy' }}
+    {% else %}
+      <div class="kneuro-ph" style="min-height:100%;font-family:'Geist',-apple-system,system-ui,sans-serif;">{{ first_gallery.settings.label | default: 'Application GIF — slipping the sock on (3s loop)' }}</div>
+    {% endif %}
+  </div>
+  <div class="kneuro-pdp-thumbs">
+    {% for block in gallery_blocks limit: 5 %}
+      <div class="kneuro-pdp-thumb" {{ block.shopify_attributes }}>
+        {% if block.settings.image != blank %}
+          {{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy' }}
+        {% else %}
+          <div class="kneuro-ph" style="min-height:100%;font-family:'Geist',-apple-system,system-ui,sans-serif;">{{ block.settings.label }}</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <section class="kneuro-pdp-offer">
+    <div class="kneuro-pdp-rating">
+      <span style="color:#c98a18;">★★★★★</span>
+      <span>4.8</span>
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(10,10,10,.45);display:inline-block;"></span>
+      <span style="color:rgba(10,10,10,.6);">{{ section.settings.rating_meta }}</span>
+    </div>
+    <h1 class="kneuro-pdp-name">{{ product.title | default: section.settings.fallback_title }}</h1>
+    <div class="kneuro-pdp-tagline">{{ section.settings.tagline }}</div>
+
+    {% assign current_variant = product.selected_or_first_available_variant %}
+    <div class="kneuro-pdp-price-row">
+      <div class="kneuro-pdp-price">{{ current_variant.price | money }}</div>
+      {% if current_variant.compare_at_price > current_variant.price %}
+        <div class="kneuro-pdp-compare">{{ current_variant.compare_at_price | money }}</div>
+      {% endif %}
+      {% if section.settings.save_badge != blank %}
+        <div class="kneuro-pdp-save">{{ section.settings.save_badge }}</div>
+      {% endif %}
+    </div>
+    <div class="kneuro-pdp-copy" style="font-size:12px;margin-top:6px;color:rgba(10,10,10,.6);">{{ section.settings.price_note }}</div>
+
+    {% form 'product', product %}
+      {% if product.has_only_default_variant %}
+        <input type="hidden" name="id" value="{{ current_variant.id }}">
+      {% else %}
+        <div class="kneuro-pdp-kicker" style="margin-top:22px;margin-bottom:12px;color:rgba(10,10,10,.6);">Choose your bundle</div>
+        <div class="kneuro-pdp-bundles">
+          {% for variant in product.variants %}
+            {% assign offer_block = section.blocks | where: 'type', 'offer' | where: 'settings.variant_title', variant.title | first %}
+            <label class="kneuro-pdp-bundle{% if forloop.first %} is-selected{% endif %}">
+              {% if offer_block.settings.tag != blank %}<span class="kneuro-pdp-bundle-tag">{{ offer_block.settings.tag }}</span>{% endif %}
+              <input type="radio" name="id" value="{{ variant.id }}" {% if forloop.first %}checked{% endif %} style="display:none;">
+              <div class="kneuro-pdp-bundle-line">
+                <strong style="font:600 15px/1.2 'Geist',-apple-system,system-ui,sans-serif;">{{ variant.title }}</strong>
+                <span style="font:600 16px/1 'Geist',-apple-system,system-ui,sans-serif;">{{ variant.price | money }}</span>
+              </div>
+              <div class="kneuro-pdp-bundle-line" style="margin-top:4px;">
+                <span style="font:500 12px/1.4 'Geist',-apple-system,system-ui,sans-serif;color:rgba(10,10,10,.6);">{{ offer_block.settings.unit_text }}</span>
+                {% if offer_block.settings.save_text != blank %}<span class="kneuro-pdp-save">{{ offer_block.settings.save_text }}</span>{% endif %}
+              </div>
+            </label>
+          {% endfor %}
+        </div>
+      {% endif %}
+      <button class="kneuro-pdp-atc" type="submit">{{ section.settings.atc_label }}</button>
+    {% endform %}
+
+    <div class="kneuro-pdp-trust">{{ section.settings.stock_text }}</div>
+    <div class="kneuro-pdp-badges">
+      {% assign badge_blocks = section.blocks | where: 'type', 'badge' %}
+      {% for block in badge_blocks limit: 3 %}
+        <div class="kneuro-pdp-badge" {{ block.shopify_attributes }}>
+          <div class="kneuro-pdp-badge-icon">{{ block.settings.icon }}</div>
+          <div class="kneuro-pdp-badge-label">{{ block.settings.label }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="kneuro-section" style="background:var(--kn-ink);color:#fff;padding-top:22px;padding-bottom:22px;">
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px 14px;">
+      {% assign promise_blocks = section.blocks | where: 'type', 'promise' %}
+      {% for block in promise_blocks %}
+        <div {{ block.shopify_attributes }}>
+          <div style="font:600 18px/1.1 'Geist',-apple-system,system-ui,sans-serif;">{{ block.settings.kicker }}</div>
+          <div style="font:500 12px/1.3 'Geist',-apple-system,system-ui,sans-serif;color:rgba(244,236,219,.65);margin-top:4px;">{{ block.settings.label }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="kneuro-pdp-section" style="background:#ddd2bd;">
+    <div class="kneuro-pdp-kicker">The proof</div>
+    <h2 class="kneuro-pdp-title">Real customers. <span class="muted">Real heels.</span></h2>
+    <div class="kneuro-pdp-copy" style="margin-bottom:22px;">{{ section.settings.proof_subtitle }}</div>
+    <div class="kneuro-pdp-grid-cards">
+      {% assign proof_blocks = section.blocks | where: 'type', 'proof' %}
+      {% for block in proof_blocks %}
+        <article class="kneuro-pdp-proof-card" style="padding:8px;" {{ block.shopify_attributes }}>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--kn-cream);">
+              {% if block.settings.before_image != blank %}
+                {{ block.settings.before_image | image_url: width: 800 | image_tag: loading: 'lazy' }}
+              {% else %}
+                <div class="kneuro-ph" style="min-height:100%;">Before</div>
+              {% endif %}
+            </div>
+            <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--kn-cream);">
+              {% if block.settings.after_image != blank %}
+                {{ block.settings.after_image | image_url: width: 800 | image_tag: loading: 'lazy' }}
+              {% else %}
+                <div class="kneuro-ph" style="min-height:100%;">After</div>
+              {% endif %}
+            </div>
+          </div>
+          <div style="padding:10px 4px 4px;">
+            <div style="font:600 12.5px/1.3 'Geist',-apple-system,system-ui,sans-serif;">{{ block.settings.name }}</div>
+            <div style="font:500 12px/1.4 'Geist',-apple-system,system-ui,sans-serif;color:var(--kn-ink-soft);margin-top:4px;">"{{ block.settings.quote }}"</div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="kneuro-pdp-section" style="background:var(--kn-cream);">
+    <div class="kneuro-pdp-kicker">How to use</div>
+    <h2 class="kneuro-pdp-title">3 simple steps. <span class="muted">30 minutes.</span></h2>
+    <div class="kneuro-pdp-grid-cards">
+      {% assign step_blocks = section.blocks | where: 'type', 'step' %}
+      {% for block in step_blocks %}
+        <div class="kneuro-pdp-spec-card" style="padding:18px;" {{ block.shopify_attributes }}>
+          <div style="font:600 11px/1 'Geist',-apple-system,system-ui,sans-serif;letter-spacing:.2em;color:var(--kn-terracotta);text-transform:uppercase;">Step {{ block.settings.number }}</div>
+          <div style="font:600 17px/1.2 'Geist',-apple-system,system-ui,sans-serif;margin-top:4px;">{{ block.settings.title }}</div>
+          <div class="kneuro-pdp-copy" style="font-size:13px;margin-top:6px;">{{ block.settings.text }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="kneuro-pdp-section" style="background:#e3e8d9;">
+    <div class="kneuro-pdp-kicker">Inside the soak</div>
+    <h2 class="kneuro-pdp-title">Four ingredients.<br>That's the whole list.</h2>
+    <div class="kneuro-pdp-copy" style="margin-bottom:28px;">{{ section.settings.ingredients_intro }}</div>
+    <div class="kneuro-pdp-grid-cards">
+      {% assign ingredient_blocks = section.blocks | where: 'type', 'ingredient' %}
+      {% for block in ingredient_blocks %}
+        <div class="kneuro-pdp-spec-card" style="padding:20px 18px;" {{ block.shopify_attributes }}>
+          <div style="font:700 10px/1 'Geist',-apple-system,system-ui,sans-serif;letter-spacing:.16em;color:var(--kn-terracotta);text-transform:uppercase;">{{ block.settings.role }}</div>
+          <div style="font:600 19px/1.2 'Geist',-apple-system,system-ui,sans-serif;margin-top:4px;">{{ block.settings.name }}</div>
+          <div class="kneuro-pdp-copy" style="font-size:13.5px;margin-top:6px;">{{ block.settings.text }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="kneuro-pdp-section" style="background:#f0e1cd;">
+    <div class="kneuro-pdp-kicker">Honesty check</div>
+    <h2 class="kneuro-pdp-title">Who this is for —<br>and who it's not.</h2>
+    <div class="kneuro-pdp-grid-cards">
+      <div>
+        <div style="font:700 12px/1 'Geist',-apple-system,system-ui,sans-serif;letter-spacing:.16em;color:#2d6a4f;text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--kn-rule);">You're in the right place if…</div>
+        {% assign fit_blocks = section.blocks | where: 'type', 'fit' %}
+        {% for block in fit_blocks %}
+          <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;" {{ block.shopify_attributes }}>
+            <span style="width:16px;height:1.5px;background:#2d6a4f;margin-top:7px;flex:0 0 auto;"></span>
+            <span class="kneuro-pdp-copy" style="font-size:14.5px;color:var(--kn-ink);">{{ block.settings.text }}</span>
+          </div>
+        {% endfor %}
+      </div>
+      <div>
+        <div style="font:700 12px/1 'Geist',-apple-system,system-ui,sans-serif;letter-spacing:.16em;color:var(--kn-muted);text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--kn-rule);">Maybe not the right fit if…</div>
+        {% assign skip_blocks = section.blocks | where: 'type', 'skip' %}
+        {% for block in skip_blocks %}
+          <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;" {{ block.shopify_attributes }}>
+            <span style="width:16px;height:1.5px;background:rgba(10,10,10,.45);margin-top:7px;flex:0 0 auto;"></span>
+            <span class="kneuro-pdp-copy" style="font-size:14px;color:var(--kn-muted);">{{ block.settings.text }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="kneuro-pdp-section" style="background:#e3e8d9;">
+    <div class="kneuro-pdp-kicker">Questions</div>
+    <h2 class="kneuro-pdp-title">The things people<br>actually ask.</h2>
+    {% assign faq_blocks = section.blocks | where: 'type', 'faq' %}
+    {% for block in faq_blocks %}
+      <div class="kneuro-pdp-faq-item" data-kneuro-faq-item {{ block.shopify_attributes }}>
+        <button class="kneuro-faq-trigger" type="button" data-kneuro-faq-trigger aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" style="padding-left:0;padding-right:0;">
+          <span style="font:600 15px/1.35 'Geist',-apple-system,system-ui,sans-serif;">{{ block.settings.question }}</span>
+          <span class="kneuro-faq-icon" data-kneuro-faq-icon>{% if forloop.first %}−{% else %}+{% endif %}</span>
+        </button>
+        <div class="kneuro-pdp-copy" data-kneuro-faq-answer {% unless forloop.first %}hidden{% endunless %} style="padding-bottom:18px;padding-right:30px;">{{ block.settings.answer }}</div>
+      </div>
+    {% endfor %}
+  </section>
+</section>
+
+{% schema %}
+{
+  "name": "Kneuro PDP",
+  "settings": [
+    { "type": "text", "id": "announcement", "label": "Announcement", "default": "Free US shipping on orders $30+" },
+    { "type": "text", "id": "brand_text", "label": "Brand text", "default": "Kneuro" },
+    { "type": "text", "id": "rating_meta", "label": "Rating meta", "default": "1,400+ verified buyers" },
+    { "type": "text", "id": "fallback_title", "label": "Fallback title", "default": "Goat Milk Foot Mask" },
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "Softer heels in 30 minutes. No peeling, no harsh acids." },
+    { "type": "text", "id": "save_badge", "label": "Save badge", "default": "You save $15" },
+    { "type": "text", "id": "price_note", "label": "Price note", "default": "$15.00 per pack · taxes calculated at checkout" },
+    { "type": "text", "id": "atc_label", "label": "Add to cart label", "default": "Add to cart — get soft heels" },
+    { "type": "textarea", "id": "stock_text", "label": "Stock text", "default": "In stock. Order in 4h 20m for shipping today." },
+    { "type": "textarea", "id": "proof_subtitle", "label": "Proof subtitle", "default": "Submitted by buyers. Same heel, 30 minutes apart." },
+    { "type": "textarea", "id": "ingredients_intro", "label": "Ingredients intro", "default": "No glycolic acid, no urea bombs, no synthetic fragrance. Just goat milk, niacinamide, cold-pressed tomato, and raw honey doing the work." }
+  ],
+  "blocks": [
+    { "type": "gallery", "name": "Gallery slide", "settings": [ { "type": "image_picker", "id": "image", "label": "Image" }, { "type": "text", "id": "label", "label": "Label", "default": "Application GIF — slipping the sock on (3s loop)" } ] },
+    { "type": "offer", "name": "Offer metadata", "settings": [ { "type": "text", "id": "variant_title", "label": "Variant title", "default": "3 Pack" }, { "type": "text", "id": "tag", "label": "Tag", "default": "Most popular" }, { "type": "text", "id": "unit_text", "label": "Unit text", "default": "$15.00 / pack" }, { "type": "text", "id": "save_text", "label": "Save text", "default": "Save $15" } ] },
+    { "type": "badge", "name": "Trust badge", "settings": [ { "type": "text", "id": "icon", "label": "Icon", "default": "🌿" }, { "type": "text", "id": "label", "label": "Label", "default": "Pregnancy-safe" } ] },
+    { "type": "promise", "name": "Promise stat", "settings": [ { "type": "text", "id": "kicker", "label": "Kicker", "default": "30 min" }, { "type": "text", "id": "label", "label": "Label", "default": "visible softness" } ] },
+    { "type": "proof", "name": "Proof card", "settings": [ { "type": "image_picker", "id": "before_image", "label": "Before image" }, { "type": "image_picker", "id": "after_image", "label": "After image" }, { "type": "text", "id": "name", "label": "Name", "default": "Sarah K." }, { "type": "text", "id": "quote", "label": "Quote", "default": "One pair, weekly application, no peeling." } ] },
+    { "type": "step", "name": "Step", "settings": [ { "type": "text", "id": "number", "label": "Number", "default": "01" }, { "type": "text", "id": "title", "label": "Title", "default": "Slip them on" }, { "type": "textarea", "id": "text", "label": "Text", "default": "Open the foil pouch, slide the pre-filled soft socks over clean feet." } ] },
+    { "type": "ingredient", "name": "Ingredient", "settings": [ { "type": "text", "id": "role", "label": "Role", "default": "The exfoliant" }, { "type": "text", "id": "name", "label": "Name", "default": "Goat milk extract" }, { "type": "textarea", "id": "text", "label": "Text", "default": "Naturally lactic. Loosens dead cells the way acid does — without the burn." } ] },
+    { "type": "fit", "name": "Fit item", "settings": [ { "type": "text", "id": "text", "label": "Text", "default": "Cracked heels that don't respond to lotion" } ] },
+    { "type": "skip", "name": "Skip item", "settings": [ { "type": "text", "id": "text", "label": "Text", "default": "Open wounds or active infections" } ] },
+    { "type": "faq", "name": "FAQ", "settings": [ { "type": "text", "id": "question", "label": "Question", "default": "Does it actually work on really cracked heels?" }, { "type": "textarea", "id": "answer", "label": "Answer", "default": "Yes — but deeper cracks typically need 3–4 weekly soaks before you see them close." } ] }
+  ],
+  "presets": [
+    { "name": "Kneuro PDP" }
+  ]
+}
+{% endschema %}
