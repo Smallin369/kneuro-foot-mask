@@ -16,6 +16,7 @@
           "brand_name": "",
           "menu": "",
           "cart_label": "Cart",
+          "sponsored_label": "Sponsored content",
           "ship_bar_text": "",
           "ship_bar_bg": "#2a1c12",
           "ship_bar_color": "#fbf3e3"
@@ -44,9 +45,14 @@
           "product_name": "Goat Milk Foot Mask",
           "price_text": "from $19.99 · free US shipping over $30",
           "cta_label": "Get 3-pack →",
+          "pdp_label": "Add to cart →",
           "cta_url": "",
           "show_at": 15
         }
+      },
+      "reading-progress": {
+        "type": "reading-progress",
+        "settings": {}
       }
     },
     "content_for_index": []
