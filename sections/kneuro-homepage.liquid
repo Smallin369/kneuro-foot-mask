@@ -1,59 +1,716 @@
-<section id="kneuro-homepage-{{ section.id }}">
-  <div class="kneuro-homepage-frame">
-    <div id="kneuro-homepage-root-{{ section.id }}"></div>
+<section class="kneuro-homepage-responsive">
+  <style>
+    #shopify-section-{{ section.id }} {
+      margin: 0;
+    }
+
+    #shopify-section-{{ section.id }} .kh {
+      --kh-cream: #f4ecdb;
+      --kh-paper: #fbf6ea;
+      --kh-ink: #0a0a0a;
+      --kh-ink-soft: #2a2a2a;
+      --kh-accent: #a04a30;
+      --kh-muted: rgba(10,10,10,0.6);
+      --kh-muted-sm: rgba(10,10,10,0.45);
+      --kh-rule: rgba(10,10,10,0.16);
+      --kh-rule-soft: rgba(10,10,10,0.08);
+      --kh-cream-soft: rgba(244,236,219,0.7);
+      --kh-cream-mute: rgba(244,236,219,0.5);
+      --kh-cream-rule: rgba(244,236,219,0.16);
+      --kh-aubergine: #3a2026;
+      max-width: 100%;
+      background: #000;
+      font-family: "Geist", -apple-system, system-ui, sans-serif;
+      color: var(--kh-ink);
+    }
+
+    #shopify-section-{{ section.id }} .kh-frame {
+      width: min(100%, 1440px);
+      margin: 0 auto;
+      background: var(--kh-cream);
+      box-shadow: 0 0 80px rgba(0,0,0,0.2);
+    }
+
+    #shopify-section-{{ section.id }} .kh *,
+    #shopify-section-{{ section.id }} .kh *::before,
+    #shopify-section-{{ section.id }} .kh *::after {
+      box-sizing: border-box;
+    }
+
+    #shopify-section-{{ section.id }} .kh-announcement {
+      background: var(--kh-ink);
+      color: var(--kh-cream);
+      text-align: center;
+      padding: 11px 16px;
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    #shopify-section-{{ section.id }} .kh-header {
+      background: var(--kh-cream);
+      padding: 18px 22px;
+      display: grid;
+      grid-template-columns: 32px 1fr 32px;
+      align-items: center;
+      border-bottom: 1px solid var(--kh-rule-soft);
+    }
+
+    #shopify-section-{{ section.id }} .kh-brand {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0.42em;
+      text-indent: 0.42em;
+      text-align: center;
+    }
+
+    #shopify-section-{{ section.id }} .kh-icon {
+      display: flex;
+      justify-self: center;
+      color: var(--kh-ink);
+    }
+
+    #shopify-section-{{ section.id }} .kh-container {
+      width: min(100% - 44px, 1180px);
+      margin: 0 auto;
+    }
+
+    #shopify-section-{{ section.id }} .kh-hero {
+      padding: 56px 0 8px;
+    }
+
+    #shopify-section-{{ section.id }} .kh-headline {
+      font-size: clamp(36px, 6vw, 72px);
+      line-height: 1.03;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      margin: 0 0 18px;
+      max-width: 11ch;
+    }
+
+    #shopify-section-{{ section.id }} .kh-stars {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    #shopify-section-{{ section.id }} .kh-star-line {
+      color: var(--kh-accent);
+      letter-spacing: 2px;
+      font-size: 13px;
+    }
+
+    #shopify-section-{{ section.id }} .kh-micro {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--kh-muted);
+      text-transform: uppercase;
+    }
+
+    #shopify-section-{{ section.id }} .kh-story {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 28px;
+      padding: 24px 0 0;
+    }
+
+    #shopify-section-{{ section.id }} .kh-story-copy {
+      max-width: 640px;
+    }
+
+    #shopify-section-{{ section.id }} .kh-body {
+      margin: 0 0 20px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--kh-ink-soft);
+      font-weight: 400;
+    }
+
+    #shopify-section-{{ section.id }} .kh-body strong {
+      font-weight: 600;
+    }
+
+    #shopify-section-{{ section.id }} .kh-statement {
+      margin: 24px 0;
+      font-size: clamp(26px, 3vw, 40px);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      font-weight: 500;
+      color: var(--kh-ink);
+      max-width: 16ch;
+    }
+
+    #shopify-section-{{ section.id }} .kh-dialogue {
+      margin: 24px 0 0;
+      padding-left: 18px;
+      border-left: 2px solid var(--kh-accent);
+    }
+
+    #shopify-section-{{ section.id }} .kh-dialogue-quote {
+      margin: 0;
+      font-size: clamp(22px, 2.4vw, 34px);
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+      font-weight: 500;
+      font-style: italic;
+    }
+
+    #shopify-section-{{ section.id }} .kh-dialogue-meta {
+      margin-top: 12px;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      color: var(--kh-muted);
+      text-transform: uppercase;
+    }
+
+    #shopify-section-{{ section.id }} .kh-proof {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      margin-top: 8px;
+    }
+
+    #shopify-section-{{ section.id }} .kh-proof-media img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    #shopify-section-{{ section.id }} .kh-shop-btn {
+      display: flex;
+      width: 100%;
+      background: var(--kh-ink);
+      color: var(--kh-cream);
+      padding: 16px;
+      font-size: 11.5px;
+      letter-spacing: 0.22em;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-top: 24px;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      gap: 12px;
+    }
+
+    #shopify-section-{{ section.id }} .kh-trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      padding: 36px 0;
+    }
+
+    #shopify-section-{{ section.id }} .kh-pillar-title {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    #shopify-section-{{ section.id }} .kh-pillar-sub {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--kh-muted);
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+
+    #shopify-section-{{ section.id }} .kh-proof-section {
+      background: var(--kh-paper);
+      color: var(--kh-ink);
+      padding: 72px 0 60px;
+      overflow: hidden;
+    }
+
+    #shopify-section-{{ section.id }} .kh-eyebrow {
+      color: var(--kh-accent);
+      font-size: 10.5px;
+      letter-spacing: 0.2em;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    #shopify-section-{{ section.id }} .kh-section-title {
+      font-size: clamp(40px, 5vw, 76px);
+      line-height: 1.03;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      margin: 14px 0 22px;
+      max-width: 10ch;
+    }
+
+    #shopify-section-{{ section.id }} .kh-section-copy {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--kh-ink-soft);
+      font-weight: 400;
+      max-width: 40rem;
+    }
+
+    #shopify-section-{{ section.id }} .kh-ba-marquee {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    #shopify-section-{{ section.id }} .kh-ba-card {
+      background: #fff;
+      border: 1px solid rgba(40,30,20,0.1);
+      box-shadow: 0 1px 0 rgba(40,30,20,0.04), 0 10px 28px -12px rgba(40,30,20,0.22);
+      padding: 8px;
+    }
+
+    #shopify-section-{{ section.id }} .kh-ba-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    #shopify-section-{{ section.id }} .kh-ba-pair img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+    }
+
+    #shopify-section-{{ section.id }} .kh-read-reviews {
+      display: inline-block;
+      background: var(--kh-ink);
+      color: var(--kh-cream);
+      padding: 12px 18px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-top: 32px;
+    }
+
+    #shopify-section-{{ section.id }} .kh-bundles {
+      background: var(--kh-paper);
+      padding: 64px 0 48px;
+    }
+
+    #shopify-section-{{ section.id }} .kh-bundle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    #shopify-section-{{ section.id }} .kh-bundle {
+      width: 100%;
+      text-align: left;
+      display: block;
+      background: #fff;
+      border: 1px solid var(--kh-rule);
+      padding: 22px 20px 20px;
+      position: relative;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    #shopify-section-{{ section.id }} .kh-bundle.is-featured {
+      background: var(--kh-cream);
+      border: 1.5px solid var(--kh-ink);
+    }
+
+    #shopify-section-{{ section.id }} .kh-bundle-tag {
+      position: absolute;
+      top: -10px;
+      left: 18px;
+      background: var(--kh-ink);
+      color: var(--kh-cream);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+      padding: 5px 11px;
+      text-transform: uppercase;
+    }
+
+    #shopify-section-{{ section.id }} .kh-bundle-size {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--kh-muted);
+    }
+
+    #shopify-section-{{ section.id }} .kh-bundle-price {
+      font-size: 28px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+
+    #shopify-section-{{ section.id }} .kh-bundle-unit {
+      font-size: 11px;
+      color: var(--kh-muted);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    #shopify-section-{{ section.id }} .kh-bundle-copy {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--kh-ink-soft);
+      margin: 16px 0 14px;
+    }
+
+    #shopify-section-{{ section.id }} .kh-bundle-cta {
+      padding: 12px 16px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+      text-align: center;
+      text-transform: uppercase;
+      border: 1px solid var(--kh-ink);
+      color: var(--kh-ink);
+    }
+
+    #shopify-section-{{ section.id }} .kh-bundle.is-featured .kh-bundle-cta {
+      background: var(--kh-ink);
+      color: var(--kh-cream);
+      border-color: var(--kh-ink);
+    }
+
+    #shopify-section-{{ section.id }} .kh-final {
+      background: var(--kh-ink);
+      color: var(--kh-cream);
+      padding: 64px 0 56px;
+    }
+
+    #shopify-section-{{ section.id }} .kh-final .kh-section-title {
+      color: var(--kh-cream);
+      max-width: 12ch;
+    }
+
+    #shopify-section-{{ section.id }} .kh-final .kh-sub {
+      color: var(--kh-cream-soft);
+      font-weight: 500;
+    }
+
+    #shopify-section-{{ section.id }} .kh-final-btn {
+      display: block;
+      width: 100%;
+      background: var(--kh-cream);
+      color: var(--kh-ink);
+      padding: 16px;
+      font-size: 11.5px;
+      letter-spacing: 0.22em;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-top: 8px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    #shopify-section-{{ section.id }} .kh-footer {
+      background: #000;
+      color: var(--kh-cream-soft);
+      padding: 36px 0 32px;
+    }
+
+    #shopify-section-{{ section.id }} .kh-footer-brand {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.42em;
+      color: var(--kh-cream);
+      margin-bottom: 22px;
+      text-indent: 0.42em;
+    }
+
+    #shopify-section-{{ section.id }} .kh-footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      padding: 24px 0;
+    }
+
+    #shopify-section-{{ section.id }} .kh-footer-head {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--kh-cream-mute);
+      margin-bottom: 12px;
+    }
+
+    #shopify-section-{{ section.id }} .kh-footer-item {
+      font-size: 14px;
+      color: rgba(244,236,219,0.78);
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+
+    #shopify-section-{{ section.id }} .kh-rule {
+      height: 1px;
+      background: var(--kh-cream-rule);
+    }
+
+    @media (min-width: 990px) {
+      #shopify-section-{{ section.id }} .kh-hero {
+        padding: 84px 0 24px;
+      }
+
+      #shopify-section-{{ section.id }} .kh-story {
+        grid-template-columns: minmax(0, 0.9fr) minmax(420px, 0.85fr);
+        gap: 56px;
+        align-items: start;
+      }
+
+      #shopify-section-{{ section.id }} .kh-proof {
+        grid-template-columns: minmax(0, 0.95fr) minmax(440px, 0.85fr);
+        gap: 56px;
+        align-items: end;
+      }
+
+      #shopify-section-{{ section.id }} .kh-proof .kh-proof-copy {
+        order: 1;
+      }
+
+      #shopify-section-{{ section.id }} .kh-proof .kh-proof-media {
+        order: 2;
+      }
+
+      #shopify-section-{{ section.id }} .kh-bundles .kh-section-title {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 989px) {
+      #shopify-section-{{ section.id }} .kh-container {
+        width: min(100% - 44px, 412px);
+      }
+
+      #shopify-section-{{ section.id }} .kh-headline,
+      #shopify-section-{{ section.id }} .kh-section-title {
+        max-width: none;
+      }
+
+      #shopify-section-{{ section.id }} .kh-ba-marquee,
+      #shopify-section-{{ section.id }} .kh-bundle-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <div class="kh">
+    <div class="kh-frame">
+      <div class="kh-announcement">Free US shipping over $50 · 30-day money-back</div>
+
+      <div class="kh-header">
+        <div class="kh-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 6h14M2 12h14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </div>
+        <div class="kh-brand">KNEURO</div>
+        <a href="{{ routes.cart_url }}" class="kh-icon" aria-label="cart">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M3.5 5.5h11l-.9 8a1.4 1.4 0 0 1-1.4 1.2H5.8a1.4 1.4 0 0 1-1.4-1.2l-.9-8Z" stroke="currentColor" stroke-width="1.3"/>
+            <path d="M6.5 5.5a2.5 2.5 0 0 1 5 0" stroke="currentColor" stroke-width="1.3"/>
+          </svg>
+        </a>
+      </div>
+
+      <section class="kh-hero kh-container">
+        <h1 class="kh-headline">He hid his feet from me for three years.</h1>
+        <div class="kh-stars">
+          <span class="kh-star-line">★★★★★</span>
+          <span class="kh-micro">4.8 · 1,400+ customers</span>
+        </div>
+        <div class="kh-micro">Sarah K. · Phoenix, AZ</div>
+      </section>
+
+      <section class="kh-story kh-container">
+        <div class="kh-story-copy">
+          <p class="kh-body">My husband wouldn't walk barefoot at home. Not in front of me. Not in front of the kids. He'd wear socks to bed.</p>
+          <p class="kh-body">He'd tried the obvious things — drugstore creams, a pumice stone, one of those electric files. He even did a peel that left him shedding skin in his work shoes for a week. A month later, the cracks were back.</p>
+          <p class="kh-body">So he gave up. Started buying socks in bulk.</p>
+          <p class="kh-body">Then a friend in Seoul sent me a sample of a Korean foot mask — <strong>goat-milk lactic acid</strong>, 30 minutes, no peeling. I left it on his nightstand. He didn't really believe me.</p>
+          <p class="kh-statement">The next morning he stopped in the kitchen and rubbed one foot against the other.</p>
+          <div class="kh-dialogue">
+            <p class="kh-dialogue-quote">"Wait. Something's different."</p>
+            <div class="kh-dialogue-meta">— Him, before coffee</div>
+          </div>
+        </div>
+
+        <div class="kh-proof">
+          <div class="kh-proof-copy"></div>
+          <div class="kh-proof-media">
+            <img src="{{ 'couple-wearing-product.png' | asset_url }}" alt="Couple wearing Kneuro foot mask">
+            <a href="https://kneuro.store/products/goat-milk-callus-mask" class="kh-shop-btn">
+              <span>Shop the foot mask</span>
+              <span style="display:flex;align-items:center;gap:12px;">
+                <span style="color:var(--kh-cream-soft);font-weight:500;">From $19.99</span>
+                <span>→</span>
+              </span>
+            </a>
+            <div class="kh-micro" style="margin-top:14px;">30-day money-back · Free shipping on 5-pack</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="kh-container">
+        <div class="kh-trust-grid">
+          <div>
+            <div style="margin-bottom:12px;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--kh-ink)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 21c-4-3-7-6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4-3 7-7 10z" />
+              </svg>
+            </div>
+            <div class="kh-pillar-title">Pregnancy &amp; diabetes safe</div>
+            <div class="kh-pillar-sub">No salicylic acid</div>
+          </div>
+          <div>
+            <div style="margin-bottom:12px;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--kh-ink)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12a9 9 0 1 0 3-6.7" />
+                <path d="M3 4v5h5" />
+              </svg>
+            </div>
+            <div class="kh-pillar-title">30 days, no questions</div>
+            <div class="kh-pillar-sub">Money-back refund</div>
+          </div>
+          <div>
+            <div style="margin-bottom:12px;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--kh-ink)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 7h11v9H3z" />
+                <path d="M14 10h4l3 3v3h-7" />
+                <circle cx="7" cy="18" r="1.6" />
+                <circle cx="17" cy="18" r="1.6" />
+              </svg>
+            </div>
+            <div class="kh-pillar-title">Free US shipping</div>
+            <div class="kh-pillar-sub">On orders over $50</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="kh-proof-section">
+        <div class="kh-container">
+          <div class="kh-eyebrow">1,400+ verified buyers · 4.8 ★</div>
+          <h2 class="kh-section-title">Before. After. Believe it.</h2>
+          <div class="kh-section-copy">Real customer photos. Submitted, unedited. Same heel, 30 minutes apart.</div>
+
+          <div class="kh-ba-marquee">
+            <div class="kh-ba-card">
+              <div class="kh-ba-pair">
+                <img src="{{ 'sarah-before.png' | asset_url }}" alt="Before">
+                <img src="{{ 'sarah-after.png' | asset_url }}" alt="After">
+              </div>
+            </div>
+            <div class="kh-ba-card">
+              <div class="kh-ba-pair">
+                <img src="{{ 'ba1-before.png' | asset_url }}" alt="Before">
+                <img src="{{ 'ba1-after.png' | asset_url }}" alt="After">
+              </div>
+            </div>
+            <div class="kh-ba-card">
+              <div class="kh-ba-pair">
+                <img src="{{ 'ba2-before.png' | asset_url }}" alt="Before">
+                <img src="{{ 'ba2-after.png' | asset_url }}" alt="After">
+              </div>
+            </div>
+            <div class="kh-ba-card">
+              <div class="kh-ba-pair">
+                <img src="{{ 'ba3-before.png' | asset_url }}" alt="Before">
+                <img src="{{ 'ba3-after.png' | asset_url }}" alt="After">
+              </div>
+            </div>
+          </div>
+
+          <a href="https://kneuro.store/products/goat-milk-callus-mask" class="kh-read-reviews">Read all 1,400+ reviews →</a>
+        </div>
+      </section>
+
+      <section id="bundles" class="kh-bundles">
+        <div class="kh-container">
+          <div class="kh-eyebrow">Pick your pack</div>
+          <h2 class="kh-section-title">Save more with our bundles.</h2>
+          <div class="kh-section-copy">One mask per session. Most customers see results after 1–3 uses.</div>
+
+          <div class="kh-bundle-grid">
+            <a class="kh-bundle" href="https://kneuro.store/products/goat-milk-callus-mask?variant=47758582055099">
+              <div class="kh-bundle-size">1 Pack</div>
+              <div class="kh-bundle-price">$19.99</div>
+              <div class="kh-bundle-unit">$19.99 / pack</div>
+              <div class="kh-bundle-copy">One mask to try it once. The lowest-friction first step.</div>
+              <div class="kh-bundle-cta">Select →</div>
+            </a>
+
+            <a class="kh-bundle is-featured" href="https://kneuro.store/products/goat-milk-callus-mask?variant=47758582087867">
+              <div class="kh-bundle-tag">Most popular</div>
+              <div class="kh-bundle-size">3 Pack</div>
+              <div class="kh-bundle-price">$44.99</div>
+              <div class="kh-bundle-unit">$15.00 / pack</div>
+              <div class="kh-bundle-copy">The sweet spot. Enough for a visible reset and follow-up maintenance.</div>
+              <div class="kh-bundle-cta">Buy this pack →</div>
+            </a>
+
+            <a class="kh-bundle" href="https://kneuro.store/products/goat-milk-callus-mask?variant=47758582120635">
+              <div class="kh-bundle-tag">Best value</div>
+              <div class="kh-bundle-size">5 Pack</div>
+              <div class="kh-bundle-price">$69.99</div>
+              <div class="kh-bundle-unit">$14.00 / pack</div>
+              <div class="kh-bundle-copy">The household ritual. Lasts 5 weeks.</div>
+              <div class="kh-bundle-cta">Select →</div>
+            </a>
+          </div>
+
+          <div class="kh-micro" style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:28px;">
+            <span>30-day money-back</span>
+            <span style="opacity:.5;">·</span>
+            <span>Ships in 24 hours</span>
+            <span style="opacity:.5;">·</span>
+            <span>Cancel anytime</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="kh-final">
+        <div class="kh-container">
+          <h2 class="kh-section-title">Stop hiding your feet. <span class="kh-sub">Start in 30 minutes.</span></h2>
+          <a href="https://kneuro.store/products/goat-milk-callus-mask" class="kh-final-btn">Shop Kneuro →</a>
+          <div class="kh-micro" style="color:var(--kh-cream-mute);margin-top:14px;">Ships 1–3 days · 30-day money-back</div>
+        </div>
+      </section>
+
+      <footer class="kh-footer">
+        <div class="kh-container">
+          <div class="kh-footer-brand">KNEURO</div>
+          <div class="kh-rule"></div>
+          <div class="kh-footer-grid">
+            <div>
+              <div class="kh-footer-head">Help</div>
+              <div class="kh-footer-item">Contact</div>
+              <div class="kh-footer-item">Shipping</div>
+              <div class="kh-footer-item">Returns</div>
+            </div>
+            <div>
+              <div class="kh-footer-head">Legal</div>
+              <div class="kh-footer-item">Privacy</div>
+              <div class="kh-footer-item">Terms</div>
+            </div>
+          </div>
+          <div class="kh-rule"></div>
+          <div class="kh-micro" style="color:rgba(244,236,219,0.4);margin-top:22px;">© 2026 Kneuro · kneuro.store</div>
+        </div>
+      </footer>
+    </div>
   </div>
 </section>
-
-<style>
-  #shopify-section-{{ section.id }} {
-    margin: 0;
-  }
-  #shopify-section-{{ section.id }} #kneuro-homepage-{{ section.id }} {
-    --kneuro-frame-width: 412px;
-    --kneuro-scale: 1;
-    width: calc(var(--kneuro-frame-width) * var(--kneuro-scale));
-    margin: 0 auto;
-    padding-bottom: 0;
-    display: flex;
-    justify-content: center;
-  }
-  #shopify-section-{{ section.id }} .kneuro-homepage-frame {
-    width: var(--kneuro-frame-width);
-    flex: 0 0 auto;
-    background: #f4ecdb;
-    min-height: 100vh;
-    box-shadow: 0 0 80px rgba(0,0,0,0.35);
-    position: relative;
-    transform-origin: top center;
-    transform: scale(var(--kneuro-scale));
-  }
-  #shopify-section-{{ section.id }} .kneuro-homepage-frame,
-  #shopify-section-{{ section.id }} .kneuro-homepage-frame * {
-    box-sizing: border-box;
-  }
-  @media (min-width: 768px) {
-    #shopify-section-{{ section.id }} #kneuro-homepage-{{ section.id }} {
-      --kneuro-scale: clamp(1.35, calc(100vw / 540), 1.85);
-      padding-bottom: 32px;
-    }
-  }
-</style>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
-<script type="text/babel">
-  const homepageRootEl = document.getElementById('kneuro-homepage-root-{{ section.id }}');
-  if (homepageRootEl && !homepageRootEl.dataset.booted) {
-    homepageRootEl.dataset.booted = 'true';
-    homepageRootEl.id = 'root';
-  }
-</script>
-<script type="text/babel" src="{{ 'kneuro-homepage.js' | asset_url }}"></script>
 
 {% schema %}
 {
