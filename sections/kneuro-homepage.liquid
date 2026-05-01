@@ -8,17 +8,32 @@
   #shopify-section-{{ section.id }} {
     margin: 0;
   }
-  #shopify-section-{{ section.id }} .kneuro-homepage-frame {
-    max-width: 412px;
+  #shopify-section-{{ section.id }} #kneuro-homepage-{{ section.id }} {
+    --kneuro-frame-width: 412px;
+    --kneuro-scale: 1;
+    width: calc(var(--kneuro-frame-width) * var(--kneuro-scale));
+    max-width: 100%;
     margin: 0 auto;
+    padding-bottom: 0;
+  }
+  #shopify-section-{{ section.id }} .kneuro-homepage-frame {
+    width: var(--kneuro-frame-width);
     background: #f4ecdb;
     min-height: 100vh;
     box-shadow: 0 0 80px rgba(0,0,0,0.35);
     position: relative;
+    transform-origin: top center;
+    transform: scale(var(--kneuro-scale));
   }
   #shopify-section-{{ section.id }} .kneuro-homepage-frame,
   #shopify-section-{{ section.id }} .kneuro-homepage-frame * {
     box-sizing: border-box;
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} #kneuro-homepage-{{ section.id }} {
+      --kneuro-scale: clamp(1.35, calc(100vw / 540), 1.85);
+      padding-bottom: 32px;
+    }
   }
 </style>
 
