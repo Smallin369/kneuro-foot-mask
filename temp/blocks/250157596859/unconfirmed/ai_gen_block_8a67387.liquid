@@ -1,6 +1,345 @@
+{% doc %}
+  @prompt
+    Create a Shopify Liquid theme block called "Advertorial Story". Cream background #F5F0EA everywhere. No white backgrounds. RESPONSIVE: outer section style="background:#F5F0EA;width:100%;padding:0". ALL content including image inside div style="max-width:680px;margin:0 auto;padding:40px 24px 48px;box-sizing:border-box". Image is CONTAINED within content column NOT full bleed. SCHEMA: headline text default "He hid his feet from me for three years."; star_rating default "4.8"; review_count default "1,400+"; customer_name default "SARAH K."; customer_location default "PHOENIX, AZ"; paragraph_1 through paragraph_4 textarea; bold_keyword default "goat-milk lactic acid"; narrative_1 textarea; pull_quote text; pull_quote_attr text; progress_image image_picker; narrative_2 textarea. HTML: h1 font-size:clamp(28px,5vw,42px) bold Georgia #111. Star rating flex row gold stars #E8A020. Four body paragraphs 16px #333 line-height 1.75. Narrative 1 clamp(22px,4vw,30px) bold Georgia. Blockquote border-left 3px solid #111 italic clamp(17px,3vw,22px) Georgia. Progress image div style="width:100%;margin:32px 0;border-radius:4px;overflow:hidden;line-height:0" img style="width:100%;height:auto;display:block" - image stays inside the 680px column. Narrative 2 same as narrative 1.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-advertorial-story-{{ ai_gen_id }} {
+    display: block;
+    background: #F5F0EA;
+    width: 100%;
+    padding: 0;
+  }
+
+  .ai-advertorial-story__content-{{ ai_gen_id }} {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 24px 48px;
+    box-sizing: border-box;
+  }
+
+  .ai-advertorial-story__headline-{{ ai_gen_id }} {
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: bold;
+    font-family: Georgia, serif;
+    color: #111;
+    margin: 0 0 16px;
+    line-height: 1.2;
+  }
+
+  .ai-advertorial-story__rating-wrapper-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .ai-advertorial-story__stars-{{ ai_gen_id }} {
+    display: flex;
+    gap: 4px;
+    color: #E8A020;
+  }
+
+  .ai-advertorial-story__rating-text-{{ ai_gen_id }} {
+    font-size: 16px;
+    color: #333;
+  }
+
+  .ai-advertorial-story__review-count-{{ ai_gen_id }} {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 4px;
+  }
+
+  .ai-advertorial-story__byline-{{ ai_gen_id }} {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .ai-advertorial-story__paragraph-{{ ai_gen_id }} {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .ai-advertorial-story__narrative-{{ ai_gen_id }} {
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: bold;
+    font-family: Georgia, serif;
+    color: #111;
+    line-height: 1.3;
+    margin: 32px 0 24px;
+  }
+
+  .ai-advertorial-story__blockquote-{{ ai_gen_id }} {
+    border-left: 3px solid #111;
+    padding-left: 24px;
+    margin: 32px 0;
+    font-style: italic;
+    font-size: clamp(17px, 3vw, 22px);
+    font-family: Georgia, serif;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .ai-advertorial-story__quote-attr-{{ ai_gen_id }} {
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+    font-style: normal;
+    color: #666;
+  }
+
+  .ai-advertorial-story__image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    margin: 32px 0;
+    border-radius: 4px;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .ai-advertorial-story__image-wrapper-{{ ai_gen_id }} img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ai-advertorial-story__image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    background-color: #e8e3dd;
+    border-radius: 4px;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .ai-advertorial-story__image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+{% endstyle %}
+
+<div class="ai-advertorial-story-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-advertorial-story__content-{{ ai_gen_id }}">
+    {% if block.settings.headline != blank %}
+      <h1 class="ai-advertorial-story__headline-{{ ai_gen_id }}">
+        {{ block.settings.headline }}
+      </h1>
+    {% endif %}
+
+    {% if block.settings.star_rating != blank %}
+      <div class="ai-advertorial-story__rating-wrapper-{{ ai_gen_id }}">
+        <div class="ai-advertorial-story__stars-{{ ai_gen_id }}">
+          ★★★★★
+        </div>
+        <span class="ai-advertorial-story__rating-text-{{ ai_gen_id }}">
+          {{ block.settings.star_rating }}
+        </span>
+      </div>
+    {% endif %}
+
+    {% if block.settings.review_count != blank %}
+      <div class="ai-advertorial-story__review-count-{{ ai_gen_id }}">
+        {{ block.settings.review_count }} reviews
+      </div>
+    {% endif %}
+
+    {% if block.settings.customer_name != blank or block.settings.customer_location != blank %}
+      <div class="ai-advertorial-story__byline-{{ ai_gen_id }}">
+        {% if block.settings.customer_name != blank %}
+          {{ block.settings.customer_name }}
+        {% endif %}
+        {% if block.settings.customer_name != blank and block.settings.customer_location != blank %}
+          •
+        {% endif %}
+        {% if block.settings.customer_location != blank %}
+          {{ block.settings.customer_location }}
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if block.settings.paragraph_1 != blank %}
+      <div class="ai-advertorial-story__paragraph-{{ ai_gen_id }}">
+        {{ block.settings.paragraph_1 }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.paragraph_2 != blank %}
+      <div class="ai-advertorial-story__paragraph-{{ ai_gen_id }}">
+        {{ block.settings.paragraph_2 }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.paragraph_3 != blank %}
+      <div class="ai-advertorial-story__paragraph-{{ ai_gen_id }}">
+        {{ block.settings.paragraph_3 }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.paragraph_4 != blank %}
+      <div class="ai-advertorial-story__paragraph-{{ ai_gen_id }}">
+        {{ block.settings.paragraph_4 }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.narrative_1 != blank %}
+      <div class="ai-advertorial-story__narrative-{{ ai_gen_id }}">
+        {{ block.settings.narrative_1 }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.pull_quote != blank %}
+      <blockquote class="ai-advertorial-story__blockquote-{{ ai_gen_id }}">
+        {{ block.settings.pull_quote }}
+        {% if block.settings.pull_quote_attr != blank %}
+          <span class="ai-advertorial-story__quote-attr-{{ ai_gen_id }}">
+            — {{ block.settings.pull_quote_attr }}
+          </span>
+        {% endif %}
+      </blockquote>
+    {% endif %}
+
+    {% if block.settings.progress_image %}
+      <div class="ai-advertorial-story__image-wrapper-{{ ai_gen_id }}">
+        <img
+          src="{{ block.settings.progress_image | image_url: width: 1360 }}"
+          alt="{{ block.settings.progress_image.alt | escape }}"
+          loading="lazy"
+          width="{{ block.settings.progress_image.width }}"
+          height="{{ block.settings.progress_image.height }}"
+        >
+      </div>
+    {% else %}
+      <div class="ai-advertorial-story__image-placeholder-{{ ai_gen_id }}">
+        {{ 'image' | placeholder_svg_tag }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.narrative_2 != blank %}
+      <div class="ai-advertorial-story__narrative-{{ ai_gen_id }}">
+        {{ block.settings.narrative_2 }}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Advertorial story",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Headline"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "He hid his feet from me for three years."
+    },
+    {
+      "type": "header",
+      "content": "Rating"
+    },
+    {
+      "type": "text",
+      "id": "star_rating",
+      "label": "Star rating",
+      "default": "4.8"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review count",
+      "default": "1,400+"
+    },
+    {
+      "type": "header",
+      "content": "Byline"
+    },
+    {
+      "type": "text",
+      "id": "customer_name",
+      "label": "Customer name",
+      "default": "SARAH K."
+    },
+    {
+      "type": "text",
+      "id": "customer_location",
+      "label": "Customer location",
+      "default": "PHOENIX, AZ"
+    },
+    {
+      "type": "header",
+      "content": "Body paragraphs"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_1",
+      "label": "Paragraph 1"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_2",
+      "label": "Paragraph 2"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_3",
+      "label": "Paragraph 3"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_4",
+      "label": "Paragraph 4"
+    },
+    {
+      "type": "header",
+      "content": "Narrative sections"
+    },
+    {
+      "type": "textarea",
+      "id": "narrative_1",
+      "label": "Narrative 1"
+    },
+    {
+      "type": "textarea",
+      "id": "narrative_2",
+      "label": "Narrative 2"
+    },
+    {
+      "type": "header",
+      "content": "Pull quote"
+    },
+    {
+      "type": "text",
+      "id": "pull_quote",
+      "label": "Pull quote"
+    },
+    {
+      "type": "text",
+      "id": "pull_quote_attr",
+      "label": "Pull quote attribution"
+    },
+    {
+      "type": "header",
+      "content": "Progress image"
+    },
+    {
+      "type": "image_picker",
+      "id": "progress_image",
+      "label": "Progress image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advertorial story"
+    }
+  ]
+}
 {% endschema %}
