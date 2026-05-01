@@ -117,81 +117,6 @@
         "body_4": "If your heels aren't softer, full refund. No questions.",
         "icon_4": "refresh",
         "bg": "#f5f0e8",
-        "padding_top": 72,
-        "padding_bottom": 72
-      }
-    },
-    "story": {
-      "type": "advertorial-story",
-      "blocks": {
-        "p1": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p><strong>M</strong>y husband didn’t think his feet were a problem. I did. Three years of cracked, rough heels — and nothing worked.</p>"
-          }
-        },
-        "hk1": {
-          "type": "heading",
-          "settings": {
-            "text": "Six products. Three years. Still the same and no progress"
-          }
-        },
-        "p2": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Then one night, he tried something new. A video of a foot-mask that a friend sent me! We tried it instantly! </p>"
-          }
-        },
-        "hk2": {
-          "type": "heading",
-          "settings": {
-            "text": "The next morning, I touched his heel —and it didn’t feel like damage anymore. It felt like skin."
-          }
-        },
-        "ba1": {
-          "type": "before_after",
-          "settings": {
-            "eyebrow": "The proof",
-            "heading": "From cracked to soft in three weeks.",
-            "before_image": "shopify://shop_images/freepik_amateur-smartphone-macro-_2870963720_1.png",
-            "before_label": "Before",
-            "after_image": "shopify://shop_images/freepik_same-shot-of-image-but-wa_2870994617.png",
-            "after_label": "After · 3 weeks",
-            "caption": ""
-          }
-        },
-        "p_science": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p><strong>Goat milk has natural lactic acid — about 1/10 the strength of foot peels. Strong enough to soften in 30 minutes. Gentle enough for pregnancy, diabetes, eczema. No five-day flake. No burn.</strong></p>"
-          }
-        },
-        "hk3": {
-          "type": "heading",
-          "settings": {
-            "text": "Lactic acid from milk — gentle enough for pregnancy."
-          }
-        },
-        "p_proof": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>And it's not just us. Customers write in from pregnancy, sensitive skin, diabetic feet — <strong>the people most foot peels leave behind</strong>.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "hk1",
-        "p2",
-        "hk2",
-        "ba1",
-        "p_science",
-        "hk3",
-        "p_proof"
-      ],
-      "settings": {
-        "cta_url": "/products/goat-milk-callus-mask",
-        "bg": "#f5f0e8",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -507,6 +432,14 @@
     "177762808902833bb8": {
       "type": "_blocks",
       "settings": {}
+    },
+    "177762861849247d78": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "177762889680803ad3": {
+      "type": "_blocks",
+      "settings": {}
     }
   },
   "order": [
@@ -514,12 +447,13 @@
     "blocks_6wQNyR",
     "hero",
     "clarity",
-    "story",
     "testimonials_split",
     "comparison",
     "bundles",
     "faq",
     "final",
-    "177762808902833bb8"
+    "177762808902833bb8",
+    "177762861849247d78",
+    "177762889680803ad3"
   ]
 }
