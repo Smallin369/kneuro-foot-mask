@@ -1,6 +1,326 @@
+{% doc %}
+  @prompt
+    Create a Shopify Liquid theme block called "Product Hero CTA". CSS override: .phero-wrap{position:relative;width:100vw;left:50%;transform:translateX(-50%);background:#F5F0EA} .phero-inner{max-width:540px;margin:0 auto;padding:32px 24px 40px;box-sizing:border-box;background:#F5F0EA} .phero-title{font-size:clamp(22px,4vw,30px);font-weight:800;font-family:Georgia serif;color:#111;margin:0 0 4px} .phero-subtitle{font-size:clamp(16px,3vw,20px);font-weight:400;font-family:Georgia serif;color:#555;margin:0 0 20px} .phero-img-wrap{width:100%;border-radius:6px;overflow:hidden;line-height:0} .phero-img-wrap img{width:100%;height:auto;display:block;max-height:420px;object-fit:cover} .phero-cta{display:flex;justify-content:space-between;align-items:center;background:#111;padding:16px 20px;text-decoration:none;width:100%;box-sizing:border-box} .phero-trust{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#333;padding:14px 0;border-bottom:1px solid #ddd} .phero-badges{display:grid;grid-template-columns:1fr 1fr 1fr;background:#F5F0EA} .phero-badge{padding:16px 8px;text-align:center;border-right:1px solid #ddd} .phero-badge:last-child{border-right:none}. SCHEMA: product_title default "Goat Milk Foot Mask"; product_subtitle default "30 Minutes, Healthier Feet"; product_image image_picker; cta_url url default "/products/goat-milk-foot-mask"; cta_left_text default "SHOP THE FOOT MASK"; cta_right_text default "FROM $19.99"; trust_line default "30-DAY MONEY-BACK · FREE SHIPPING ON 5-PACK"; badge_1_title default "Pregnancy & diabetes safe"; badge_1_desc default "No salicylic acid"; badge_2_title default "30 days, no questions"; badge_2_desc default "Money-back refund"; badge_3_title default "Free US shipping"; badge_3_desc default "On orders over $50". HTML: div.phero-wrap div.phero-inner containing: h2.phero-title, p.phero-subtitle, div.phero-img-wrap with img max-height 420px object-fit cover, anchor.phero-cta flex space-between dark bar, div.phero-trust, div.phero-badges grid 3 columns with SVG icons heart/refresh/truck.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .phero-wrap-{{ ai_gen_id }} {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #F5F0EA;
+  }
+
+  .phero-inner-{{ ai_gen_id }} {
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 32px 24px 40px;
+    box-sizing: border-box;
+    background: #F5F0EA;
+  }
+
+  .phero-title-{{ ai_gen_id }} {
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: 800;
+    font-family: Georgia, serif;
+    color: #111;
+    margin: 0 0 4px;
+  }
+
+  .phero-subtitle-{{ ai_gen_id }} {
+    font-size: clamp(16px, 3vw, 20px);
+    font-weight: 400;
+    font-family: Georgia, serif;
+    color: #555;
+    margin: 0 0 20px;
+  }
+
+  .phero-img-wrap-{{ ai_gen_id }} {
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    line-height: 0;
+    margin-bottom: 20px;
+  }
+
+  .phero-img-wrap-{{ ai_gen_id }} img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 420px;
+    object-fit: cover;
+  }
+
+  .phero-img-wrap-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 420px;
+    display: block;
+    background: #f4f4f4;
+  }
+
+  .phero-cta-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111;
+    padding: 16px 20px;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+
+  .phero-cta-left-{{ ai_gen_id }} {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #fff;
+  }
+
+  .phero-cta-right-{{ ai_gen_id }} {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .phero-trust-{{ ai_gen_id }} {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #333;
+    padding: 14px 0;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+
+  .phero-badges-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: #F5F0EA;
+  }
+
+  .phero-badge-{{ ai_gen_id }} {
+    padding: 16px 8px;
+    text-align: center;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .phero-badge-{{ ai_gen_id }}:last-child {
+    border-right: none;
+  }
+
+  .phero-badge-icon-{{ ai_gen_id }} {
+    width: 28px;
+    height: 28px;
+    color: #111;
+  }
+
+  .phero-badge-title-{{ ai_gen_id }} {
+    font-size: 12px;
+    font-weight: 600;
+    color: #111;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .phero-badge-desc-{{ ai_gen_id }} {
+    font-size: 11px;
+    font-weight: 400;
+    color: #666;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  @media screen and (max-width: 749px) {
+    .phero-badges-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+    }
+
+    .phero-badge-{{ ai_gen_id }} {
+      border-right: none;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .phero-badge-{{ ai_gen_id }}:last-child {
+      border-bottom: none;
+    }
+  }
+{% endstyle %}
+
+<div class="phero-wrap-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="phero-inner-{{ ai_gen_id }}">
+    <h2 class="phero-title-{{ ai_gen_id }}">{{ block.settings.product_title }}</h2>
+    <p class="phero-subtitle-{{ ai_gen_id }}">{{ block.settings.product_subtitle }}</p>
+
+    <div class="phero-img-wrap-{{ ai_gen_id }}">
+      {% if block.settings.product_image %}
+        <img
+          src="{{ block.settings.product_image | image_url: width: 1080 }}"
+          alt="{{ block.settings.product_image.alt | escape }}"
+          loading="lazy"
+          width="{{ block.settings.product_image.width }}"
+          height="{{ block.settings.product_image.height }}"
+        >
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag }}
+      {% endif %}
+    </div>
+
+    <a href="{{ block.settings.cta_url }}" class="phero-cta-{{ ai_gen_id }}">
+      <span class="phero-cta-left-{{ ai_gen_id }}">{{ block.settings.cta_left_text }}</span>
+      <span class="phero-cta-right-{{ ai_gen_id }}">{{ block.settings.cta_right_text }}</span>
+    </a>
+
+    <div class="phero-trust-{{ ai_gen_id }}">{{ block.settings.trust_line }}</div>
+
+    <div class="phero-badges-{{ ai_gen_id }}">
+      <div class="phero-badge-{{ ai_gen_id }}">
+        <svg class="phero-badge-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <p class="phero-badge-title-{{ ai_gen_id }}">{{ block.settings.badge_1_title }}</p>
+        <p class="phero-badge-desc-{{ ai_gen_id }}">{{ block.settings.badge_1_desc }}</p>
+      </div>
+
+      <div class="phero-badge-{{ ai_gen_id }}">
+        <svg class="phero-badge-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 4 23 10 17 10"></polyline>
+          <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+        </svg>
+        <p class="phero-badge-title-{{ ai_gen_id }}">{{ block.settings.badge_2_title }}</p>
+        <p class="phero-badge-desc-{{ ai_gen_id }}">{{ block.settings.badge_2_desc }}</p>
+      </div>
+
+      <div class="phero-badge-{{ ai_gen_id }}">
+        <svg class="phero-badge-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13"></rect>
+          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+          <circle cx="5.5" cy="18.5" r="2.5"></circle>
+          <circle cx="18.5" cy="18.5" r="2.5"></circle>
+        </svg>
+        <p class="phero-badge-title-{{ ai_gen_id }}">{{ block.settings.badge_3_title }}</p>
+        <p class="phero-badge-desc-{{ ai_gen_id }}">{{ block.settings.badge_3_desc }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Product hero CTA",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Product"
+    },
+    {
+      "type": "text",
+      "id": "product_title",
+      "label": "Title",
+      "default": "Goat Milk Foot Mask"
+    },
+    {
+      "type": "text",
+      "id": "product_subtitle",
+      "label": "Subtitle",
+      "default": "30 Minutes, Healthier Feet"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "cta_left_text",
+      "label": "Left text",
+      "default": "SHOP THE FOOT MASK"
+    },
+    {
+      "type": "text",
+      "id": "cta_right_text",
+      "label": "Right text",
+      "default": "FROM $19.99"
+    },
+    {
+      "type": "header",
+      "content": "Trust"
+    },
+    {
+      "type": "text",
+      "id": "trust_line",
+      "label": "Trust line",
+      "default": "30-DAY MONEY-BACK · FREE SHIPPING ON 5-PACK"
+    },
+    {
+      "type": "header",
+      "content": "Badge 1"
+    },
+    {
+      "type": "text",
+      "id": "badge_1_title",
+      "label": "Title",
+      "default": "Pregnancy & diabetes safe"
+    },
+    {
+      "type": "text",
+      "id": "badge_1_desc",
+      "label": "Description",
+      "default": "No salicylic acid"
+    },
+    {
+      "type": "header",
+      "content": "Badge 2"
+    },
+    {
+      "type": "text",
+      "id": "badge_2_title",
+      "label": "Title",
+      "default": "30 days, no questions"
+    },
+    {
+      "type": "text",
+      "id": "badge_2_desc",
+      "label": "Description",
+      "default": "Money-back refund"
+    },
+    {
+      "type": "header",
+      "content": "Badge 3"
+    },
+    {
+      "type": "text",
+      "id": "badge_3_title",
+      "label": "Title",
+      "default": "Free US shipping"
+    },
+    {
+      "type": "text",
+      "id": "badge_3_desc",
+      "label": "Description",
+      "default": "On orders over $50"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product hero CTA"
+    }
+  ]
+}
 {% endschema %}
